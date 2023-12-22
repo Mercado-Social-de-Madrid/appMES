@@ -1,0 +1,16 @@
+.process-stepper{
+    .stepper-icon{
+        height:2rem;
+        width:2rem;
+        line-height:2rem;
+        flex-shrink: 0;
+    }
+
+    .stepper-icon.big{
+        font-size:1.5rem;
+        height:4rem;
+        width:4rem;
+        line-height:4rem;
+        flex-shrink: 0;
+    }
+}
