@@ -1,0 +1,66 @@
+
+services:
+  web:
+    build: .
+    command: gunicorn
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+      - ./logs:/var/log/appMES/
+      - gunicorn_logs:/var/log/gunicorn/
+      - gunicorn_pid:/var/run/gunicorn/
+      - ../config/logrotate:/etc/logrotate.d
+      - ../config/firebase:/firebase/
+    env_file:
+      - ./.env
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PWRD}
+      - POSTGRES_DB=${DB_NAME}
+    healthcheck:
+      test: [ "CMD-SHELL", "sh -c 'pg_isready -U ${DB_USER} -d ${DB_NAME}'" ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - conf:/etc/nginx/conf.d
+      - nginx_logs:/var/log/nginx/
+      - ../config/nginx/:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ../static:/static
+      - ../media:/media
+  acme-companion:
+    image: nginxproxy/acme-companion
+    volumes_from:
+      - nginx-proxy
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - acme:/etc/acme.sh
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+volumes:
+  postgres_data:
+  gunicorn_logs:
+  gunicorn_pid:
+  nginx_logs:
+  conf:
+  certs:
+  html:
+  acme:
