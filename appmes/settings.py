@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'benefits',
+    'news',
+    'market',
     'core',
     'imagekit',
     'sass_processor',
