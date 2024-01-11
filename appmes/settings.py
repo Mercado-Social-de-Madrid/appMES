@@ -43,12 +43,18 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 # Application definition
 
 INSTALLED_APPS = [
+	# Custom apps
     'benefits',
     'news',
     'market',
     'core',
+	
+	# Third-party apps
     'imagekit',
-    'sass_processor',
+	'sass_processor',
+	"log_viewer",
+	
+	# Django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
