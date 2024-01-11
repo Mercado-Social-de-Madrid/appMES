@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 import environ
+import falcon as falcon
+import sentry_sdk
 from pathlib import Path
 from django.urls import reverse_lazy
 
@@ -208,3 +210,12 @@ LOG_VIEWER_MAX_READ_LINES = 1000  # total log lines will be read
 LOG_VIEWER_FILE_LIST_MAX_ITEMS_PER_PAGE = 25 # Max log files loaded in Datatable per page
 LOG_VIEWER_PATTERNS = ['[INFO]', '[DEBUG]', '[WARNING]', '[ERROR]', '[CRITICAL]']
 LOG_VIEWER_EXCLUDE_TEXT_PATTERN = None  # String regex expression to exclude the log from line
+
+# ======= Sentry Configuration ========
+sentry_sdk.init(
+    dsn=env('SENTRY_DSN'),
+    traces_sample_rate=1.0,
+    profiles_sample_rate=0.5,
+)
+
+api = falcon.API()
