@@ -11,7 +11,7 @@ COPY ./requirements.txt .
 RUN apt-get update -y && \
     apt-get install -y libpq-dev gcc && \
     apt-get install -y logrotate && \
-    pip install --upgrade pip && \
+    pip install --upgrade pip
 
 COPY ./entrypoint.sh .
 RUN chmod +x /code/entrypoint.sh

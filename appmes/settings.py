@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 import environ
-import falcon as falcon
 import sentry_sdk
 from pathlib import Path
 from django.urls import reverse_lazy
@@ -54,7 +53,9 @@ INSTALLED_APPS = [
 	# Third-party apps
     'imagekit',
 	'sass_processor',
-	"log_viewer",
+    'log_viewer',
+    'admin_interface',
+    'colorfield',
 	
 	# Django apps
     'django.contrib.admin',
@@ -217,5 +218,3 @@ sentry_sdk.init(
     traces_sample_rate=1.0,
     profiles_sample_rate=0.5,
 )
-
-api = falcon.API()
