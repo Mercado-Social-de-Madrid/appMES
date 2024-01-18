@@ -17,6 +17,11 @@ urlpatterns = [
     # Category
     path('<market>/categories/', views.CategoryList.as_view(), name='category_list'),
     path('<market>/categories/add', views.CategoryCreate.as_view(), name='add_category'),
+    path('<market>/categories/<pk>', views.CategoryDetail.as_view(), name='category_detail'),
+
+    # Providers
+    path('<market>/providers/', views.ProviderList.as_view(), name='provider_list'),
+    path('<market>/providers/add', views.ProviderList.as_view(), name='provider_list'),
 
     # Single registration account views
     path('dashboard/', views.HomeView.as_view(), name='user_dashboard'),

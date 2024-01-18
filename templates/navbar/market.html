@@ -5,19 +5,25 @@
 </div>
 
 <ul class="navdrawer-nav">
-
-<li class="nav-item">
-    <a class="nav-link" href="#">
-      <i class="material-icons mr-3">face</i>
-      Usuarios
-    </a>
-</li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="material-icons mr-3">face</i>
+          Usuarios
+        </a>
+    </li>
 
     <li class="nav-item">
-    <a class="nav-link" href="{% market_url 'market:category_list' %}">
-      <i class="material-icons mr-3">label</i>
-      Categorías
-    </a>
-</li>
+        <a class="nav-link" href="{% market_url 'market:category_list' %}">
+          <i class="material-icons mr-3">label</i>
+          Categorías
+        </a>
+    </li>
 
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% market_url 'market:provider_list' %}">
+          <i class="material-icons mr-3">store</i>
+          Proveedoras
+        </a>
+    </li>
 </ul>

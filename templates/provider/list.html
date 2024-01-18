@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% load market_url %}
+{% load settings_value %}
+{% load l10n %}
+
+{% block title %}Entidades{% endblock%}
+
+{% block bodyattrs %}class="entity"{% endblock%}
+
+{% block content %}
+
+<div class="jumbotron py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-7 col-md-8">
+                <h3 class="mb-0">Proveedoras</h3>
+            </div>
+            <div class="col-sm-5 col-md-4 text-sm-right">
+                <a href="{% market_url 'market:add_category' %}" class="btn btn-primary"><i class="material-icons mr-2">add</i> Nueva categoría</a>
+            </div>
+        </div>
+        </div>
+    </div>
+
+<div class="container">
+    {% include 'common/list/filter_form.html' %}
+    {% include 'common/list/ajax_wrapper.html' with query_template='provider/query.html' %}
+</div>
+
+{% endblock%}
+
+{% block scripts %}
+<script type="text/javascript">
+    $('.table-action').on('click', function(e){
+        e.preventDefault();
+        return false;
+    });
+</script>
+{% endblock scripts %}

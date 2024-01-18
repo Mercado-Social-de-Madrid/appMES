@@ -1,3 +1,5 @@
+{% load market_url %}
+
 <div class="table-responsive mb-4">
 <table class="table table-hover {% if valign %}valign{% endif %} {% if narrow %}narrow{% endif %}" {% if ajax_url %} data-ajax-url="{{ajax_url}}" {% endif %}>
   {% if not hide_header %}
@@ -12,7 +14,10 @@
   <tbody>
     {% for item in object_list %}
 
-    <tr data-pk="{{item.pk}}" class="{% if object_url_name %}link-row{% endif %}{% block row_class %}{% endblock %}" {% if object_url_name %}data-href="{% block item_url %}{% url object_url_name item.pk %}{% endblock %}" {% endif %}>
+    <tr data-pk="{{item.pk}}" class="{% if object_url_name %}link-row{% endif %}{% block row_class %}{% endblock %}"
+        {% if object_url_name %}
+             data-href="{% block item_url %}{% if current_market %}{% market_url object_url_name item.pk %}{% else %}{% url object_url_name item.pk %}{% endif %}{% endblock %}"
+        {% endif %}>
     {% block item_row %} {% endblock %}
     </tr>
 

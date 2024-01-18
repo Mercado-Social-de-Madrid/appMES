@@ -1,24 +1,26 @@
 from django.contrib import messages
-from django.shortcuts import render
-from django.urls import reverse
-from django.views.generic import TemplateView, ListView, CreateView
 from django.utils.translation import gettext as _
+from django.views.generic import ListView, CreateView, UpdateView
+
+from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
+from core.mixins.ListItemUrlMixin import ListItemUrlMixin
 from market.forms.category import CategoryForm
 from market.mixins.current_market import MarketMixin
 from market.models import Category
 
 
 # Create your views here.
-class CategoryList(MarketMixin, ListView):
+class CategoryList(MarketMixin,  ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
     template_name = 'category/list.html'
     model = Category
-
+    objects_url_name = 'category_detail'
+    ajax_template_name = 'category/query.html'
+    paginate_by = 15
 
 class CategoryCreate(MarketMixin, CreateView):
-
+    template_name = 'category/create.html'
     form_class = CategoryForm
     model = Category
-    template_name = 'category/create.html'
 
     def get_initial(self):
         return { 'market': self.market }
@@ -29,4 +31,13 @@ class CategoryCreate(MarketMixin, CreateView):
         return response
 
     def get_success_url(self):
-        return reverse('market:category_list', kwargs={'market':self.market.pk} )
+        return self.reverse('market:category_list', )
+
+
+class CategoryDetail(MarketMixin, UpdateView):
+    template_name = 'category/detail.html'
+    form_class = CategoryForm
+    model = Category
+
+    def get_success_url(self):
+        return self.reverse('market:category_detail', kwargs={'pk': self.object.pk})

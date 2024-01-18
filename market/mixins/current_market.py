@@ -7,7 +7,6 @@ class MarketMixin(object):
     market = None
 
     def setup(self, *args, **kwargs):
-        print(kwargs)
         super().setup(*args, **kwargs)
         if 'market' in self.kwargs:
             self.market = Market.objects.filter(pk=self.kwargs['market']).first()
@@ -18,3 +17,9 @@ class MarketMixin(object):
             context['current_market'] = self.market
 
         return context
+
+    def reverse(self, viewname, **kwargs):
+        if not 'kwargs' in kwargs:
+            kwargs['kwargs'] = {}
+        kwargs['kwargs']['market'] = self.market.pk
+        return reverse(viewname, **kwargs)

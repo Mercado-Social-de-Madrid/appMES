@@ -1,0 +1,28 @@
+{% load static %}
+
+<{% if show_inline %}div{% else %}td{% endif%} class="entity-td">
+      <div class="profile-circle small">
+          <img src="{% if item.logo %}{{item.logo.url}}{% else %}{% static 'imgs/entity.png' %}{% endif %}">
+      </div>
+    {% if request.user.is_superuser %}
+      <span class="entity-status">
+          {% if item.user.is_registered %}
+            {% if item.is_guest_account %}
+                <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Invitada">card_membership</i>
+            {% else %}
+                <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Registrada">done_all</i>
+            {% endif %}
+          {% else %}
+            <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Pendiente registro">schedule</i>
+          {% endif %}
+      </span>
+    {% endif %}
+
+
+    {% if hide_address %}
+        <h5 class="mt-2 mb-0"> {{item.name}}</h5>
+    {% else %}
+        <h5 class="mb-0">{{item.name}} {% if item.inactive %} (INACTIVA) {% endif %}</h5>
+        {{item.address}}
+{% endif %}
+</{% if show_inline %}div{% else %}td{% endif%}>
