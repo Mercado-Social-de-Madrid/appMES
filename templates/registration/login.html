@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block bodyattrs %} id="login-page"{% endblock%}
+
+{% block content %}
+
+<div class="jumbo-header minimal" >
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>Entrar</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container justify-content-center">
+    <div class="card px-5" style="max-width:500px;margin:auto;margin-top:-20px;">
+        <div class="card-body">
+  <form method="post" class="edit-form" >
+    {% csrf_token %}
+    {{form.next}}
+        <div class="form-group">
+            <label>Nombre de usuario</label>
+            <input class="form-control" id="{{ form.username.id_for_label }}" maxlength="90" name="{{ form.username.html_name }}" type="text" placeholder="Usuario"/>
+            {%if form.username.errors %}
+            <div class="d-block invalid-feedback">
+                {%for error in form.username.errors %} {{error}} {%endfor%}
+            </div>
+            {% endif %}
+        </div>
+
+      <div class="form-group">
+          <label>Contraseña</label>
+            <input class="form-control" id="{{ form.password.id_for_label }}" maxlength="90" name="{{ form.password.html_name }}" type="password" />
+            {%if form.password.errors %}
+            <div class="d-block invalid-feedback">
+                {%for error in form.password.errors %} {{error}} {%endfor%}
+            </div>
+            {% endif %}
+        </div>
+        <br>
+
+      {% if form.non_field_errors %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong>Ouch!</strong> {%for error in form.non_field_errors %} {{error}} {%endfor%}
+        </div>
+      {% endif %}
+
+      <p class="text-center">
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block ">Entrar</button>
+          <a href="{% url 'password_reset' %}" class="text-dark mt-3 d-block">¿Has olvidado tu contraseña?</a>
+
+      </p>
+      <!--<a href="#"  class="btn btn-lg">Olvidé mi contraseña</a>-->
+
+
+  </form>
+            </div>
+</div>
+</div>
+
+{% endblock %}

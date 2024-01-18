@@ -1,0 +1,15 @@
+<div class="navdrawer navdrawer-permanent-lg doc-navdrawer" id="doc-navdrawer" tabindex="-1" aria-hidden="true">
+  <div class="navdrawer-content">
+    <div class="d-flex flex-column doc-navdrawer-body">
+
+    {% if request.user.is_superuser %}
+        {% include 'navbar/admin.html' %}
+    {% endif %}
+
+    {% if current_market %}
+        {% include 'navbar/market.html' with market=current_market %}
+    {% endif %}
+    </div>
+  </div>
+</div>
+

@@ -16,6 +16,7 @@
 
       <!-- Add Material CSS -->
     <link href="{% sass_src 'css/mes.scss' %}?v=1" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/libs/jquery.spectrum.css' %}" rel="stylesheet" />
 
     <link rel="apple-touch-icon" sizes="144x144" href="{% static 'icons/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png' %}">
@@ -29,7 +30,7 @@
   </head>
   <body {% block bodyattrs %}{% endblock%}>
 
-{% include 'navbar/anon.html' %}
+{% include 'navbar/bar.html' %}
 
 <div id="main-content">
 {% block content %}{% endblock content %}
@@ -53,6 +54,7 @@
     <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
     <script src="{% static 'js/material.min.js' %}"></script>
     <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.spectrum.js' %}"></script>
     <script src="{% static 'js/common.js' %}?v=1"></script>
 
     {% block scripts %}{% endblock scripts %}

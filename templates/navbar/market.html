@@ -1,0 +1,23 @@
+{% load market_url %}
+
+<div class="navdrawer-header mb-0">
+    <a class="navbar-brand px-0" href="#">{{ market.name }}</a>
+</div>
+
+<ul class="navdrawer-nav">
+
+<li class="nav-item">
+    <a class="nav-link" href="#">
+      <i class="material-icons mr-3">face</i>
+      Usuarios
+    </a>
+</li>
+
+    <li class="nav-item">
+    <a class="nav-link" href="{% market_url 'market:category_list' %}">
+      <i class="material-icons mr-3">label</i>
+      Categorías
+    </a>
+</li>
+
+</ul>

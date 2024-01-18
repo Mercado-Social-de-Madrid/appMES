@@ -1,0 +1,12 @@
+<ul class="tags_declaration" style="display:none;">
+    {% if from_field %}
+        {% for choice in tags.field.queryset %}
+            <li data-pk="{{choice.pk}}" data-color="{{choice.color}}">{{choice}}</li>
+        {% endfor %}
+    {% else %}
+        {% for choice in tags %}
+            <li data-pk="{{choice.pk}}" data-color="{{choice.color}}"></li>
+        {% endfor %}
+    {% endif %}
+
+</ul>

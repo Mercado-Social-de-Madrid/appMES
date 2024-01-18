@@ -1,0 +1,32 @@
+{% load static %}
+
+{% if not 'from_app' in request.GET and not hide_navbar and not 'hide_toolbar' in request.GET %}
+<nav id="top-bar" class="navbar navbar-expand navbar-secondary bg-secondary sticky-top
+    {% if request.user.is_superuser or request.user_is_staff %} navbar-drawer {% endif %}"
+    style="{% if current_market %} {% endif %}"
+>
+     <div class="container">
+         {% if request.user.is_superuser or request.user_is_staff %}
+         <button class="navbar-toggler always-show" type="button" data-toggle="navdrawer" data-target="#doc-navdrawer" aria-controls="doc-navdrawer" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         {% endif %}
+
+         <a class="navbar-brand" href="#"><img src="{% static '/imgs/brand.png' %}" height="30" class="d-inline-block align-top" alt=""></a>
+
+         {% if current_market %}
+            {{ current_market.name }}
+         {% endif %}
+
+          <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="navbar-nav ml-auto mt-0">
+                {% include 'navbar/login.html' %}
+            </ul>
+          </div>
+     </div>
+</nav>
+{% endif %}
+
+{% if request.user.is_superuser or request.user_is_staff %}
+    {% include 'navbar/drawer.html' %}
+{% endif %}
