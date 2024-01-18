@@ -21,7 +21,7 @@ urlpatterns = [
 
     # Providers
     path('<market>/providers/', views.ProviderList.as_view(), name='provider_list'),
-    path('<market>/providers/add', views.ProviderList.as_view(), name='provider_list'),
+    path('<market>/providers/add', views.ProviderList.as_view(), name='add_provider'),
 
     # Single registration account views
     path('dashboard/', views.HomeView.as_view(), name='user_dashboard'),

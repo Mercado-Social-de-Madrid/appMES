@@ -44,20 +44,20 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 # Application definition
 
 INSTALLED_APPS = [
-	# Custom apps
+    # Custom apps
     'benefits',
     'news',
     'market',
     'core',
-	
-	# Third-party apps
+
+    # Third-party apps
     'imagekit',
-	'sass_processor',
+    'sass_processor',
     'log_viewer',
     'admin_interface',
     'colorfield',
-	
-	# Django apps
+
+    # Django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,6 +80,9 @@ MIDDLEWARE = [
 
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_EXCLUDE_URL_PREFIXES = ("/admin/", "/auth/")
+CSP_STYLE_SRC = ("'self'", 'fonts.googleapis.com', 'use.fontawesome.com', 'cdnjs.cloudflare.com')
+CSP_SCRIPT_SRC = ("'self'", 'code.jquery.com', 'cdnjs.cloudflare.com', 'maxcdn.bootstrapcdn.com')
+CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
 
 ROOT_URLCONF = 'appmes.urls'
 
@@ -101,12 +104,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'appmes.wsgi.application'
 
-
 # ======= Database Configuration ========
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': env('DB_ENGINE'),
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
         'PASSWORD': env('DB_PWRD'),
@@ -114,7 +116,6 @@ DATABASES = {
         'PORT': env('DB_PORT')
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -126,7 +127,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -135,7 +135,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = False
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -206,9 +205,9 @@ LOGGING = {
 LOG_VIEWER_FILES = []
 LOG_VIEWER_FILES_PATTERN = '*.log*'
 LOG_VIEWER_FILES_DIR = LOGGING_DIR
-LOG_VIEWER_PAGE_LENGTH = 25       # total log lines per-page
+LOG_VIEWER_PAGE_LENGTH = 25  # total log lines per-page
 LOG_VIEWER_MAX_READ_LINES = 1000  # total log lines will be read
-LOG_VIEWER_FILE_LIST_MAX_ITEMS_PER_PAGE = 25 # Max log files loaded in Datatable per page
+LOG_VIEWER_FILE_LIST_MAX_ITEMS_PER_PAGE = 25  # Max log files loaded in Datatable per page
 LOG_VIEWER_PATTERNS = ['[INFO]', '[DEBUG]', '[WARNING]', '[ERROR]', '[CRITICAL]']
 LOG_VIEWER_EXCLUDE_TEXT_PATTERN = None  # String regex expression to exclude the log from line
 
