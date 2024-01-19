@@ -47,7 +47,7 @@ class UserProfile(models.Model):
 
     @property
     def display_name(self):
-        return self.get_full_name()
+        return self.user.get_full_name()
 
 
 class Gallery(models.Model):

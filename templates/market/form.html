@@ -1,16 +1,47 @@
 {% csrf_token %}
 <div class="row">
 
-  <div class="col-sm-9 ">
+  <div class="col-sm-9 col-md-5 ">
     {% include "common/forms/field.html" with field=form.name %}
-</div>
 
-  <div class="col-sm-12 col-md-9">
-    {% include "common/forms/field.html" with field=form.shortname %}
+  {% include "common/forms/field.html" with field=form.shortname %}
+
+  {% include "common/forms/field.html" with field=form.visible %}
+
   </div>
 
 
 
-  <div class="col-sm-12 ">
-    {% include "common/forms/field.html" with field=form.visible %}
+
+  <div class="col-sm-12 col-md-7 ">
+
+    <div class="card mb-4 ">
+                <div id="map" class="map no-resize loading-container">
+                    <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw loading-spinner"></i>
+                    <span class="sr-only">Loading...</span>
+                </div>
+
+                <div class="card-body px-3">
+                        <h4 class="card-title"><i class="material-icons">edit_location</i> Geolocalización</h4>
+                        <p class="card-text">Mueve el pin por el mapa hasta posicionarlo en la localización correcta.</p>
+                        <div class="form-group">
+                            <label>Latitud</label>
+                            {{ form.latitude }}
+                            {% if form.latitude.errors %} <div class="alert alert-danger"> {{form.latitude.errors}}</div> {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label>Longitud</label>
+                            {{ form.longitude }}
+                            {% if form.longitude.errors %} <div class="alert alert-danger"> {{form.longitude.errors}}</div> {% endif %}
+                        </div>
+                </div>
+
+                <div class="card-footer">
+                  <small class="text-muted">Puedes hacer zoom en los controles del mapa para ajustar al máximo la posición, o entrar en la vista de pantalla completa.</small>
+                </div>
+                </div>
+
 </div>
+</div>
+
+

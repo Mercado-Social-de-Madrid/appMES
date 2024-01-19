@@ -1,5 +1,6 @@
 {% load settings_value %}
-{% load staticfiles %}
+{% load static %}
+{% load l10n %}
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key={% settings_value 'GMAPS_APIKEY' %}"></script>
 <div class="infowindow_base hidden">
@@ -19,3 +20,77 @@
     document.body.appendChild(scriptTag);
   });
 </script>
+
+{% if update_field %}
+<script type="text/javascript">
+
+  function initMap() {
+
+    var latInput = $('[name="latitude"]');
+    var lngInput = $('[name="longitude"]');
+
+    var lat = {% settings_value "INITIAL_LATITUDE"|unlocalize %};
+    var long =  {% settings_value "INITIAL_LONGITUDE"|unlocalize %};
+
+    if (latInput.val() && lngInput.val()){
+        lat = parseFloat(latInput.val());
+        long = parseFloat(lngInput.val());
+    }
+    var markerPosition = new google.maps.LatLng(lat, long);
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: {{initial_zoom}},
+        center: markerPosition,
+        zoomControl: true,
+        scaleControl: true,
+        streetViewControl: false,
+        mapTypeControl:false
+    });
+
+    $('#map').removeClass('loading-container');
+
+    var marker = new RichMarker({
+      position: markerPosition,
+      map: map,
+      draggable:true,
+      content: '<div class="marker-wrapper"><div class="marker"><img src="' + '{%if entity.first_photo_url %}{{entity.first_photo_url}}{%else%}{% static "imgs/etics-icon.png" %}{%endif%}' + '"></div></div>'
+    });
+
+    {% if not request.user.is_superuser %}
+        latInput.attr('readonly', 'true');
+        lngInput.attr('readonly', 'true');
+    {% endif %}
+
+    function updateMarker(){
+        marker.setPosition( new google.maps.LatLng( latInput.val(), lngInput.val() ) );
+        map.setCenter(marker.getPosition());
+    }
+    latInput.on('change',  updateMarker);
+    lngInput.on('change',  updateMarker);
+
+    google.maps.event.addListener(
+        marker,
+        'drag',
+        function() {
+            latInput.val( marker.position.lat() );
+            lngInput.val( marker.position.lng() );
+        }
+    );
+
+    var update_timeout = null;
+    google.maps.event.addListener(map, 'click', function(event){
+        update_timeout = setTimeout(function(){
+            marker.setPosition(event.latLng);
+            latInput.val( marker.position.lat() );
+            lngInput.val( marker.position.lng() );
+        }, 200);
+    });
+
+    google.maps.event.addListener(map, 'dblclick', function(event) {
+        clearTimeout(update_timeout);
+    });
+
+  }
+
+</script>
+{% endif %}

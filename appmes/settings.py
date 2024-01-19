@@ -78,11 +78,12 @@ MIDDLEWARE = [
     'csp.middleware.CSPMiddleware',
 ]
 
-CSP_DEFAULT_SRC = ("'self'",)
 CSP_EXCLUDE_URL_PREFIXES = ("/admin/", "/auth/")
-CSP_STYLE_SRC = ("'self'", 'fonts.googleapis.com', 'use.fontawesome.com', 'cdnjs.cloudflare.com')
-CSP_SCRIPT_SRC = ("'self'", 'code.jquery.com', 'cdnjs.cloudflare.com', 'maxcdn.bootstrapcdn.com')
-CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
+CSP_DEFAULT_SRC = ("'self'", "'unsafe-inline'", 'data:', 'maps.googleapis.com', 'maps.gstatic.com')
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", 'fonts.googleapis.com', 'use.fontawesome.com', 'cdnjs.cloudflare.com')
+CSP_FONT_SRC = ("'self'", "'unsafe-inline'", 'fonts.gstatic.com', 'use.fontawesome.com')
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", 'code.jquery.com', 'cdnjs.cloudflare.com', 'maxcdn.bootstrapcdn.com', 'maps.googleapis.com')
+
 
 ROOT_URLCONF = 'appmes.urls'
 
@@ -210,6 +211,11 @@ LOG_VIEWER_MAX_READ_LINES = 1000  # total log lines will be read
 LOG_VIEWER_FILE_LIST_MAX_ITEMS_PER_PAGE = 25  # Max log files loaded in Datatable per page
 LOG_VIEWER_PATTERNS = ['[INFO]', '[DEBUG]', '[WARNING]', '[ERROR]', '[CRITICAL]']
 LOG_VIEWER_EXCLUDE_TEXT_PATTERN = None  # String regex expression to exclude the log from line
+
+GMAPS_APIKEY = env('GOOGLE_MAPS_APIKEY')
+
+INITIAL_LATITUDE = 40.43399206106631
+INITIAL_LONGITUDE = -3.7048717038201344
 
 # ======= Sentry Configuration ========
 sentry_sdk.init(

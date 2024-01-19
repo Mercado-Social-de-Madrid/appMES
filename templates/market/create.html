@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load settings_value %}
 
 {% block title %}Nueva categoría{% endblock %}
 
@@ -16,7 +17,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <form method="post" class="mt-3 p-4">
 
             {% include "market/form.html" %}
@@ -28,4 +29,9 @@
         </form>
     </div>
 
+{% endblock %}
+
+
+{% block scripts %}
+{% include 'common/include_gmaps.html' with update_field=True initial_zoom=6 %}
 {% endblock %}
