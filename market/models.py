@@ -1,6 +1,7 @@
 import uuid
 
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.urls import reverse
@@ -36,6 +37,7 @@ class Category(models.Model):
 class Account(PolymorphicModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     market = models.ForeignKey(Market, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, verbose_name=_('Gestionado por'))
     is_active = models.BooleanField(default=True, verbose_name=_('Activa'))
     cif = models.CharField(max_length=30, null=False, blank=False, verbose_name=_('NIF/CIF/Pasaporte'))
     email = models.CharField(null=False, blank=False, verbose_name='Email', max_length=250)

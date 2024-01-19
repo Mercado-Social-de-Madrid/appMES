@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.views.generic import ListView, CreateView, UpdateView, TemplateView
 
 from core.models import Market
@@ -13,6 +14,9 @@ class AddMarket(CreateView):
     template_name = 'market/create.html'
     form_class = MarketForm
     model = Market
+
+    def get_success_url(self):
+        return reverse('market:market_list', )
 
 class EditMarket(UpdateView):
     template_name = 'market/edit.html'
