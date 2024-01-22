@@ -87,11 +87,17 @@ CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", 'code.jquery.com', 'cdnjs.cloudfl
 
 ROOT_URLCONF = 'appmes.urls'
 
+default_loaders = [
+    "django.template.loaders.filesystem.Loader",
+    "django.template.loaders.app_directories.Loader",
+]
+
+cached_loaders = [("django.template.loaders.cached.Loader", default_loaders)]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -99,6 +105,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            "loaders": default_loaders if DEBUG else cached_loaders,
         },
     },
 ]
