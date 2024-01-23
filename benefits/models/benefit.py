@@ -1,9 +1,8 @@
 from django.db import models
-
-from market.models import Provider
 from django.utils.translation import gettext as _
+from market.models import Provider
 
-# Create your models here.
+
 class Benefit(models.Model):
     entity = models.OneToOneField(Provider, null=False, blank=False, related_name='benefit', on_delete=models.CASCADE)
     published_date = models.DateTimeField(auto_now_add=True)
