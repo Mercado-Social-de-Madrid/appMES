@@ -1,0 +1,30 @@
+<div class="row">
+        {{ form.field.as_hidden }}
+        {{ form.field.as_hidden }}
+        {{ form.field.as_hidden }}
+    <div class="col-md-7">
+        {% include "common/forms/field.html" with field=form.cif %}
+        {% include "common/forms/field.html" with field=form.first_name %}
+        {% include "common/forms/field.html" with field=form.last_name %}
+        {% include "common/forms/field.html" with field=form.email %}
+        {% include "common/forms/field.html" with field=form.address not_floating=True %}
+        {% include "common/forms/field.html" with field=form.city %}
+
+    </div>
+    <div class="col-md-5">
+        <div class="card mb-4 ">
+            <div class="card-body">
+                {% include "common/forms/field.html" with field=form.profile_image %}
+                {% include "common/forms/field.html" with field=form.member_id %}
+                {% if object %}
+                    {% include "common/forms/field.html" with field=form.owner %}
+                {% endif %}
+                <small>Este campo es <strong class="text-danger">editable para admin</strong>, pero el valor debería venir de la H.Gestora</small>
+                {% include "common/forms/checkbox.html" with field=form.is_intercoop %}
+                {% include "common/forms/checkbox.html" with field=form.is_active %}
+            </div>
+        </div>
+
+    </div>
+
+</div>

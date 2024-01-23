@@ -1,4 +1,6 @@
 from django.urls import reverse
+from django.contrib import messages
+from django.utils.translation import gettext as _
 from django.views.generic import ListView, CreateView, UpdateView, TemplateView
 
 from core.models import Market
@@ -22,6 +24,10 @@ class EditMarket(UpdateView):
     template_name = 'market/edit.html'
     form_class = MarketForm
     model = Market
+
+    def get_success_url(self):
+        messages.success(self.request, _('Datos actualizados correctamente.'))
+        return reverse('market:edit_market', kwargs={"pk": self.object.pk})
 
 class MarketDashboard(MarketMixin, TemplateView):
     template_name = 'dashboard/market.html'

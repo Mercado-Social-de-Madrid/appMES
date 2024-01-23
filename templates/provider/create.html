@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+{% load static %}
+{% load settings_value %}
+{% load l10n %}
+{% load market_url %}
+
+{% block title %}Nueva proveedora{% endblock%}
+
+{% block bodyattrs %}class="entity"{% endblock%}
+
+{% block content %}
+
+    <div class="jumbotron py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-12">
+                <h3 class="mb-0"><a href="{% market_url 'market:provider_list' %}">Proveedoras</a><i class="material-icons md-18 ">arrow_forward_ios</i> Nueva proveedora</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
+<form method="POST" class="post-form gallery-form mt-4" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<div class="container-fluid">
+
+    {{form.form_errors}}
+    {{form.media}}
+
+    <div class="card-deck">
+        <div class="size-check visible-md-block visible-lg-block"></div>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card mb-4 px-1">
+                    <div class="card-body">
+                        <div class="description">
+                            <div class="row">
+                            <div class="col-md-4 text-center">
+                                <div class="file-field image-field d-inline-block" data-ref="#profile-image" data-ref-type="image">
+                                    <div class="profile-circle"><img id="profile-image" src="{%if entity.logo %} {{entity.logo_thumbnail.url}}{% endif %}"></div>
+                                    <div class="btn btn-primary btn-float" data-toggle="tooltip" data-placement="bottom" title="Actualizar imagen">
+                                        <span><i class="material-icons">insert_photo</i></span>
+                                        {{form.logo}}
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="col-md-8">
+                                    {% include "common/forms/field.html" with field=form.name %}
+                                </div>
+                            </div>
+
+                        <div class="form-group" data-links="#entity-address">
+                            {% include "common/forms/field.html" with field=form.address %}
+                            <small style="color: grey">Introduce únicamente la dirección y número de la calle (ej.: "C/ Libreros, 1")</small>
+                        </div>
+
+                        {% include "common/forms/field.html" with field=form.description %}
+
+                        <div class="form-group">
+                            <label>Categorías</label>
+                            <div class="tag-select">
+                                {% include 'common/tags_declaration.html' with tags=categories %}
+                            {{ form.categories }}
+                                </div>
+                        </div>
+
+                        {% include "common/forms/field.html" with field=form.num_workers %}
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="card mb-4 ">
+                    <div id="map" class="map no-resize loading-container">
+                        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw loading-spinner"></i>
+                        <span class="sr-only">Loading...</span>
+                    </div>
+
+                    <div class="card-body px-3 pb-0">
+                            <h4 class="card-title"><i class="material-icons">edit_location</i> Geolocalización</h4>
+                            <p class="card-text">Mueve el pin por el mapa hasta posicionarlo en la localización correcta.</p>
+
+                            {% include "common/forms/field.html" with field=form.latitude %}
+                            {% include "common/forms/field.html" with field=form.longitude %}
+                    </div>
+
+                    <div class="card-footer">
+                      <small class="text-muted">Puedes hacer zoom en los controles del mapa para ajustar al máximo la posición, o entrar en la vista de pantalla completa.</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="card mb-4 pb-4">
+                    <div class="social-links card-body pr-5">
+                        <div class="card-title"> Redes sociales</div>
+                        <div class="form-group mb-0">
+                        <div class="input-group">
+                          <span class="input-group-addon" data-toggle="tooltip" data-placement="bottom" title="Página de Facebook"><i class="fa fa-facebook " aria-hidden="true"></i></span>
+                          {% include "common/forms/field.html" with field=form.facebook_link %}
+                        </div>
+                        </div>
+
+                        <div class="form-group mb-0">
+                        <div class="input-group">
+                          <span class="input-group-addon" data-toggle="tooltip" data-placement="bottom" title="Perfil de Twitter"><i class="fa fa-twitter " aria-hidden="true"></i></span>
+                          {% include "common/forms/field.html" with field=form.twitter_link %}
+                        </div></div>
+
+                        <div class="form-group">
+                        <div class="input-group">
+                          <span data-toggle="tooltip" data-placement="bottom" title="Página web" class="input-group-addon" ><i class="fa fa-globe " aria-hidden="true"></i></span>
+                          {{form.webpage_link}}
+                        </div></div>
+
+                        <div class="form-group">
+                        <div class="input-group">
+                          <span data-toggle="tooltip" data-placement="bottom" title="Canal de telegram" class="input-group-addon" ><i class="fa fa-telegram " aria-hidden="true"></i></span>
+                          {{form.telegram_link}}
+                        </div></div>
+
+                        <div class="form-group">
+                        <div class="input-group">
+                          <span data-toggle="tooltip" data-placement="bottom" title="Perfil de Instagram" class="input-group-addon" ><i class="fa fa-instagram " aria-hidden="true"></i></span>
+                          {{form.instagram_link}}
+                        </div></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="card-title"><i class="material-icons">photo_library</i> Galería </div>
+                        {{ gallery_formset.management_form }}
+                        {% for gallery_form in gallery_formset %}
+                            <div class="gallery-form-photo file-field">
+                             {% if gallery_formset.can_delete %}
+                                {{ gallery_form.DELETE }}
+                            {% endif %}
+                                <div class="form-photo">
+                                    <div class="thumb" style="background-image:url('{{gallery_form.image.value.url}}');"></div>
+                                    <i class="upload material-icons" data-placement="bottom" title="Subir foto">file_upload</i>
+                                    {{ gallery_form.image }}
+                                </div>
+                            {{ gallery_form.order.as_hidden }}
+                            {{ gallery_form.title.as_hidden }}
+                                </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="description text-center mt-5">
+                    <button type="submit" class="right-margin left-margin btn btn-primary btn-lg">{% if is_new %} Crear entidad {% else %} Guardar {% endif %}</button>
+                </div>
+            </div>
+
+       </div>
+    </div>
+
+</div>
+
+
+</div>
+
+</form>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'js/jquery.formset.js' %}"></script>
+{% include 'common/include_gmaps.html' %}
+<script type="text/javascript">
+
+
+
+    $('.gallery-form-photo').formset({
+        prefix: '{{ gallery_formset.prefix }}',
+        addText: '<i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Añadir foto">add</i></div>',
+        deleteText: '<div class="btn btn-primary btn-float btn-small" href="#!" data-toggle="tooltip" data-placement="bottom" title="Eliminar foto"><i class="material-icons">delete</i></div>',
+        added: function(row){ row.find('.form-photo').removeClass('uploaded').find('.thumb').css('background-image',''); }
+    });
+
+  function initMap() {
+{% if entity %}
+    var entityPosition = new google.maps.LatLng({{ entity.latitude|unlocalize }}, {{ entity.longitude|unlocalize }});
+{% else %}
+    var entityPosition = new google.maps.LatLng({% settings_value "INITIAL_LATITUDE"|unlocalize %}, {% settings_value "INITIAL_LONGITUDE"|unlocalize %});
+{% endif %}
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: entityPosition,
+        zoomControl: true,
+        scaleControl: true,
+        streetViewControl: false,
+        mapTypeControl:false
+    });
+
+    $('#map').removeClass('loading-container');
+
+    var marker = new RichMarker({
+      position: entityPosition,
+      map: map,
+      draggable:true,
+      content: '<div class="marker-wrapper"><div class="marker"><img src="' + '{%if entity.first_photo_url %}{{entity.first_photo_url}}{%else%}{% static "imgs/etics-icon.png" %}{%endif%}' + '"></div></div>'
+    });
+
+    var latInput = $('[name="latitude"]');
+    var lngInput = $('[name="longitude"]');
+
+    google.maps.event.addListener(
+        marker,
+        'drag',
+        function() {
+            latInput.val( marker.position.lat() );
+            lngInput.val( marker.position.lng() );
+        }
+    );
+
+    var update_timeout = null;
+    google.maps.event.addListener(map, 'click', function(event){
+        update_timeout = setTimeout(function(){
+            marker.setPosition(event.latLng);
+            latInput.val( marker.position.lat() );
+            lngInput.val( marker.position.lng() );
+        }, 200);
+    });
+
+    google.maps.event.addListener(map, 'dblclick', function(event) {
+        clearTimeout(update_timeout);
+    });
+  }
+
+</script>
+
+{% endblock %}

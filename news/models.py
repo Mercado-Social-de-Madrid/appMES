@@ -5,12 +5,15 @@ from django.utils.translation import gettext as _
 from imagekit.models import ProcessedImageField, ImageSpecField
 from pilkit.processors import ResizeToFit, ResizeToFill
 
+from core.models import Market
 from helpers import RandomFileName
 
 
 class News(models.Model):
+    market = models.ForeignKey(Market, on_delete=models.CASCADE, verbose_name=_('Mercado en el que se publica'))
     published_by = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     title = models.CharField(null=True, blank=True, verbose_name=_('Título (máx 200 caracteres)'), max_length=250)
+
     short_description = models.TextField(null=True, blank=True, verbose_name=_('Descripción corta'))
     description = models.TextField(null=True, blank=True, verbose_name=_('Descripción'))
     banner_image = ProcessedImageField(null=True, blank=True, upload_to=RandomFileName('news/'),

@@ -17,6 +17,10 @@ class CategoryList(MarketMixin,  ListItemUrlMixin, AjaxTemplateResponseMixin, Li
     ajax_template_name = 'category/query.html'
     paginate_by = 15
 
+    def get_queryset(self):
+        return super().get_queryset().filter(market=self.market)
+
+
 class CategoryCreate(MarketMixin, CreateView):
     template_name = 'category/create.html'
     form_class = CategoryForm

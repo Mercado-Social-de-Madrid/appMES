@@ -22,7 +22,10 @@ urlpatterns = [
     path('admin/logs/', include('log_viewer.urls')),
     path('', include('core.urls')),
     path('', include('market.urls')),
+
     path('admin/', admin.site.urls),
+
+    path('<market>/news/', include('news.urls')),
 ]
 
 if settings.DEBUG:
