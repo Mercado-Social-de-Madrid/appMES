@@ -1,11 +1,9 @@
 from django.contrib import admin
 
-from core.models import Market
-from django.contrib.auth.urls import *
+from core.models import Node
 
-# Register your models here.
 
-@admin.register(Market)
-class MarketAdmin(admin.ModelAdmin):
+@admin.register(Node)
+class NodeAdmin(admin.ModelAdmin):
     list_display = ["name", "shortname"]
 

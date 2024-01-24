@@ -1,9 +1,7 @@
 # coding=utf-8
 import datetime
 from django import forms
-from django.contrib.auth.models import User
-
-from core.models import UserProfile
+from core.models import User
 from helpers.forms.BootstrapForm import BootstrapForm
 
 
@@ -11,14 +9,14 @@ class UserForm(BootstrapForm, forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'username', ]
+        fields = ['first_name', 'last_name', 'email', ]
         widgets = {
-            'username': forms.TextInput(attrs={'readonly':True }),
             'first_name': forms.TextInput(attrs={'placeholder': 'Nombre'}),
             'last_name': forms.TextInput(attrs={'placeholder': 'Apellidos'}),
         }
 
+
 class ProfileForm(forms.ModelForm):
     class Meta:
-        model = UserProfile
+        model = User
         fields = ['preferred_locale']

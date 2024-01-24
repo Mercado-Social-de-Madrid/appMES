@@ -86,6 +86,7 @@ CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", 'code.jquery.com', 'cdnjs.cloudfl
 
 
 ROOT_URLCONF = 'appmes.urls'
+AUTH_USER_MODEL = 'core.User'
 
 default_loaders = [
     "django.template.loaders.filesystem.Loader",
