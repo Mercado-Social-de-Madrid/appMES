@@ -1,7 +1,7 @@
 # coding=utf-8
 import datetime
 from django import forms
-from core.models import User
+from authentication.models import User
 from helpers.forms.BootstrapForm import BootstrapForm
 
 

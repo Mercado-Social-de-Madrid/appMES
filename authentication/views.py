@@ -3,8 +3,8 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from core.forms.password import PasswordForm
-from core.forms.profile import ProfileForm, UserForm
+from authentication.forms.password import PasswordForm
+from authentication.forms.profile import ProfileForm, UserForm
 
 
 @login_required

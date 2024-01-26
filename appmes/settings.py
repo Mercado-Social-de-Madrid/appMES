@@ -45,6 +45,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 INSTALLED_APPS = [
     # Custom apps
+    'authentication',
     'benefits',
     'news',
     'market',
@@ -56,6 +57,9 @@ INSTALLED_APPS = [
     'log_viewer',
     'admin_interface',
     'colorfield',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'fcm_django',
 
     # Django apps
     'django.contrib.admin',
@@ -86,7 +90,7 @@ CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", 'code.jquery.com', 'cdnjs.cloudfl
 
 
 ROOT_URLCONF = 'appmes.urls'
-AUTH_USER_MODEL = 'core.User'
+AUTH_USER_MODEL = 'authentication.User'
 
 default_loaders = [
     "django.template.loaders.filesystem.Loader",
@@ -135,6 +139,17 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', },
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

@@ -6,7 +6,7 @@ register = template.Library()
 @register.filter
 def belongs_to_group(user, group_name):
     try:
-        group =  Group.objects.get(name=group_name)
+        group = Group.objects.get(name=group_name)
     except Group.DoesNotExist:
         return False
 

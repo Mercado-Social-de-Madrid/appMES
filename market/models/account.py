@@ -5,7 +5,8 @@ from imagekit.models import ProcessedImageField
 from django.utils.translation import gettext as _
 from pilkit.processors import ResizeToFill
 from helpers import RandomFileName
-from core.models import Node, User
+from core.models import Node
+from authentication.models import User
 
 
 class Account(PolymorphicModel):

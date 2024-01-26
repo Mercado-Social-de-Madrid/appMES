@@ -77,7 +77,7 @@ class User(TimeStampedModel, AbstractUser):
         )
 
     def __str__(self):
-        return self.get_full_name() or self.email
+        return self.email
 
     @property
     def display_name(self):

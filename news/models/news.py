@@ -4,7 +4,7 @@ from django.utils.translation import gettext as _
 from imagekit.models import ProcessedImageField, ImageSpecField
 from pilkit.processors import ResizeToFit, ResizeToFill
 
-from core.models import User
+from authentication.models import User
 from core.models import Node
 from helpers import RandomFileName
 
