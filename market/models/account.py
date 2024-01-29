@@ -41,5 +41,5 @@ class Account(PolymorphicModel):
         return self.cif
 
     def __str__(self):
-        return self.display_name
+        return self.cif
 

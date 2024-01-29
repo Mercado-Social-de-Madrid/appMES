@@ -12,3 +12,6 @@ class Node(models.Model):
     class Meta:
         verbose_name = _('Mercado')
         verbose_name_plural = _('Mercados')
+
+    def __str__(self):
+        return self.name

@@ -37,8 +37,8 @@ class Provider(Account):
     fediverse_link = models.CharField(null=True, blank=True, verbose_name=_('Perfil en Fediverso'), max_length=250)
 
     class Meta:
-        verbose_name = 'Entidad'
-        verbose_name_plural = 'Entidades'
+        verbose_name = 'Proveedora'
+        verbose_name_plural = 'Proveedoras'
         ordering = ['name']
 
     @property

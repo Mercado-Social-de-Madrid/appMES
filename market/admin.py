@@ -15,6 +15,7 @@ class ProviderAdmin(admin.ModelAdmin):
     list_display = ["name", "member_id", "is_active", "node", ]
     list_filter = ["node", "is_active"]
 
+
 @admin.register(Consumer)
 class ConsumerAdmin(admin.ModelAdmin):
     list_display = ["name", "member_id", "is_active", "node", ]
