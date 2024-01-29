@@ -1,0 +1,16 @@
+meta {
+  name: List Categories
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{URL}}/api/noticias/
+  body: none
+  auth: none
+}
+
+query {
+  ~mercado: madrid
+  ~mercado: Mad
+}

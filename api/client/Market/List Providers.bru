@@ -1,0 +1,16 @@
+meta {
+  name: List Providers
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{URL}}/api/proveedoras/
+  body: none
+  auth: none
+}
+
+query {
+  ~mercado: Madrid
+  ~mercado: MAD
+}

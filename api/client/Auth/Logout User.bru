@@ -1,0 +1,24 @@
+meta {
+  name: Logout User
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{URL}}/api/logout/
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Token {{token}}
+}
+
+auth:bearer {
+  token: Token e0e612a45be10fa6b63fe713cc3d59ece555a171
+}
+
+script:pre-request {
+  
+  
+}
