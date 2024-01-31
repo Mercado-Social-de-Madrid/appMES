@@ -1,0 +1,5 @@
+{% load static %}
+<div class="profile-circle">
+    <img id="profile-image"
+     src="{% if account.profile_image %} {{ account.profile_image.url }}{% else %}{% static 'imgs/profile.png' %}{% endif %}">
+</div>

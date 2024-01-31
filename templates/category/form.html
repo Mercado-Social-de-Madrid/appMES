@@ -1,0 +1,16 @@
+{{ form.node }}
+
+<div class="row">
+    <div class="col-sm-9 ">
+          {% include "common/forms/field.html" with field=form.name %}
+      </div>
+
+        <div class="col-sm-12 col-md-9">
+          {% include "common/forms/field.html" with field=form.color %}
+        </div>
+
+        <div class="col-sm-12 ">
+          {% include "common/forms/field.html" with field=form.description %}
+      </div>
+
+</div>

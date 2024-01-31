@@ -10,7 +10,7 @@ from market.models import Category
 
 
 # Create your views here.
-class CategoryList(MarketMixin,  ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
+class CategoryList(MarketMixin, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
     template_name = 'category/list.html'
     model = Category
     objects_url_name = 'category_detail'
@@ -18,7 +18,7 @@ class CategoryList(MarketMixin,  ListItemUrlMixin, AjaxTemplateResponseMixin, Li
     paginate_by = 15
 
     def get_queryset(self):
-        return super().get_queryset().filter(market=self.market)
+        return super().get_queryset().filter(node=self.node)
 
 
 class CategoryCreate(MarketMixin, CreateView):
@@ -27,7 +27,7 @@ class CategoryCreate(MarketMixin, CreateView):
     model = Category
 
     def get_initial(self):
-        return { 'market': self.market }
+        return { 'node': self.node }
 
     def form_valid(self, form):
         response = super(CategoryCreate, self).form_valid(form)

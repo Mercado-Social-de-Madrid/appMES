@@ -9,9 +9,9 @@
                 <small class="text-muted">{{request.user.email}}</small>
             </div>
 
-          <a class="dropdown-item" href="{% url 'edit_profile' %}"><i class="material-icons">mode_edit</i> Editar perfil</a>
+          <a class="dropdown-item" href="{% url 'auth:edit_profile' %}"><i class="material-icons">mode_edit</i> Editar perfil</a>
             <div class="dropdown-divider"></div>
-            <form method="post" action="{% url 'logout' %}">
+            <form method="post" action="{% url 'auth:logout' %}">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{% url 'market:index' %}">
                 <button type="submit" class="dropdown-item"><i class="material-icons">exit_to_app</i> Cerrar sesión</button>
@@ -20,6 +20,6 @@
       </li>
 {% else %}
     <li class="nav-item">
-      <a class="nav-link btn btn-outline-primary" href="{% url 'login' %}"><i class="fas fa-plug" aria-hidden="true"></i> Entrar</a>
+      <a class="nav-link btn btn-outline-primary" href="{% url 'auth:login' %}"><i class="fas fa-plug" aria-hidden="true"></i> Entrar</a>
   </li>
 {% endif %}

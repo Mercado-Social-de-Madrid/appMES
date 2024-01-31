@@ -6,7 +6,10 @@
 
   {% include "common/forms/field.html" with field=form.shortname %}
 
-  {% include "common/forms/field.html" with field=form.visible %}
+      <div class="mt-4">
+          {% include "common/forms/switch.html" with field=form.visible %}
+      </div>
+
 
   </div>
 

@@ -1,4 +1,5 @@
 {% extends 'common/list/base.html' %}
+{% load market_url %}
 
  {% block table_head %}
     <th scope="col">Usuario</th>
@@ -10,25 +11,27 @@
 
 {% block item_row %}
 
-<td class="entity-td"> {% include 'category/tag.html' with tag=item big=True %} {{item.full_name}}</td>
 <td>
-    {% if profile.user.is_registered %}
-        {% if profile.is_guest_account %}
+    {% if item.owner.is_registered %}
+        {% if item.is_guest_account %}
             <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Invitada">card_membership</i>
         {% else %}
             <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Registrada">done_all</i>
         {% endif %}
 
-        <span class="text-muted" >{{profile.user}}</span></td>
+        <span class="text-muted" >{{item.user}}</span>
     {% else %}
         <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Pendiente registro">schedule</i>
-        <span class="text-muted" >Prerregistro</span></td>
+        <span class="text-muted" >Prerregistro</span>
     {% endif %}
-
 </td>
 
-<td  class="table-actions">
-    <a class="btn btn-outline-primary" href="{% url 'profile_detail' profile.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="Ver detalle"><i class="material-icons">visibility</i></a>
-    <a class="btn btn-outline-primary" href="{% url 'profile_edit' profile.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
+<td>{{item.email}}</td>
+<td>{{item.display_name}} {% if item.inactive %} (INACTIVA) {% endif %}</td>
+
+
+<td class="table-actions">
+    <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="Ver detalle"><i class="material-icons">visibility</i></a>
+    <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
 </td>
 {% endblock %}

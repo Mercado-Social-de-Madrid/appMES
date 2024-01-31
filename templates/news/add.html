@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load settings_value %}
+{% load market_url %}
+{% load l10n %}
+
+{% block title %}Nueva noticia{% endblock %}
+
+
+{% block bodyattrs %}class="news"{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-12">
+                <h3 class="mb-0"><a href="{% market_url 'news:list' %}">Noticias</a><i class="material-icons md-18 ">arrow_forward_ios</i> Nueva noticia</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+<div class="container my-4">
+    <form method="post" class="post-form gallery-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include "news/form.html" %}
+    </form>
+
+</div>
+{% endblock%}
+
+{% block scripts %}
+
+{% endblock scripts %}

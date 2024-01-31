@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView, UpdateView
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.utils.translation import gettext as _
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
@@ -17,13 +19,48 @@ class NewsList(MarketMixin,  ListItemUrlMixin, AjaxTemplateResponseMixin, ListVi
     paginate_by = 15
 
     def get_queryset(self):
-        return super().get_queryset().filter(market=self.market)
+        return super().get_queryset().filter(node=self.node)
+
+
+class NewsCreate(MarketMixin, CreateView):
+    template_name = 'news/add.html'
+    form_class = NewsForm
+    model = News
+
+    def get_initial(self):
+        return { 'node': self.node }
+
+    def form_valid(self, form):
+        news = form.save()
+        news.published_by = self.request.user
+        news.save()
+
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_url(self):
+        return self.reverse('news:list')
 
 
 class NewsDetail(MarketMixin, UpdateView):
-    template_name = 'news/detail.html'
+    template_name = 'news/edit.html'
     form_class = NewsForm
     model = News
 
     def get_queryset(self):
-        return super().get_queryset().filter(market=self.market)
+        return super().get_queryset().filter(node=self.node)
+
+    def get_success_url(self):
+        messages.success(self.request, _('Noticia actualizada correctamente.'))
+        return self.reverse('news:list')
+
+
+class NewsDelete(MarketMixin, DeleteView):
+    template_name = 'news/delete.html'
+    model = News
+
+    def get_queryset(self):
+        return super().get_queryset().filter(node=self.node)
+
+    def get_success_url(self):
+        messages.success(self.request, _('Noticia eliminada correctamente.'))
+        return self.reverse('news:list')

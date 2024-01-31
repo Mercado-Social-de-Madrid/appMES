@@ -1,12 +1,12 @@
 <div class="form-group {% if hide_label %} mt-2 {% endif %}" {% if visible_by %}data-visible-by="#{{visible_by.id_for_label}}"{% endif %}>
 {% if not_floating or hide_label %}
     {% if not hide_label %}
-    <label for="{{ field.id_for_label }}">{{ field.label }} {% if field.field.required %} <span class="text-primary lead">*{% endif %}</span></label>
+    {% include "common/forms/label.html" %}
     {% endif %}
     {{ field }}
 {% else %}
     <div class="floating-label">
-        <label for="{{field.id_for_label}}">{{ field.label }} {% if field.field.required %} <span class="text-primary lead">*</span>{% endif %}</label>
+        {% include "common/forms/label.html" %}
         {{ field }}
       </div>
 {% endif %}

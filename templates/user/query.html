@@ -1,0 +1,36 @@
+{% extends 'common/list/base.html' %}
+{% load market_url %}
+
+ {% block table_head %}
+    <th scope="col">Email</th>
+    <th scope="col">Registro</th>
+    <th scope="col" colspan="2">Rol</th>
+    <th scope="col">Última conexión</th>
+{% endblock %}
+
+{% block item_row %}
+<td>{{item.email}}</td>
+<td>{{item.created_at}}</td>
+{% if item.is_superuser %}
+<td colspan="2">Administrador</td>
+{% else %}
+    {% if item.is_staff %}
+        <td>Editor </td>
+        <td>{{item.node}}</td>
+    {% else %}
+        <td>Normal </td>
+        <td>
+            {% for account in item.accounts_managed.all %}
+                {{account.display_name}}
+            {% endfor %}
+        </td>
+    {% endif %}
+{% endif %}
+
+<td>{% include "user/last_login.html" with user=item %}</td>
+<td class="text-truncate" style="max-width:220px;">{{item.short_description|striptags|safe}}</td>
+<td class="table-actions">
+    <a class="btn btn-outline-primary" href="{% market_url 'auth:user_detail' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
+    <a class="btn btn-outline-primary action-delete" href="{% url 'auth:user_delete' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Eliminar noticia"><i class="material-icons">delete</i></a>
+</td>
+{% endblock %}

@@ -2,7 +2,7 @@
 // Option A: Include all of Bootstrap
 
 $font-family-brand: 'Lato', sans-serif;
-$font-family-emphasis: 'Montserrat', sans-serif;
+$font-family-emphasis: 'League Gothic', sans-serif;
 
 $mes-primary: #653776;
 $mes-primary-light: #8d6b99;
@@ -39,6 +39,7 @@ $secondary: (
 @import './components/inputs';
 @import './components/select';
 @import './components/datepicker';
+@import './components/card';
 
 .loading-spinner{
     position:absolute;
@@ -158,11 +159,6 @@ tr.link-row:hover{ cursor: pointer; }
 .qr-container img{
     max-width:100%;
     height:auto;
-}
-
-td.assigned-fee{
-    background-color:$mes-primary-light;
-    color:#fff;
 }
 
 .data-columns {

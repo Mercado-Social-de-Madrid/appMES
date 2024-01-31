@@ -29,5 +29,3 @@ class EditMarket(UpdateView):
         messages.success(self.request, _('Datos actualizados correctamente.'))
         return reverse('market:edit_market', kwargs={"pk": self.object.pk})
 
-class MarketDashboard(MarketMixin, TemplateView):
-    template_name = 'dashboard/market.html'

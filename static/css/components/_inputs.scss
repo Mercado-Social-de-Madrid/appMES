@@ -27,4 +27,12 @@
         cursor: pointer;
         opacity: 0;
     }
+
+    .btn {
+      position: absolute;
+      bottom: 0;
+      cursor: pointer;
+      left: 90px;
+      z-index: 120;
+    }
 }

@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'core',
 
     # Third-party apps
+    'ckeditor',
     'imagekit',
     'sass_processor',
     'log_viewer',

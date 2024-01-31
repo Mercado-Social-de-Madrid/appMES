@@ -1,0 +1,141 @@
+<div class="container-fluid">
+
+    <div class="errors"> {{form.errors}}
+        {{formsets.form_errors}}
+    </div>
+    {{form.media}}
+    {{form.node}}
+    <div class="card-deck">
+        <div class="size-check visible-md-block visible-lg-block"></div>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="description">
+                            <div class="row">
+                            <div class="col-md-4 text-center form-photo">
+                                <div class="file-field image-field d-inline-block mb-4" data-img-target="#profile-image" data-ref-type="image">
+                                    {% include "account/profile_circle.html" with account=object %}
+                                    <div class="btn btn-primary btn-float" data-toggle="tooltip" data-placement="bottom" title="Actualizar imagen">
+                                        <span><i class="material-icons">insert_photo</i></span>
+                                        {{form.profile_image}}
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="col-md-8">
+                                    {% include "common/forms/field.html" with field=form.name %}
+                                    {% include "common/forms/field.html" with field=form.email %}
+                                    {% include "common/forms/field.html" with field=form.cif %}
+                                    {% include "common/forms/field.html" with field=form.member_id %}
+                                </div>
+                            </div>
+
+                        <div class="form-group" data-links="#entity-address">
+                            {% include "common/forms/field.html" with field=form.address not_floating=True  %}
+                            <small style="color: grey">Introduce únicamente la dirección y número de la calle (ej.: "C/ Libreros, 1")</small>
+                        </div>
+
+                        {% include "common/forms/field.html" with field=form.description not_floating=True %}
+                        {% include "common/forms/multiselect.html" with field=form.categories tags=categories %}
+                        {% include "common/forms/field.html" with field=form.num_workers %}
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="card mb-4 ">
+                    <div id="map" class="map no-resize loading-container">
+                        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw loading-spinner"></i>
+                        <span class="sr-only">Loading...</span>
+                    </div>
+
+                    <div class="card-body px-3 pb-0">
+                            <h4 class="card-title"><i class="material-icons">edit_location</i> Geolocalización</h4>
+                            <p class="card-text">Mueve el pin por el mapa hasta posicionarlo en la localización correcta.</p>
+
+                            {% include "common/forms/field.html" with field=form.latitude %}
+                            {% include "common/forms/field.html" with field=form.longitude %}
+                    </div>
+
+                    <div class="card-footer">
+                      <small class="text-muted">Puedes hacer zoom en los controles del mapa para ajustar al máximo la posición, o entrar en la vista de pantalla completa.</small>
+                    </div>
+                </div>
+
+                <div class="card p-4">
+                    {% include "common/forms/switch.html" with field=form.not_listed %}
+                    {% include "common/forms/switch.html" with field=form.is_active %}
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="card mb-4 pb-4">
+                    <div class="social-links card-body pr-5">
+                        <div class="card-title"> Redes sociales</div>
+                        <div class="form-group mb-0">
+                        <div class="input-group">
+                          <span class="input-group-addon" data-toggle="tooltip" data-placement="bottom" title="Página de Facebook"><i class="fa fa-facebook " aria-hidden="true"></i></span>
+                          {% include "common/forms/field.html" with field=form.facebook_link %}
+                        </div>
+                        </div>
+
+                        <div class="form-group mb-0">
+                        <div class="input-group">
+                          <span class="input-group-addon" data-toggle="tooltip" data-placement="bottom" title="Perfil de Twitter"><i class="fa fa-twitter " aria-hidden="true"></i></span>
+                          {% include "common/forms/field.html" with field=form.twitter_link %}
+                        </div></div>
+
+                        <div class="form-group">
+                        <div class="input-group">
+                          <span data-toggle="tooltip" data-placement="bottom" title="Página web" class="input-group-addon" ><i class="fa fa-globe " aria-hidden="true"></i></span>
+                          {{form.webpage_link}}
+                        </div></div>
+
+                        <div class="form-group">
+                        <div class="input-group">
+                          <span data-toggle="tooltip" data-placement="bottom" title="Canal de telegram" class="input-group-addon" ><i class="fa fa-telegram " aria-hidden="true"></i></span>
+                          {{form.telegram_link}}
+                        </div></div>
+
+                        <div class="form-group">
+                        <div class="input-group">
+                          <span data-toggle="tooltip" data-placement="bottom" title="Perfil de Instagram" class="input-group-addon" ><i class="fa fa-instagram " aria-hidden="true"></i></span>
+                          {{form.instagram_link}}
+                        </div></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="card-title"><i class="material-icons">photo_library</i> Galería </div>
+                        {{ formsets.gallery.management_form }}
+                        {% for gallery_form in formsets.gallery %}
+                            <div class="gallery-form-photo file-field">
+                             {% if gallery_formset.can_delete %}
+                                {{ gallery_form.DELETE }}
+                            {% endif %}
+                                <div class="form-photo">
+                                    <div class="thumb" style="background-image:url('{{gallery_form.image.value.url}}');"></div>
+                                    <i class="upload material-icons" data-placement="bottom" title="Subir foto">file_upload</i>
+                                    {{ gallery_form.image }}
+                                </div>
+                            {{ gallery_form.order.as_hidden }}
+                            {{ gallery_form.title.as_hidden }}
+                                </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="description text-center mt-5">
+                    <button type="submit" class="right-margin left-margin btn btn-primary btn-lg">{% if is_new %} Crear entidad {% else %} Guardar {% endif %}</button>
+                </div>
+            </div>
+
+       </div>
+    </div>
+
+</div>

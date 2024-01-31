@@ -9,7 +9,10 @@ class ProviderForm(forms.ModelForm, BootstrapForm):
     class Meta:
         model = Provider
         widgets = {
-            'market': forms.HiddenInput(),
+            'node': forms.HiddenInput(),
+            'address': forms.Textarea(attrs={'rows': 3, }),
+            'latitude': forms.NumberInput(attrs={'readonly': True}),
+            'longitude': forms.NumberInput(attrs={'readonly': True}),
         }
-        exclude = []
+        exclude = ['owner']
 

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load market_url %}
+{% load settings_value %}
+
+{% block title %}{{object.display_name}}{% endblock %}
+
+
+{% block content %}
+
+   <div class="jumbotron py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-12">
+                <h3 class="mb-0"><a href="{% market_url 'market:consumer_list' %}">Consumidoras</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.display_name}} </h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+<div class="container px-md-5 mt-4">
+
+    <div class="card detail-card">
+        <div class="card-body">
+            <label>Usuario</label>
+            {% if not object.owner %}
+                    <label class="primary-title"></label>Aún no se ha creado usuario<br>
+                    <label class="primary-title">Enlace de pre-registro</label>
+                <a href="{% settings_value 'BASESITE_URL' %}{% url 'market:market_dashboard' object.id %}" style="color:blue;" target="_blank">
+                {% settings_value 'BASESITE_URL' %}{% url 'market:market_dashboard' object.id %}</a><br>
+            {% else %}
+                    <label class="primary-title">Usuario:</label>
+                    {{ object.owner.username }}<br>
+            {% endif %}
+            <label>Fecha de registro</label> {{object.registration_date}}<br>
+            <label class="primary-title">Último acceso:</label>
+            {% include "user/last_login.html" with user=object.owner %}
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4 col-lg-3">
+
+
+              <div class="file-field image-field d-inline-block mb-4" data-ref="#profile-image" data-ref-type="image">
+                {% include "account/profile_circle.html" with account=object %}
+            </div>
+
+            <h4 class="card-title mb-0">{{object.display_name}}</h4>
+            {% if object.is_guest_account %}
+              <h5 class="text-primary">Cuenta invitada</h5>
+            {% endif %}
+
+            {% if object.is_intercoop %}
+              <h5 class="text-primary">Socia de intercooperación</h5>
+          {% endif %}
+
+            <div class="form-group">
+              <label>Número de socia</label><br>
+              {{object.member_id|default_if_none:'-'}}
+            </div>
+
+            <a href="{% market_url 'market:edit_consumer' object.pk %}" class="btn btn-primary mt-3"> Editar</a>
+
+        </div>
+          <div class="col-md-6">
+
+                  <div class="form-group">
+                      <label>Nombre</label><br>
+                      {{object.first_name}}
+                  </div>
+
+                  <div class="form-group">
+                      <label>Apellidos</label><br>
+                      {{object.last_name}}
+                  </div>
+
+                  {% if not object.is_guest_account %}
+                  <div class="form-group">
+                      <label>NIF/CIF</label><br>
+                      {{object.cif}}
+                  </div>
+                  {% endif %}
+
+                  <div class="form-group">
+                      <label>Email</label><br>
+                      {{object.email}}
+                  </div>
+
+                   <div class="form-group">
+                      <label>Dirección</label><br>
+                      {{object.address}}
+                  </div>
+
+
+              </div>
+ </div>
+          </div>
+{% endblock %}

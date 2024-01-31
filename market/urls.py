@@ -5,6 +5,7 @@ from market import views
 app_name = 'market'
 urlpatterns = [
     path('', views.HomeView.as_view(), name='index'),
+    path('admin_dashboard/', views.AdminDashboard.as_view(), name='admin_dashboard'),
 
     # Superadmin market management
     path('m/', views.MarketList.as_view(), name='market_list'),
@@ -22,12 +23,16 @@ urlpatterns = [
     # Providers
     path('<market>/providers/', views.ProviderList.as_view(), name='provider_list'),
     path('<market>/providers/add', views.CreateProvider.as_view(), name='add_provider'),
+    path('<market>/providers/<pk>/edit', views.UpdateProvider.as_view(), name='edit_provider'),
 
     # Consumers
     path('<market>/consumers/', views.ConsumerList.as_view(), name='consumer_list'),
     path('<market>/consumers/add', views.CreateConsumer.as_view(), name='add_consumer'),
+    path('<market>/consumers/<pk>', views.ConsumerDetail.as_view(), name='detail_consumer'),
+    path('<market>/consumers/<pk>/edit', views.ConsumerEdit.as_view(), name='edit_consumer'),
+
     # Single registration account views
-    path('dashboard/', views.HomeView.as_view(), name='user_dashboard'),
+    path('dashboard/', views.UserDashboard.as_view(), name='user_dashboard'),
 ]
 
 '''

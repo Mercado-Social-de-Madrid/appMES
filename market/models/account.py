@@ -12,7 +12,7 @@ from authentication.models import User
 class Account(PolymorphicModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     node = models.ForeignKey(Node, on_delete=models.CASCADE)
-    owner = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, verbose_name=_('Gestionado por'))
+    owner = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, verbose_name=_('Gestionado por'), related_name='accounts_managed')
     is_active = models.BooleanField(default=True, verbose_name=_('Activa'))
     cif = models.CharField(max_length=30, null=False, blank=False, verbose_name=_('NIF/CIF/Pasaporte'))
     email = models.CharField(null=False, blank=False, verbose_name='Email', max_length=250)

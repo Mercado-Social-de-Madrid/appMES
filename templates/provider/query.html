@@ -1,11 +1,13 @@
 {% extends 'common/list/base.html' %}
+{% load market_url %}
 
- {% block table_head %}
+{% block table_head %}
 {% if request.user.is_superuser %}
     <th scope="col">Entidad</th>
     <th scope="col">Forma legal</th>
     <th scope="col">Ventajas y <br> ofertas</th>
-    <th scope="col">Acciones</th>{%endif%}
+    <th scope="col">Acciones</th>
+{%endif%}
 {% endblock %}
 
 
@@ -16,12 +18,11 @@
         <td>{{ item.max_percent_payment }} %</td>
         <td>{{ item.bonus_percent_general }} %</td>
         <td class="table-actions">
-            <a class="btn btn-outline-primary" href="{% url 'entity_edit' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
-            <a class="btn btn-outline-primary" href="{% url 'entity_offers' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ofertas"><i class="material-icons">shopping_basket</i></a>
+            <a class="btn btn-outline-primary" href="{% market_url 'market:edit_provider' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
+            <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ofertas"><i class="material-icons">shopping_basket</i></a>
             {% if item.benefit %}
-                <a class="btn btn-outline-primary" href="{% url 'benefit_detail' item.benefit.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ventajas"><i class="material-icons">local_activity</i></a>
+                <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.benefit.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ventajas"><i class="material-icons">local_activity</i></a>
             {% endif %}
-            <a class="btn btn-outline-primary" href="{% url 'wallets:wallet_detail' item.user.wallet.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver movimientos"><i class="material-icons">swap_horiz</i></a>
         </td>
 
 {% endblock %}

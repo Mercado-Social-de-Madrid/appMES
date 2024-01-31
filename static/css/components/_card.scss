@@ -1,0 +1,21 @@
+.card{
+    .card-img-top + .container.action-btns{
+        position:relative;
+        text-align:right;
+        margin:auto;
+        margin-top:-2rem;
+        padding-right:2rem;
+    }
+
+    .action-btns.outside{
+        position:absolute;
+        bottom:-1.5rem;
+        right:1em;
+    }
+
+    .action-btns.top{
+        position:absolute;
+        top:-1.5rem;
+        right:1.5rem;
+    }
+}

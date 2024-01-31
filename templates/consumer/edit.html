@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load market_url %}
+
+{% block title %}Nueva consumidora{% endblock %}
+
+
+{% block content %}
+
+    <div class="jumbotron py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-12">
+                <h3 class="mb-0"><a href="{% market_url 'market:consumer_list' %}">Consumidoras</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.display_name}}</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <form  method="post" class="post-form gallery-form p-4 mt-3" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.node }}
+            {{form.errors}}
+
+            {% include 'consumer/form.html' %}
+
+            <button type="submit" class="right-margin left-margin btn btn-primary btn-lg">Guardar cambios </button>
+        </form>
+    </div>
+
+{% endblock %}

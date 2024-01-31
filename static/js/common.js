@@ -151,8 +151,10 @@ $(function(){
 
     $('.form-photo').on('change', 'input[type="file"]', function(){
         var input = this;
+        console.log(input);
         var imgTarget = $(input).parents('.file-field').attr('data-img-target');
         var target = $(imgTarget);
+        console.log(target);
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -168,18 +170,41 @@ $(function(){
         }
     });
 
-     $(".gallery-form").on('change', '.form-photo > input', function(){
+    $('.gallery-form').on('submit', function(event ){
+        var order = 0;
+
+        $('.gallery-form-photo').each(function(){
+            var $question = $(this);
+            $question.find('input[id$="order"]').val(order);
+            order++;
+        });
+    });
+
+     $(".gallery-form").on('change', '.form-photo input[type="file"]', function(){
         var input = this;
         var target = $(input).siblings('.thumb');
+        var imgTarget = $(input).parents('.file-field').attr('data-img-target');
+        if (imgTarget){
+            target = $(imgTarget);
+        }
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                 target.css('background-image', 'url(' + e.target.result + ')');
-                 target.parent().addClass('uploaded');
+                if (imgTarget){
+                    target.attr('src', e.target.result);
+                }
+                else{
+                    target.css('background-image', 'url(' + e.target.result + ')');
+                    target.parent().addClass('uploaded');
+                }
             }
             reader.readAsDataURL(input.files[0]);
         }
     });
+
+    $('.btn-fab-photo').on('click', function(e){
+        $(this).parents('.form-photo').find('input[type="file"]').click();
+    })
 
 	var toastCounter = 1;
     $($('.toast-messages .toast').get().reverse()).each(function(){
@@ -394,25 +419,4 @@ function showToast(message, messageClasses){
     var toast = $('<div class="toast"></div>').text(message).addClass(messageClasses);
     toast.appendTo('#main-toasts');
     setTimeout(function(){ toast.fadeOut(); }, TOAST_DELAY);
-}
-
-function show_fees(numWorkers, aproxIncome){
-    var fees = $('#fees-table td[data-min-income]');
-
-    function updateFee(){
-        var workers = numWorkers.val();
-        var income = aproxIncome.val();
-
-        fees.each(function(i, elem){
-            var fee = $(elem).removeClass('assigned-fee');
-            if ((income >= fee.data('min-income')) && (income < fee.data('max-income')) &&
-                (workers >= fee.data('min-workers')) && (workers <= fee.data('max-workers'))){
-                fee.addClass('assigned-fee');
-            }
-        });
-    }
-
-    numWorkers.on('input', updateFee);
-    aproxIncome.on('input', updateFee);
-    updateFee();
 }

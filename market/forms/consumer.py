@@ -9,8 +9,8 @@ class ConsumerForm(forms.ModelForm, BootstrapForm):
     class Meta:
         model = Consumer
         widgets = {
-            'market': forms.HiddenInput(),
+            'node': forms.HiddenInput(),
             'address': forms.Textarea(attrs={'rows': 3, }),
         }
-        exclude = []
+        exclude = ['owner']
 

@@ -18,11 +18,14 @@
     </div>
 
     <div class="container-fluid">
-        <form method="post" class="mt-3 p-4">
+        <form  method="post" class="post-form gallery-form p-4 mt-3" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.market }}
+            {{ form.node }}
+            {{form.errors}}
 
             {% include 'consumer/form.html' %}
+
+            <button type="submit" class="right-margin left-margin btn btn-primary btn-lg">Crear </button>
         </form>
     </div>
 

@@ -1,0 +1,41 @@
+{% load static %}
+
+{{form.node}}
+{{form.media}}
+<div class="row">
+    <div class="col-md-5 mb-4">
+        {% include "common/forms/field.html" with field=form.title %}
+
+        <label>Imagen de la noticia</label>
+
+        <div class="card form-photo mb-3">
+          <img class="img-fluid" id="offer-thumb" src="{% if object.banner_image %}{{ object.banner_image.url }}{% else %}{% static 'imgs/default-news.png' %}{% endif %}" alt="{{object.title}}">
+
+            <div class=" action-btns outside">
+                <a class="btn btn-primary btn-float btn-lg btn-fab-photo" href="#" data-toggle="tooltip" data-placement="bottom" title="Editar imagen"><i class="material-icons">edit</i></a>
+             </div>
+
+            <div class="file-field" data-img-target="#offer-thumb">
+            <div class="uploaded">
+                    {{ form.banner_image }}
+                </div>
+            </div>
+        </div>
+
+        {% include "common/forms/field.html" with field=form.more_info_text %}
+        {% include "common/forms/field.html" with field=form.more_info_url %}
+
+        <div class="description text-center mt-5">
+            <button type="submit" class="right-margin left-margin btn btn-primary btn-lg">Guardar </button>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+
+        {% include "common/forms/label.html" with field=form.short_description %}<br>
+        {{form.short_description}}
+        {% include "common/forms/label.html" with field=form.description%}
+        {{form.description}}
+
+    </div>
+</div>

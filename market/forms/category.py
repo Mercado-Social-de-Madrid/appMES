@@ -9,7 +9,7 @@ class CategoryForm(forms.ModelForm, BootstrapForm):
     class Meta:
         model = Category
         widgets = {
-            'market': forms.HiddenInput(),
+            'node': forms.HiddenInput(),
             'color': forms.TextInput(attrs={'class': 'color-widget'}),
         }
         exclude = []

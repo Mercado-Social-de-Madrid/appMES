@@ -9,17 +9,26 @@ class FormsetView(FormMixin):
 
     update_formset_after_save = False
 
-    def get_context_data(self, **kwargs):
-        context = super(FormsetView, self).get_context_data(**kwargs)
-        context['formsets'] = self.get_named_formsets()
-        return context
-
     def get_named_formsets(self):
-        return []
+        return {}
 
     # Optionally implement this method
     def post_form_valid(self, form):
         pass
+
+    def get_context_data(self, **kwargs):
+        context = super(FormsetView, self).get_context_data(**kwargs)
+        context['formsets'] = {}
+        formsets = self.get_named_formsets()
+        for name, formset_factory in formsets.items():
+            formset_get_initial_func = getattr(self, 'formset_{0}_get_initial'.format(name), None)
+            if formset_get_initial_func is not None:
+                context['formsets'][name] = formset_factory(initial=formset_get_initial_func())
+            else:
+                context['formsets'][name] = formset_factory()
+        return context
+
+
 
     def form_valid(self, form):
         named_formsets = self.get_named_formsets()
