@@ -9,6 +9,7 @@ class Node(models.Model):
     latitude = models.FloatField(null=False, verbose_name=_('Latitud'), default=0)
     longitude = models.FloatField(null=False, verbose_name=_('Longitud'), default=0)
 
+
     class Meta:
         verbose_name = _('Mercado')
         verbose_name_plural = _('Mercados')

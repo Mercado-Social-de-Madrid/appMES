@@ -47,7 +47,7 @@
         this.timePickerIncrement = 1;
         this.timePickerSeconds = false;
         this.linkedCalendars = true;
-        this.autoUpdateInput = false;
+        this.autoUpdateInput = true;
         this.alwaysShowCalendars = false;
         this.ranges = {};
 
@@ -59,41 +59,20 @@
         if (this.element.hasClass('dropup'))
             this.drops = 'up';
 
-        this.buttonClasses = 'btn btn-sm';
-        this.applyClass = 'btn-s btn-primary';
+        this.buttonClasses = 'btn btn-sm btn-primary';
+        this.applyClass = 'btn-s';
         this.cancelClass = 'btn-default';
 
         this.locale = {
             direction: 'ltr',
-            format: "DD/MM/YYYY HH:mm",
+            format: moment.localeData().longDateFormat('L'),
             separator: ' - ',
             applyLabel: 'Aplicar',
             cancelLabel: 'Cancelar',
             weekLabel: 'W',
             customRangeLabel: 'Personalizado',
-            daysOfWeek: [
-            "Dom",
-            "Lun",
-            "Mar",
-            "Mié",
-            "Jue",
-            "Vie",
-            "Sáb"
-        ],
-        monthNames: [
-            "Enero",
-            "Febrero",
-            "Marzo",
-            "Abril",
-            "Mayo",
-            "Junio",
-            "Julio",
-            "Agosto",
-            "Septiembre",
-            "Octubre",
-            "Noviembre",
-            "Diciembre"
-        ],
+            daysOfWeek: moment.weekdaysMin(),
+            monthNames: moment.monthsShort(),
             firstDay: moment.localeData().firstDayOfWeek()
         };
 
@@ -118,11 +97,10 @@
                 '<div class="calendar left">' +
                     '<div class="daterangepicker_input">' +
                       '<input class="input-mini form-control" type="text" name="daterangepicker_start" value="" />' +
-                      '<i class="fas fa-calendar"></i>' +
-                      '<div class="calendar-time pb-2 d-flex justify-content-center">' +
-                        '<i class="far fa-clock mt-1 mr-2"></i>' +
-                        '<div class="text-center"></div>' +
-
+                      '<i class="fa fa-calendar glyphicon glyphicon-calendar"></i>' +
+                      '<div class="calendar-time">' +
+                        '<div></div>' +
+                        '<i class="fa fa-clock-o glyphicon glyphicon-time"></i>' +
                       '</div>' +
                     '</div>' +
                     '<div class="calendar-table"></div>' +
@@ -130,18 +108,18 @@
                 '<div class="calendar right">' +
                     '<div class="daterangepicker_input">' +
                       '<input class="input-mini form-control" type="text" name="daterangepicker_end" value="" />' +
-                      '<i class="far fa-calendar"></i>' +
-                      '<div class="calendar-time d-flex">' +
+                      '<i class="fa fa-calendar glyphicon glyphicon-calendar"></i>' +
+                      '<div class="calendar-time">' +
                         '<div></div>' +
-                        '<i class="far fa-clock"></i>' +
+                        '<i class="fa fa-clock-o glyphicon glyphicon-time"></i>' +
                       '</div>' +
                     '</div>' +
                     '<div class="calendar-table"></div>' +
                 '</div>' +
                 '<div class="ranges">' +
-                    '<div class="range_inputs m-2 d-flex">' +
-                        '<button class="applyBtn flex-fill mr-2" disabled="disabled" type="button"></button> ' +
-                        '<button class="cancelBtn flex-fill" type="button"></button>' +
+                    '<div class="range_inputs">' +
+                        '<button class="applyBtn" disabled="disabled" type="button"></button> ' +
+                        '<button class="cancelBtn" type="button"></button>' +
                     '</div>' +
                 '</div>' +
             '</div>';
@@ -382,7 +360,7 @@
         if (!this.timePicker) {
             this.startDate = this.startDate.startOf('day');
             this.endDate = this.endDate.endOf('day');
-            this.container.find('.calendar-time').attr('style', 'display: none !important');
+            this.container.find('.calendar-time').hide();
         }
 
         //can't be used together for now
@@ -728,7 +706,7 @@
                 html += '<th></th>';
 
             if ((!minDate || minDate.isBefore(calendar.firstDay)) && (!this.linkedCalendars || side == 'left')) {
-                html += '<th class="prev available text-center"><i class="fas fa-2x fa-' + arrow.left + ' glyphicon glyphicon-' + arrow.left + '"></i></th>';
+                html += '<th class="prev available"><i class="fa fa-' + arrow.left + ' glyphicon glyphicon-' + arrow.left + '"></i></th>';
             } else {
                 html += '<th></th>';
             }
@@ -770,7 +748,7 @@
 
             html += '<th colspan="5" class="month">' + dateHtml + '</th>';
             if ((!maxDate || maxDate.isAfter(calendar.lastDay)) && (!this.linkedCalendars || side == 'right' || this.singleDatePicker)) {
-                html += '<th class="next available text-center"><i class="fas fa-2x fa-' + arrow.right + ' glyphicon glyphicon-' + arrow.right + '"></i></th>';
+                html += '<th class="next available"><i class="fa fa-' + arrow.right + ' glyphicon glyphicon-' + arrow.right + '"></i></th>';
             } else {
                 html += '<th></th>';
             }

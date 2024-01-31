@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import TemplateView
 
-# from helpers.pdf import render_pdf_response
+from helpers.pdf import render_pdf_response
 from market.models import Account, Provider
 import urllib.parse
 
@@ -77,11 +77,11 @@ def member_card(request):
     return render(request, 'member/card.html', card_data)
 
 
-''''@login_required
+@login_required
 def member_card_pdf(request):
     account = Account.objects.filter(owner=request.user).first()
     member_type = 'provider' if isinstance(account, Provider) else 'consumer'
     card_data = get_card_data(member_type, account)
 
     filename = 'carnet_mesm'
-    return render_pdf_response(request, 'member/card_pdf.html', card_data, filename=filename)'''
+    return render_pdf_response(request, 'member/card_pdf.html', card_data, filename=filename)

@@ -37,7 +37,7 @@ urlpatterns = [
 
     path('member/check/', views.CheckMemberStatus.as_view(), name='member_check_form'),
     path('member/card/', views.member_card, name='member_card'),
-    # path('member/card_pdf/', views.member_card_pdf, name='member_card_pdf'),
+    path('member/card_pdf/', views.member_card_pdf, name='member_card_pdf'),
     path('socia/', views.MemberCheck.as_view(), name='member_check'),
 
     path('account/', views.UserAccountDetail.as_view(), name='user_account')

@@ -24,6 +24,25 @@
 </div>
 
 <div class="container">
+
+    <div class="card detail-card">
+        <div class="card-body">
+            <label>Usuario</label>
+            {% if not object.owner %}
+                    <label class="primary-title"></label>Aún no se ha creado usuario<br>
+                    <label class="primary-title">Enlace de pre-registro</label>
+                <a href="{% settings_value 'BASESITE_URL' %}{% url 'market:market_dashboard' object.id %}" style="color:blue;" target="_blank">
+                Preregistro</a><br>
+            {% else %}
+                    <label class="primary-title">Usuario:</label>
+                    {{ object.owner.email }}<br>
+            {% endif %}
+            <label>Fecha de registro</label> {{object.owner.created_at}}<br>
+            <label class="primary-title">Último acceso:</label>
+            {% include "user/last_login.html" with user=object.owner %}
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-7 p-4">
             {% autoescape off %}
@@ -34,7 +53,7 @@
         <div class="col-md-5 p-4">
             {% include 'common/gallery.html' with gallery=gallery%}
             <hr>
-            {% include 'common/social_links.html' with obj=entity %}
+            {% include 'common/social_links.html' with obj=object %}
 
             {% if request.user.is_superuser %}
             <hr class="mt-4">

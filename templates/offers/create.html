@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load market_url %}
+{% load l10n %}
+
+{% block title %}Nueva oferta{% endblock %}
+
+
+{% block content %}
+
+    <div class="jumbotron py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-12">
+                <h3 class="mb-0"><a href="{% market_url 'market:category_list' %}">Ofertas</a><i class="material-icons md-18 ">arrow_forward_ios</i> Nueva oferta</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form method="post" class="mt-3 p-4"  enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.provider }}
+
+            {% include "offers/form.html" %}
+
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary btn-lg">Publicar oferta</button>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/daterangepicker.css" %}"/>
+{% endblock extra_styles %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static "js/moment.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/daterangepicker.js" %}"></script>
+<script type="text/javascript">
+    var startDate = $('input[name="begin_date"]');
+    var endDate = $('input[name="end_date"]');
+
+    options = {
+        cancelClass: 'btn-flat text-primary',
+        locale: calendarLocale
+    }
+    if (startDate.val()){ options['startDate'] = startDate.val(); }
+    if (endDate.val()){ options['endDate'] = endDate.val(); }
+
+    var daterange = $('#dateRange').daterangepicker(options, function(start, end, label){
+        console.log(start);
+        startDate.val(start.format('DD/MM/YYYY'));
+        endDate.val(end.format('DD/MM/YYYY'));
+    });
+
+    $('#dateRangeBtn').on('click', function(){ daterange.focus(); });
+
+</script>
+{% endblock scripts %}

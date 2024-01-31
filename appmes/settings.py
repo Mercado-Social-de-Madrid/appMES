@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 import environ
 import sentry_sdk
-from pathlib import Path
 from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -47,6 +46,7 @@ INSTALLED_APPS = [
     # Custom apps
     'authentication',
     'benefits',
+    'offers',
     'news',
     'market',
     'core',
@@ -77,7 +77,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -163,11 +162,12 @@ REST_FRAMEWORK = {
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'es-ES'
+LANGUAGE_CODE = 'es'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = False
+DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -181,6 +181,7 @@ STATIC_URL = '/static/'
 BASESITE_URL = env('BASESITE_URL')
 LOGIN_URL = reverse_lazy('auth:login')
 LOGIN_REDIRECT_URL = reverse_lazy('market:index')
+SITE_ID = 1
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -249,6 +250,19 @@ GMAPS_APIKEY = env('GOOGLE_MAPS_APIKEY')
 
 INITIAL_LATITUDE = 40.43399206106631
 INITIAL_LONGITUDE = -3.7048717038201344
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'width':'100%',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'Format', 'FontSize','TextColor', 'BGColor'],
+            ['NumberedList', 'BulletedList', '-',  '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', 'Link', 'Unlink'],
+        ]
+    },
+}
+
 
 # ======= Sentry Configuration ========
 sentry_sdk.init(

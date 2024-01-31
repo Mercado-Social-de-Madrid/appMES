@@ -19,7 +19,7 @@
         <td>{{ item.bonus_percent_general }} %</td>
         <td class="table-actions">
             <a class="btn btn-outline-primary" href="{% market_url 'market:edit_provider' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
-            <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ofertas"><i class="material-icons">shopping_basket</i></a>
+            <a class="btn btn-outline-primary" href="{% market_url 'offers:entity_offers' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ofertas"><i class="material-icons">shopping_basket</i></a>
             {% if item.benefit %}
                 <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.benefit.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ventajas"><i class="material-icons">local_activity</i></a>
             {% endif %}

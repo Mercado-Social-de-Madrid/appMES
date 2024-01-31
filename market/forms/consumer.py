@@ -1,16 +1,10 @@
-from django import forms
-
-from helpers.forms.BootstrapForm import BootstrapForm
-from market.models import Category, Provider, Consumer
+from market.forms.account import AccountForm
+from market.models import Consumer
 
 
-class ConsumerForm(forms.ModelForm, BootstrapForm):
-
-    class Meta:
+class ConsumerForm(AccountForm):
+    class Meta(AccountForm.Meta):
         model = Consumer
-        widgets = {
-            'node': forms.HiddenInput(),
-            'address': forms.Textarea(attrs={'rows': 3, }),
-        }
-        exclude = ['owner']
+
+
 

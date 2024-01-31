@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('market.urls')),
     path('', include('authentication.urls')),
     path('', include('benefits.urls')),
+    path('', include('offers.urls')),
     path('<market>/news/', include('news.urls')),
 
     path('admin/', admin.site.urls),

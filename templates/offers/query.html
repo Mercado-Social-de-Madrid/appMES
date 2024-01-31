@@ -1,0 +1,39 @@
+{% extends 'common/list/base.html' %}
+{% load static %}
+{% load market_url %}
+
+ {% block table_head %}
+    <th scope="col">Nombre</th>
+    <th scope="col">Estado</th>
+    <th scope="col">Publicada</th>
+    <th scope="col">Fecha inicio</th>
+    <th scope="col">Fecha fin</th>
+    <th scope="col">Acciones</th>
+{% endblock %}
+
+
+{% block item_row %}
+
+<td class="profile">
+          <div class="profile-circle small">
+              <img src="{% if item.banner_image %}{{item.banner_image.url}}{% else %}{% static 'imgs/default-offer.png' %}{%endif%}">
+          </div>
+
+          <h5 class="mb-0">{{item.title}}</h5>
+          {{item.provider.name}}
+        </td>
+      <td>
+
+          {% if item.status == 'current' %} <i class="material-icons md-36 text-success" data-toggle="tooltip" data-placement="bottom" title="En curso">play_circle_outline</i> {% endif %}
+          {% if item.status == 'future' %} <i class="material-icons md-36 text-warning" data-toggle="tooltip" data-placement="bottom" title="Pendiente">update</i> {% endif %}
+          {% if item.status == 'past' %} <i class="material-icons md-36 text-info" data-toggle="tooltip" data-placement="bottom" title="Pasada">restore</i> {% endif %}
+      </td>
+        <td>{{item.published_date|date:'d/m/Y'}}</td>
+      <td>{{item.begin_date|date:'d/m/Y'}}</td>
+        <td>{{item.end_date|date:'d/m/Y'}}</td>
+        <td  class="table-actions">
+            <a class="btn btn-outline-primary" href="{% market_url 'offers:detail' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Ver detalle"><i class="material-icons">visibility</i></a>
+            <a class="btn btn-outline-primary" href="{% market_url 'offers:edit' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
+        <td>
+
+{% endblock %}

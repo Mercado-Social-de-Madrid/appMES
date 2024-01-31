@@ -19,3 +19,19 @@
         right:1.5rem;
     }
 }
+
+.detail-card{
+    position:relative;
+    margin-top:-3rem;
+    margin-bottom:-1rem;
+    float:right;
+}
+
+.detail-card + .row{
+    clear:both;
+}
+
+.jumbo-header.jumbo-entity.form + .container > .card{
+    margin-top: -3rem;
+    z-index: 5;
+}

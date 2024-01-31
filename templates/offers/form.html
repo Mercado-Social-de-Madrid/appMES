@@ -1,0 +1,80 @@
+{% load static %}
+
+{{form.media}}
+
+<div class="row">
+      <div class="col-md-6 mb-4">
+        {% include "common/forms/field.html" with field=form.title %}
+
+                <div class="form-group mt-3">
+                    {{ form.begin_date }}
+                    {{ form.end_date }}
+                    <label>Periodo de validez</label>
+                    <div class="input-group  flex-wrap">
+                          <input class="form-control" id="dateRange" type="text" name="date_range" placeholder="Desde - hasta...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-primary narrow" id="dateRangeBtn" type="button"><i class="material-icons">event</i></button>
+                          </span>
+                        </div>
+                    {%if form.begin_date.errors %}
+                    <div class="d-block invalid-feedback">
+                        {%for error in form.begin_date.errors %} {{error}} {%endfor%}
+                    </div>
+                    {% endif %}
+
+                    {%if form.end_date.errors %}
+                    <div class="d-block invalid-feedback">
+                        {%for error in form.end_date.errors %} {{error}} {%endfor%}
+                    </div>
+                    {% endif %}
+                </div>
+
+          <div class="form-group" data-links="#offer-description">
+                <label>Descripción</label>
+                {{ form.description }}
+            </div>
+
+            </div>
+
+
+
+
+        <div class="col-md-6">
+                <label>Imagen de la oferta</label>
+
+            <div class="card form-photo ">
+              <img class="img-fluid" id="offer-thumb" src="{% if offer.banner_image %}{{ offer.banner_image.url }}{% else %}{%static 'imgs/default-offer.png' %}{% endif %}" alt="{{offer.title}}">
+
+                <div class=" action-btns outside">
+                    <a class="btn btn-primary btn-float btn-lg btn-fab-photo" href="#" data-toggle="tooltip" data-placement="bottom" title="Editar oferta"><i class="material-icons">edit</i></a>
+                 </div>
+
+                <div class="file-field" data-img-target="#offer-thumb">
+                <div class="uploaded">
+                        {{ form.banner_image }}
+                    </div>
+                </div>
+
+            </div>
+
+                  <div class="col-lg-8 my-4 pl-0">
+                    <div class="form-group" data-links="#offer-discount">
+                        <label>Porcentaje de descuento</label>
+                        <div class="input-group">
+                            {{ form.discount_percent }}
+                            <span class="input-group-addon"><i class="fa fa-percent" aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+
+                    {% include "common/forms/field.html" with field=form.discounted_price %}
+
+                    </div>
+
+                    {% include "common/forms/switch.html" with field=form.active %}
+                    <small class="mt-3" style="color: grey">Las ofertas no activas no se mostrarán a los usuarios. Puedes crear una encuesta desactivada y publicarla finalmente cuando creas oportuno.</small>
+
+
+        </div>
+
+</div>
+

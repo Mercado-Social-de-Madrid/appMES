@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import TemplateView, RedirectView
@@ -7,7 +8,7 @@ from market.models import Account
 
 
 # Create your views here.
-class HomeView(RedirectView):
+class HomeView(LoginRequiredMixin, RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         if self.request.user.is_superuser:
             return reverse('market:admin_dashboard')
@@ -25,7 +26,7 @@ class MarketDashboard(MarketMixin, TemplateView):
     template_name = 'dashboard/market.html'
 
 
-class UserDashboard(TemplateView):
+class UserDashboard(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard/user.html'
 
 

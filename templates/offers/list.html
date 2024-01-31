@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load market_url %}
+
+{% block title %}Ofertas{% endblock %}
+
+{% block content %}
+    <div class="jumbotron py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-7 col-md-8">
+                <h3 class="mb-0">Ofertas</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-3">
+        {% include 'common/list/ajax_wrapper.html' with query_template='offers/query.html' %}
+    </div>
+{% endblock %}

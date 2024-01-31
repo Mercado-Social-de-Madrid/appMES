@@ -28,7 +28,7 @@
                     <label class="primary-title"></label>Aún no se ha creado usuario<br>
                     <label class="primary-title">Enlace de pre-registro</label>
                 <a href="{% settings_value 'BASESITE_URL' %}{% url 'market:market_dashboard' object.id %}" style="color:blue;" target="_blank">
-                {% settings_value 'BASESITE_URL' %}{% url 'market:market_dashboard' object.id %}</a><br>
+                Preregistro</a><br>
             {% else %}
                     <label class="primary-title">Usuario:</label>
                     {{ object.owner.username }}<br>

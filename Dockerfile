@@ -11,6 +11,7 @@ COPY ./requirements.txt .
 RUN apt-get update -y && \
     apt-get install -y libpq-dev gcc && \
     apt-get install -y logrotate && \
+    apt-get install -y libcairo2 libcairo2-dev libpangocairo-1.0-0 && \
     pip install --upgrade pip
 
 COPY ./entrypoint.sh .
