@@ -23,10 +23,18 @@
 
         <div class="card detail-card">
             <div class="card-body">
-                <label>Usuario</label>
+
+                {% if object.accounts_managed.exists %}
+                {% with account=object.accounts_managed.first %}
+                    <label>Cuenta que gestiona</label>
+                    <a href="{% url account.detail_url account.node.pk account.pk %}"> {{account.display_name}} </a>
+                    <br>
+                    {% endwith %}
+                {% endif %}
+
                 <label>Fecha de registro</label> {{object.created_at}}<br>
                 <label class="primary-title">Último acceso:</label>
-                {% include "user/last_login.html" with user=object %}
+                {% include "user/last_login.html" with user=object %}<br>
             </div>
         </div>
 

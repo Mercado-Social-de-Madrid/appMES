@@ -24,11 +24,14 @@ urlpatterns = [
     path('', include('core.urls')),
     path('', include('market.urls')),
     path('', include('authentication.urls')),
+    path('', include('benefits.urls')),
+    path('<market>/news/', include('news.urls')),
 
     path('admin/', admin.site.urls),
-
-    path('<market>/news/', include('news.urls')),
 ]
+
+
+
 
 if settings.DEBUG:
     from django.conf.urls.static import static

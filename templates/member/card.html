@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% load settings_value %}
+{% load l10n %}
+
+{% block title %}Mi carnet de socia{% endblock%}
+
+{% block bodyattrs %}class="entity"{% endblock%}
+{% block extra_styles %}
+<link href="{% static "css/member-card.css" %}?v=12" rel="stylesheet" >
+{% endblock extra_styles %}
+{% block content %}
+<div class="jumbo-header jumbo-entity form" >
+    <div class="jumbotron" style="background-image:url('{% static 'css/mes.jpg' %}');">
+        <div class="container">
+        </div>
+    </div>
+</div>
+
+<div class="container px-md-5 mt-4">
+        <div class="card mx-md-5">
+          <div class="card-body px-5 pb-5">
+              <h3 class="card-title mb-4">Mi carnet de socia</h3>
+              <div class="row mb-4">
+                 <div class="col-lg-8">
+                     Este carnet certifica tu pertenencia como socia/o al Mercado Social de Madrid. Con él podrás acceder a las ventajas y descuentos por formar parte de la red. ¡Muchas gracias por tu aportación a la Economía Solidaria madrileña!<br>
+                     Puedes acceder a tu carnet a través de esta web o la app. Si lo prefieres tener físico, imprímelo pulsando este botón 👉
+                        <br> <br>
+                 </div>
+                  <div class="col-lg-4 text-center">
+                      <a href="{% url 'market:member_card' %}" class="btn p-3 mt-2 btn-lg btn-primary"><span class="material-icons mr-2">download</span>Descargar como PDF</a>
+                  </div>
+              </div>
+              {% include 'member/card_base.html' %}
+              <br>
+          </div>
+        </div>
+
+</div>
+{% endblock%}
+
+{% block scripts %}
+
+{% endblock scripts %}

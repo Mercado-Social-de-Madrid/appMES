@@ -50,6 +50,14 @@ class Provider(Account):
         return self.name
 
     @property
+    def detail_url(self):
+        return 'market:provider_detail'
+
+    @property
+    def template_prefix(self):
+        return 'provider'
+
+    @property
     def first_photo_url(self):
         if self.gallery and self.gallery.photos.count() > 0:
             image = self.gallery.photos.all().first()

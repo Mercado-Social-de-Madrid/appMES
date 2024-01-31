@@ -3,15 +3,16 @@ from django.utils.translation import gettext as _
 from django.views.generic import ListView, CreateView, DetailView, UpdateView
 
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
+from core.mixins.ListItemUrlMixin import ListItemUrlMixin
 from market.forms.consumer import ConsumerForm
 from market.mixins.current_market import MarketMixin
 from market.models import Provider, Consumer
 
 
-class ConsumerList(MarketMixin, AjaxTemplateResponseMixin, ListView):
+class ConsumerList(MarketMixin,  ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
     template_name = 'consumer/list.html'
     model = Consumer
-    objects_url_name = 'consumer_detail'
+    objects_url_name = 'detail_consumer'
     ajax_template_name = 'consumer/query.html'
     paginate_by = 15
 

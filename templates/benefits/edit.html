@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% load settings_value %}
+{% load l10n %}
+
+{% block title %}{% if is_new %}Nueva ventaja{% else %}Editar ventaja{% endif %}{% endblock%}
+
+{% block bodyattrs %}class="entity"{% endblock%}
+
+{% block content %}
+
+       <div class="jumbotron py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-12">
+                <h3 class="mb-0">Añadir ventaja</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="jumbo-header jumbo-entity form" >
+        <div class="jumbotron" {% if entity.first_photo_url %}style="background-image:url('{{entity.first_photo_url}}');"{%endif%}>
+            <div class="container">
+                <h3>{{entity.name}}</h3>
+                {{ entity.address }}
+            </div>
+        </div>
+    </div>
+
+        <div class="container px-md-5">
+            <div class="card mb-4 p-3">
+                <div class="card-body">
+                    <form method="POST" class="post-form gallery-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="card-title primary-title">
+                        <h3><i class="ic ic-news"></i> {%if is_new %}Nueva ventaja{%else%}Editar ventaja{%endif%}</h3></div>
+
+                    {{form.media}}
+                    {{form.entity}}
+
+                    {% include 'benefits/form.html' %}
+
+                    <div class="description text-center mt-5">
+                        <button type="submit" class="right-margin left-margin btn btn-primary btn-lg">{% if is_new %} Crear ventaja {% else %} Guardar {% endif %}</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+{% endblock%}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(function(){
+      $('#id_online').click(function(){
+         if($('#id_online').is(':checked')){$('#id_discount_code').parent().show();}else{$('#id_discount_code').parent().hide();}
+         if($('#id_online').is(':checked')){$('#id_discount_link').parent().show();}else{$('#id_discount_link').parent().hide();}
+         if($('#id_online').is(':checked')){$('#id_discount_link_text').parent().show();}else{$('#id_discount_link_text').parent().hide();}
+      });
+    });
+
+</script>
+{% endblock scripts %}
+

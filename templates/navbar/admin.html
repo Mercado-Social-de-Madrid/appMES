@@ -10,10 +10,32 @@
     </a>
     </li>
 
+
+
     <li class="nav-item">
-    <a class="nav-link" href="{% url 'market:market_list' %}">
-      <i class="material-icons mr-3">storefront</i>
-      Mercados
+    <a class="nav-link collapsed position-relative" data-toggle="collapse" href="#node-list" role="button" aria-expanded="false">
+      <em class="material-icons mr-3">storefront</em> Mercados
+        <em class="fas fa-chevron-down expand-btn float-right"></em>
     </a>
     </li>
+
+    <div class="collapse {% if not current_market %} show {% endif %}" id="node-list">
+        <ul class="navdrawer-nav">
+            <li class="nav-item">
+            <a class="nav-link pl-4" href="{% url 'market:market_list' %}">
+              <i class="material-icons mr-3">edit</i>
+              Editar mercados
+            </a>
+            </li>
+
+            {% for node in global.nodes %}
+            <li class="nav-item">
+            <a class="nav-link pl-4" href="{% url 'market:market_dashboard' node.pk %}">
+          <em class="material-icons mr-3">supervised_user_circle</em> {{node.name}}
+            </a>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
 </ul>

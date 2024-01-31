@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'core',
 
     # Third-party apps
+    'qrcode',
     'ckeditor',
     'imagekit',
     'sass_processor',
@@ -67,6 +68,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
@@ -85,7 +87,7 @@ MIDDLEWARE = [
 ]
 
 CSP_EXCLUDE_URL_PREFIXES = ("/admin/", "/auth/")
-CSP_DEFAULT_SRC = ("'self'", "'unsafe-inline'", 'data:', 'maps.googleapis.com', 'maps.gstatic.com')
+CSP_DEFAULT_SRC = ("'self'", "'unsafe-inline'", 'data:', 'maps.googleapis.com', 'chart.apis.google.com', 'maps.gstatic.com')
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", 'fonts.googleapis.com', 'use.fontawesome.com', 'cdnjs.cloudflare.com')
 CSP_FONT_SRC = ("'self'", "'unsafe-inline'", 'fonts.gstatic.com', 'use.fontawesome.com')
 CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", 'code.jquery.com', 'cdnjs.cloudflare.com', 'maxcdn.bootstrapcdn.com', 'maps.googleapis.com')
@@ -111,6 +113,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'market.context_processors.user_market'
             ],
             "loaders": default_loaders if DEBUG else cached_loaders,
         },
@@ -175,7 +178,8 @@ MEDIA_ROOT = os.path.join(ROOT_DIR, 'media')
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 
-LOGIN_URL = reverse_lazy('login')
+BASESITE_URL = env('BASESITE_URL')
+LOGIN_URL = reverse_lazy('auth:login')
 LOGIN_REDIRECT_URL = reverse_lazy('market:index')
 
 # Default primary key field type

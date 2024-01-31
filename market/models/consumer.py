@@ -20,7 +20,7 @@ class Consumer(Account):
 
     @property
     def detail_url(self):
-        return 'accounts:consumer_detail'
+        return 'market:detail_consumer'
 
     @property
     def display_name(self):

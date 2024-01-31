@@ -16,6 +16,8 @@
 
          {% if current_market %}
             {{ current_market.name }}
+         {% elif global.market %}
+            {{global.market.name}}
          {% endif %}
 
           <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -29,4 +31,8 @@
 
 {% if request.user.is_superuser or request.user.is_staff %}
     {% include 'navbar/drawer.html' %}
+{% else %}
+    {% if request.user.is_authenticated %}
+        {% include 'navbar/user.html' %}
+    {% endif %}
 {% endif %}

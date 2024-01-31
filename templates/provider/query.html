@@ -23,6 +23,7 @@
             {% if item.benefit %}
                 <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.benefit.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ventajas"><i class="material-icons">local_activity</i></a>
             {% endif %}
+            {% include 'account/action_user.html' %}
         </td>
 
 {% endblock %}

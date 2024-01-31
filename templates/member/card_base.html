@@ -1,0 +1,28 @@
+{% load static %}
+{% load qr_tags %}
+
+<div class="member_card">
+
+  <div class="member_qr">
+    {% qr_from_text member_qr "l" %}
+  </div>
+
+  <div class="member_profile">
+    {% if profile_image %}
+      <img src="{{profile_image.url}}">
+    {% endif %}
+  </div>
+
+  <div class="member_info">
+    <span class="member_name">{{display_name}}</span><br>
+    <span class="member_type">
+      {% include 'member/member_type.html' %}
+    </span><br>
+    <span class="member_id">Nº socia: {{member.member_id|default_if_none:'-'}}</span>
+  </div>
+
+  <div class="mesm_footer">
+    <img src="{% static 'imgs/logo_mesm.png' %}" alt="Logo MESM">
+  </div>
+
+</div>

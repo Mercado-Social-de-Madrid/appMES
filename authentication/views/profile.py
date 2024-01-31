@@ -39,7 +39,7 @@ def profile_password(request):
             user = password_form.save()
             update_session_auth_hash(request, user)  # Important!
             messages.success(request, 'Contraseña actualizada correctamente')
-            return redirect('edit_user_profile')
+            return redirect('auth:edit_profile')
 
     else:
         password_form = PasswordForm(user=request.user)

@@ -1,0 +1,37 @@
+
+tr.link-row:hover{ cursor: pointer; }
+
+.data-columns {
+  @include media-breakpoint-only(md) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 3;
+  }
+}
+
+.table-action{
+    width:35px;
+    height:35px;
+    text-align:center;
+    line-height:35px;
+    display:inline-block;
+    vertical-align:middle;
+    margin-top:-9px;
+}
+.table-action:hover{ background-color:#d7d7d7; }
+
+td.table-actions{
+    width: 1%;
+    white-space: nowrap;
+
+    a.btn{
+        padding-left:0.4rem;
+        padding-right:0.4rem;
+        border-radius:1rem;
+        min-width:0;
+    }
+}

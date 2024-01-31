@@ -1,7 +1,7 @@
 {% load market_url %}
 
-<div class="navdrawer-header mb-0">
-    <a class="navbar-brand px-0" href="#">{{ market.name }}</a>
+<div class="navdrawer-header bg-primary mb-0">
+    <a class="navbar-brand text-light px-0" href="#">{{ market.name }}</a>
 </div>
 
 <ul class="navdrawer-nav">
@@ -43,6 +43,13 @@
         <a class="nav-link" href="{% market_url 'market:consumer_list' %}">
           <i class="material-icons mr-3">directions_walk</i>
           Consumidoras
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% market_url 'benefits:list' %}">
+          <i class="material-icons mr-3">local_activity</i>
+          Ventajas
         </a>
     </li>
 
