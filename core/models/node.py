@@ -1,5 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext as _
+from imagekit.models import ProcessedImageField
+from pilkit.processors import ResizeToFit
+
+from helpers import RandomFileName
 
 
 class Node(models.Model):
@@ -9,6 +13,14 @@ class Node(models.Model):
     latitude = models.FloatField(null=False, verbose_name=_('Latitud'), default=0)
     longitude = models.FloatField(null=False, verbose_name=_('Longitud'), default=0)
 
+    contact_email = models.EmailField(null=True, blank=True, max_length=200, verbose_name=_('Email de contacto'))
+    self_register_allowed = models.BooleanField(default=False, verbose_name=_('Permitir el registro abierto'))
+    register_provider_url = models.TextField(blank=True, null=True, verbose_name=_('Enlace al formulario de registro de proveedoras'))
+    register_consumer_url = models.TextField(blank=True, null=True, verbose_name=_('Enlace al formulario de registro de consumidoras'))
+    preferred_locale = models.CharField(max_length=10, default='es-ES', verbose_name=_('Idioma preferido de la interfaz'))
+    banner_image = ProcessedImageField(null=True, blank=True, upload_to=RandomFileName('node/'),
+                                       verbose_name=_('Imagen principal'),
+                                       processors=[ResizeToFit(756, 512, upscale=False)], format='JPEG')
 
     class Meta:
         verbose_name = _('Mercado')
