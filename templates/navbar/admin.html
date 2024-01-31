@@ -1,5 +1,13 @@
-<div class="navdrawer-header mb-0">
+<div class="navdrawer-header d-flex mb-0">
     <a class="navbar-brand px-0" href="#">Administración</a>
+
+    <a class="nav-link text-dark px-2" title="Django Admin" href="{% url 'admin:index' %}">
+          <i class="material-icons">exit_to_app</i>
+    </a>
+
+    <a class="nav-link text-dark px-2" title="Django Logs" href="{% url 'log_viewer:log_file_view' %}">
+          <i class="material-icons">text_snippet</i>
+    </a>
 </div>
 
 <ul class="navdrawer-nav">
