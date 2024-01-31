@@ -16,10 +16,13 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+
+from documentation.views import DocsView
 
 urlpatterns = [
     path('admin/logs/', include('log_viewer.urls')),
+    re_path(r"^docs/(?P<path>.*)$", DocsView.as_view(), name="docs"),
     path('api/', include('api.urls')),
     path('', include('core.urls')),
     path('', include('market.urls')),

@@ -54,6 +54,14 @@ services:
       - certs:/etc/nginx/certs:rw
       - acme:/etc/acme.sh
       - /var/run/docker.sock:/var/run/docker.sock:ro
+  docs:
+    build:
+      context: .
+      dockerfile: documentation/Dockerfile
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./documentation:/docs
 
 volumes:
   postgres_data:

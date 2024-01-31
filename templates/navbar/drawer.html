@@ -1,14 +1,21 @@
 <div class="navdrawer navdrawer-permanent-lg doc-navdrawer" id="doc-navdrawer" tabindex="-1" aria-hidden="true">
   <div class="navdrawer-content">
-    <div class="d-flex flex-column doc-navdrawer-body">
+    <div class="d-flex flex-column doc-navdrawer-body h-100">
 
-    {% if request.user.is_superuser %}
-        {% include 'navbar/admin.html' %}
-    {% endif %}
+        {% if request.user.is_superuser %}
+            {% include 'navbar/admin.html' %}
+        {% endif %}
 
-    {% if current_market %}
-        {% include 'navbar/market.html' with market=current_market %}
-    {% endif %}
+        {% if current_market %}
+            {% include 'navbar/market.html' with market=current_market %}
+        {% endif %}
+
+        <div class="text-center bg-light-1 mt-auto py-1">
+            <a class="nav-link text-dark font-weight-bold" href="{% url 'docs' ''%}" target="_blank">
+                <i class="material-icons">description</i>
+                Documentación
+            </a>
+        </div>
     </div>
   </div>
 </div>

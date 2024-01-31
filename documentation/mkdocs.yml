@@ -1,0 +1,56 @@
+yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+site_name: Documentación de la AppMES
+site_url: https://0.0.0.0/docs
+
+theme:
+  name: material
+  logo: assets/brand.png
+  language: es
+  features:
+    - navigation.instant
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: lime
+      accent: orange
+      toggle:
+        icon: material/brightness-3
+        name: Modo oscuro
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: lime
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Modo claro
+
+markdown_extensions:
+  - pymdownx.emoji
+  - pymdownx.blocks.admonition
+  - pymdownx.blocks.details
+  - pymdownx.blocks.tab:
+      alternate_style: True
+
+plugins:
+  - search
+  - tags
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: eu
+          name: Euskera
+          build: true
+        - locale: es
+          name: Castellano
+          default: true
+          build: true
+        - locale: ca
+          name: Català
+          build: true
+        - locale: gl
+          name: Galego
+          build: true
