@@ -1,18 +1,19 @@
 {% load market_url %}
 
+{% with namespace=request.resolver_match.namespace url_name=request.resolver_match.url_name %}
 <div class="navdrawer-header bg-primary mb-0">
     <a class="navbar-brand text-light px-0" href="#">{{ market.name }}</a>
 </div>
 
 <ul class="navdrawer-nav">
-    <li class="nav-item">
+    <li class="nav-item {% if url_name == 'user_list' %}active{% endif %}">
         <a class="nav-link" href="{% market_url 'auth:user_list' %}">
           <i class="material-icons mr-3">face</i>
           Usuarios
         </a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item {% if namespace == 'news' and url_name == 'list' %}active{% endif %}">
         <a class="nav-link" href="{% market_url 'news:list' %}">
           <i class="material-icons mr-3">speaker_notes</i>
           Noticias
@@ -24,7 +25,7 @@
 <div class="navdrawer-divider"></div>
 
 <ul class="navdrawer-nav">
-    <li class="nav-item">
+    <li class="nav-item {% if url_name == 'category_list' %}active{% endif %}">
         <a class="nav-link" href="{% market_url 'market:category_list' %}">
           <i class="material-icons mr-3">label</i>
           Categorías
@@ -32,33 +33,33 @@
     </li>
 
 
-    <li class="nav-item">
+    <li class="nav-item {% if url_name == 'provider_list' %}active{% endif %}">
         <a class="nav-link" href="{% market_url 'market:provider_list' %}">
           <i class="material-icons mr-3">store</i>
           Proveedoras
         </a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item {% if url_name == 'consumer_list' %}active{% endif %}">
         <a class="nav-link" href="{% market_url 'market:consumer_list' %}">
           <i class="material-icons mr-3">directions_walk</i>
           Consumidoras
         </a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item {% if namespace == 'offers' and url_name == 'list' %}active{% endif %}">
         <a class="nav-link" href="{% market_url 'offers:list' %}">
           <i class="material-icons mr-3">shopping_basket</i>
           Ofertas
         </a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item {% if namespace == 'benefits' and url_name == 'list' %}active{% endif %}">
         <a class="nav-link" href="{% market_url 'benefits:list' %}">
           <i class="material-icons mr-3">local_activity</i>
           Ventajas
         </a>
     </li>
 
-
 </ul>
+{% endwith %}

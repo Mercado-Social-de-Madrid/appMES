@@ -3,7 +3,7 @@
 </div>
 
 <ul class="navdrawer-nav">
-    <li class="nav-item">
+    <li class="nav-item {% if request.resolver_match.url_name == 'user_list' %}active{% endif %}">
     <a class="nav-link" href="{% url 'auth:user_list' %}">
       <i class="material-icons mr-3">face</i>
       Usuarios
@@ -21,7 +21,7 @@
 
     <div class="collapse {% if not current_market %} show {% endif %}" id="node-list">
         <ul class="navdrawer-nav">
-            <li class="nav-item">
+            <li class="nav-item {% if request.resolver_match.url_name == 'market_list' %}active{% endif %}">
             <a class="nav-link pl-4" href="{% url 'market:market_list' %}">
               <i class="material-icons mr-3">edit</i>
               Editar mercados

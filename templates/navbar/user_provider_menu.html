@@ -1,10 +1,10 @@
  <li class="nav-item">
-    <a class="nav-link" href="{% url 'market:user_account' %}"><i class="ic ic-entity"></i> Mi entidad</a>
+    <a class="nav-link {% if request.resolver_match.url_name == 'provider_detail' %}active{% endif %}" href="{% url 'market:user_account' %}"><i class="ic ic-entity"></i> Mi entidad</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'offers:user_list' %}"><i class="ic ic-news"></i> Ofertas</a>
+    <a class="nav-link {% if request.resolver_match.url_name == 'entity_offers' %}active{% endif %}" href="{% url 'offers:user_list' %}"><i class="ic ic-news"></i> Ofertas</a>
   </li>
 
    <li class="nav-item">
-    <a class="nav-link" href="{% url 'benefits:user_benefit' %}"><i class="ic ic-news"></i> Ventajas</a>
+    <a class="nav-link {% if request.resolver_match.url_name == 'user_benefit' %}active{% endif %}" href="{% url 'benefits:user_benefit' %}"><i class="ic ic-news"></i> Ventajas</a>
   </li>
