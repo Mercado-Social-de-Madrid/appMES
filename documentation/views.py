@@ -12,10 +12,11 @@ logger = logging.getLogger(__name__)
 class DocsView(View):
 
     def get(self, request, *args, **kwargs):
+        docs_type = request.path.split('/')[2]
         lang = kwargs['path']
-        template_path = os.path.join(settings.BASE_DIR, 'documentation', 'site', lang, 'index.html')
+        template_path = os.path.join(settings.BASE_DIR, 'documentation', docs_type, 'site', lang, 'index.html')
 
-        if request.user.is_authenticated and (request.user.is_staff or request.user.is_admin):
+        if self.can_access_docs(request.user, docs_type):
             with open(template_path, "r", encoding="utf-8") as f:
                 content = f.read()
 
@@ -32,3 +33,11 @@ class DocsView(View):
         else:
             login_url = reverse('auth:login') + f'?next={request.path}'
             return HttpResponseRedirect(login_url)
+
+    def can_access_docs(self, user, docs_type):
+        permissions = user.is_authenticated
+
+        if docs_type == 'admin':
+            permissions = permissions and (user.is_staff or user.is_superuser)
+
+        return permissions

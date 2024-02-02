@@ -22,7 +22,8 @@ from documentation.views import DocsView
 
 urlpatterns = [
     path('admin/logs/', include('log_viewer.urls')),
-    re_path(r"^docs/(?P<path>.*)$", DocsView.as_view(), name="docs"),
+    re_path(r"^docs/admin/(?P<path>.*)$", DocsView.as_view(), name="admin_docs"),
+    re_path(r"^docs/user/(?P<path>.*)$", DocsView.as_view(), name="user_docs"),
     path('api/', include('api.urls')),
     path('', include('core.urls')),
     path('', include('market.urls')),

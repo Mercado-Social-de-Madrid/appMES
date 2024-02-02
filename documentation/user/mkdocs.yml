@@ -1,7 +1,7 @@
 yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
-site_name: Documentación de la AppMES
-site_url: https://0.0.0.0/docs
+site_name: Guía de usuario de la AppMES
+site_url: https://0.0.0.0/docs/user
 
 theme:
   name: material

@@ -1,0 +1,14 @@
+name: appmes
+services:
+  admin-docs:
+    build: .
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./admin:/docs
+  user-docs:
+    build: .
+    ports:
+      - "8002:8000"
+    volumes:
+      - ./user:/docs

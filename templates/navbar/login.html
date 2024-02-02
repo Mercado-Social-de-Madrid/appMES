@@ -18,6 +18,9 @@
             </form>
         </div>
       </li>
+    <a class="nav-link text-dark pr-0 px-2" title="Guía de usuario" href="{% url 'user_docs' ''%}" target="_blank">
+        <i class="material-icons-outlined">description</i>
+    </a>
 {% else %}
     <li class="nav-item">
       <a class="nav-link btn btn-outline-primary" href="{% url 'auth:login' %}"><i class="fas fa-plug" aria-hidden="true"></i> Entrar</a>
