@@ -14,8 +14,8 @@ class BenefitForm(BootstrapForm, forms.ModelForm):
         exclude = ['published_date', 'last_updated']
         widgets = {
             'entity': forms.HiddenInput(),
-            'benefit_for_entities': CKEditorWidget(attrs={'cols': 80, 'rows': 30}),
-            'benefit_for_members': CKEditorWidget(attrs={'cols': 80, 'rows': 30}),
+            'benefit_for_entities': CKEditorWidget(attrs={'rows': 30}),
+            'benefit_for_members': CKEditorWidget(attrs={'rows': 30}),
             'discount_code': forms.TextInput(attrs={'placeholder': 'Código de descuento'}),
             'discount_link_entities': forms.TextInput(attrs={ 'placeholder': 'Link del descuento para entidades'}),
             'discount_link_members': forms.TextInput(attrs={'placeholder': 'Link del descuento para socias'}),

@@ -30,3 +30,45 @@
         margin-left: calc(100% - 2.2rem);
     }
 }
+
+.navdrawer-header.bg-brand{
+    background-color: $mes-highlight;
+
+    .navbar-brand{
+        font-family: $mes-font-emphasis;
+        text-transform: uppercase;
+        font-size: 1.8rem;
+    }
+
+}
+
+.nav-tabs{
+    font-family: $mes-font-emphasis;
+    text-transform: uppercase;
+    background-color: $mes-secondary;
+
+    .nav-link{
+        color:#fff;
+        font-size: 1.6rem;
+        &::before{
+            display:none;
+        }
+        &.active{
+            color:#fff;
+            background-color: $mes-highlight;
+        }
+    }
+
+    .material-icons, .material-icons-outlined{
+        font-size: 1.114em;
+        line-height: 1;
+        vertical-align: -0.2022em;
+    }
+}
+
+h1, h2, h3, h4{ font-family: $mes-font-emphasis; }
+h1, h2{  text-transform: uppercase; }
+h1, .h1{ font-size: 5rem; }
+h2, .h2{ font-size: 3.5rem; }
+h3, .h3{ font-size: 2.1rem; }
+h4, .h4{ font-size: 1.7rem; }

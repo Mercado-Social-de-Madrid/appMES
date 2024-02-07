@@ -11,7 +11,7 @@
 
 {% block content %}
 
-    <div class="jumbotron py-4 px-2">
+    <div class="jumbotron py-4 px-2 text-light">
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
@@ -22,7 +22,7 @@
     </div>
 
 <div class="container ">
-    <div class="card detail-card">
+    <div class="card detail-card mb-3">
         <div class="card-body">
             <label>Publicada por</label> {{object.published_by}}<br>
             <label>Fecha</label> {{object.published_date}}
@@ -32,6 +32,8 @@
     <form method="post" class="my-4 post-form gallery-form" enctype="multipart/form-data">
         {% csrf_token %}
         {% include "news/form.html" %}
+        {% include "common/forms/save_btn.html" %}
+
     </form>
 </div>
 {% endblock%}

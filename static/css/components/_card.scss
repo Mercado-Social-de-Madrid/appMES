@@ -18,16 +18,25 @@
         top:-1.5rem;
         right:1.5rem;
     }
+
+    .header-img{
+        width:100%;
+        height:40%;
+        background-color:$mes-primary-light;
+        background-image: url('../imgs/entity.png');
+        background-position: center;
+        background-repeat:no-repeat;
+        background-size:contain;
+    }
 }
 
 .detail-card{
     position:relative;
     margin-top:-3rem;
-    margin-bottom:-1rem;
     float:right;
 }
 
-.detail-card + .row{
+.detail-card + *{
     clear:both;
 }
 

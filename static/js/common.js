@@ -339,6 +339,13 @@ function initElems(container){
         });
     }
 
+    container.find('[data-aspect-ratio]').each(function(){
+        var elem = $(this);
+        var ratio = parseFloat(elem.attr('data-aspect-ratio'));
+        elem.css('height', parseInt(elem.width()) * ratio + 'px');
+        console.log(ratio);
+    });
+
     container.find('.special-select').select2({ 'theme': 'default custom-select' });
 
     container.find('.popup-gallery').magnificPopup({
@@ -395,13 +402,17 @@ function initElems(container){
             select.change();
         });
     });
-
     container.find('[data-visible-by]').each(function(){
         var input = $(this);
         var visibleBy = container.find(input.attr('data-visible-by'));
         visibleBy.on('keyup change', function(){
-            value = visibleBy.val();
-            input.toggle(value !== null && value !== '')
+            if (visibleBy.is(':checkbox')){
+                input.toggle(visibleBy.is(':checked'));
+            }
+            else{
+                var value = visibleBy.val();
+                input.toggle(value !== null && value !== '');
+            }
         });
         visibleBy.change();
     });

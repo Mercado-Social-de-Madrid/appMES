@@ -7,7 +7,7 @@
 
 {% block content %}
 
-    <div class="jumbotron py-4 px-2">
+    <div class="jumbotron text-light py-4 px-2">
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
@@ -25,7 +25,7 @@
 
             {% include 'consumer/form.html' %}
 
-            <button type="submit" class="right-margin left-margin btn btn-primary btn-lg">Guardar cambios </button>
+            {% include "common/forms/save_btn.html" %}
         </form>
     </div>
 

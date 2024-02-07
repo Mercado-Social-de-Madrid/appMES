@@ -10,7 +10,7 @@
 
 {% block content %}
 
-    <div class="jumbotron py-4 px-2">
+    <div class="jumbotron text-light py-4 px-2">
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
@@ -23,7 +23,9 @@
 <form method="POST" class="post-form gallery-form mt-4" enctype="multipart/form-data">
     {% csrf_token %}
     {% include 'provider/form.html' %}
-
+    <div class="description text-center mt-3 mb-5">
+        <button type="submit" class="btn btn-primary btn-lg btn-action">Crear entidad </button>
+    </div>
 
 </form>
 {% endblock %}

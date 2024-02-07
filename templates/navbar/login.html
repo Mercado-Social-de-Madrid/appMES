@@ -4,7 +4,7 @@
           <i class="material-icons">account_circle</i> {{request.user.get_username}}
         </a>
         <div class="dropdown-menu dropdown-menu-right pt-0" aria-labelledby="navbarDropdownMenuLink">
-            <div class="bg-light p-3">
+            <div class="bg-light text-dark p-3">
                 <div class="primary-title">{{request.user.get_username}}</div>
                 <small class="text-muted">{{request.user.email}}</small>
             </div>
@@ -18,11 +18,11 @@
             </form>
         </div>
       </li>
-    <a class="nav-link text-dark pr-0 px-2" title="Guía de usuario" href="{% url 'user_docs' ''%}" target="_blank">
+    <a class="nav-link pr-0 px-2" title="Guía de usuario" href="{% url 'user_docs' ''%}" target="_blank">
         <i class="material-icons-outlined">description</i>
     </a>
 {% else %}
     <li class="nav-item">
-      <a class="nav-link btn btn-outline-primary" href="{% url 'auth:login' %}"><i class="fas fa-plug" aria-hidden="true"></i> Entrar</a>
+      <a class="nav-link btn btn-outline-primary" href="{% url 'auth:login' %}"><i class="fas fa-plug mr-2" aria-hidden="true"></i> Entrar</a>
   </li>
 {% endif %}

@@ -22,3 +22,7 @@ class Benefit(models.Model):
         verbose_name = 'Ventaja'
         verbose_name_plural = 'Ventajas'
         ordering = ['-published_date']
+
+    @property
+    def can_edit(self, user):
+        return user.is_staff

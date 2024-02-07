@@ -1,0 +1,24 @@
+<div class="jumbo-header jumbo-entity form text-light " >
+    <div class="jumbotron bg-brand pb-5" {% if account.first_photo_url %}style="background-image:url('{{account.first_photo_url}}');"{%endif%}>
+        <div class="container pb-4">
+            <div class="row">
+                <div class="{% if edit_url %}col-md-7{% else %}col-md-12{% endif %}">
+                    <h3>{{account.name}}</h3>
+                    {{account.address }}
+                </div>
+
+                {% if edit_url %}
+                <div class="col-md-5 text-right">
+                    <a href="{{edit_url}}" class="btn btn-primary btn-action"><i class="material-icons mr-2">edit</i> Editar</a>
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+
+        {% if edit_url %}
+
+        {% endif %}
+
+    </div>
+</div>

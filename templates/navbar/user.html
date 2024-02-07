@@ -1,14 +1,14 @@
 {% if not hide_toolbar %}
-<div class="nav navbar sticky-top navbar-expand-md " id="menu-nav">
+<div class="nav navbar sticky-top navbar-expand-md bg-secondary" id="menu-nav">
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-       <div class="collapse navbar-collapse" id="navbar-menu">
-           <div class="container-fluid">
+       <div class="collapse navbar-collapse " id="navbar-menu">
+           <div class="container">
            <ul class="nav nav-tabs nav-fill flex-column flex-md-row flex-lg-row">
               <li class="nav-item">
-                <a class="nav-link {% if request.resolver_match.url_name == 'user_dashboard' %}active{% endif %}" href="{% url 'market:index' %}"><i class="ic ic-home"></i> Inicio</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'user_dashboard' %}active{% endif %}" href="{% url 'market:index' %}"><i class="material-icons-outlined mr-2">home</i> Inicio</a>
               </li>
 
            {% if global.account %}

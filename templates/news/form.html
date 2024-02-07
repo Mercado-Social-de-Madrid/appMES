@@ -21,19 +21,21 @@
                 </div>
             </div>
         </div>
-
-        {% include "common/forms/field.html" with field=form.more_info_text %}
-        {% include "common/forms/field.html" with field=form.more_info_url %}
-
-        <div class="description text-center mt-5">
-            <button type="submit" class="right-margin left-margin btn btn-primary btn-lg">Guardar </button>
+        <div class="mt-4">
+            {% include "common/forms/field.html" with field=form.more_info_url %}
+            <div data-visible-by="#{{form.more_info_url.auto_id}}">
+            {% include "common/forms/field.html" with field=form.more_info_text %}
+            </div>
         </div>
+
+
+
     </div>
 
     <div class="col-md-7">
 
-        {% include "common/forms/label.html" with field=form.short_description %}<br>
-        {{form.short_description}}
+        {% include "common/forms/field.html" with field=form.short_description not_floating=True %}
+
         {% include "common/forms/label.html" with field=form.description%}
         {{form.description}}
 

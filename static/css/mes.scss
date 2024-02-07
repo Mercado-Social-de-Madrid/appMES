@@ -1,18 +1,23 @@
 // Custom.scss
 // Option A: Include all of Bootstrap
 
+$mes-font-emphasis: 'League Gothic', sans-serif;
 $font-family-brand: 'Lato', sans-serif;
 $font-family-emphasis: 'League Gothic', sans-serif;
 
-$mes-primary: #653776;
-$mes-primary-light: #8d6b99;
-$mes-primary-lighter: #b39ebe;
-$mes-secondary: #99bb14;
-$mes-secondary-light: #C6E504;
+$mes-secondary: #b6b10a;
+$mes-secondary-light: #9258af;
+$mes-secondary-lighter: #9258af;
+
+$mes-primary: #5a366c;
+$mes-primary-light: #b064ac;
+$mes-highlight: #f78154;
+
 
 $body-bg: #fcfcfc;
-$jumbotron-bg: $mes-secondary-light;
+$jumbotron-bg: $mes-secondary;
 $pagination-bg: transparent;
+.bg-brand{ background-color: $mes-highlight !important; }
 
 $primary: (
   color: $mes-primary,
@@ -25,6 +30,25 @@ $secondary: (
   dark:  darken($mes-primary, 10%),
   light: lighten($mes-primary, 10%)
 );
+
+$brand: (
+  color: $mes-highlight,
+  dark:  darken($mes-highlight, 10%),
+  light: lighten($mes-highlight, 10%)
+);
+
+$link-color: $mes-primary;
+$link-color-hover: darken($mes-primary, 10%);
+$navdrawer-nav-link-color-active: $mes-highlight;
+
+.main-bg{
+    background-image: url('../imgs/mes.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+html, body {
+  min-height: 100%;
+}
 
 @import "./material/material";
 
@@ -42,6 +66,7 @@ $secondary: (
 @import './components/card';
 @import './components/gallery';
 @import './components/tables';
+@import './components/button';
 
 .loading-spinner{
     position:absolute;

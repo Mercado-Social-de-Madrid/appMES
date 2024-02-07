@@ -9,5 +9,7 @@ class MarketForm(forms.ModelForm, BootstrapForm):
     class Meta:
         model = Node
         widgets = {
+            'register_consumer_url': forms.TextInput(),
+            'register_provider_url': forms.TextInput(),
         }
         exclude = []

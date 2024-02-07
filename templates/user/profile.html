@@ -8,15 +8,15 @@
 {% block content %}
 
 <div class="jumbo-header minimal" >
-    <div class="jumbotron">
+    <div class="jumbotron text-light">
         <div class="container text-center">
-            <h1>Mi perfil</h1>
+            <h2>Mi perfil</h2>
         </div>
     </div>
 </div>
 
 
-<div class="container px-5 mb-5">
+
 
 <ul class="nav nav-justified nav-tabs" id="tabs-content" role="tablist">
       <li class="nav-item">
@@ -26,6 +26,8 @@
         <a aria-controls="password" aria-selected="false" class="nav-link {%if password_tab%} active{%endif%}" data-toggle="tab" href="#password-form" id="password-tab" role="tab">Contraseña</a>
       </li>
 </ul>
+
+<div class="container px-5 mb-5">
 
 <div class="tab-content" id="profile-password-tabs">
   <div aria-labelledby="profile-tab" class="tab-pane p-4 px-5 {%if profile_tab%}show active{%endif%}" id="profile-form" role="tabpanel">
@@ -55,9 +57,7 @@
           </div>
 
       </div>
-      <p class="text-center">
-          <button type="submit" class="btn btn-primary btn-lg">Guardar cambios</button>
-      </p>
+      {% include "common/forms/save_btn.html" %}
   </form>
 
   </div>

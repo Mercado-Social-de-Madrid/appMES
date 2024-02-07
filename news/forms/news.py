@@ -14,8 +14,8 @@ class NewsForm(BootstrapForm, forms.ModelForm):
         exclude = ['published_by']
         widgets = {
             'node': forms.HiddenInput(),
-            'short_description': CKEditorWidget(attrs={'cols': 80, 'rows': 30}),
+            'short_description': forms.Textarea(attrs={'rows': 2}),
             'description': CKEditorWidget(attrs={'cols': 80, 'rows': 30}),
             'banner_image': forms.FileInput(attrs={}),
-            'more_info_url': forms.TextInput(),
+            'more_info_url': forms.TextInput()
         }

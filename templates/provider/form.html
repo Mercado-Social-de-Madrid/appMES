@@ -41,6 +41,28 @@
                     </div>
                 </div>
                 </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="card-title"><i class="material-icons">photo_library</i> Galería </div>
+                        {{ formsets.gallery.management_form }}
+                        {% for gallery_form in formsets.gallery %}
+                            <div class="gallery-form-photo file-field">
+                             {% if gallery_formset.can_delete %}
+                                {{ gallery_form.DELETE }}
+                            {% endif %}
+                                <div class="form-photo">
+                                    <div class="thumb" style="background-image:url('{{gallery_form.image.value.url}}');"></div>
+                                    <i class="upload material-icons" data-placement="bottom" title="Subir foto">file_upload</i>
+                                    {{ gallery_form.image }}
+                                </div>
+                            {{ gallery_form.order.as_hidden }}
+                            {{ gallery_form.title.as_hidden }}
+                                </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
             </div>
 
             <div class="col-md-5">
@@ -63,13 +85,11 @@
                     </div>
                 </div>
 
-                <div class="card p-4">
+                <div class="card mb-4 p-4">
                     {% include "common/forms/switch.html" with field=form.not_listed %}
                     {% include "common/forms/switch.html" with field=form.is_active %}
                 </div>
-            </div>
 
-            <div class="col-md-5">
                 <div class="card mb-4 pb-4">
                     <div class="social-links card-body pr-5">
                         <div class="card-title"> Redes sociales</div>
@@ -108,31 +128,12 @@
                 </div>
             </div>
 
-            <div class="col-md-7">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="card-title"><i class="material-icons">photo_library</i> Galería </div>
-                        {{ formsets.gallery.management_form }}
-                        {% for gallery_form in formsets.gallery %}
-                            <div class="gallery-form-photo file-field">
-                             {% if gallery_formset.can_delete %}
-                                {{ gallery_form.DELETE }}
-                            {% endif %}
-                                <div class="form-photo">
-                                    <div class="thumb" style="background-image:url('{{gallery_form.image.value.url}}');"></div>
-                                    <i class="upload material-icons" data-placement="bottom" title="Subir foto">file_upload</i>
-                                    {{ gallery_form.image }}
-                                </div>
-                            {{ gallery_form.order.as_hidden }}
-                            {{ gallery_form.title.as_hidden }}
-                                </div>
-                        {% endfor %}
-                    </div>
-                </div>
+            <div class="col-md-5">
 
-                <div class="description text-center mt-5">
-                    <button type="submit" class="right-margin left-margin btn btn-primary btn-lg">{% if is_new %} Crear entidad {% else %} Guardar {% endif %}</button>
-                </div>
+            </div>
+
+            <div class="col-md-7">
+
             </div>
 
        </div>

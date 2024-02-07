@@ -9,15 +9,11 @@
 {% block bodyattrs %}class="entity"{% endblock%}
 
 {% block content %}
-<div class="jumbo-header jumbo-entity form" >
-    <div class="jumbotron" {% if entity.first_photo_url %}style="background-image:url('{{entity.first_photo_url}}');"{%endif%}>
-        <div class="container">
-            <h3>{{object.provider.name}}</h3>
-            {{ object.provider.address }}
-        </div>
 
-    </div>
-</div>
+
+{% market_url 'offers:edit' object.pk as url %}
+{% include 'provider/header_detail.html' with account=object.provider edit_url=url %}
+
 
 <div class="container px-md-5">
         <div class="card mx-md-5" >
@@ -26,7 +22,6 @@
           <div class="card-body px-5 py-4">
               <div class="d-flex align-items-center">
                     <h4 class="card-title flex-grow-1">{{object.title}}</h4>
-                    <a href="{% market_url 'offers:edit' object.pk %}" class="btn btn-primary btn-lg"><i class="material-icons mr-2">mode_edit</i> Editar</a>
               </div>
             <div class="card-text">
                 {% autoescape off %}

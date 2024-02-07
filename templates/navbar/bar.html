@@ -1,7 +1,7 @@
 {% load static %}
 
 {% if not 'from_app' in request.GET and not hide_navbar and not 'hide_toolbar' in request.GET %}
-<nav id="top-bar" class="navbar navbar-expand navbar-secondary bg-secondary sticky-top
+<nav id="top-bar" class="navbar navbar-expand navbar-secondary bg-primary text-light sticky-top
     {% if request.user.is_superuser or request.user.is_staff %} navbar-drawer {% endif %}"
     style="{% if current_market %} {% endif %}"
 >
@@ -12,7 +12,7 @@
          </button>
          {% endif %}
 
-         <a class="navbar-brand" href="#"><img src="{% static '/imgs/brand.png' %}" height="30" class="d-inline-block align-top" alt=""></a>
+         <a class="navbar-brand" href="/"><img src="{% static '/imgs/brand.png' %}" height="30" class="d-inline-block align-top" alt=""></a>
 
          {% if current_market %}
             {{ current_market.name }}

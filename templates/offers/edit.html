@@ -8,11 +8,16 @@
 
 {% block content %}
 
-    <div class="jumbotron py-4 px-2">
-        <div class="container-fluid">
+    <div class="jumbotron py-4 px-2 text-light">
+        <div class="container">
             <div class="row">
             <div class="col-sm-12">
-                <h3 class="mb-0">Ofertas <i class="material-icons md-18 ">arrow_forward_ios</i> {{object.title}}</h3>
+                {% if request.user.is_staff %}
+                    {% market_url 'offers:list' as offers_url %}
+                {% else %}
+                    {% url 'offers:user_list' as offers_url %}
+                {% endif %}
+                <h3 class="mb-0"><a href="{{offers_url}}">Ofertas</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.title}}</h3>
             </div>
         </div>
         </div>
@@ -25,9 +30,7 @@
 
             {% include "offers/form.html" %}
 
-            <div class="text-center mt-3">
-                <button type="submit" class="btn btn-primary btn-lg">Publicar oferta</button>
-            </div>
+            {% include "common/forms/save_btn.html" %}
 
         </form>
     </div>

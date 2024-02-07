@@ -7,7 +7,7 @@
 
 {% block content %}
 
-    <div class="jumbotron py-4 px-2">
+    <div class="jumbotron text-light py-4 px-2">
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
@@ -34,4 +34,5 @@
 
 {% block scripts %}
 {% include 'common/include_gmaps.html' with update_field=True initial_zoom=6 %}
+{% include "market/script_fields.html" %}
 {% endblock %}

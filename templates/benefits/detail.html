@@ -9,22 +9,15 @@
 {% block bodyattrs %}class="entity"{% endblock%}
 
 {% block content %}
-<div class="jumbo-header jumbo-entity minimal form" >
-    <div class="jumbotron" {% if benefit.entity.first_photo_url %}style="background-image:url('{{entity.first_photo_url}}');"{%endif%}>
-        <div class="container">
-            <h3>{{benefit.entity.name}}</h3>
-            {{ benefit.entity.address }}
-        </div>
-    </div>
-</div>
+
+{% if request.user.is_staff %}
+    {% url 'benefits:edit' benefit.entity.node.pk object.pk as url %}
+{% endif %}
+
+{% include 'provider/header_detail.html' with account=benefit.entity edit_url=url %}
 
 <div class="container px-md-5">
         <div class="card pb-4 px-">
-            {% if can_edit %}
-            <div class="action-btns top">
-                <a class="btn btn-primary btn-float btn-lg" href="{% market_url 'benefits:edit' benefit.pk %}"  style="z-index:200;" data-toggle="tooltip" data-placement="bottom" title="Editar ventaja"><i class="material-icons">mode_edit</i></a>
-            </div>
-            {% endif %}
 
         <div class="card-body px-5">
             <div class="primary-title lead d-flex  justify-content-around align-items-center mt-4">

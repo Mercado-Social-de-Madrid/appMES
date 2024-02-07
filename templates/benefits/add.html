@@ -60,7 +60,7 @@
                     {% include 'benefits/form.html' %}
 
                     <div class="description text-center mt-5">
-                        <button type="submit" class="right-margin left-margin btn btn-primary btn-lg">Crear ventaja</button>
+                        <button type="submit" class="right-margin left-margin btn btn-primary btn-lg btn-action">Crear ventaja</button>
                     </div>
                     </form>
                 </div>
@@ -101,26 +101,10 @@
 
 {% block scripts %}
 <script type="text/javascript">
-    $(function(){
-      $('#id_online').click(function(){
-         if($('#id_online').is(':checked')){
-            $('#id_discount_code').parent().show();
-            $('#id_discount_link').parent().show();
-            $('#id_discount_link_text').parent().show();
-         }
-         else{
-            $('#id_discount_code').parent().hide();
-            $('#id_discount_link').parent().hide();
-            $('#id_discount_link_text').parent().hide();
-         }
-      });
-    });
 
     var benefitTo = $('#entity_input');
     var fromValue = $('#{{form.entity.auto_id}}');
-
     var benefitToBtn = $('#fromBtn');
-
     var entitiesModal = $('#entities-modal');
 
     benefitToBtn.on('click', function(){
