@@ -1,8 +1,8 @@
 ---
-weight: 3
+icon: material/newspaper
 ---
 
-# :material-newspaper: Gestionar noticias
+# Gestionar noticias
 
 ## :fontawesome-solid-plus: Publicar noticia
 

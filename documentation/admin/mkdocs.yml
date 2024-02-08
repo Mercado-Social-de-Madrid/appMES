@@ -10,6 +10,7 @@ theme:
   features:
     - navigation.instant
     - navigation.expand
+    - navigation.indexes
     - toc.follow
   palette:
     # Palette toggle for light mode
@@ -62,6 +63,13 @@ plugins:
 
 nav:
   - index.md
-  - menu.md
-  - usuarios.md
-  - noticias.md
+  - Menú lateral:
+      - menu_lateral/index.md
+      - menu_lateral/usuarias.md
+      - menu_lateral/noticias.md
+      - menu_lateral/categorias.md
+      - menu_lateral/proveedoras.md
+      - menu_lateral/consumidoras.md
+      - menu_lateral/ofertas.md
+      - menu_lateral/ventajas.md
+  - versiones.md
