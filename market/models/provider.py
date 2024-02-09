@@ -62,7 +62,7 @@ class Provider(Account):
         if self.gallery and self.gallery.photos.count() > 0:
             image = self.gallery.photos.all().first()
             if image:
-                return image.image.url
+                return image.photo.url
         return None
 
     @property

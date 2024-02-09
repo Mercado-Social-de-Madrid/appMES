@@ -52,9 +52,9 @@
                                 {{ gallery_form.DELETE }}
                             {% endif %}
                                 <div class="form-photo">
-                                    <div class="thumb" style="background-image:url('{{gallery_form.image.value.url}}');"></div>
+                                    <div class="thumb" style="background-image:url('{{gallery_form.photo.value.url}}');"></div>
                                     <i class="upload material-icons" data-placement="bottom" title="Subir foto">file_upload</i>
-                                    {{ gallery_form.image }}
+                                    {{ gallery_form.photo }}
                                 </div>
                             {{ gallery_form.order.as_hidden }}
                             {{ gallery_form.title.as_hidden }}

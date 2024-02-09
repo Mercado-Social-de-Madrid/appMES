@@ -6,6 +6,7 @@ from core.forms.galleryform import PhotoGalleryForm
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.FormsetView import FormsetView
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
+from core.models import Gallery
 from market.forms.provider import ProviderForm
 from market.mixins.current_market import MarketMixin
 from market.models import Category, Provider
@@ -84,15 +85,23 @@ class UpdateProvider(MarketMixin, UpdateView, FormsetView):
         return context
 
     def formset_gallery_get_initial(self):
-        return PhotoGalleryForm.get_initial()
+        return PhotoGalleryForm.get_initial(gallery=self.object.gallery)
 
-    def formset_gallery_valid(self, gallery, provider):
-        for photo_form in gallery:
+    def formset_gallery_valid(self, gallery_formset, provider):
+        if provider.gallery is None:
+            gallery = Gallery.objects.create()
+        else:
+            gallery = provider.gallery
+
+        for photo_form in gallery_formset:
             photo = photo_form.save(commit=False)
             if not photo.photo or photo_form.cleaned_data.get('DELETE'):
                 continue
             photo.gallery = gallery
             photo.save()
+
+        provider.gallery = gallery
+        provider.save()
 
 
     def get_success_url(self):

@@ -29,7 +29,7 @@ class PhotoGalleryForm(forms.ModelForm):
             photos_data.append({
                 'order': photo.order,
                 'title': photo.title,
-                'photo': photo.image
+                'photo': photo.photo
             })
 
         return photos_data
@@ -44,7 +44,7 @@ class PhotoGalleryForm(forms.ModelForm):
         GalleryPhoto.objects.filter(gallery=gallery).delete()
         for photo_form in gallery_formset:
             photo = photo_form.save(commit=False)
-            if not photo.image  or photo_form.cleaned_data.get('DELETE'):
+            if not photo.photo  or photo_form.cleaned_data.get('DELETE'):
                 continue
             photo.gallery = gallery
             photo.save()

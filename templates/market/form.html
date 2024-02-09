@@ -4,7 +4,9 @@
   <div class="col-sm-9 col-md-5 ">
     {% include "common/forms/field.html" with field=form.name %}
 
-  {% include "common/forms/field.html" with field=form.shortname %}
+    {% include "common/forms/field.html" with field=form.shortname %}
+
+      {% include "common/forms/field.html" with field=form.preferred_locale %}
 
       {% include "common/forms/field.html" with field=form.contact_email %}
 

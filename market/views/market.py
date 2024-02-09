@@ -24,6 +24,7 @@ class EditMarket(UpdateView):
     template_name = 'market/edit.html'
     form_class = MarketForm
     model = Node
+    initial = {'preffered_locale': 'es-ES'}
 
     def get_success_url(self):
         messages.success(self.request, _('Datos actualizados correctamente.'))
