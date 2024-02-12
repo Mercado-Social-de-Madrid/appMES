@@ -5,12 +5,11 @@ meta {
 }
 
 get {
-  url: {{URL}}/api/proveedoras/
+  url: {{URL}}/api/providers/?node=MAD
   body: none
   auth: none
 }
 
 query {
-  ~mercado: Madrid
-  ~mercado: MAD
+  node: MAD
 }

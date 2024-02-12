@@ -9,5 +9,5 @@ from news.models import News
 class NewsViewSet(FilterByNodeMixin, viewsets.ReadOnlyModelViewSet):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
-    filterset_fields = ['node', 'published_by']
+    filterset_fields = ['published_by']
     search_fields = ['title', 'short_description', 'description']

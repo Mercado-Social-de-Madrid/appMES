@@ -8,10 +8,10 @@ from api.views.news import NewsViewSet
 
 router = DefaultRouter()
 router.register("devices", FCMDeviceAuthorizedViewSet)
-router.register("mercados", NodeViewSet)
-router.register("proveedoras", ProviderViewSet)
-router.register("categorias", CategoryViewSet)
-router.register("noticias", NewsViewSet)
+router.register("nodes", NodeViewSet)
+router.register("providers", ProviderViewSet)
+router.register("categories", CategoryViewSet)
+router.register("news", NewsViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),

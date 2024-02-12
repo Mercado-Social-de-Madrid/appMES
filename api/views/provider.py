@@ -8,4 +8,3 @@ from market.models import Provider
 class ProviderViewSet(FilterByNodeMixin, viewsets.ReadOnlyModelViewSet):
     queryset = Provider.objects.all()
     serializer_class = ProviderSerializer
-    filterset_fields = ['node']

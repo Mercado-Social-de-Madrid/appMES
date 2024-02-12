@@ -8,5 +8,4 @@ from market.models import Category
 class CategoryViewSet(FilterByNodeMixin, viewsets.ReadOnlyModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    filterset_fields = ['node']
     search_fields = ['name', 'description']
