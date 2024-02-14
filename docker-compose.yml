@@ -12,6 +12,8 @@ services:
       - gunicorn_pid:/var/run/gunicorn/
       - ../config/logrotate:/etc/logrotate.d
       - ../config/firebase:/firebase/
+      - ../static:/static
+      - ../media:/media
     env_file:
       - ./.env
     depends_on:
