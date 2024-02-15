@@ -1,0 +1,65 @@
+[
+{
+    "model": "core.socialnetwork",
+    "pk": "Facebook",
+    "fields": {
+        "logo": "logos_redes_sociales/facebook.svg"
+    }
+},
+{
+    "model": "core.socialnetwork",
+    "pk": "Fediverso",
+    "fields": {
+        "logo": "logos_redes_sociales/fediverso.svg"
+    }
+},
+{
+    "model": "core.socialnetwork",
+    "pk": "Instagram",
+    "fields": {
+        "logo": "logos_redes_sociales/instagram.svg"
+    }
+},
+{
+    "model": "core.socialnetwork",
+    "pk": "Linkedin",
+    "fields": {
+        "logo": "logos_redes_sociales/linkedin.svg"
+    }
+},
+{
+    "model": "core.socialnetwork",
+    "pk": "Pinterest",
+    "fields": {
+        "logo": "logos_redes_sociales/pinterest.svg"
+    }
+},
+{
+    "model": "core.socialnetwork",
+    "pk": "Telegram",
+    "fields": {
+        "logo": "logos_redes_sociales/telegram.svg"
+    }
+},
+{
+    "model": "core.socialnetwork",
+    "pk": "Whatsapp",
+    "fields": {
+        "logo": "logos_redes_sociales/whatsapp.svg"
+    }
+},
+{
+    "model": "core.socialnetwork",
+    "pk": "X",
+    "fields": {
+        "logo": "logos_redes_sociales/x.svg"
+    }
+},
+{
+    "model": "core.socialnetwork",
+    "pk": "Youtube",
+    "fields": {
+        "logo": "logos_redes_sociales/youtube.svg"
+    }
+}
+]
