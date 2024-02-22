@@ -43,6 +43,13 @@
 },
 {
     "model": "core.socialnetwork",
+    "pk": "TikTok",
+    "fields": {
+        "logo": "logos_redes_sociales/tiktok.svg"
+    }
+},
+{
+    "model": "core.socialnetwork",
     "pk": "Whatsapp",
     "fields": {
         "logo": "logos_redes_sociales/whatsapp.svg"

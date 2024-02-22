@@ -1,8 +1,10 @@
 from django.contrib import messages
+from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import gettext as _
 from django.views.generic import ListView, CreateView, UpdateView, DetailView
 
 from core.forms.galleryform import PhotoGalleryForm
+from core.forms.social_profiles import SocialProfileForm, ProviderSocialProfileForm
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.FormsetView import FormsetView
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
@@ -30,7 +32,8 @@ class CreateProvider(MarketMixin, CreateView, FormsetView):
 
     def get_named_formsets(self):
         return {
-            'gallery': PhotoGalleryForm.getGalleryFormset()
+            'gallery': PhotoGalleryForm.getGalleryFormset(),
+            'social_profiles': ProviderSocialProfileForm.getSocialProfileFormset()
         }
 
     def get_context_data(self, **kwargs):
@@ -49,6 +52,18 @@ class CreateProvider(MarketMixin, CreateView, FormsetView):
             photo.gallery = gallery
             photo.save()
 
+    def formset_social_profiles_get_initial(self):
+        return SocialProfileForm.get_initial()
+
+    def formset_social_profiles_valid(self, social_profiles, provider):
+        for social_profile_form in social_profiles:
+            url = social_profile_form.cleaned_data.get("url")
+            if url:
+                social_profile = social_profile_form.save(commit=False)
+                if social_profile:
+                    social_profile.provider = provider
+                    social_profile.save()
+
     def get_initial(self):
         return {
             'node': self.node,
@@ -60,6 +75,7 @@ class CreateProvider(MarketMixin, CreateView, FormsetView):
         messages.success(self.request, _('Proveedora añadida correctamente.'))
         return self.reverse('market:provider_list')
 
+
 class DetailProvider(MarketMixin, DetailView):
     template_name = 'provider/detail.html'
     model = Provider
@@ -69,6 +85,7 @@ class DetailProvider(MarketMixin, DetailView):
 
         return context
 
+
 class UpdateProvider(MarketMixin, UpdateView, FormsetView):
     template_name = 'provider/edit.html'
     model = Provider
@@ -76,7 +93,8 @@ class UpdateProvider(MarketMixin, UpdateView, FormsetView):
 
     def get_named_formsets(self):
         return {
-            'gallery': PhotoGalleryForm.getGalleryFormset()
+            'gallery': PhotoGalleryForm.getGalleryFormset(),
+            'social_profiles': SocialProfileForm.getSocialProfileFormset()
         }
 
     def get_context_data(self, **kwargs):
@@ -102,6 +120,22 @@ class UpdateProvider(MarketMixin, UpdateView, FormsetView):
 
         provider.gallery = gallery
         provider.save()
+
+    def formset_social_profiles_get_initial(self):
+        return SocialProfileForm.get_initial(initial_social_profiles=self.object.social_profiles)
+
+    def formset_social_profiles_valid(self, social_profiles, provider):
+        for social_profile_form in social_profiles:
+            url = social_profile_form.cleaned_data.get("url")
+            if url:
+                try:
+                    social_profile = provider.social_profiles.get(social_network=social_profile_form.cleaned_data.get("social_network"))
+                except ObjectDoesNotExist:
+                    social_profile = social_profile_form.save(commit=False)
+                if social_profile:
+                    social_profile.provider = provider
+                    social_profile.url = url
+                    social_profile.save()
 
 
     def get_success_url(self):

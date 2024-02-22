@@ -93,36 +93,26 @@
                 <div class="card mb-4 pb-4">
                     <div class="social-links card-body pr-5">
                         <div class="card-title"> Redes sociales</div>
-                        <div class="form-group mb-0">
-                        <div class="input-group">
-                          <span class="input-group-addon" data-toggle="tooltip" data-placement="bottom" title="Página de Facebook"><i class="fa fa-facebook " aria-hidden="true"></i></span>
-                          {% include "common/forms/field.html" with field=form.facebook_link %}
+
+                        <div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                  <i class="fa fa-globe fa-2xl social-network-logo" aria-hidden="true"></i></span>
+                                  {{form.webpage_link}}
+                                </div>
+                            </div>
+                            {{ formsets.social_profiles.management_form }}
+                            {% for social_profile_form in formsets.social_profiles %}
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        {{ social_profile_form.id }}
+                                        {{ social_profile_form.social_network }}
+                                        {{ social_profile_form.url }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+
                         </div>
-                        </div>
-
-                        <div class="form-group mb-0">
-                        <div class="input-group">
-                          <span class="input-group-addon" data-toggle="tooltip" data-placement="bottom" title="Perfil de Twitter"><i class="fa fa-twitter " aria-hidden="true"></i></span>
-                          {% include "common/forms/field.html" with field=form.twitter_link %}
-                        </div></div>
-
-                        <div class="form-group">
-                        <div class="input-group">
-                          <span data-toggle="tooltip" data-placement="bottom" title="Página web" class="input-group-addon" ><i class="fa fa-globe " aria-hidden="true"></i></span>
-                          {{form.webpage_link}}
-                        </div></div>
-
-                        <div class="form-group">
-                        <div class="input-group">
-                          <span data-toggle="tooltip" data-placement="bottom" title="Canal de telegram" class="input-group-addon" ><i class="fa fa-telegram " aria-hidden="true"></i></span>
-                          {{form.telegram_link}}
-                        </div></div>
-
-                        <div class="form-group">
-                        <div class="input-group">
-                          <span data-toggle="tooltip" data-placement="bottom" title="Perfil de Instagram" class="input-group-addon" ><i class="fa fa-instagram " aria-hidden="true"></i></span>
-                          {{form.instagram_link}}
-                        </div></div>
 
                     </div>
                 </div>

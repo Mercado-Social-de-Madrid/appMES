@@ -46,7 +46,6 @@
             {% include 'common/gallery.html' with gallery=object.gallery %}
             <hr>
             {% include 'common/social_links.html' with obj=object %}
-
             {% if request.user.is_superuser %}
             <hr class="mt-4">
             <h4 class="mb-3">Usuario</h4>

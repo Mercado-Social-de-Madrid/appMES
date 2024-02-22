@@ -23,17 +23,15 @@ class FormsetView(FormMixin):
         for name, formset_factory in formsets.items():
             formset_get_initial_func = getattr(self, 'formset_{0}_get_initial'.format(name), None)
             if formset_get_initial_func is not None:
-                context['formsets'][name] = formset_factory(initial=formset_get_initial_func())
+                context['formsets'][name] = formset_factory(initial=formset_get_initial_func(), prefix=name)
             else:
-                context['formsets'][name] = formset_factory()
+                context['formsets'][name] = formset_factory(prefix=name)
         return context
-
-
 
     def form_valid(self, form):
         named_formsets = self.get_named_formsets()
-        for formset in named_formsets.values():
-            formset_instance = formset(self.request.POST, self.request.FILES)
+        for formset_name, formset_class in named_formsets.items():
+            formset_instance = formset_class(self.request.POST, self.request.FILES, prefix=formset_name)
             if not formset_instance.is_valid():
                 errors = formset_instance.errors
                 print(errors)
@@ -45,10 +43,10 @@ class FormsetView(FormMixin):
         # for every formset, attempt to find a specific formset save function
         # otherwise, just save.
 
-        for name, formset in named_formsets.items():
-            formset_instance = formset(self.request.POST, self.request.FILES)
+        for formset_name, formset_class in named_formsets.items():
+            formset_instance = formset_class(self.request.POST, self.request.FILES, prefix=formset_name)
             if formset_instance.is_valid():
-                formset_save_func = getattr(self, 'formset_{0}_valid'.format(name), None)
+                formset_save_func = getattr(self, 'formset_{0}_valid'.format(formset_name), None)
                 if formset_save_func is not None:
                     formset_save_func(formset_instance, self.object)
                 else:
