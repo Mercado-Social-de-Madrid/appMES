@@ -1,0 +1,27 @@
+{% load market_url %}
+{% load settings_value %}
+
+<label>Usuario:</label>
+{% if not user %}
+        <label class="primary-title"></label>Aún no se ha creado usuario"<br>
+        <label class="primary-title">Enlace de pre-registro</label>
+    <a href="{% settings_value 'BASESITE_URL' %}{% url 'market:market_dashboard' object.id %}" style="color:blue;" target="_blank">
+    Preregistro</a><br>
+{% else %}
+        <a href="{% market_url 'auth:user_detail' user.pk %}">{% include "user/row_display.html"  %} </a> <br>
+{% endif %}
+<label>Fecha de registro</label> {{user.created_at|date:'d/m/Y H:i'}}<br>
+<label class="primary-title">Último acceso:</label>
+{% include "user/last_login.html" %}
+
+{% if user.is_preregistered %}
+<hr>
+            <strong class="text-primary">Prerregistro</strong><br>
+            El usuario aún no hay completado el registro
+            <form class="pt-3" method="post" action="{% url 'auth:preregister_send_email' user.preregister.first.id %}">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{% market_url 'auth:user_detail' user.pk %}">
+                <a class="btn btn-secondary mb-2 copy-clipboard mr-2" href="#" data-clipboard-text="{% url 'auth:preregister' user.preregister.first.id %}"> <i class="material-icons mr-2">link</i>Copiar enlace </a>
+                 <button type="submit" class="btn btn-primary mb-2 copy-clipboard"> <i class="material-icons mr-2">send</i>Reenviar email </button>
+            </form>
+        {% endif %}

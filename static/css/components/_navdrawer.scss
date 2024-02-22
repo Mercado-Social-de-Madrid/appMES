@@ -1,8 +1,8 @@
 @media (min-width: 992px){
     .navdrawer-permanent-lg {
-        z-index: map-get($navdrawer-elevation-shadow, elevation);
+        z-index: 1500;
     }
-    .navdrawer-permanent-lg + #main-content, .navbar-drawer .container{
+    .navdrawer-permanent-lg + #main-content, .navbar-drawer .container, .navbar-drawer .container-fluid{
         margin-left:$navdrawer-width;
     }
     .navdrawer-permanent-lg + #main-content .modal.show{
@@ -41,6 +41,22 @@
     }
 
 }
+#top-bar{ position:relative; z-index:1000; }
+#top-bar .navbar-brand{
+    top:0;
+    bottom:0;
+    height:3.5rem;
+     margin:-$toolbar-padding-y 0;
+     margin-left:1.22rem;
+     padding:0 3rem 0 1.5rem;
+     background:linear-gradient(107deg, white, white 85%, transparent 86%, transparent);
+}
+@media (min-width: 992px) {
+  #top-bar.navbar-drawer .navbar-brand {
+    margin-left: -1.1rem;
+}
+}
+
 
 .nav-tabs{
     font-family: $mes-font-emphasis;

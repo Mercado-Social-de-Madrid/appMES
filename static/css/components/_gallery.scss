@@ -85,3 +85,8 @@
     margin-top:-40px;
     z-index:100;
 }
+
+.bg-checkers{
+    background:#f00;
+    background: repeating-conic-gradient(#dedede 0% 25%, transparent 0% 50%) 50% / 20px 20px;
+}

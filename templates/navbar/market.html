@@ -2,7 +2,10 @@
 
 {% with namespace=request.resolver_match.namespace url_name=request.resolver_match.url_name %}
 <div class="navdrawer-header bg-brand mb-0">
-    <a class="navbar-brand text-light px-0" href="#">{{ market.name }}</a>
+    <div class="navbar-brand d-flex text-light px-0" href="#">
+        <div>{{ market.name }}</div>
+        {% if request.user.is_superuser %}<a class="btn btn-outline-light expand-btn ml-auto" href="{% url 'market:edit_market' market.pk %}" data-toggle="tooltip" data-placement="bottom" title="Editar mercado"><i class="material-icons">edit</i></a>{% endif %}
+    </div>
 </div>
 
 <ul class="navdrawer-nav">

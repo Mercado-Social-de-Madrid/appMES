@@ -2,24 +2,53 @@ from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import gettext as _
 from django.views.generic import ListView, CreateView, UpdateView, DetailView
+from django_filters import FilterSet
 
 from core.forms.galleryform import PhotoGalleryForm
 from core.forms.social_profiles import SocialProfileForm, ProviderSocialProfileForm
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
+from core.mixins.ExportAsCSVMixin import ExportAsCSVMixin
 from core.mixins.FormsetView import FormsetView
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
 from core.models import Gallery
-from market.forms.provider import ProviderForm
+from helpers.filters.LabeledOrderingFilter import LabeledOrderingFilter
+from helpers.filters.SearchFilter import SearchFilter
+from helpers.filters.filtermixin import FilterMixin
+from helpers.forms.BootstrapForm import BootstrapForm
+from market.forms.provider import ProviderForm, CreateProviderForm
 from market.mixins.current_market import MarketMixin
 from market.models import Category, Provider
+from django_filters.views import FilterView
 
 
-class ProviderList(MarketMixin,  ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
+class ProviderFilterForm(BootstrapForm):
+    field_order = [ 'search', 'categories', 'o',]
+
+
+class ProviderFilter(FilterSet):
+
+    search = SearchFilter(names=['address', 'cif', 'name', 'email', 'member_id'], lookup_expr='in', label=_('Buscar...'))
+    o = LabeledOrderingFilter(fields=['name', 'registration_date', 'last_updated'],
+                              field_labels={'last_name':'Apellido', 'registration_date':'Fecha de alta', 'last_updated':'ÚLtima actualización'})
+
+    class Meta:
+        model = Provider
+        form = ProviderFilterForm
+        fields = { 'categories' }
+
+
+class ProviderList(FilterMixin, MarketMixin,  ExportAsCSVMixin, FilterView, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
     template_name = 'provider/list.html'
     model = Provider
+    filterset_class = ProviderFilter
     objects_url_name = 'provider_detail'
     ajax_template_name = 'provider/query.html'
     paginate_by = 15
+
+    available_fields = ['cif', 'name', 'address', 'email', 'contact_phone', 'node',
+                        'description', 'short_description', 'legal_form_title', 'num_workers' ]
+
+    field_labels = {'node': _('Mercado'),}
 
     def get_queryset(self):
         return super().get_queryset().filter(node=self.node)
@@ -77,7 +106,7 @@ class ProviderFormSet(FormsetView):
 class CreateProvider(MarketMixin, CreateView, ProviderFormSet):
     template_name = 'provider/create.html'
     model = Provider
-    form_class = ProviderForm
+    form_class = CreateProviderForm
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

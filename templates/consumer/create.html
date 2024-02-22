@@ -25,7 +25,13 @@
 
             {% include 'consumer/form.html' %}
 
-            <button type="submit" class="right-margin left-margin btn btn-primary btn-lg">Crear </button>
+            <div class="mt-3 card bg-warning p-3 mx-auto" style="max-width:30rem;">
+
+                {% include 'account/preregister_switch.html' %}
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary btn-action btn-lg">Añadir consumidora</button>
+                </div>
+            </div>
         </form>
     </div>
 

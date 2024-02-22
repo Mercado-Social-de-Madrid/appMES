@@ -9,21 +9,21 @@
     <div class="jumbotron text-light py-4 px-2">
         <div class="container-fluid">
             <div class="row">
-            <div class="col-sm-12">
-                <h4 class="mb-0"><a href="{% url 'market:market_list' %}">Mercados sociales</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.name}}</h4>
+            <div class="col-sm-7 col-md-8">
+                <h4 class="mb-0"><a href="{% url 'market:market_list' %}">Mercados sociales</a><i class="material-icons md-24">arrow_forward_ios</i> {{object.name}}</h4>
+            </div>
+                 <div class="col-sm-5 col-md-4 text-sm-right">
+                <a href="{% url 'market:market_dashboard' object.pk %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">manage_search</i> Explorar mercado</a>
             </div>
         </div>
         </div>
     </div>
 
     <div class="container">
-        <form method="post" class="mt-3 p-4">
+        <form method="post" class="post-form gallery-form mt-4" enctype="multipart/form-data">
 
             {% include "market/form.html" %}
-
-            <div class="text-center mt-3">
-                <button type="submit" class="btn btn-primary btn-lg">Guardar cambios</button>
-            </div>
+            {% include "common/forms/save_btn.html" %}
 
         </form>
     </div>

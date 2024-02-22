@@ -4,6 +4,7 @@ from polymorphic.models import PolymorphicModel
 from imagekit.models import ProcessedImageField
 from django.utils.translation import gettext as _
 from pilkit.processors import ResizeToFill
+
 from helpers import RandomFileName
 from core.models import Node
 from authentication.models import User
@@ -40,6 +41,6 @@ class Account(PolymorphicModel):
     def display_name(self):
         return self.cif
 
+
     def __str__(self):
         return self.cif
-

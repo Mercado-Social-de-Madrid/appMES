@@ -3,12 +3,20 @@ from __future__ import unicode_literals
 
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-# Create your views here.
+from django.utils.translation import gettext as _
+
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, RedirectView
+from django_filters import FilterSet
+from django_filters.views import FilterView
 
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
+from core.mixins.ExportAsCSVMixin import ExportAsCSVMixin
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
+from helpers.filters.LabeledOrderingFilter import LabeledOrderingFilter
+from helpers.filters.SearchFilter import SearchFilter
+from helpers.filters.filtermixin import FilterMixin
+from helpers.forms.BootstrapForm import BootstrapForm
 from market.mixins.current_market import MarketMixin
 from market.models import Provider
 from offers.forms.offer import OfferForm
@@ -48,12 +56,33 @@ class CreateOffer(MarketMixin, CreateView):
         messages.add_message(self.request, messages.ERROR, 'Oferta añadida con éxito')
         return self.reverse('offers:entity_offers', kwargs={'pk': self.kwargs['pk'] })
 
-class OffersList(MarketMixin, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
+
+class OffersFilterForm(BootstrapForm):
+    field_order = ['search', 'o', ]
+
+
+class OfferFilter(FilterSet):
+
+    search = SearchFilter(names=['provider__name', 'title', 'description'], lookup_expr='in', label=_('Buscar...'))
+    o = LabeledOrderingFilter(fields=['end_date', 'begin_date', 'published_date'],)
+
+    class Meta:
+        model = Offer
+        form = OffersFilterForm
+        fields = { }
+
+
+class OffersList(FilterMixin, MarketMixin, ExportAsCSVMixin, FilterView, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
     template_name = 'offers/list.html'
     model = Offer
+    filterset_class = OfferFilter
     objects_url_name = 'detail'
     ajax_template_name = 'offers/query.html'
     paginate_by = 8
+
+    csv_filename = 'ofertas'
+    available_fields = ['published_date', 'begin_date', 'end_date', 'title', 'description', 'provider__name']
+    field_labels = {'published_date': _('Fecha de publicación')}
 
     def get_queryset(self):
         return super().get_queryset().filter(provider__node=self.node).order_by('-published_date').select_related('provider')

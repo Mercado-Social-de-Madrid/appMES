@@ -1,4 +1,4 @@
-from market.forms.account import AccountForm
+from market.forms.account import AccountForm, CreateAccountFormMixin
 from market.models import Consumer
 
 
@@ -7,4 +7,5 @@ class ConsumerForm(AccountForm):
         model = Consumer
 
 
-
+class CreateConsumerForm(CreateAccountFormMixin, ConsumerForm):
+    pass

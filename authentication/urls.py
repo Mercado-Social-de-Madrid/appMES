@@ -24,6 +24,9 @@ urlpatterns = [
     path('<market>/users/add/', views.MarketCreateUser.as_view(), name='add_user'),
     path('<market>/users/<pk>/', views.MarketUpdateUser.as_view(), name='user_detail'),
     path('<market>/users/<pk>/delete', views.UserList.as_view(), name='user_delete'),
+
+    path('register/<token>/', views.PreRegister.as_view(), name='preregister'),
+    path('register/<token>/resend_email/', views.ResendPreregisterEmailAction.as_view(), name='preregister_send_email'),
 ]
 
 '''

@@ -37,6 +37,12 @@ $brand: (
   light: lighten($mes-highlight, 10%)
 );
 
+$warning: (
+  color: #f2c14e,
+  dark:  $mes-highlight,
+  light: #f4e2a0
+) !default;
+
 $link-color: $mes-primary;
 $link-color-hover: darken($mes-primary, 10%);
 $navdrawer-nav-link-color-active: $mes-highlight;

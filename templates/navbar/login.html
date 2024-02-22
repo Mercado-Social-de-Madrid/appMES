@@ -1,7 +1,7 @@
 {% if request.user.is_authenticated %}
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="material-icons">account_circle</i> {{request.user.get_username}}
+          <i class="material-icons">account_circle</i> <span class="d-none d-md-inline-block">{{request.user.get_username}}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right pt-0" aria-labelledby="navbarDropdownMenuLink">
             <div class="bg-light text-dark p-3">
@@ -18,7 +18,7 @@
             </form>
         </div>
       </li>
-    <a class="nav-link pr-0 px-2" title="Guía de usuario" href="{% url 'user_docs' ''%}" target="_blank">
+    <a class="nav-link d-none d-md-block pr-0 px-2" title="Guía de usuario" href="{% url 'user_docs' ''%}" target="_blank">
         <i class="material-icons-outlined">description</i>
     </a>
 {% else %}

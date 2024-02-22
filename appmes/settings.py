@@ -263,6 +263,17 @@ CKEDITOR_CONFIGS = {
     },
 }
 
+# ======= Mailing configuration =======
+
+EMAIL_BACKEND = env('EMAIL_BACKEND')
+
+# Email SMTP server configuration (can be local or an online service like SendGrid)
+EMAIL_HOST = env('EMAIL_HOST_URL')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+EMAIL_SEND_FROM = env('EMAIL_SEND_FROM')
 
 # ======= Sentry Configuration ========
 sentry_sdk.init(

@@ -20,9 +20,13 @@ class Node(models.Model):
     preferred_locale = models.CharField(max_length=10, default='es-ES', verbose_name=_('Idioma preferido de la interfaz'))
     banner_image = ProcessedImageField(null=True, blank=True, upload_to=RandomFileName('node/'),
                                        verbose_name=_('Imagen principal'),
-                                       processors=[ResizeToFit(756, 512, upscale=False)], format='JPEG')
+                                       processors=[ResizeToFit(756, 512, upscale=False)], format='PNG')
+
     webpage_link = models.URLField(blank=True, null=True, verbose_name=_('Página web'), max_length=250)
     takahe_server = models.URLField(blank=True, null=True, verbose_name=_('Servidor de Takahe'))
+
+    member_card_enabled = models.BooleanField(default=True, verbose_name=_('Carnet de socia activa'))
+    info_page_url = models.TextField(blank=True, null=True, verbose_name=_('Enlace a página con información básica del mercado'))
 
     class Meta:
         verbose_name = _('Mercado')

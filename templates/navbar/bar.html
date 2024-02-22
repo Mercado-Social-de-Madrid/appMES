@@ -12,13 +12,12 @@
          </button>
          {% endif %}
 
-         <a class="navbar-brand" href="/"><img src="{% static '/imgs/brand.png' %}" height="30" class="d-inline-block align-top" alt=""></a>
-
-         {% if current_market %}
-            {{ current_market.name }}
-         {% elif global.market %}
-            {{global.market.name}}
-         {% endif %}
+         <a class="navbar-brand" href="/">
+             {% if current_market and current_market.banner_image %}
+                <img src="{{current_market.banner_image.url}}" height="30" class="d-inline-block align-top" alt=""></a>
+            {% else %}
+                <img src="{% static '/imgs/brand.png' %}" height="30" class="d-inline-block align-top" alt=""></a>
+            {% endif %}
 
           <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="navbar-nav ml-auto mt-0">

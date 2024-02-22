@@ -1,0 +1,10 @@
+{% if user.is_guest_account %}
+    <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Invitada">card_membership</i>
+{% else %}
+    {% if user.is_preregistered %}
+        <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Pendiente registro">schedule</i>
+    {% else %}
+        <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Registrada">done_all</i>
+    {% endif %}
+{% endif %}
+<span class="text-muted" >{{user}}</span>

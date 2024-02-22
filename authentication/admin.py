@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django import forms
+from django.contrib.admin import ModelAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField, AdminPasswordChangeForm
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext as _
@@ -14,6 +15,8 @@ from authentication.models.api_token import APIToken
 from authentication.models.group import Group
 from rest_framework.authtoken.models import TokenProxy as DRFToken
 from rest_framework.authtoken.admin import TokenAdmin as DRFTokenAdmin
+
+from authentication.models.preregister import PreRegisteredUser
 
 admin.site.unregister(DjangoGroup)
 admin.site.unregister(DRFToken)
@@ -105,6 +108,11 @@ class UserAdmin(BaseUserAdmin):
                 "fields": ["email", "first_name", "last_name", "password1", "password2"],
         }),
     ]
+
+
+@admin.register(PreRegisteredUser)
+class PreRegisteredUserAdmin(ModelAdmin):
+    pass
 
 
 @admin.register(APIToken)

@@ -22,7 +22,11 @@
   </div>
 
   <div class="mesm_footer">
-    <img src="{% static 'imgs/logo_mesm.png' %}" alt="Logo MESM">
+    {% if current_market and current_market.banner_image %}
+        <img src="{{current_market.banner_image.url}}" alt="Logo MESM">
+    {% else %}
+        <img src="{% static '/imgs/brand.png' %}" alt="Logo MESM">
+    {% endif %}
   </div>
 
 </div>

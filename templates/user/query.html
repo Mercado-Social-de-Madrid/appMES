@@ -9,8 +9,8 @@
 {% endblock %}
 
 {% block item_row %}
-<td>{{item.email}}</td>
-<td>{{item.created_at}}</td>
+<td>{% include 'user/row_display.html' with user=item %}</td>
+<td>{{item.created_at|date:'d/m/Y H:i'}}</td>
 {% if item.is_superuser %}
 <td colspan="2">Administrador</td>
 {% else %}

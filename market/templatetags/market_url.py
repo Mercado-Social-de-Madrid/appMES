@@ -6,12 +6,7 @@ UNSET = object()
 
 @register.simple_tag(takes_context=True)
 def market_url(context, view, *args, **kwargs):
-    print('args')
-    print(*args)
-    print('kwagrs')
-    print(**kwargs)
     market = context.get('current_market')
-    print(market)
     if market:
         if len(args) > 0:
             args = [market.pk] + list(args)
