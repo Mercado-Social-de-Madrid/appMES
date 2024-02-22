@@ -5,7 +5,11 @@ meta {
 }
 
 get {
-  url: {{URL}}/api/v1/news/mad/
+  url: {{URL}}/api/news/?node=MAD
   body: none
   auth: none
+}
+
+query {
+  node: MAD
 }

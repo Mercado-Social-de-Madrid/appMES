@@ -5,7 +5,11 @@ meta {
 }
 
 get {
-  url: {{URL}}/api/v1/categories/mad/
+  url: {{URL}}/api/categories/?node=MAD
   body: none
   auth: none
+}
+
+query {
+  node: MAD
 }
