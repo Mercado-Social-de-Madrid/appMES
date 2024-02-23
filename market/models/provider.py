@@ -28,13 +28,7 @@ class Provider(Account):
 
     balance_detail = models.CharField(null=True, blank=True, verbose_name=_('Informe balance'), max_length=250)
 
-    # Social links
-    facebook_link = models.CharField(null=True, blank=True, verbose_name=_('Página de Facebook'), max_length=250)
     webpage_link = models.CharField(null=True, blank=True, verbose_name=_('Página web'), max_length=250)
-    twitter_link = models.CharField(null=True, blank=True, verbose_name=_('Perfil de X'), max_length=250)
-    telegram_link = models.CharField(null=True, blank=True, verbose_name=_('Canal de Telegram'), max_length=250)
-    instagram_link = models.CharField(null=True, blank=True, verbose_name=_('Perfil de Instagram'), max_length=250)
-    fediverse_link = models.CharField(null=True, blank=True, verbose_name=_('Perfil en Fediverso'), max_length=250)
 
     class Meta:
         verbose_name = 'Proveedora'
