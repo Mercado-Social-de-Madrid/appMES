@@ -45,6 +45,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="card-title"><i class="material-icons">photo_library</i> Galería </div>
+                        {{ form.gallery.as_hidden }}
                         {{ formsets.gallery.management_form }}
                         {% for gallery_form in formsets.gallery %}
                             <div class="gallery-form-photo file-field">

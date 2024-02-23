@@ -37,7 +37,7 @@
 <script type="text/javascript">
 
     $('.gallery-form-photo').formset({
-        prefix: '{{ gallery_formset.prefix }}',
+        prefix: '{{ formsets.gallery.prefix }}',
         addText: '<i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Añadir foto">add</i></div>',
         deleteText: '<div class="btn btn-primary btn-float btn-small" href="#!" data-toggle="tooltip" data-placement="bottom" title="Eliminar foto"><i class="material-icons">delete</i></div>',
         added: function(row){ row.find('.form-photo').removeClass('uploaded').find('.thumb').css('background-image',''); }

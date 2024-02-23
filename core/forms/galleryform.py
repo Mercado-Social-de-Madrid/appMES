@@ -5,6 +5,7 @@ from core.models import GalleryPhoto
 
 
 class PhotoGalleryForm(forms.ModelForm):
+    photo = forms.FileField(required=False)
 
     class Meta:
         model = GalleryPhoto
@@ -17,7 +18,7 @@ class PhotoGalleryForm(forms.ModelForm):
     def getGalleryFormset(gallery=None):
 
         extra_forms = 1 if (gallery is None or gallery.photos.count() == 0) else 0
-        return formset_factory(PhotoGalleryForm, extra=extra_forms, can_delete=True )
+        return formset_factory(PhotoGalleryForm, extra=extra_forms, can_delete=True)
 
     @staticmethod
     def get_initial(gallery=None):
@@ -44,7 +45,7 @@ class PhotoGalleryForm(forms.ModelForm):
         GalleryPhoto.objects.filter(gallery=gallery).delete()
         for photo_form in gallery_formset:
             photo = photo_form.save(commit=False)
-            if not photo.photo  or photo_form.cleaned_data.get('DELETE'):
+            if not photo.photo or photo_form.cleaned_data.get('DELETE'):
                 continue
             photo.gallery = gallery
             photo.save()
