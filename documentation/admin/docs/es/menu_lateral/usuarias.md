@@ -14,6 +14,8 @@ En esta pantalla se te pedirán varios datos referentes a la usuaria:
   - Idioma preferido de la interfaz
   - "Es Staff": Si la nueva usuaria también gestionará este Mercado.
 
+Una vez rellenados los campos obligatorios, pulsa el botón "Crear usuaria" para crear la usuaria.
+
 ## :fontawesome-solid-pen: Editar usuaria
 Para editar una usuaria puedes hacer click en la fila correspondiente a la usuaria que se quiera editar, o haciendo click en el icono :material-pencil:.
 En esta pantalla podrás modificar la información de la usuaria y pulsar el botón "Guardar cambios" cuando estés satisfecha. 

@@ -1,6 +1,8 @@
 
 # Menú lateral
 
+![Menú Lateral](../../assets/menu_lateral_mercado.png){ align=left width=200px loading=lazy }
+
 El Menú Lateral de la aplicación proporciona acceso rápido y sencillo a las distintas secciones del Mercado Social que estás administrando. A continuación, se detallan los elementos presentes en el menú, dispuestos de arriba a abajo:
     
 /// admonition | Versión móvil 
@@ -22,13 +24,13 @@ En la sección de Noticias, podrás gestionar las novedades y comunicados del Me
 Para la organización de las entidades del mercado, esta sección te permite gestionar las categorías asociadas a las proveedoras. Puedes añadir, editar o eliminar categorías, las cuales son fundamentales para indicar el tipo de servicios ofrecidos o el sector al que pertenecen.
 
 ## :material-store: [Proveedoras](proveedoras.md)
-En esta área, puedes administrar las entidades proveedoras, ya sean empresas o comercios presentes en el mercado. Añade, edita o elimina proveedoras para mantener actualizada la lista de participantes.
+En esta sección puedes administrar las entidades proveedoras. Añade, edita o elimina proveedoras para mantener actualizada la lista de participantes.
 
 ## :material-walk: [Consumidoras](consumidoras.md)
 Aquí se gestiona la información relacionada con las entidades consumidoras. Puedes llevar a cabo acciones como añadir, editar o eliminar perfiles de consumidoras, reflejando así la base de clientes que participan en el mercado.
 
 ## :material-basket: [Ofertas](ofertas.md)
-La sección de Ofertas te permite gestionar las promociones ofrecidas por las entidades proveedoras. Añade, edita o elimina ofertas para informar a las consumidoras sobre beneficios y descuentos disponibles en el mercado.
+La sección de Ofertas te permite gestionar las promociones ofrecidas por las entidades proveedoras. Las ofertas sirven para informar sobre beneficios y descuentos disponibles que ofrecen las entidades proveedoras.
 
 ## :material-ticket: [Ventajas](ventajas.md)
 En esta área, puedes gestionar las ventajas exclusivas ofrecidas a las personas socias del Mercado Social, tanto proveedoras como consumidoras. Administra las ventajas asociadas a la membresía para fomentar la participación y lealtad en la comunidad.

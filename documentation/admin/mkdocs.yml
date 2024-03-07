@@ -2,6 +2,8 @@ yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema
 
 site_name: Guía de administración de la AppMES
 site_url: https://0.0.0.0/docs/admin
+extra_css:
+  - assets/css/extra.css
 
 theme:
   name: material
@@ -62,7 +64,7 @@ plugins:
           build: true
 
 nav:
-  - index.md
+  - perfil.md
   - Menú lateral:
       - menu_lateral/index.md
       - menu_lateral/usuarias.md
@@ -72,4 +74,5 @@ nav:
       - menu_lateral/consumidoras.md
       - menu_lateral/ofertas.md
       - menu_lateral/ventajas.md
+  - guia_de_usuario.md
   - versiones.md
