@@ -7,10 +7,6 @@
        <div class="collapse navbar-collapse " id="navbar-menu">
            <div class="container">
            <ul class="nav nav-tabs nav-fill flex-column flex-md-row flex-lg-row">
-              <li class="nav-item">
-                <a class="nav-link {% if request.resolver_match.url_name == 'user_dashboard' %}active{% endif %}" href="{% url 'market:index' %}"><i class="material-icons-outlined mr-2">home</i> Inicio</a>
-              </li>
-
            {% if global.account %}
                 {% with "navbar/user_"|add:global.account.template_prefix|add:"_menu.html" as template %}
                     {% include template with account=account %}

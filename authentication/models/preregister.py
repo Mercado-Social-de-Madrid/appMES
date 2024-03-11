@@ -54,7 +54,7 @@ class PreRegisteredUser(models.Model):
     @staticmethod
     def create_user_and_preregister(account):
         if not account.owner:
-            account.owner = User.objects.create_user(email=account.email)
+            account.owner = User.objects.create_user(email=account.email, first_name=account.display_name)
             account.save()
 
         PreRegisteredUser.objects.create(
