@@ -1,0 +1,348 @@
+[
+    {
+        "model": "core.node",
+        "pk": 1001,
+        "fields": {
+            "name": "Madrid",
+            "shortname": "MAD",
+            "visible": true,
+            "contact_email": "madrid@mercadosocial.net",
+            "self_register_allowed": false,
+            "webpage_link": "https://madrid.mercadosocial.net/",
+            "takahe_server": "https://takahe.mercadosocial.madrid/",
+            "member_card_enabled": true
+        }
+    },
+    {
+        "model": "core.node",
+        "pk": 1002,
+        "fields": {
+            "name": "Aragón",
+            "shortname": "ARA",
+            "visible": true,
+            "contact_email": "info@mercadosocialaragon.net",
+            "self_register_allowed": false,
+            "webpage_link": "https://mercadosocialaragon.net/",
+            "member_card_enabled": false
+        }
+    },
+    {
+        "model": "core.socialprofile",
+        "pk": 1001,
+        "fields": {
+            "polymorphic_ctype": 17,
+            "social_network": "Facebook",
+            "url": "https://www.facebook.com/MercadoSocialMadrid"
+        }
+    },
+    {
+        "model": "core.socialprofile",
+        "pk": 1002,
+        "fields": {
+            "polymorphic_ctype": 17,
+            "social_network": "Instagram",
+            "url": "https://www.instagram.com/mercadosocialmadrid"
+        }
+    },
+    {
+        "model": "core.socialprofile",
+        "pk": 1003,
+        "fields":
+        {
+            "polymorphic_ctype": 17,
+            "social_network": "X",
+            "url": "https://twitter.com/MES_Madrid"
+        }
+    },
+    {
+        "model": "core.socialprofile",
+        "pk": 1004,
+        "fields": {
+            "polymorphic_ctype": 17,
+            "social_network": "Youtube",
+            "url": "https://www.youtube.com/channel/UCWfYyNJGH-ruUqrsWbYa4Jw"
+        }
+    },
+    {
+        "model": "core.socialprofile",
+        "pk": 1005,
+        "fields": {
+            "polymorphic_ctype": 17,
+            "social_network": "Facebook",
+            "url": "https://www.facebook.com/MESCoopAragon"
+        }
+    },
+    {
+        "model": "core.socialprofile",
+        "pk": 1006,
+        "fields": {
+            "polymorphic_ctype": 17,
+            "social_network": "X",
+            "url": "https://twitter.com/MESCoopAragon"
+        }
+    },
+    {
+        "model": "core.nodesocialprofile",
+        "pk": 1001,
+        "fields": {
+            "node": 1001
+        }
+    },
+    {
+        "model": "core.nodesocialprofile",
+        "pk": 1002,
+        "fields": {
+            "node": 1001
+        }
+    },
+    {
+        "model": "core.nodesocialprofile",
+        "pk": 1003,
+        "fields": {
+            "node": 1001
+        }
+    },
+    {
+        "model": "core.nodesocialprofile",
+        "pk": 1004,
+        "fields": {
+            "node": 1001
+        }
+    },
+    {
+        "model": "core.nodesocialprofile",
+        "pk": 1005,
+        "fields": {
+            "node": 1002
+        }
+    },
+    {
+        "model": "core.nodesocialprofile",
+        "pk": 1006,
+        "fields": {
+            "node": 1002
+        }
+    },
+    {
+        "model": "authentication.user",
+        "pk": 1001,
+        "fields": {
+          "password": "pbkdf2_sha256$720000$2Ig8AVm0n3G0WAhKV6e3VR$b05gP//3k1fyyJaJWdzzFsW1RsqMEpzJx8JZraaNlAM=",
+          "last_login": "2024-03-08T09:26:17.056",
+          "is_superuser": false,
+          "is_staff": true,
+          "is_active": true,
+          "date_joined": "2024-03-08T09:25:08.684",
+          "created_at": "2024-03-08T09:25:08.704",
+          "updated_at": "2024-03-08T09:25:42.807",
+          "email": "madrid@mercadosocial.net",
+          "first_name": "Madrid Admin",
+          "last_name": null,
+          "node": 1001,
+          "manages_multi": false,
+          "preferred_locale": "es-ES",
+          "groups": [],
+          "user_permissions": []
+        }
+    },
+    {
+        "model": "authentication.user",
+        "pk": 1002,
+        "fields": {
+          "password": "pbkdf2_sha256$720000$Vk4qZTlc4n9locX49avDiS$pjD6PzuXjFzV5DoxftkDn1Y1SF3gvOcWxD3M+2Yp1Fo=",
+          "last_login": "2024-03-08T09:26:17.056",
+          "is_superuser": false,
+          "is_staff": true,
+          "is_active": true,
+          "date_joined": "2024-03-08T09:25:08.684",
+          "created_at": "2024-03-08T09:25:08.704",
+          "updated_at": "2024-03-08T09:25:42.807",
+          "email": "aragon@mercadosocial.net",
+          "first_name": "Aragon Admin",
+          "last_name": null,
+          "node": 1002,
+          "manages_multi": false,
+          "preferred_locale": "es-ES",
+          "groups": [],
+          "user_permissions": []
+        }
+    },
+    {
+        "model": "authentication.user",
+        "pk": 1003,
+        "fields": {
+          "password": "pbkdf2_sha256$720000$BkqHjswxRRuGSnqApZYK1b$kVi8jkMlh6K66YJASnWpnF+0e6wTXJutucsVEaDynaI=",
+          "last_login": "2024-03-08T09:37:50.319",
+          "is_superuser": false,
+          "is_staff": false,
+          "is_active": true,
+          "date_joined": "2024-03-08T09:37:07.133",
+          "created_at": "2024-03-08T09:37:07.754",
+          "updated_at": "2024-03-08T09:37:07.754",
+          "email": "proveedora_mad@mercadosocial.net",
+          "first_name": "Proveedora",
+          "last_name": "Madrid",
+          "node": null,
+          "manages_multi": false,
+          "preferred_locale": "es-ES",
+          "groups": [],
+          "user_permissions": []
+        }
+    },
+    {
+        "model": "authentication.user",
+        "pk": 1004,
+        "fields": {
+            "password": "pbkdf2_sha256$720000$BkqHjswxRRuGSnqApZYK1b$kVi8jkMlh6K66YJASnWpnF+0e6wTXJutucsVEaDynaI=",
+            "last_login": "2024-03-08T09:37:50.319",
+            "is_superuser": false,
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-03-08T09:37:07.133",
+            "created_at": "2024-03-08T09:37:07.754",
+            "updated_at": "2024-03-08T09:37:07.754",
+            "email": "proveedora_ara@mercadosocial.net",
+            "first_name": "Proveedora",
+            "last_name": "Aragon",
+            "node": null,
+            "manages_multi": false,
+            "preferred_locale": "es-ES",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authentication.user",
+        "pk": 1005,
+        "fields": {
+          "password": "pbkdf2_sha256$720000$SrDlBwbGR0HhSeRhyjly0X$leDfHNQJKgPtjPdKb+uOwi4ANQB8WzqAgXMXyfzatFU=",
+          "last_login": null,
+          "is_superuser": false,
+          "is_staff": false,
+          "is_active": true,
+          "date_joined": "2024-03-08T10:11:26.573",
+          "created_at": "2024-03-08T10:11:26.574",
+          "updated_at": "2024-03-08T10:15:29.371",
+          "email": "consumidora_mad@mercadosocial.net",
+          "first_name": "Consumidora",
+          "last_name": "Madrid",
+          "node": null,
+          "manages_multi": false,
+          "preferred_locale": "es-ES",
+          "groups": [],
+          "user_permissions": []
+        }
+    },
+    {
+        "model": "authentication.user",
+        "pk": 1006,
+        "fields": {
+          "password": "pbkdf2_sha256$720000$SrDlBwbGR0HhSeRhyjly0X$leDfHNQJKgPtjPdKb+uOwi4ANQB8WzqAgXMXyfzatFU=",
+          "last_login": null,
+          "is_superuser": false,
+          "is_staff": false,
+          "is_active": true,
+          "date_joined": "2024-03-08T10:11:26.573",
+          "created_at": "2024-03-08T10:11:26.574",
+          "updated_at": "2024-03-08T10:15:29.371",
+          "email": "consumidora_ara@mercadosocial.net",
+          "first_name": "Consumidora",
+          "last_name": "Aragón",
+          "node": null,
+          "manages_multi": false,
+          "preferred_locale": "es-ES",
+          "groups": [],
+          "user_permissions": []
+        }
+    },
+    {
+        "model": "market.account",
+        "pk": "b7fa8991-e5ef-4ddf-9036-3c8a34cb7daa",
+        "fields": {
+          "polymorphic_ctype": 10,
+          "node": 1001,
+          "owner": 1003,
+          "is_active": true,
+          "cif": "123456789",
+          "email": "proveedora_mad@mercadosocial.net"
+        }
+    },
+    {
+        "model": "market.provider",
+        "pk": "b7fa8991-e5ef-4ddf-9036-3c8a34cb7daa",
+        "fields": {
+          "name": "Proveedora Madrid",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "num_workers": 2,
+          "categories": []
+        }
+    },
+    {
+        "model": "market.account",
+        "pk": "6f03d6e2-3a43-4e17-9a9d-982e4054c5f1",
+        "fields": {
+          "polymorphic_ctype": 10,
+          "node": 1002,
+          "owner": 1004,
+          "is_active": true,
+          "cif": "123456789",
+          "email": "proveedora_ara@mercadosocial.net"
+        }
+    },
+    {
+        "model": "market.provider",
+        "pk": "6f03d6e2-3a43-4e17-9a9d-982e4054c5f1",
+        "fields": {
+          "name": "Proveedora Aragón",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "num_workers": 2,
+          "categories": []
+        }
+    },
+    {
+        "model": "market.account",
+        "pk": "a1ff35f0-d22c-4108-b50f-5f2e3d604043",
+        "fields": {
+          "polymorphic_ctype": 11,
+          "node": 1001,
+          "owner": 1005,
+          "is_active": true,
+          "cif": "123456789",
+          "email": "consumidora_mad@mercadosocial.net"
+        }
+    },
+    {
+        "model": "market.consumer",
+        "pk": "a1ff35f0-d22c-4108-b50f-5f2e3d604043",
+        "fields": {
+          "first_name": "Consumidora",
+          "last_name": "Madrid",
+          "is_intercoop": false,
+          "favorites": []
+        }
+    },
+    {
+        "model": "market.account",
+        "pk": "6d9c50e7-8743-4d4b-bcb8-55a7e7a1a2f9",
+        "fields": {
+          "polymorphic_ctype": 11,
+          "node": 1002,
+          "owner": 1006,
+          "is_active": true,
+          "cif": "123456789",
+          "email": "consumidora_ara@mercadosocial.net"
+        }
+    },
+    {
+        "model": "market.consumer",
+        "pk": "6d9c50e7-8743-4d4b-bcb8-55a7e7a1a2f9",
+        "fields": {
+          "first_name": "Consumidora",
+          "last_name": "Aragón",
+          "is_intercoop": false,
+          "favorites": []
+        }
+    }
+]
