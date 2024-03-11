@@ -3,6 +3,7 @@
 import django.core.validators
 import django.db.models.deletion
 from django.db import migrations, models
+import imagekit.models.fields
 
 
 class Migration(migrations.Migration):
@@ -19,6 +20,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('name', models.CharField(max_length=50, primary_key=True, serialize=False, verbose_name='Nombre')),
                 ('logo', models.FileField(upload_to='logos_redes_sociales', validators=[django.core.validators.FileExtensionValidator(['svg'])], verbose_name='Logo')),
+                ('logo_png', imagekit.models.fields.ProcessedImageField(blank=True, null=True, upload_to='logos_redes_sociales', verbose_name='Logo png'))
             ],
             options={
                 'verbose_name': 'Red Social',

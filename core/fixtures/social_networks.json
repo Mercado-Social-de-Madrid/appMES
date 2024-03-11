@@ -3,70 +3,80 @@
     "model": "core.socialnetwork",
     "pk": "Facebook",
     "fields": {
-        "logo": "logos_redes_sociales/facebook.svg"
+        "logo": "logos_redes_sociales/facebook.svg",
+        "logo_png": "logos_redes_sociales/facebook.png"
     }
 },
 {
     "model": "core.socialnetwork",
     "pk": "Fediverso",
     "fields": {
-        "logo": "logos_redes_sociales/fediverso.svg"
+        "logo": "logos_redes_sociales/fediverso.svg",
+        "logo_png": "logos_redes_sociales/fediverso.png"
     }
 },
 {
     "model": "core.socialnetwork",
     "pk": "Instagram",
     "fields": {
-        "logo": "logos_redes_sociales/instagram.svg"
+        "logo": "logos_redes_sociales/instagram.svg",
+        "logo_png": "logos_redes_sociales/instagram.png"
     }
 },
 {
     "model": "core.socialnetwork",
     "pk": "Linkedin",
     "fields": {
-        "logo": "logos_redes_sociales/linkedin.svg"
+        "logo": "logos_redes_sociales/linkedin.svg",
+        "logo_png": "logos_redes_sociales/linkedin.png"
     }
 },
 {
     "model": "core.socialnetwork",
     "pk": "Pinterest",
     "fields": {
-        "logo": "logos_redes_sociales/pinterest.svg"
+        "logo": "logos_redes_sociales/pinterest.svg",
+        "logo_png": "logos_redes_sociales/pinterest.png"
     }
 },
 {
     "model": "core.socialnetwork",
     "pk": "Telegram",
     "fields": {
-        "logo": "logos_redes_sociales/telegram.svg"
+        "logo": "logos_redes_sociales/telegram.svg",
+        "logo_png": "logos_redes_sociales/telegram.png"
     }
 },
 {
     "model": "core.socialnetwork",
     "pk": "TikTok",
     "fields": {
-        "logo": "logos_redes_sociales/tiktok.svg"
+        "logo": "logos_redes_sociales/tiktok.svg",
+        "logo_png": "logos_redes_sociales/tiktok.png"
     }
 },
 {
     "model": "core.socialnetwork",
     "pk": "Whatsapp",
     "fields": {
-        "logo": "logos_redes_sociales/whatsapp.svg"
+        "logo": "logos_redes_sociales/whatsapp.svg",
+        "logo_png": "logos_redes_sociales/whatsapp.png"
     }
 },
 {
     "model": "core.socialnetwork",
     "pk": "X",
     "fields": {
-        "logo": "logos_redes_sociales/x.svg"
+        "logo": "logos_redes_sociales/x.svg",
+        "logo_png": "logos_redes_sociales/x.png"
     }
 },
 {
     "model": "core.socialnetwork",
     "pk": "Youtube",
     "fields": {
-        "logo": "logos_redes_sociales/youtube.svg"
+        "logo": "logos_redes_sociales/youtube.svg",
+        "logo_png": "logos_redes_sociales/youtube.png"
     }
 }
 ]

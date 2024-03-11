@@ -1,12 +1,18 @@
 from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.utils.translation import gettext as _
+from imagekit.models import ImageSpecField, ProcessedImageField
+from pilkit.processors import ResizeToFill
 from polymorphic.models import PolymorphicModel
 
 
 class SocialNetwork(models.Model):
     name = models.CharField(primary_key=True, max_length=50, verbose_name=_("Nombre"))
-    logo = models.FileField(verbose_name=_("Logo"), upload_to="logos_redes_sociales", validators=[FileExtensionValidator(["svg"]), ])
+    logo = models.FileField(verbose_name=_("Logo"),
+                            upload_to="logos_redes_sociales",
+                            validators=[FileExtensionValidator(["svg"]), ])
+    logo_png = ProcessedImageField(null=True, blank=True, upload_to="logos_redes_sociales",
+                                   verbose_name=_("Logo png"), format='PNG')
 
     class Meta:
         verbose_name = _('Red Social')
