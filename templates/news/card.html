@@ -1,0 +1,20 @@
+{% load static %}
+
+<div class="d-flex">
+    <div class="img mr-3">
+         <img class="img-fluid" style="width:200px;" src="{% if news.banner_image %}{{ news.banner_image.url }}{% else %}{% static 'imgs/default-news.png' %}{% endif %}" alt="{{news.title}}">
+    </div>
+    <div class="flex-grow-1">
+        <h4 class="mb-0"> {{news.title}}</h4>
+        <div class="small"> {{news.published_date|date:'d/m/Y'}}</div>
+
+        <div class="text-primary text-truncate"><strong>{{news.short_description|striptags|safe}}</strong></div>
+    </div>
+</div>
+<div class="bg-light p-2 text-right my-3">
+
+{% if news.more_info_url %}
+     <a class="btn btn-action btn-primary" href="{{news.more_info_url}}">{% if news.more_info_text %} {{news.more_info_text}} {% else %} Saber más {% endif %} </a>
+{% endif %}
+    <a class="btn btn-action btn-secondary text-light" href="{{news.more_info_url}}">ver noticia</a>
+</div>

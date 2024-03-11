@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% load market_url %}
+
+{% block title %}Principal{% endblock%}
+{% block bodyattrs %} class="main-bg"{% endblock%}
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="bg-warning py-4 text-center">
+                    <div class="d-inline-block m-auto">
+                        {% include "account/profile_circle.html" with account=object %}
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="card-title primary-title mb-0"><h3 class="mb-0"><i class="ic ic-entity"></i> Mi perfil</h3></div>
+                    <div class="card-text text-dark">
+                        <p class="lead my-0"> {{ account.display_name }}</p>
+                        {{account.address}}
+                    </div>
+                </div>
+
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action" href="{% url 'market:user_account' %}"><i class="material-icons mr-2">store</i> Ver perfil</a>
+                    <a class="list-group-item list-group-item-action" href="{% url 'market:member_card' %}"><i class="material-icons-outlined mr-2">perm_contact_calendar</i> Mi carnet de socia</a>
+                    <a class="list-group-item list-group-item-action disabled" href="#"><i class="material-icons mr-2">bar_chart</i> Ver estadísticas de favoritos</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card mb-3">
+                <div class="header-img"> <img class="img-fluid" src="{% static 'imgs/mes_app.png' %}"> </div>
+                <div class="card-body">
+
+                    <p class="lead text-primary mb-0">
+                        ¿Tienes ya la app del Mercado Social?
+                    </p>
+                    <div class="d-flex align-items-center flex-column">
+                    <a href='https://play.google.com/store/apps/details?id=net.mercadosocial.moneda&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+                        <img width="250px" alt='Disponible en Google Play' src={% static '/imgs/google-play.png' %}/>
+                    </a>
+
+                    <a href="https://apps.apple.com/es/app/mercado-social/id1458549528?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;">
+                        <img src="{% static '/imgs/app-store.svg' %}" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;">
+                    </a>
+
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            {% include 'dashboard/last_news.html' %}
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

@@ -3,8 +3,16 @@
 {% block title %}Principal{% endblock%}
 {% block bodyattrs %} class="main-bg"{% endblock%}
 {% block content %}
-<div class="container-fluid">
-    Dashboard mercado {{current_market.name}}
+<div class="container-fluid py-4">
+
+    <div class="row">
+        <div class="col-md-5">
+
+        </div>
+         <div class="col-md-4">
+            {% include 'dashboard/last_news.html' %}
+        </div>
+    </div>
 </div>
 
 {% endblock content %}

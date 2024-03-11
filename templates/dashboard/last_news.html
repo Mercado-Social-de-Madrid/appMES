@@ -1,0 +1,13 @@
+<div class="card mb-4">
+    <div class="bg-brand text-light p-2 px-3">
+        <h3 class="card-title">Últimas noticias</h3>
+    </div>
+    <div class="card-body">
+        {% for item in last_news %}
+            {% include 'news/card.html' with news=item %}
+
+            {% empty %}
+            No hay noticias publicadas en este mercado...
+        {% endfor %}
+    </div>
+</div>
