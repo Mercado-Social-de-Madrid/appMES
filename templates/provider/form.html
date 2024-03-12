@@ -110,6 +110,10 @@
                                         {{ social_profile_form.social_network }}
                                         {{ social_profile_form.url }}
                                     </div>
+                                    <div class="d-block invalid-feedback">
+                                        {{ social_profile_form.url.errors }}
+                                    </div>
+
                                 </div>
                             {% endfor %}
 

@@ -23,7 +23,9 @@ class FormsetView(FormMixin):
         for name, formset_factory in formsets.items():
             formset_get_initial_func = getattr(self, 'formset_{0}_get_initial'.format(name), None)
             if formset_get_initial_func is not None:
-                context['formsets'][name] = formset_factory(initial=formset_get_initial_func(), prefix=name)
+                data = self.request.POST or None
+                files = self.request.FILES or None
+                context['formsets'][name] = formset_factory(data=data, files=files, initial=formset_get_initial_func(), prefix=name)
             else:
                 context['formsets'][name] = formset_factory(prefix=name)
         return context
