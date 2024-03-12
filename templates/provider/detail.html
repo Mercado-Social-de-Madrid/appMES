@@ -36,22 +36,8 @@
             {% include 'common/social_links.html' with obj=object %}
             {% if request.user.is_superuser %}
             <hr class="mt-4">
-            <h4 class="mb-3">Usuario</h4>
-                 <span class="primary-title"><strong>Número de socia:</strong></span>
+                 <span class="text-primary"><strong>Número de socia:</strong></span>
                 {{object.member_id|default_if_none:'-'}}<br>
-                {% if preregister_user %}
-                    <span class="primary-title"><strong>Prerregistro: </strong></span> aún no se ha creado usuario<br>
-                    <span class="primary-title"><strong>Enlace: </strong></span>
-                <a href="{% settings_value 'BASESITE_URL' %}{% url 'preregister' preregister_user.id %}" style="color:blue;" target="_blank">
-                {% settings_value 'BASESITE_URL' %}{% url 'preregister' preregister_user.id %}</a>
-                {% else %}
-                    <span class="primary-title"><strong>Username:</strong></span>
-                    {{ object.user.username }}<br>
-                    <span class="primary-title"><strong>Último acceso:</strong></span>
-                    {% if entity.user.last_login %} Hace {{object.user.last_login|timesince}}{% else %} Nunca {% endif %}
-
-                {% endif %}
-
             {% endif %}
         </div>
 

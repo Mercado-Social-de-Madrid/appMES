@@ -6,18 +6,9 @@
       </div>
     {% if request.user.is_superuser or request.user.is_staff  %}
       <span class="account-status">
-          {% if item.owner %}
-            {% if item.owner.is_guest_account %}
-                <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Invitada">card_membership</i>
-            {% else %}
-                <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Registrada">done_all</i>
-            {% endif %}
-          {% else %}
-            <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Pendiente registro">schedule</i>
-          {% endif %}
+          {% include 'user/status_circle.html' with user=item.owner %}
       </span>
     {% endif %}
-
 
     {% if hide_address %}
         <h5 class="mt-2 mb-0"> {{item.name}}</h5>

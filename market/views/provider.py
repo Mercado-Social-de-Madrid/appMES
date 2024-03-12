@@ -4,6 +4,7 @@ from django.utils.translation import gettext as _
 from django.views.generic import ListView, CreateView, UpdateView, DetailView
 from django_filters import FilterSet
 
+from authentication.models.preregister import PreRegisteredUser
 from core.forms.galleryform import PhotoGalleryForm
 from core.forms.social_profiles import SocialProfileForm, ProviderSocialProfileForm
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
@@ -119,6 +120,14 @@ class CreateProvider(MarketMixin, CreateView, ProviderFormSet):
             'latitude': self.node.latitude,
             'longitude': self.node.longitude,
         }
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        preregister = form.cleaned_data['create_preregister']
+        if preregister:
+            PreRegisteredUser.create_user_and_preregister(self.object)
+        return response
+
 
     def get_success_url(self):
         messages.success(self.request, _('Proveedora añadida correctamente.'))

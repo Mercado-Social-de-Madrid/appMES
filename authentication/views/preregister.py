@@ -46,7 +46,6 @@ class PreRegister(FormView):
 class ResendPreregisterEmailAction(RedirectURLMixin, View):
     def post(self, request, *args, **kwargs):
         prereg_user = PreRegisteredUser.objects.get(id=self.kwargs.get('token'))
-        print(prereg_user)
         prereg_user.send_email()
         messages.success(self.request, _('Email de prerregistro reenviado'))
 

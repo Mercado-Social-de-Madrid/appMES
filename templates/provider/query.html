@@ -17,7 +17,10 @@
 {% include 'provider/row_display.html'  %}
         <td>{{ item.cif }}</td>
         <td>{{ item.owner|default_if_none:'-' }}</td>
-
+        <td>
+            <strong>{{item.offers.all.count}} </strong> oferta(s) publicada(s)<br>
+            {% if item.benefit %}<i class="material-icons text-success">local_activity</i> Ventajas {%else %} <i class="material-icons text-muted">local_activity</i>  Sin ventajas {% endif %}
+        </td>
         <td class="table-actions">
             <a class="btn btn-outline-primary" href="{% market_url 'market:edit_provider' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
             <a class="btn btn-outline-primary" href="{% market_url 'offers:entity_offers' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ofertas"><i class="material-icons">shopping_basket</i></a>
