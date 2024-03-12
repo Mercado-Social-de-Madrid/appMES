@@ -10,7 +10,10 @@
             {% include 'navbar/market.html' with market=current_market %}
         {% endif %}
 
-        <div class="text-center bg-light-1 mt-auto py-1">
+        <div class="text-center mt-auto p-2">
+            v{{ VERSION_NUMBER }}
+        </div>
+        <div class="text-center bg-light-1 py-1">
             <a class="nav-link text-dark font-weight-bold" href="{% url 'admin_docs' ''%}" target="_blank">
                 <i class="material-icons">description</i>
                 Guía de administración
