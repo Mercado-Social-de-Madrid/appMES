@@ -16,5 +16,5 @@ class EntitiesView(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
-        return HttpResponseGone()
+        return HttpResponseGone('{"message":"Es necesario actualizar la aplicación"}')
 
