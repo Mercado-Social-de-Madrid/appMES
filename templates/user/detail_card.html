@@ -1,26 +1,26 @@
 {% load market_url %}
 {% load settings_value %}
+{% load i18n %}
 
-
-<label>Usuario:</label>
+<label>{% translate "Usuario"  %}:</label>
 {% if not user %}
-    <label class="primary-title"></label>Aún no se ha creado usuario<br>
-    <a class="btn btn-secondary btn-block mt-2" href="#"> <i class="material-icons mr-2">add</i>Crear usuario </a>
+    <label class="primary-title"></label>{% translate "Aún no se ha creado usuario" %}<br>
+    <a class="btn btn-secondary btn-block mt-2" href="#"> <i class="material-icons mr-2">add</i>{% translate "Crear usuario"  %} </a>
 {% else %}
     <a href="{% market_url 'auth:user_detail' user.pk %}">{% include "user/row_display.html"  %} </a> <br>
-    <label>Fecha de registro</label> {{user.created_at|date:'d/m/Y H:i'}}<br>
-    <label class="primary-title">Último acceso:</label> {% include "user/last_login.html" %}
+    <label>{% translate "Fecha de registro"  %}</label> {{user.created_at|date:'d/m/Y H:i'}}<br>
+    <label class="primary-title">{% translate "Último acceso"  %}:</label> {% include "user/last_login.html" %}
 {% endif %}
 
 
 {% if user.is_preregistered %}
 <hr>
-    <strong class="text-primary">Prerregistro</strong><br>
-    El usuario aún no hay completado el registro
+    <strong class="text-primary">{% translate "Prerregistro"  %}</strong><br>
+    {% translate "El usuario aún no hay completado el registro"  %}
     <form class="pt-3" method="post" action="{% url 'auth:preregister_send_email' user.preregister.first.id %}">
         {% csrf_token %}
         <input type="hidden" name="next" value="{% market_url 'auth:user_detail' user.pk %}">
-        <a class="btn btn-secondary mb-2 copy-clipboard mr-2" href="#" data-clipboard-text="{% url 'auth:preregister' user.preregister.first.id %}"> <i class="material-icons mr-2">link</i>Copiar enlace </a>
-         <button type="submit" class="btn btn-primary mb-2 copy-clipboard"> <i class="material-icons mr-2">send</i>Reenviar email </button>
+        <a class="btn btn-secondary mb-2 copy-clipboard mr-2" href="#" data-clipboard-text="{% url 'auth:preregister' user.preregister.first.id %}"> <i class="material-icons mr-2">link</i>{% translate "Copiar enlace"  %} </a>
+         <button type="submit" class="btn btn-primary mb-2 copy-clipboard"> <i class="material-icons mr-2">send</i>{% translate "Reenviar email"  %} </button>
     </form>
 {% endif %}

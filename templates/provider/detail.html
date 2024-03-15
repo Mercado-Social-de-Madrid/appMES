@@ -2,9 +2,10 @@
 {% load static %}
 {% load settings_value %}
 {% load l10n %}
+{% load i18n %}
 {% load market_url %}
 
-{% block title %}{% if is_new %}Nueva entidad{% else %}{{object.name}}{% endif %}{% endblock%}
+{% block title %}{{object.name}}{% endblock%}
 
 {% block bodyattrs %}class="entity"{% endblock%}
 
@@ -36,29 +37,29 @@
             {% include 'common/social_links.html' with obj=object %}
             {% if request.user.is_superuser %}
             <hr class="mt-4">
-                 <span class="text-primary"><strong>Número de socia:</strong></span>
+                 <span class="text-primary"><strong>{% translate "Número de socia" %}:</strong></span>
                 {{object.member_id|default_if_none:'-'}}<br>
             {% endif %}
         </div>
 
         <div class="col-md-12 mb-4">
-            <h4 class="mb-3"><i class="ic ic-news"></i> Ofertas en curso</h4>
+            <h4 class="mb-3"><i class="ic ic-news"></i> {% translate "Ofertas en curso" %}</h4>
             {% if offers %}
                 {% include 'offers/resume_list.html' with offer_list=offers  %}
             {% else %}
-                <div class="text-grey px-3">No hay ninguna oferta activa actualmente.</div>
+                <div class="text-grey px-3">{% translate "No hay ninguna oferta activa actualmente." %}</div>
             {% endif %}
 
         </div>
 
 
         <div class="col-md-12">
-            <h4 class="mb-3"><i class="material-icons-outlined text-primary">eco</i> Ventajas</h4>
+            <h4 class="mb-3"><i class="material-icons-outlined text-primary">eco</i> {% translate "Ventajas" %}</h4>
 
                 {% if object.benefit %}
-                <a class="btn btn-secondary btn-action text-light mr-4" href="{% market_url 'benefits:detail' object.benefit.pk %}">Ver ventajas</a>
+                <a class="btn btn-secondary btn-action text-light mr-4" href="{% market_url 'benefits:detail' object.benefit.pk %}">{% translate "Ver ventajas" %}</a>
                 {% elif request.user.is_staff or request.user.is_superuser %}
-                    <a class="btn btn-primary mr-4" href="{% market_url 'benefits:add_provider_benefit' object.pk %}" data-toggle="tooltip" title="Añadir ventaja"><i class="material-icons mr-2">local_activity</i>Añadir ventaja</a>
+                    <a class="btn btn-primary mr-4" href="{% market_url 'benefits:add_provider_benefit' object.pk %}" data-toggle="tooltip" title="Añadir ventaja"><i class="material-icons mr-2">local_activity</i>{% translate "Añadir ventaja" %}</a>
                 {% elif request.user.entity == entity %}
                 <h5 class="mb-3">Ahora mismo no ofreces ventajas, para añadirlas ponte en contacto con <a href="mailto:madrid@mercadosocial.net">madrid@mercadosocial.net</a> </h5>
                 {% endif %}

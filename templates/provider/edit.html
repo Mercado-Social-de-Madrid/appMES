@@ -2,6 +2,7 @@
 {% load static %}
 {% load settings_value %}
 {% load l10n %}
+{% load i18n %}
 {% load market_url %}
 
 {% block title %}{{object.display_name}}{% endblock%}
@@ -14,7 +15,7 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
-                <h4 class="mb-0"><a href="{% market_url 'market:provider_list' %}">Proveedoras</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.display_name}}</h4>
+                <h4 class="mb-0"><a href="{% market_url 'market:provider_list' %}">{% translate "Proveedoras" %}</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.display_name}}</h4>
             </div>
         </div>
         </div>
@@ -36,7 +37,7 @@
     $('.gallery-form-photo').formset({
         prefix: '{{ formsets.gallery.prefix }}',
         addText: '<i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Añadir foto">add</i></div>',
-        deleteText: '<div class="btn btn-primary btn-float btn-small" href="#!" data-toggle="tooltip" data-placement="bottom" title="Eliminar foto"><i class="material-icons">delete</i></div>',
+        deleteText: '<div class="btn btn-primary btn-float btn-small" href="#!" data-toggle="tooltip" data-placement="bottom" title="{% translate "Eliminar foto" %}"><i class="material-icons">delete</i></div>',
         added: function(row){ row.find('.form-photo').removeClass('uploaded').find('.thumb').css('background-image',''); }
     });
 

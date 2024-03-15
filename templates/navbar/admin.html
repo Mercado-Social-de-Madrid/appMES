@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <div class="navdrawer-header d-flex mb-0">
     <a class="navbar-brand px-0" href="#">Administración</a>
 
@@ -14,7 +16,7 @@
     <li class="nav-item {% if request.resolver_match.url_name == 'user_list' and not current_market %}active{% endif %}">
     <a class="nav-link" href="{% url 'auth:user_list' %}">
       <i class="material-icons mr-3">face</i>
-      Usuarios
+      {% translate 'Usuarios' %}
     </a>
     </li>
 
@@ -22,7 +24,7 @@
 
     <li class="nav-item">
     <a class="nav-link collapsed position-relative" data-toggle="collapse" href="#node-list" role="button" aria-expanded="false">
-      <em class="material-icons mr-3">storefront</em> Mercados
+      <em class="material-icons mr-3">storefront</em> {% translate 'Mercados' %}
         <em class="fas fa-chevron-down expand-btn float-right"></em>
     </a>
     </li>
@@ -32,7 +34,7 @@
             <li class="nav-item {% if request.resolver_match.url_name == 'market_list' %}active{% endif %}">
             <a class="nav-link pl-4" href="{% url 'market:market_list' %}">
               <i class="material-icons mr-3">edit</i>
-              Editar mercados
+              {% translate 'Editar mercados' %}
             </a>
             </li>
 

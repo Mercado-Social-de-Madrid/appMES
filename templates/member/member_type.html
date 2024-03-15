@@ -1,9 +1,10 @@
+{% load i18n %}
 {% if member.member_type == "provider" %}
-  socia proveedora
+  {% translate "socia proveedora" %}
 {% else %}
   {% if member.is_intercoop %}
-    socia intercooperación
+    {% translate "socia intercooperación" %}
   {% else %}
-    socia consumidora
+    {% translate "socia consumidora" %}
   {% endif %}
 {% endif %}

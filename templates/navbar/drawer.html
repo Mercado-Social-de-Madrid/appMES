@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <div class="navdrawer navdrawer-permanent-lg doc-navdrawer" id="doc-navdrawer" tabindex="-1" aria-hidden="true">
   <div class="navdrawer-content">
     <div class="d-flex flex-column doc-navdrawer-body h-100">
@@ -16,7 +18,7 @@
         <div class="text-center bg-light-1 py-1">
             <a class="nav-link text-dark font-weight-bold" href="{% url 'admin_docs' ''%}" target="_blank">
                 <i class="material-icons">description</i>
-                Guía de administración
+                {% translate 'Guía de administración' %}
             </a>
         </div>
     </div>

@@ -1,13 +1,14 @@
+{% load i18n %}
   <li class="nav-item">
-    <a class="nav-link {% if request.resolver_match.url_name == 'user_dashboard' %}active{% endif %}" href="{% url 'market:index' %}"><i class="material-icons-outlined mr-2">home</i> Inicio</a>
+    <a class="nav-link {% if request.resolver_match.url_name == 'user_dashboard' %}active{% endif %}" href="{% url 'market:index' %}"><i class="material-icons-outlined mr-2">home</i> {% translate "Inicio" %}</a>
   </li>
  <li class="nav-item">
-    <a class="nav-link {% if request.resolver_match.url_name == 'provider_detail' %}active{% endif %}" href="{% url 'market:user_account' %}"><i class="material-icons-outlined mr-2">store</i> Mi entidad</a>
+    <a class="nav-link {% if request.resolver_match.url_name == 'provider_detail' %}active{% endif %}" href="{% url 'market:user_account' %}"><i class="material-icons-outlined mr-2">store</i> {% translate "Mi entidad" %}</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link {% if request.resolver_match.url_name == 'entity_offers' %}active{% endif %}" href="{% url 'offers:user_list' %}"><i class="material-icons-outlined mr-2">shopping_basket</i> Ofertas</a>
+    <a class="nav-link {% if request.resolver_match.url_name == 'entity_offers' %}active{% endif %}" href="{% url 'offers:user_list' %}"><i class="material-icons-outlined mr-2">shopping_basket</i> {% translate "Ofertas" %}</a>
   </li>
 
    <li class="nav-item">
-    <a class="nav-link {% if request.resolver_match.url_name == 'user_benefit' %}active{% endif %}" href="{% url 'benefits:user_benefit' %}"><i class="material-icons-outlined mr-2">local_activity</i> Ventajas</a>
+    <a class="nav-link {% if request.resolver_match.url_name == 'user_benefit' %}active{% endif %}" href="{% url 'benefits:user_benefit' %}"><i class="material-icons-outlined mr-2">local_activity</i> {% translate "Ventajas" %}</a>
   </li>

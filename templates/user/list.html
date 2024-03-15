@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% load market_url %}
-
-{% block title %}Usuarios{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Usuarios" %}{% endblock %}
 
 {% block content %}
     <div class="jumbotron text-light py-4 px-2">
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-7 col-md-8">
-                <h3 class="mb-0">Usuarios</h3>
+                <h3 class="mb-0">{% translate "Usuarios" %}</h3>
             </div>
             <div class="col-sm-5 col-md-4 text-sm-right">
-                <a href="{% market_url 'auth:add_user' %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">add</i> Nuevo usuario</a>
+                <a href="{% market_url 'auth:add_user' %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">add</i> {% translate "Nuevo usuario" %}</a>
             </div>
         </div>
         </div>
