@@ -7,7 +7,7 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from authentication.models.api_token import APIToken
 

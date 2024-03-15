@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django_filters import FilterSet, BooleanFilter
 from django_filters.views import FilterView

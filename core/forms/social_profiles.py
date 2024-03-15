@@ -4,7 +4,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import URLValidator
 from django.forms import formset_factory
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from core.models.social_profile import SocialNetwork, ProviderSocialProfile, SocialProfile, NodeSocialProfile
 from helpers.forms.BootstrapForm import BootstrapForm

@@ -3,7 +3,7 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.urls import reverse
 from market.models import Account
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from core.models import Gallery
 from market.models import Category
 

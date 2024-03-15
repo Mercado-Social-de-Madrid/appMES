@@ -2,15 +2,9 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy, reverse
-from django.views.generic import ListView, UpdateView, CreateView
-from django.utils.translation import gettext as _
 
 from authentication.forms.password import PasswordForm
 from authentication.forms.user import ProfileForm, UserForm
-from authentication.models import User
-from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
-from core.mixins.ListItemUrlMixin import ListItemUrlMixin
 
 
 @login_required

@@ -1,9 +1,9 @@
 
 import uuid
+import datetime
 
 from django.utils import timezone
-from django.utils.translation import gettext as _
-import datetime
+from django.utils.translation import gettext_lazy as _
 from django.db import models
 from django.db.models import Q
 from imagekit.models import ProcessedImageField, ImageSpecField

@@ -1,5 +1,5 @@
 import django_filters
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 class LabeledOrderingFilter(django_filters.OrderingFilter):
     def __init__(self, *args, **kwargs):
