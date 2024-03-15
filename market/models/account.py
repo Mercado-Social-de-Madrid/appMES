@@ -2,7 +2,7 @@ import uuid
 from django.db import models
 from polymorphic.models import PolymorphicModel
 from imagekit.models import ProcessedImageField
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from pilkit.processors import ResizeToFill
 
 from helpers import RandomFileName

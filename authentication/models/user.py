@@ -3,7 +3,7 @@ import uuid
 from django.contrib.auth.base_user import BaseUserManager
 from django.core.validators import MinLengthValidator
 from django.db import models
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser
 
 from core.models import Node

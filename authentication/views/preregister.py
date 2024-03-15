@@ -3,7 +3,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.views import RedirectURLMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.views import View
 from django.views.generic import FormView
 

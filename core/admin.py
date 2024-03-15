@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from core.models import Node, Gallery, GalleryPhoto
 from core.models.social_profile import SocialNetwork, NodeSocialProfile
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 
 class NodeSocialProfileInline(admin.TabularInline):

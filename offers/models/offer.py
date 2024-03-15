@@ -1,6 +1,6 @@
 
 import uuid
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 import datetime
 from django.db import models
 from django.db.models import Q
