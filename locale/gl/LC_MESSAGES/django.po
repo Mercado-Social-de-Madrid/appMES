@@ -1,0 +1,844 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-15 15:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: api/views/auth.py:31
+msgid "Tu cuenta no está activa, revisa tu bandeja de entrada de correo."
+msgstr ""
+
+#: api/views/auth.py:68
+msgid "Usuario eliminado con éxito."
+msgstr ""
+
+#: appmes/settings.py:179
+msgid "Castellano"
+msgstr ""
+
+#: appmes/settings.py:180
+msgid "Catalá"
+msgstr ""
+
+#: appmes/settings.py:181
+msgid "Euskara"
+msgstr ""
+
+#: appmes/settings.py:182
+msgid "Galego"
+msgstr ""
+
+#: authentication/admin.py:34 authentication/admin.py:67
+#: templates/user/profile.html:26
+msgid "Contraseña"
+msgstr ""
+
+#: authentication/admin.py:36
+msgid "Repetir contraseña"
+msgstr ""
+
+#: authentication/admin.py:68
+msgid ""
+"Puedes cambiar la contraseña haciendo click en <a href=\"../password/\">este "
+"enlace</a>."
+msgstr ""
+
+#: authentication/admin.py:95
+msgid "Información"
+msgstr ""
+
+#: authentication/admin.py:98
+msgid "Fechas"
+msgstr ""
+
+#: authentication/admin.py:101
+msgid "Permisos"
+msgstr ""
+
+#: authentication/models/api_token.py:8
+msgid "API Token"
+msgstr ""
+
+#: authentication/models/api_token.py:9
+msgid "API Tokens"
+msgstr ""
+
+#: authentication/models/group.py:7
+msgid "Grupo"
+msgstr ""
+
+#: authentication/models/group.py:8
+msgid "Grupos"
+msgstr ""
+
+#: authentication/models/preregister.py:21
+msgid "Cuenta"
+msgstr ""
+
+#: authentication/models/preregister.py:22
+msgid "Email preregistro enviado"
+msgstr ""
+
+#: authentication/models/preregister.py:25 templates/user/detail_card.html:18
+msgid "Prerregistro"
+msgstr ""
+
+#: authentication/models/preregister.py:26
+msgid "Prerregistros"
+msgstr ""
+
+#: authentication/models/preregister.py:35
+msgid "Todo listo para empezar a usar la aplicación móvil del Mercado Social"
+msgstr ""
+
+#: authentication/models/user.py:53
+msgid "Correo Electrónico"
+msgstr ""
+
+#: authentication/models/user.py:54 core/models/node.py:10
+#: core/models/social_profile.py:10 market/admin.py:33
+#: market/models/category.py:10 market/models/consumer.py:8
+#: market/models/provider.py:13
+msgid "Nombre"
+msgstr ""
+
+#: authentication/models/user.py:55 market/models/consumer.py:9
+msgid "Apellidos"
+msgstr ""
+
+#: authentication/models/user.py:56
+msgid "Mercado que gestiona"
+msgstr ""
+
+#: authentication/models/user.py:57
+msgid "Maneja entidades en más de un mercado"
+msgstr ""
+
+#: authentication/models/user.py:58 core/models/node.py:20
+msgid "Idioma preferido de la interfaz"
+msgstr ""
+
+#: authentication/models/user.py:66 templates/user/detail_card.html:5
+msgid "Usuario"
+msgstr ""
+
+#: authentication/models/user.py:67 templates/navbar/admin.html:19
+#: templates/navbar/market.html:16 templates/user/add.html:14
+#: templates/user/edit.html:7 templates/user/edit.html:15
+#: templates/user/list.html:4 templates/user/list.html:11
+msgid "Usuarios"
+msgstr ""
+
+#: authentication/models/user.py:70
+msgid "Puede ver la lista de usuarios"
+msgstr ""
+
+#: authentication/models/user.py:71
+msgid "Puede cambiar la contraseña de un usuario"
+msgstr ""
+
+#: authentication/models/user.py:72
+msgid "Puede consultar el historial de un usuario"
+msgstr ""
+
+#: authentication/models/user.py:73
+msgid "Puede modificar usuarios"
+msgstr ""
+
+#: authentication/models/user.py:74
+msgid "Puede ver los detalles de un usuario"
+msgstr ""
+
+#: authentication/models/user.py:75
+msgid "Puede añadir usuarios"
+msgstr ""
+
+#: authentication/views/preregister.py:43
+msgid "Contraseña actualizada correctamente"
+msgstr ""
+
+#: authentication/views/preregister.py:50
+msgid "Email de prerregistro reenviado"
+msgstr ""
+
+#: authentication/views/user.py:33 authentication/views/user.py:47
+msgid "Usuario creado correctamente."
+msgstr ""
+
+#: benefits/models/benefit.py:10
+msgid "Ventajas para entidades"
+msgstr ""
+
+#: benefits/models/benefit.py:11
+msgid "Ventajas para socias"
+msgstr ""
+
+#: benefits/models/benefit.py:12
+msgid "Incluye socias Intercoop"
+msgstr ""
+
+#: benefits/models/benefit.py:13
+msgid "Solicitud física"
+msgstr ""
+
+#: benefits/models/benefit.py:14
+msgid "Solicitud online"
+msgstr ""
+
+#: benefits/models/benefit.py:15
+msgid "Código de descuento"
+msgstr ""
+
+#: benefits/models/benefit.py:16
+msgid "Link de descuento para entidades"
+msgstr ""
+
+#: benefits/models/benefit.py:17
+msgid "Link de descuento para socias"
+msgstr ""
+
+#: benefits/models/benefit.py:18
+msgid "Texto del botón del link de descuento"
+msgstr ""
+
+#: benefits/models/benefit.py:18
+msgid "Solicitar descuento"
+msgstr ""
+
+#: benefits/models/benefit.py:19 market/models/account.py:17
+#: offers/models/offer.py:66 templates/member/check_form.html:55
+msgid "Activa"
+msgstr ""
+
+#: core/admin.py:11 core/models/social_profile.py:18 market/admin.py:17
+msgid "Red Social"
+msgstr ""
+
+#: core/admin.py:12 core/models/social_profile.py:19 market/admin.py:18
+msgid "Redes Sociales"
+msgstr ""
+
+#: core/forms/social_profiles.py:35
+msgid "Introduce una URL válida."
+msgstr ""
+
+#: core/models/gallery.py:10 core/models/gallery.py:21
+msgid "Título"
+msgstr ""
+
+#: core/models/gallery.py:13 templates/provider/form.html:47
+msgid "Galería"
+msgstr ""
+
+#: core/models/gallery.py:14
+msgid "Galerías"
+msgstr ""
+
+#: core/models/gallery.py:20
+msgid "Orden"
+msgstr ""
+
+#: core/models/gallery.py:32
+msgid "Foto"
+msgstr ""
+
+#: core/models/gallery.py:33
+msgid "Fotos"
+msgstr ""
+
+#: core/models/node.py:12
+msgid "Visible en listado público"
+msgstr ""
+
+#: core/models/node.py:12
+msgid ""
+"Por defecto, un nuevo mercado empieza oculto hasta que esté listo para "
+"incluir en la aplicación"
+msgstr ""
+
+#: core/models/node.py:13 market/models/provider.py:18
+msgid "Latitud"
+msgstr ""
+
+#: core/models/node.py:14 market/models/provider.py:19
+msgid "Longitud"
+msgstr ""
+
+#: core/models/node.py:16
+msgid "Email de contacto"
+msgstr ""
+
+#: core/models/node.py:17
+msgid "Permitir el registro abierto"
+msgstr ""
+
+#: core/models/node.py:18
+msgid "Enlace al formulario de registro de proveedoras"
+msgstr ""
+
+#: core/models/node.py:19
+msgid "Enlace al formulario de registro de consumidoras"
+msgstr ""
+
+#: core/models/node.py:22 news/models/news.py:20 offers/models/offer.py:56
+msgid "Imagen principal"
+msgstr ""
+
+#: core/models/node.py:25 market/models/provider.py:31
+msgid "Página web"
+msgstr ""
+
+#: core/models/node.py:26
+msgid "Servidor de Takahe"
+msgstr ""
+
+#: core/models/node.py:28
+msgid "Carnet de socia activa"
+msgstr ""
+
+#: core/models/node.py:29
+msgid "Enlace a página con información básica del mercado"
+msgstr ""
+
+#: core/models/node.py:32 core/models/social_profile.py:32
+#: market/views/provider.py:52
+msgid "Mercado"
+msgstr ""
+
+#: core/models/node.py:33 templates/navbar/admin.html:27
+msgid "Mercados"
+msgstr ""
+
+#: core/models/social_profile.py:11
+msgid "Logo"
+msgstr ""
+
+#: core/models/social_profile.py:15
+msgid "Logo png"
+msgstr ""
+
+#: core/models/social_profile.py:26
+msgid "Red social"
+msgstr ""
+
+#: core/models/social_profile.py:27
+msgid "Enlace a la red social"
+msgstr ""
+
+#: core/models/social_profile.py:37
+msgid "Proveedora"
+msgstr ""
+
+#: helpers/filters/LabeledOrderingFilter.py:6
+msgid "Ordenar por..."
+msgstr ""
+
+#: market/forms/account.py:23
+msgid "Crear usuaria y mandar email de prerregistro"
+msgstr ""
+
+#: market/forms/account.py:33
+msgid "Ya existe un usuario registrado con este email."
+msgstr ""
+
+#: market/models/account.py:16 templates/provider/query.html:9
+msgid "Gestionado por"
+msgstr ""
+
+#: market/models/account.py:18
+msgid "NIF/CIF/Pasaporte"
+msgstr ""
+
+#: market/models/account.py:20 templates/member/check_form.html:38
+#: templates/provider/detail.html:40
+msgid "Número de socia"
+msgstr ""
+
+#: market/models/account.py:21
+msgid "Dirección"
+msgstr ""
+
+#: market/models/account.py:22
+msgid "Municipio"
+msgstr ""
+
+#: market/models/account.py:29
+msgid "Última actualización"
+msgstr ""
+
+#: market/models/account.py:30
+msgid "Fecha de alta"
+msgstr ""
+
+#: market/models/category.py:11 market/models/provider.py:14
+#: news/models/news.py:18 offers/models/offer.py:54
+msgid "Descripción"
+msgstr ""
+
+#: market/models/consumer.py:10
+msgid "Favoritos"
+msgstr ""
+
+#: market/models/consumer.py:11
+msgid "Es socia de intercooperación"
+msgstr ""
+
+#: market/models/consumer.py:14
+msgid "Consumidora"
+msgstr ""
+
+#: market/models/consumer.py:15 templates/consumer/create.html:15
+#: templates/navbar/market.html:50
+msgid "Consumidoras"
+msgstr ""
+
+#: market/models/provider.py:15 news/models/news.py:17
+msgid "Descripción corta"
+msgstr ""
+
+#: market/models/provider.py:17
+msgid "Oculta en listado público"
+msgstr ""
+
+#: market/models/provider.py:21 templates/navbar/market.html:35
+msgid "Categorías"
+msgstr ""
+
+#: market/models/provider.py:23
+msgid "Teléfono"
+msgstr ""
+
+#: market/models/provider.py:24
+msgid "Número de trabajadores"
+msgstr ""
+
+#: market/models/provider.py:25
+msgid "Formulario legal"
+msgstr ""
+
+#: market/models/provider.py:29
+msgid "Informe balance"
+msgstr ""
+
+#: market/views/category.py:34
+msgid "Categoría añadida correctamente."
+msgstr ""
+
+#: market/views/consumer.py:27 market/views/provider.py:31 offers/views.py:66
+msgid "Buscar..."
+msgstr ""
+
+#: market/views/consumer.py:63
+msgid "Consumidora añadida correctamente."
+msgstr ""
+
+#: market/views/consumer.py:88 market/views/market.py:61
+msgid "Datos actualizados correctamente."
+msgstr ""
+
+#: market/views/provider.py:133
+msgid "Proveedora añadida correctamente."
+msgstr ""
+
+#: market/views/provider.py:158
+msgid "Proveedora actualizada correctamente."
+msgstr ""
+
+#: news/models/news.py:13
+msgid "Mercado en el que se publica"
+msgstr ""
+
+#: news/models/news.py:15
+msgid "Título (máx 200 caracteres)"
+msgstr ""
+
+#: news/models/news.py:28
+msgid "Texto del botón de info"
+msgstr ""
+
+#: news/models/news.py:29
+msgid "URL con más información"
+msgstr ""
+
+#: news/views.py:53
+msgid "Noticia actualizada correctamente."
+msgstr ""
+
+#: news/views.py:65
+msgid "Noticia eliminada correctamente."
+msgstr ""
+
+#: offers/models/offer.py:53
+msgid "Título de la oferta"
+msgstr ""
+
+#: offers/models/offer.py:64
+msgid "Porcentaje de descuento"
+msgstr ""
+
+#: offers/models/offer.py:65
+msgid "Precio con descuento"
+msgstr ""
+
+#: offers/models/offer.py:67
+msgid "Fecha de inicio"
+msgstr ""
+
+#: offers/models/offer.py:68
+msgid "Fecha de fin"
+msgstr ""
+
+#: offers/views.py:85
+msgid "Fecha de publicación"
+msgstr ""
+
+#: templates/consumer/create.html:6 templates/consumer/create.html:16
+msgid "Nueva consumidora"
+msgstr ""
+
+#: templates/consumer/create.html:32
+msgid "Añadir consumidora"
+msgstr ""
+
+#: templates/member/card.html:7 templates/member/card.html:24
+#: templates/member/check_form.html:6
+msgid "Mi carnet de socia"
+msgstr ""
+
+#: templates/member/card.html:27
+msgid ""
+"Este carnet certifica tu pertenencia como socia/o al Mercado Social. Con él "
+"podrás acceder a las ventajas y descuentos por formar parte de la red. "
+"¡Muchas gracias por tu aportación a la Economía Solidaria!"
+msgstr ""
+
+#: templates/member/card.html:28
+msgid ""
+"Puedes acceder a tu carnet a través de esta web o la app. Si lo prefieres "
+"tener físico, imprímelo pulsando este botón"
+msgstr ""
+
+#: templates/member/card.html:32
+msgid "Descargar PDF"
+msgstr ""
+
+#: templates/member/card_pdf.html:7
+msgid "Carnet de socia MESM"
+msgstr ""
+
+#: templates/member/check_form.html:23
+msgid "Comprobar estado de socia"
+msgstr ""
+
+#: templates/member/check_form.html:26
+msgid "Hazlo de forma más fácil desde de la app del Mercado Social."
+msgstr ""
+
+#: templates/member/check_form.html:27
+msgid ""
+"Desde la aplicación móvil, puedes acceder a la pantalla de 'Carnet de soci@' "
+"y directamente escanear el código QR de otra socia."
+msgstr ""
+
+#: templates/member/check_form.html:29
+msgid ""
+"También puedes hacerlo aquí, introduciendo manualmente el número de la socia "
+"según aparece en su carnet."
+msgstr ""
+
+#: templates/member/check_form.html:42
+msgid "Comprobar"
+msgstr ""
+
+#: templates/member/check_form.html:44
+msgid ""
+"Añade los ceros al inicio según aparecen en el carnet. Si es una socia de "
+"interccoperación tienes que introducir también el prefijo ICOOP como aparece "
+"en el carnet"
+msgstr ""
+
+#: templates/member/check_form.html:50
+msgid "No se ha encontrado una socia con ese número."
+msgstr ""
+
+#: templates/member/check_form.html:60
+msgid "Socia inactiva"
+msgstr ""
+
+#: templates/member/check_form.html:77
+msgid "Y si todavía no tienes descargada la app, puedes hacerlo desde aquí"
+msgstr ""
+
+#: templates/member/member_type.html:3
+msgid "socia proveedora"
+msgstr ""
+
+#: templates/member/member_type.html:6
+msgid "socia intercooperación"
+msgstr ""
+
+#: templates/member/member_type.html:8
+msgid "socia consumidora"
+msgstr ""
+
+#: templates/navbar/admin.html:37
+msgid "Editar mercados"
+msgstr ""
+
+#: templates/navbar/drawer.html:18
+msgid "Guía de administración"
+msgstr ""
+
+#: templates/navbar/login.html:14
+msgid "Idioma de la interfaz"
+msgstr ""
+
+#: templates/navbar/login.html:32
+msgid "Editar perfil"
+msgstr ""
+
+#: templates/navbar/login.html:37
+msgid "Cerrar sesión"
+msgstr ""
+
+#: templates/navbar/market.html:23
+msgid "Noticias"
+msgstr ""
+
+#: templates/navbar/market.html:43 templates/provider/create.html:18
+#: templates/provider/edit.html:18 templates/provider/list.html:18
+msgid "Proveedoras"
+msgstr ""
+
+#: templates/navbar/market.html:57 templates/navbar/user_provider_menu.html:9
+msgid "Ofertas"
+msgstr ""
+
+#: templates/navbar/market.html:64 templates/navbar/user_provider_menu.html:13
+#: templates/provider/detail.html:57 templates/provider/query.html:23
+msgid "Ventajas"
+msgstr ""
+
+#: templates/navbar/user_provider_menu.html:3
+msgid "Inicio"
+msgstr ""
+
+#: templates/navbar/user_provider_menu.html:6
+msgid "Mi entidad"
+msgstr ""
+
+#: templates/provider/create.html:8 templates/provider/create.html:18
+msgid "Nueva proveedora"
+msgstr ""
+
+#: templates/provider/create.html:31
+msgid "Crear entidad"
+msgstr ""
+
+#: templates/provider/create.html:47 templates/provider/edit.html:40
+msgid "Eliminar foto"
+msgstr ""
+
+#: templates/provider/detail.html:46
+msgid "Ofertas en curso"
+msgstr ""
+
+#: templates/provider/detail.html:50
+msgid "No hay ninguna oferta activa actualmente."
+msgstr ""
+
+#: templates/provider/detail.html:60
+msgid "Ver ventajas"
+msgstr ""
+
+#: templates/provider/detail.html:62
+msgid "Añadir ventaja"
+msgstr ""
+
+#: templates/provider/form.html:19
+msgid "Actualizar imagen"
+msgstr ""
+
+#: templates/provider/form.html:77
+msgid "Geolocalización"
+msgstr ""
+
+#: templates/provider/form.html:78
+msgid ""
+"Mueve el pin por el mapa hasta posicionarlo en la localización correcta."
+msgstr ""
+
+#: templates/provider/form.html:85
+msgid ""
+"Puedes hacer zoom en los controles del mapa para ajustar al máximo la "
+"posición, o entrar en la vista de pantalla completa."
+msgstr ""
+
+#: templates/provider/form.html:96
+msgid "Redes sociales"
+msgstr ""
+
+#: templates/provider/header_detail.html:13 templates/user/query.html:34
+msgid "Editar"
+msgstr ""
+
+#: templates/provider/list.html:8
+msgid "Entidades"
+msgstr ""
+
+#: templates/provider/list.html:21
+msgid "Añadir nueva"
+msgstr ""
+
+#: templates/provider/query.html:7
+msgid "Entidad"
+msgstr ""
+
+#: templates/provider/query.html:8
+msgid "CIF"
+msgstr ""
+
+#: templates/provider/query.html:10
+msgid "Ventajas y <br> ofertas"
+msgstr ""
+
+#: templates/provider/query.html:11
+msgid "Acciones"
+msgstr ""
+
+#: templates/provider/query.html:22
+msgid "oferta(s) publicada(s)"
+msgstr ""
+
+#: templates/provider/query.html:23
+msgid "Sin ventajas"
+msgstr ""
+
+#: templates/user/add.html:6 templates/user/add.html:14
+#: templates/user/list.html:14
+msgid "Nuevo usuario"
+msgstr ""
+
+#: templates/user/add.html:28 templates/user/detail_card.html:8
+msgid "Crear usuario"
+msgstr ""
+
+#: templates/user/detail_card.html:7
+msgid "Aún no se ha creado usuario"
+msgstr ""
+
+#: templates/user/detail_card.html:11 templates/user/edit.html:34
+msgid "Fecha de registro"
+msgstr ""
+
+#: templates/user/detail_card.html:12 templates/user/edit.html:35
+msgid "Último acceso"
+msgstr ""
+
+#: templates/user/detail_card.html:19
+msgid "El usuario aún no hay completado el registro"
+msgstr ""
+
+#: templates/user/detail_card.html:23 templates/user/edit.html:51
+msgid "Copiar enlace"
+msgstr ""
+
+#: templates/user/detail_card.html:24 templates/user/edit.html:52
+msgid "Reenviar email"
+msgstr ""
+
+#: templates/user/edit.html:28
+msgid "Cuenta que gestiona"
+msgstr ""
+
+#: templates/user/edit.html:43
+msgid ""
+"El usuario no ha completado aún el prerregistro para establecer su "
+"contraseña (debió recibir un email a su cuenta con un enlace de activación)"
+msgstr ""
+
+#: templates/user/last_login.html:2
+msgid "Nunca"
+msgstr ""
+
+#: templates/user/profile.html:4 templates/user/profile.html:13
+msgid "Mi perfil"
+msgstr ""
+
+#: templates/user/profile.html:23
+msgid "Perfil"
+msgstr ""
+
+#: templates/user/profile.html:37
+msgid "Datos de perfil"
+msgstr ""
+
+#: templates/user/profile.html:69
+msgid "Actualizar contraseña"
+msgstr ""
+
+#: templates/user/profile.html:86
+msgid "Cambiar contraseña"
+msgstr ""
+
+#: templates/user/query.html:6
+msgid "Email"
+msgstr ""
+
+#: templates/user/query.html:7
+msgid "Registro"
+msgstr ""
+
+#: templates/user/query.html:8
+msgid "Rol"
+msgstr ""
+
+#: templates/user/query.html:9
+msgid "Última conexión"
+msgstr ""
+
+#: templates/user/query.html:16
+msgid "Administrador"
+msgstr ""
+
+#: templates/user/query.html:19
+msgid "Editor"
+msgstr ""
+
+#: templates/user/query.html:22
+msgid "Normal"
+msgstr ""
+
+#: templates/user/query.html:35
+msgid "Eliminar usuario"
+msgstr ""
+
+#: templates/user/status_circle.html:4
+msgid "Invitada"
+msgstr ""
+
+#: templates/user/status_circle.html:7
+msgid "Pendiente registro"
+msgstr ""
+
+#: templates/user/status_circle.html:9
+msgid "Registrada"
+msgstr ""
+
+#: templates/user/status_circle.html:13
+msgid "Sin usuario"
+msgstr ""

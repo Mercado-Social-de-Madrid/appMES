@@ -1,5 +1,5 @@
+{% load i18n %}
 <div class="container-fluid">
-
     <div class="errors"> {{form.errors}}
         {{formsets.form_errors}}
     </div>
@@ -16,7 +16,7 @@
                             <div class="col-md-4 text-center form-photo">
                                 <div class="file-field image-field d-inline-block mb-4" data-img-target="#profile-image" data-ref-type="image">
                                     {% include "account/profile_circle.html" with account=object %}
-                                    <div class="btn btn-primary btn-float" data-toggle="tooltip" data-placement="bottom" title="Actualizar imagen">
+                                    <div class="btn btn-primary btn-float" data-toggle="tooltip" data-placement="bottom" title="{% translate "Actualizar imagen" %}">
                                         <span><i class="material-icons">insert_photo</i></span>
                                         {{form.profile_image}}
                                     </div>
@@ -44,7 +44,7 @@
 
                 <div class="card mb-4">
                     <div class="card-body">
-                        <div class="card-title"><i class="material-icons">photo_library</i> Galería </div>
+                        <div class="card-title"><i class="material-icons">photo_library</i> {% translate "Galería" %} </div>
                         {{ form.gallery.as_hidden }}
                         {{ formsets.gallery.management_form }}
                         {% for gallery_form in formsets.gallery %}
@@ -74,15 +74,15 @@
                     </div>
 
                     <div class="card-body px-3 pb-0">
-                            <h4 class="card-title"><i class="material-icons">edit_location</i> Geolocalización</h4>
-                            <p class="card-text">Mueve el pin por el mapa hasta posicionarlo en la localización correcta.</p>
+                            <h4 class="card-title"><i class="material-icons">edit_location</i> {% translate "Geolocalización" %}</h4>
+                            <p class="card-text">{% translate "Mueve el pin por el mapa hasta posicionarlo en la localización correcta." %}</p>
 
                             {% include "common/forms/field.html" with field=form.latitude %}
                             {% include "common/forms/field.html" with field=form.longitude %}
                     </div>
 
                     <div class="card-footer">
-                      <small class="text-muted">Puedes hacer zoom en los controles del mapa para ajustar al máximo la posición, o entrar en la vista de pantalla completa.</small>
+                      <small class="text-muted">{% translate "Puedes hacer zoom en los controles del mapa para ajustar al máximo la posición, o entrar en la vista de pantalla completa." %}</small>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
 
                 <div class="card mb-4 pb-4">
                     <div class="social-links card-body pr-5">
-                        <div class="card-title"> Redes sociales</div>
+                        <div class="card-title"> {% translate "Redes sociales" %}</div>
 
                         <div>
                             <div class="form-group">

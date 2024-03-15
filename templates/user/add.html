@@ -2,8 +2,8 @@
 {% load static %}
 {% load settings_value %}
 {% load market_url %}
-
-{% block title %}Nuevo usuario{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Nuevo usuario" %}{% endblock %}
 
 {% block content %}
 
@@ -11,7 +11,7 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
-                <h4 class="mb-0"><a href="{% market_url 'auth:user_list' %}">Usuarios</a><i class="material-icons md-18 ">arrow_forward_ios</i> Nuevo usuario </h4>
+                <h4 class="mb-0"><a href="{% market_url 'auth:user_list' %}">{% translate "Usuarios" %}</a><i class="material-icons md-18 ">arrow_forward_ios</i> {% translate "Nuevo usuario" %} </h4>
             </div>
         </div>
         </div>
@@ -25,7 +25,7 @@
             {% include "user/form.html" %}
 
             <div class="text-center mt-4">
-                <button type="submit" class="btn btn-primary btn-lg btn-action">Crear usuario</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-action">{% translate "Crear usuario" %}</button>
             </div>
 
         </form>

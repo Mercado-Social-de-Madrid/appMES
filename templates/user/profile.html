@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block title %}Mi perfil{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Mi perfil" %}{% endblock %}
 
 {% block bodyattrs %} id="login-page" class="main-bg" {% endblock%}
 
@@ -10,7 +10,7 @@
 <div class="jumbo-header minimal" >
     <div class="jumbotron text-light">
         <div class="container text-center">
-            <h2>Mi perfil</h2>
+            <h2>{% translate "Mi perfil" %}</h2>
         </div>
     </div>
 </div>
@@ -20,10 +20,10 @@
 
 <ul class="nav nav-justified nav-tabs" id="tabs-content" role="tablist">
       <li class="nav-item">
-        <a aria-controls="profile" aria-selected="true" class="nav-link {%if profile_tab%}active{%endif%}" data-toggle="tab" href="#profile-form" id="profile-tab" role="tab">Perfil</a>
+        <a aria-controls="profile" aria-selected="true" class="nav-link {%if profile_tab%}active{%endif%}" data-toggle="tab" href="#profile-form" id="profile-tab" role="tab">{% translate "Perfil" %}</a>
       </li>
       <li class="nav-item">
-        <a aria-controls="password" aria-selected="false" class="nav-link {%if password_tab%} active{%endif%}" data-toggle="tab" href="#password-form" id="password-tab" role="tab">Contraseña</a>
+        <a aria-controls="password" aria-selected="false" class="nav-link {%if password_tab%} active{%endif%}" data-toggle="tab" href="#password-form" id="password-tab" role="tab">{% translate "Contraseña" %}</a>
       </li>
 </ul>
 
@@ -34,7 +34,7 @@
 
   <form method="post" action="{% url 'auth:edit_profile' %}"  class="edit-form" >
     {% csrf_token %}
-        <h4><i class="material-icons mr-3">account_circle</i> Datos de perfil</h4>
+        <h4><i class="material-icons mr-3">account_circle</i> {% translate "Datos de perfil" %}</h4>
       <div class="row">
           <div class="col-sm-12">
               {% include "common/forms/field.html" with field=user_form.username %}
@@ -66,7 +66,7 @@
 
       <form method="post" class="edit-form" action="{% url 'auth:profile_password' %}">
 
-        <h4><i class="material-icons">vpn_key</i> Actualizar contraseña</h4>
+        <h4><i class="material-icons">vpn_key</i> {% translate "Actualizar contraseña" %}</h4>
          {% csrf_token %}
 
         <div class="row justify-content-md-center">
@@ -83,7 +83,7 @@
         </div>
 
         <p class="text-center">
-          <button type="submit" class="btn btn-primary btn-lg">Cambiar contraseña</button>
+          <button type="submit" class="btn btn-primary btn-lg">{% translate "Cambiar contraseña" %}</button>
       </p>
     </form>
 
