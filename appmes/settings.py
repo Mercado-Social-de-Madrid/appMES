@@ -15,6 +15,8 @@ import sentry_sdk
 from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from firebase_admin import initialize_app
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
 
@@ -287,3 +289,10 @@ sentry_sdk.init(
     traces_sample_rate=1.0,
     profiles_sample_rate=0.5,
 )
+
+# ======= Firebase Configuration ========
+FIREBASE_APP = initialize_app()
+FCM_DJANGO_SETTINGS = {
+    "ONE_DEVICE_PER_USER": False,
+    "DELETE_INACTIVE_DEVICES": False,
+}

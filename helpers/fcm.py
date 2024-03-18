@@ -1,45 +1,67 @@
-from helpers import is_package_installed
+import logging
 
-if is_package_installed('fcm_django'):
-    from fcm_django.models import FCMDevice
+from firebase_admin.messaging import Message, Notification
 
-    def notify_user(user, data, title=None, message=None, silent=True):
+from fcm_django.models import FCMDevice
+from django.utils.translation import gettext_lazy as _
+
+logger = logging.getLogger(__name__)
+
+
+class NotificationEvent:
+    class Event:
+        def __init__(self, title, prefix):
+            self.title = title
+            self.prefix = prefix
+
+    OTHER = Event(_("Otro"), "other")
+    NEWS_ADDED = Event(_("Nueva noticia"), "news")
+
+
+def notify_user(user, data, event=NotificationEvent.OTHER, title=None, body=None, image=None, silent=True):
+    '''
+        Sends an FCM notification to a user
+        If the message is silent, title and message are included in the data dictionary
+    '''
+    logger.info("Sending FCM notification...")
+
+    if not user:
+        return
+
+    data = data or {}
+    data["event"] = str(event.title)
+
+    if not body and not title:
+        silent = True
+    if title and silent:
+        data['title'] = title
+    if body and silent:
+        data['message'] = body
+
+    device = FCMDevice.objects.filter(user=user).first()
+    if device is None:
+        return
+    if silent:
+        result = device.send_message(
+            Message(data=data)
+        )
+    else:
+        result = device.send_message(
+            Message(notification=Notification(title=title, body=body, image=image), data=data)
+        )
+    logger.info(f"FCM Notification sent: {result}")
+
+
+def broadcast_notification(node_shortname=None, data=None, event=NotificationEvent.OTHER, title=None, body=None, image=None, silent=False):
         '''
-            Sends an FCM notification to a user
+            Sends an FCM notification broadcast to all devices subscribed to topic
             If the message is silent, title and message are included in the data dictionary
         '''
-        if not user:
-            return
+        logger.info("Sending FCM broadcast...")
 
-        if not data:
-            data = {}
-        if not message and not title:
-            silent = True
-        if title and silent:
-            data['title'] = title
-        if message and silent:
-            data['message'] = message
+        data = data or {}
+        data["event"] = str(event.title)
 
-        device = FCMDevice.objects.filter(user=user).first()
-        if device is None:
-            return
-        if silent:
-            result = device.send_message(data=data)
-        else:
-            result = device.send_message(title=title, body=message, data=data)
-
-
-    def broadcast_notification(users=None, data=None, title=None, body=None, silent=True):
-        '''
-            Sends an FCM notification to a user
-            If the message is silent, title and message are included in the data dictionary
-        '''
-        devices = FCMDevice.objects.all()
-        if users is not None:
-            devices.filter(user__in=users)
-
-        if not data:
-            data = {}
         if not body and not title:
             silent = True
         if title and silent:
@@ -47,9 +69,17 @@ if is_package_installed('fcm_django'):
         if body and silent:
             data['message'] = body
 
-        if silent:
-            result = devices.send_message(data=data)
-        else:
-            result = devices.send_message(title=title, body=body, data=data)
+        topic = node_shortname + "_" + event.prefix
 
-        print(result)
+        if silent:
+            result = FCMDevice.send_topic_message(
+                Message(data=data),
+                topic
+            )
+        else:
+            result = FCMDevice.send_topic_message(
+                Message(notification=Notification(title=title, body=body, image=image), data=data),
+                topic
+            )
+
+        logger.info(f"FCM Broadcast sent: {result}")

@@ -1,10 +1,11 @@
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.utils.translation import gettext as _
-from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
+from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
+from helpers.fcm import broadcast_notification, NotificationEvent
 from market.mixins.current_market import MarketMixin
 from news.forms.news import NewsForm
 from news.models import News
@@ -34,6 +35,14 @@ class NewsCreate(MarketMixin, CreateView):
         news = form.save()
         news.published_by = self.request.user
         news.save()
+
+        broadcast_notification(
+            node_shortname=news.node.shortname,
+            event=NotificationEvent.NEWS_ADDED,
+            title=news.title,
+            body=news.short_description,
+            image=self.request.build_absolute_uri(news.banner_thumbnail.url),
+        )
 
         return HttpResponseRedirect(self.get_success_url())
 
