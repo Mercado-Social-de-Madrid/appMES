@@ -2,7 +2,7 @@
 {% load static %}
 {% load market_url %}
 {% load settings_value %}
-
+{% load i18n %}
 {% block title %}{{object.display_name}}{% endblock %}
 
 
@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
-                <h3 class="mb-0"><a href="{% market_url 'market:consumer_list' %}">Consumidoras</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.display_name}} </h3>
+                <h3 class="mb-0"><a href="{% market_url 'market:consumer_list' %}">{% translate "Consumidoras" %}</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.display_name}} </h3>
             </div>
         </div>
         </div>
@@ -37,47 +37,47 @@
 
             <h4 class="card-title mb-0">{{object.display_name}}</h4>
             {% if object.is_guest_account %}
-              <h5 class="text-primary">Cuenta invitada</h5>
+              <h5 class="text-primary">{% translate "Cuenta invitada" %}</h5>
             {% endif %}
 
             {% if object.is_intercoop %}
-              <h5 class="text-primary">Socia de intercooperación</h5>
+              <h5 class="text-primary">{% translate "Socia de intercooperación" %}</h5>
           {% endif %}
 
             <div class="form-group">
-              <label>Número de socia</label><br>
+              <label>{% translate "Número de socia" %}</label><br>
               {{object.member_id|default_if_none:'-'}}
             </div>
 
-            <a href="{% market_url 'market:edit_consumer' object.pk %}" class="btn btn-primary btn-action mt-3"><i class="material-icons md-18 mr-2">edit</i> Editar</a>
+            <a href="{% market_url 'market:edit_consumer' object.pk %}" class="btn btn-primary btn-action mt-3"><i class="material-icons md-18 mr-2">edit</i> {% translate "Editar" %}</a>
 
         </div>
           <div class="col-md-6">
 
                   <div class="form-group">
-                      <label>Nombre</label><br>
+                      <label>{% translate "Nombre" %}</label><br>
                       {{object.first_name}}
                   </div>
 
                   <div class="form-group">
-                      <label>Apellidos</label><br>
+                      <label>{% translate "Apellidos" %}</label><br>
                       {{object.last_name}}
                   </div>
 
                   {% if not object.is_guest_account %}
                   <div class="form-group">
-                      <label>NIF/CIF</label><br>
+                      <label>{% translate "NIF/CIF" %}</label><br>
                       {{object.cif}}
                   </div>
                   {% endif %}
 
                   <div class="form-group">
-                      <label>Email</label><br>
+                      <label>{% translate "Email" %}</label><br>
                       {{object.email}}
                   </div>
 
                    <div class="form-group">
-                      <label>Dirección</label><br>
+                      <label>{% translate "Dirección" %}</label><br>
                       {{object.address}}
                   </div>
 

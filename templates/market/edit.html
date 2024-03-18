@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Mercados | {{object.name}}{% endblock %}
-
+{% block title %}{% translate 'Mercados' %} | {{object.name}}{% endblock %}
 
 {% block content %}
-
     <div class="jumbotron text-light py-4 px-2">
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-7 col-md-8">
-                <h4 class="mb-0"><a href="{% url 'market:market_list' %}">Mercados sociales</a><i class="material-icons md-24">arrow_forward_ios</i> {{object.name}}</h4>
+                <h4 class="mb-0"><a href="{% url 'market:market_list' %}">{% translate 'Mercados sociales' %}</a><i class="material-icons md-24">arrow_forward_ios</i> {{object.name}}</h4>
             </div>
                  <div class="col-sm-5 col-md-4 text-sm-right">
-                <a href="{% url 'market:market_dashboard' object.pk %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">manage_search</i> Explorar mercado</a>
+                <a href="{% url 'market:market_dashboard' object.pk %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">manage_search</i> {% translate 'Explorar mercado' %}</a>
             </div>
         </div>
         </div>

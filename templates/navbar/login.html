@@ -43,6 +43,6 @@
     </a>
 {% else %}
     <li class="nav-item">
-      <a class="nav-link btn btn-outline-primary" href="{% url 'auth:login' %}"><i class="fas fa-plug mr-2" aria-hidden="true"></i> Entrar</a>
+      <a class="nav-link btn btn-outline-primary" href="{% url 'auth:login' %}"><i class="fas fa-plug mr-2" aria-hidden="true"></i> {% translate 'Entrar' %}</a>
   </li>
 {% endif %}

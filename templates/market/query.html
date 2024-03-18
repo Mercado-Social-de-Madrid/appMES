@@ -1,7 +1,8 @@
 {% extends 'common/list/base.html' %}
+{% load i18n %}
 
 {% block table_head %}
-    <th scope="col">Mercado</th>
+    <th scope="col">{% translate 'Mercado' %}</th>
     <th></th>
 {% endblock %}
 
@@ -10,8 +11,8 @@
 
 <td class="entity-td"> {{item.name}}</td>
 <td class="table-actions">
-    <a class="btn btn-outline-primary" href="{% url 'market:edit_market' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Editar mercado"><i class="material-icons">edit</i></a>
-    <a class="btn btn-outline-primary" href="{% url 'market:market_dashboard' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Gestionar mercado"><i class="material-icons">visibility</i></a>
+    <a class="btn btn-outline-primary" href="{% url 'market:edit_market' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Editar mercado' %}"><i class="material-icons">edit</i></a>
+    <a class="btn btn-outline-primary" href="{% url 'market:market_dashboard' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Gestionar mercado' %}"><i class="material-icons">visibility</i></a>
 </td>
 
 {% endblock %}

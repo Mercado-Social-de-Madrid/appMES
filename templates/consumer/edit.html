@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load market_url %}
+{% load i18n %}
 
-{% block title %}Nueva consumidora{% endblock %}
-
+{% block title %}{% translate "Nueva consumidora" %}{% endblock %}
 
 {% block content %}
 
@@ -11,7 +11,7 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
-                <h3 class="mb-0"><a href="{% market_url 'market:consumer_list' %}">Consumidoras</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.display_name}}</h3>
+                <h3 class="mb-0"><a href="{% market_url 'market:consumer_list' %}">{% translate "Consumidoras" %}</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.display_name}}</h3>
             </div>
         </div>
         </div>

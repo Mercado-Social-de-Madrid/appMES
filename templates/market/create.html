@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load settings_value %}
+{% load i18n %}
 
-{% block title %}Nueva categoría{% endblock %}
+{% block title %}{% translate 'Nuevo mercado' %}{% endblock %}
 
 
 {% block content %}
@@ -11,7 +12,7 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
-                <h3 class="mb-0"><a href="{% url 'market:market_list' %}">Mercados sociales</a><i class="material-icons md-18 ">arrow_forward_ios</i> Nuevo mercado</h3>
+                <h3 class="mb-0"><a href="{% url 'market:market_list' %}">{% translate 'Mercados sociales' %}</a><i class="material-icons md-18 ">arrow_forward_ios</i> {% translate 'Nuevo mercado' %}</h3>
             </div>
         </div>
         </div>
@@ -23,7 +24,7 @@
             {% include "market/form.html" %}
 
             <div class="text-center my-3">
-                <button type="submit" class="btn btn-primary btn-action btn-lg">Añadir mercado</button>
+                <button type="submit" class="btn btn-primary btn-action btn-lg">{% translate 'Añadir mercado' %}</button>
             </div>
 
         </form>
