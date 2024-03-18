@@ -3,8 +3,9 @@
 {% load market_url %}
 {% load settings_value %}
 {% load l10n %}
+{% load i18n %}
 
-{% block title %}{% if is_new %}Nueva oferta{% else %}{{offer.title}}{% endif %}{% endblock%}
+{% block title %}{{offer.title}}{% endif %}{% endblock%}
 
 {% block bodyattrs %}class="entity"{% endblock%}
 

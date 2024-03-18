@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block title %}Login{% endblock %}
 
 {% block bodyattrs %} class="main-bg"{% endblock%}
@@ -9,7 +11,7 @@
 <div class="jumbo-header minimal" >
     <div class="jumbotron">
         <div class="container text-center">
-            <h1 class="text-light">Entrar</h1>
+            <h1 class="text-light">{% translate 'Entrar' %}</h1>
         </div>
     </div>
 </div>
@@ -21,8 +23,8 @@
     {% csrf_token %}
     {{form.next}}
         <div class="form-group">
-            <label>Nombre de usuario</label>
-            <input class="form-control" id="{{ form.username.id_for_label }}" maxlength="90" name="{{ form.username.html_name }}" type="text" placeholder="Usuario"/>
+            <label>{% translate 'Nombre de usuario' %}</label>
+            <input class="form-control" id="{{ form.username.id_for_label }}" maxlength="90" name="{{ form.username.html_name }}" type="text" placeholder="{% translate 'Usuario' %}"/>
             {%if form.username.errors %}
             <div class="d-block invalid-feedback">
                 {%for error in form.username.errors %} {{error}} {%endfor%}
@@ -31,7 +33,7 @@
         </div>
 
       <div class="form-group">
-          <label>Contraseña</label>
+          <label>{% translate 'Contraseña' %}</label>
             <input class="form-control" id="{{ form.password.id_for_label }}" maxlength="90" name="{{ form.password.html_name }}" type="password" />
             {%if form.password.errors %}
             <div class="d-block invalid-feedback">
@@ -52,8 +54,8 @@
 
       <p class="text-center">
 
-          <button type="submit" class="btn btn-primary btn-action btn-lg btn-block ">Entrar</button>
-          <a href="{% url 'auth:password_reset' %}" class="text-dark mt-3 d-block">¿Has olvidado tu contraseña?</a>
+          <button type="submit" class="btn btn-primary btn-action btn-lg btn-block ">{% translate 'Entrar' %}</button>
+          <a href="{% url 'auth:password_reset' %}" class="text-dark mt-3 d-block">{% translate '¿Has olvidado tu contraseña?' %}</a>
 
       </p>
       <!--<a href="#"  class="btn btn-lg">Olvidé mi contraseña</a>-->

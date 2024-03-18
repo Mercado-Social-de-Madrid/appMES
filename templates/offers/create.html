@@ -2,8 +2,8 @@
 {% load static %}
 {% load market_url %}
 {% load l10n %}
-
-{% block title %}Nueva oferta{% endblock %}
+{% load i18n %}
+{% block title %}{% translate 'Nueva oferta' %}{% endblock %}
 
 
 {% block content %}
@@ -17,7 +17,7 @@
                 {% else %}
                     {% url 'offers:user_list' as offers_url %}
                 {% endif %}
-                <h3 class="mb-0"><a href="{{offers_url}}">Ofertas</a><i class="material-icons md-18 ">arrow_forward_ios</i> Nueva oferta</h3>
+                <h3 class="mb-0"><a href="{{offers_url}}">{% translate 'Ofertas' %}</a><i class="material-icons md-18 ">arrow_forward_ios</i> {% translate 'Nueva oferta' %}</h3>
             </div>
         </div>
         </div>
@@ -31,7 +31,7 @@
             {% include "offers/form.html" %}
 
             <div class="text-center mt-3">
-                <button type="submit" class="btn btn-primary btn-lg btn-action">Publicar oferta</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-action">{% translate 'Publicar oferta' %}</button>
             </div>
 
         </form>

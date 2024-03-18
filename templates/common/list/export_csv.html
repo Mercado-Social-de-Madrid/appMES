@@ -1,21 +1,21 @@
-
+{% load i18n %}
 
 <button type="button" class="btn mt-3 btn-outline-primary" data-toggle="modal" data-target="#export_csv_modal">
-  <i class="material-icons mr-2">assignment_returned</i> <span class="d-sm-none d-xs-none d-md-none d-lg-inline">Exportar...</span>
+  <i class="material-icons mr-2">assignment_returned</i> <span class="d-sm-none d-xs-none d-md-none d-lg-inline">{% translate 'Exportar...' %}</span>
 </button>
 
 <div class="modal fade" id="export_csv_modal" tabindex="-1" role="dialog" aria-labelledby="export_csv_modal_label" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="export_csv_modal_label">Exportar listado</h5>
+        <h5 class="modal-title" id="export_csv_modal_label">{% translate 'Exportar listado' %}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-            <span class="text-primary"> Se exportarán {{paginator.count}} elementos </span>
-            <p class="lead font-weight-light"> Elige los campos que quieres incluir en el fichero: </p>
+            <span class="text-primary"> {% blocktranslate with num=paginator.count %} Se exportarán {{num}} elementos {% endblocktranslate %} </span>
+            <p class="lead font-weight-light"> {% translate 'Elige los campos que quieres incluir en el fichero' %}: </p>
           <form method="get">
             <input type="hidden" name="export" value="csv" />
             {% if filter.form %}
@@ -39,7 +39,7 @@
             </div>
 
               <div class="mt-2 text-center">
-            <button type="submit" class="btn btn-secondary text-light mt-3 btn-action"><i class="material-icons mr-2">save_alt</i>Descargar fichero CSV</button>
+            <button type="submit" class="btn btn-secondary text-light mt-3 btn-action"><i class="material-icons mr-2">save_alt</i>{% translate 'Descargar fichero CSV' %}</button>
                   </div>
         </form>
 

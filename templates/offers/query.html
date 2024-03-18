@@ -1,14 +1,15 @@
 {% extends 'common/list/base.html' %}
 {% load static %}
 {% load market_url %}
+{% load i18n %}
 
  {% block table_head %}
-    <th scope="col">Nombre</th>
-    <th scope="col">Estado</th>
-    <th scope="col">Publicada</th>
-    <th scope="col">Fecha inicio</th>
-    <th scope="col">Fecha fin</th>
-    <th scope="col">Acciones</th>
+    <th scope="col">{% translate 'Nombre' %}</th>
+    <th scope="col">{% translate 'Estado' %}</th>
+    <th scope="col">{% translate 'Publicada' %}</th>
+    <th scope="col">{% translate 'Fecha inicio' %}</th>
+    <th scope="col">{% translate 'Fecha fin' %}</th>
+    <th scope="col">{% translate 'Acciones' %}</th>
 {% endblock %}
 
 
