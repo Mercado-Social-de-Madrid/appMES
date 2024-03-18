@@ -59,27 +59,30 @@ def broadcast_notification(node_shortname=None, data=None, event=NotificationEve
         '''
         logger.info("Sending FCM broadcast...")
 
-        data = data or {}
-        data["event"] = str(event.title)
+        try:
+            data = data or {}
+            data["event"] = str(event.title)
 
-        if not body and not title:
-            silent = True
-        if title and silent:
-            data['title'] = title
-        if body and silent:
-            data['message'] = body
+            if not body and not title:
+                silent = True
+            if title and silent:
+                data['title'] = title
+            if body and silent:
+                data['message'] = body
 
-        topic = node_shortname + "_" + event.prefix
+            topic = node_shortname + "_" + event.prefix
 
-        if silent:
-            result = FCMDevice.send_topic_message(
-                Message(data=data),
-                topic
-            )
-        else:
-            result = FCMDevice.send_topic_message(
-                Message(notification=Notification(title=title, body=body, image=image), data=data),
-                topic
-            )
+            if silent:
+                result = FCMDevice.send_topic_message(
+                    Message(data=data),
+                    topic
+                )
+            else:
+                result = FCMDevice.send_topic_message(
+                    Message(notification=Notification(title=title, body=body, image=image), data=data),
+                    topic
+                )
+        except Exception as e:
+            logger.error(e)
 
         logger.info(f"FCM Broadcast sent: {result}")
