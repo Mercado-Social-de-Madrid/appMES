@@ -63,7 +63,7 @@ class CreateOffer(MarketMixin, CreateView):
             event=NotificationEvent.OFFER_ADDED,
             title=offer.title,
             body=offer.description,
-            data={'proveedora': offer.provider.name},
+            data={'proveedora': offer.provider.name, 'id': str(offer.pk)},
             image=self.request.build_absolute_uri(offer.banner_thumbnail.url) if offer.banner_thumbnail.name else None,
         )
 

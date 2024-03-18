@@ -42,6 +42,7 @@ class NewsCreate(MarketMixin, CreateView):
             title=news.title,
             body=news.short_description,
             image=self.request.build_absolute_uri(news.banner_thumbnail.url) if news.banner_thumbnail.name else None,
+            data={"id": str(news.pk)}
         )
 
         return HttpResponseRedirect(self.get_success_url())
