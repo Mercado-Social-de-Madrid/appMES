@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <div class="row">
     <div class="col-md-7">
         {% include "common/forms/field.html" with field=form.cif %}
@@ -14,7 +16,7 @@
                 <div class="text-center">
                     <div class="file-field image-field d-inline-block mb-4" data-img-target="#profile-image" data-ref-type="image">
                         {% include "account/profile_circle.html" with account=object %}
-                        <div class="btn btn-primary btn-float" data-toggle="tooltip" data-placement="bottom" title="Actualizar imagen">
+                        <div class="btn btn-primary btn-float" data-toggle="tooltip" data-placement="bottom" title="Actualizar imagen" %}">
                             <span><i class="material-icons">insert_photo</i></span>
                             {{form.profile_image}}
                         </div>
@@ -25,7 +27,7 @@
                 {% if object %}
                     {% include "common/forms/field.html" with field=form.owner %}
                 {% endif %}
-                <small>Este campo es <strong class="text-danger">editable para admin</strong>, pero el valor debería venir de la H.Gestora</small>
+                <small>{% translate 'Este campo es <strong class="text-danger">editable para admin</strong>, pero el valor debería venir de la H.Gestora' %}</small>
                 {% include "common/forms/checkbox.html" with field=form.is_intercoop %}
                 {% include "common/forms/checkbox.html" with field=form.is_active %}
             </div>

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 {% csrf_token %}
 <div class="row">
@@ -10,7 +11,7 @@
 
         {% include "common/forms/field.html" with field=form.shortname %}
 
-          <label class="mt-3 mb-2">Logo del mercado (preferiblemente PNG con transparencia)</label>
+          <label class="mt-3 mb-2">{% translate 'Logo del mercado (preferiblemente PNG con transparencia)' %}</label>
           <div class="card form-photo mb-3">
               <div class="bg-checkers p-4">
                   <img class="img-fluid" id="offer-thumb" src="{% if object.banner_image %}{{ object.banner_image.url }}{% else %}{% static 'imgs/brand.png' %}{% endif %}" alt="{{object.title}}">
@@ -59,8 +60,8 @@
                 </div>
 
                 <div class="card-body px-3">
-                        <h4 class="card-title"><i class="material-icons">edit_location</i> Geolocalización</h4>
-                        <p class="card-text">Mueve el pin por el mapa hasta posicionarlo en la localización correcta.</p>
+                        <h4 class="card-title"><i class="material-icons">edit_location</i> Geolocalización' %}</h4>
+                        <p class="card-text">{% translate 'Mueve el pin por el mapa hasta posicionarlo en la localización correcta.' %}</p>
                         <div class="form-group">
                             <label>Latitud</label>
                             {{ form.latitude }}
@@ -74,13 +75,13 @@
                 </div>
 
                 <div class="card-footer">
-                  <small class="text-muted">Puedes hacer zoom en los controles del mapa para ajustar al máximo la posición, o entrar en la vista de pantalla completa.</small>
+                  <small class="text-muted">{% translate 'Puedes hacer zoom en los controles del mapa para ajustar al máximo la posición, o entrar en la vista de pantalla completa.' %}</small>
                 </div>
             </div>
 
     <div class="card mb-4 pb-4">
         <div class="social-links card-body pr-5">
-            <div class="card-title"> Redes sociales</div>
+            <div class="card-title"> {% translate 'Redes sociales' %}</div>
 
             <div>
                 <div class="form-group">

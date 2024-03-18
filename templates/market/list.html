@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Plantillas balance social{% endblock %}
+{% block title %}{% translate 'Mercados' %} {% endblock %}
 
 {% block content %}
 
@@ -8,10 +9,10 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-7 col-md-8">
-                <h3 class="mb-0">Mercados sociales</h3>
+                <h3 class="mb-0">{% translate 'Mercados sociales' %}</h3>
             </div>
             <div class="col-sm-5 col-md-4 text-sm-right">
-                <a href="{% url 'market:add_market' %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">add</i> Nuevo mercado</a>
+                <a href="{% url 'market:add_market' %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">add</i> {% translate 'Nuevo mercado' %}</a>
             </div>
         </div>
         </div>

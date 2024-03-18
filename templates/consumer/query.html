@@ -1,11 +1,11 @@
 {% extends 'common/list/base.html' %}
 {% load market_url %}
-
+{% load i18n %}
  {% block table_head %}
-    <th scope="col">Usuario</th>
-    <th scope="col">CIF</th>
-    <th scope="col">Nombre</th>
-    <th scope="col">Acciones</th>
+    <th scope="col">{% translate "Usuario" %}</th>
+    <th scope="col">{% translate "CIF" %}</th>
+    <th scope="col">{% translate "Nombre" %}</th>
+    <th scope="col">{% translate "Acciones" %}</th>
 {% endblock %}
 
 
@@ -15,18 +15,18 @@
     {% if item.owner %}
         {% include 'user/row_display.html' with user=item.owner %}
     {% else %}
-        <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Pendiente registro">schedule</i>
-        <span class="text-muted" >Pendiente registro</span>
+        <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Pendiente registro' %}">schedule</i>
+        <span class="text-muted" >{% translate "Pendiente registro" %}</span>
     {% endif %}
 </td>
 <td>{{item.cif}}</td>
 
-<td>{{item.display_name}} {% if item.inactive %} (INACTIVA) {% endif %}</td>
+<td>{{item.display_name}} {% if item.inactive %} ({% translate 'INACTIVA' %}) {% endif %}</td>
 
 
 <td class="table-actions">
-    <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="Ver detalle"><i class="material-icons">visibility</i></a>
-    <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
+    <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Ver detalle' %}"><i class="material-icons">visibility</i></a>
+    <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Editar' %}"><i class="material-icons">mode_edit</i></a>
     {% include 'account/action_user.html' %}
 </td>
 {% endblock %}

@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% load market_url %}
-
-{% block title %}Principal{% endblock%}
+{% load i18n %}
+{% block title %}{% translate 'Principal' %}{% endblock%}
 {% block bodyattrs %} class="main-bg"{% endblock%}
 {% block content %}
 <div class="container mt-3">
@@ -16,7 +16,7 @@
 
                 </div>
                 <div class="card-body">
-                    <div class="card-title primary-title mb-0"><h3 class="mb-0"><i class="ic ic-entity"></i> Mi perfil</h3></div>
+                    <div class="card-title primary-title mb-0"><h3 class="mb-0"><i class="ic ic-entity"></i> {% translate 'Mi perfil' %}</h3></div>
                     <div class="card-text text-dark">
                         <p class="lead my-0"> {{ account.display_name }}</p>
                         {{account.address}}
@@ -24,9 +24,9 @@
                 </div>
 
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action" href="{% url 'market:user_account' %}"><i class="material-icons mr-2">store</i> Ver perfil</a>
-                    <a class="list-group-item list-group-item-action" href="{% url 'market:member_card' %}"><i class="material-icons-outlined mr-2">perm_contact_calendar</i> Mi carnet de socia</a>
-                    <a class="list-group-item list-group-item-action disabled" href="#"><i class="material-icons mr-2">bar_chart</i> Ver estadísticas de favoritos</a>
+                    <a class="list-group-item list-group-item-action" href="{% url 'market:user_account' %}"><i class="material-icons mr-2">store</i> {% translate 'Ver perfil' %}</a>
+                    <a class="list-group-item list-group-item-action" href="{% url 'market:member_card' %}"><i class="material-icons-outlined mr-2">perm_contact_calendar</i> {% translate 'Mi carnet de socia' %}</a>
+                    <a class="list-group-item list-group-item-action disabled" href="#"><i class="material-icons mr-2">bar_chart</i> {% translate 'Ver estadísticas de favoritos' %}</a>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                 <div class="card-body">
 
                     <p class="lead text-primary mb-0">
-                        ¿Tienes ya la app del Mercado Social?
+                        {% translate '¿Tienes ya la app del Mercado Social?' %}
                     </p>
                     <div class="d-flex align-items-center flex-column">
                     <a href='https://play.google.com/store/apps/details?id=net.mercadosocial.moneda&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
