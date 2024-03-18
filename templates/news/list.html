@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% load market_url %}
+{% load i18n %}
 
-{% block title %}Noticias{% endblock %}
+{% block title %}{% translate 'Noticias' %}{% endblock %}
 
 {% block content %}
     <div class="jumbotron py-4 px-2 text-light">
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-7 col-md-8">
-                <h3 class="mb-0">Noticias</h3>
+                <h3 class="mb-0">{% translate 'Noticias' %}</h3>
             </div>
             <div class="col-sm-5 col-md-4 text-sm-right">
-                <a href="{% market_url 'news:add' %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">add</i> Publicar noticia</a>
+                <a href="{% market_url 'news:add' %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">add</i> {% translate 'Publicar noticia' %}</a>
             </div>
         </div>
         </div>

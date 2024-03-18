@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Restaurar contraseña{% endblock %}
+{% block title %}{% translate 'Restaurar contraseña{% endblock %}
 {% block bodyattrs %} class="main-bg"{% endblock%}
 {% block content %}
 
 <div class="jumbo-header minimal" >
     <div class="jumbotron">
         <div class="container text-center">
-            <h2  class="text-light">Registro</h2>
+            <h2  class="text-light">{% translate 'Registro' %}</h2>
         </div>
     </div>
 </div>
@@ -16,9 +17,9 @@
     <div class="card px-4" style="max-width:500px;margin:auto;margin-top:-20px;">
         <div class="card-body">
             {% if not prereg_user %}
-<p class="lead text-primary">Ouch, enlace erróneo </p>
+<p class="lead text-primary">{% translate 'Ouch, enlace erróneo' %} </p>
         <h3 class="lead ">
-            El código de registro es incorrecto...
+            {% translate 'El código de registro es incorrecto...' %}
         </h3>
             ¿Quizás ya has realizado el registro previamente? Puedes probar a <a href="{% url 'auth:password_reset' %}"> recuperar tu contraseña</a> introduciendo tu email.<br><br>
         Si estás segur@ de que aún no te has registrado, ponte en contacto con soporte.<br><br>
@@ -30,17 +31,17 @@
         {{form.errors}}
         <p class="lead text-primary">Hola, {{account.display_name}} </p>
         <h3 class="lead ">
-            Solo te falta este paso para empezar a usar la app del Mercado Social!
+            {% translate 'Solo te falta este paso para empezar a usar la app del Mercado Social!
         </h3>
 
-        Introduce la contraseña que utilizarás a partir de ahora en la app y el panel web para gestionar
-        la información de tu perfil y las ofertas.<br><br>
+        {% translate 'Introduce la contraseña que utilizarás a partir de ahora en la app y el panel web para gestionar
+        la información de tu perfil y las ofertas.' %}<br><br>
 
         {% include "common/forms/field.html" with field=form.new_password1 %}
         {% include "common/forms/field.html" with field=form.new_password2 %}
 
         <p class="text-center mt-4">
-          <button type="submit" class="btn btn-primary btn-lg btn-action">Finalizar registro</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-action"> {% translate 'Finalizar registro' %}</button>
       </p>
   </form>
             {% endif %}
