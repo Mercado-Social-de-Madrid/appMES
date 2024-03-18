@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
 from django.utils.translation import gettext as _
 
 from django.urls import reverse
@@ -13,6 +14,7 @@ from django_filters.views import FilterView
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ExportAsCSVMixin import ExportAsCSVMixin
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
+from helpers import broadcast_notification, NotificationEvent
 from helpers.filters.LabeledOrderingFilter import LabeledOrderingFilter
 from helpers.filters.SearchFilter import SearchFilter
 from helpers.filters.filtermixin import FilterMixin
@@ -51,6 +53,21 @@ class CreateOffer(MarketMixin, CreateView):
         return {
             'provider': self.kwargs['pk']
         }
+
+    def form_valid(self, form):
+        offer = form.save()
+        offer.save()
+
+        broadcast_notification(
+            node_shortname=offer.provider.node.shortname,
+            event=NotificationEvent.OFFER_ADDED,
+            title=offer.title,
+            body=offer.description,
+            data={'proveedora': offer.provider.name},
+            image=self.request.build_absolute_uri(offer.banner_thumbnail.url) if offer.banner_thumbnail.name else None,
+        )
+
+        return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
         messages.add_message(self.request, messages.ERROR, 'Oferta añadida con éxito')

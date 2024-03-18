@@ -1,5 +1,6 @@
 import logging
 
+from django.conf import settings
 from firebase_admin.messaging import Message, Notification
 
 from fcm_django.models import FCMDevice
@@ -16,6 +17,7 @@ class NotificationEvent:
 
     OTHER = Event(_("Otro"), "other")
     NEWS_ADDED = Event(_("Nueva noticia"), "news")
+    OFFER_ADDED = Event(_("Nueva oferta"), "offers")
 
 
 def notify_user(user, data, event=NotificationEvent.OTHER, title=None, body=None, image=None, silent=True):
@@ -57,32 +59,34 @@ def broadcast_notification(node_shortname=None, data=None, event=NotificationEve
             Sends an FCM notification broadcast to all devices subscribed to topic
             If the message is silent, title and message are included in the data dictionary
         '''
-        logger.info("Sending FCM broadcast...")
+        if not settings.DEBUG:
+            logger.info("Sending FCM broadcast...")
+            try:
+                data = data or {}
+                data["event"] = str(event.title)
 
-        try:
-            data = data or {}
-            data["event"] = str(event.title)
+                if not body and not title:
+                    silent = True
+                if title and silent:
+                    data['title'] = title
+                if body and silent:
+                    data['message'] = body
 
-            if not body and not title:
-                silent = True
-            if title and silent:
-                data['title'] = title
-            if body and silent:
-                data['message'] = body
+                topic = node_shortname + "_" + event.prefix
 
-            topic = node_shortname + "_" + event.prefix
+                if silent:
+                    result = FCMDevice.send_topic_message(
+                        Message(data=data),
+                        topic
+                    )
+                else:
+                    result = FCMDevice.send_topic_message(
+                        Message(notification=Notification(title=title, body=body, image=image), data=data),
+                        topic
+                    )
+                logger.info(f"FCM Broadcast sent: {result}")
+            except Exception as e:
+                logger.error(e)
+        else:
+            logger.info(f"Simulate sending Broadcast (DEBUG mode is enabled).")
 
-            if silent:
-                result = FCMDevice.send_topic_message(
-                    Message(data=data),
-                    topic
-                )
-            else:
-                result = FCMDevice.send_topic_message(
-                    Message(notification=Notification(title=title, body=body, image=image), data=data),
-                    topic
-                )
-        except Exception as e:
-            logger.error(e)
-
-        logger.info(f"FCM Broadcast sent: {result}")
