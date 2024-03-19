@@ -8,15 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-19 00:21+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2024-03-19 12:37+0000\n"
+"PO-Revision-Date: 2024-03-19 11:59+0000\n"
+"Last-Translator:  None <jjoseba@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
 #: api/views/auth.py:31
 msgid "Tu cuenta no está activa, revisa tu bandeja de entrada de correo."
 msgstr ""
@@ -44,7 +46,7 @@ msgstr ""
 #: authentication/admin.py:34 authentication/admin.py:67
 #: templates/registration/login.html:36 templates/user/profile.html:26
 msgid "Contraseña"
-msgstr ""
+msgstr "Contrasenya"
 
 #: authentication/admin.py:36
 msgid "Repetir contraseña"
@@ -430,7 +432,7 @@ msgstr ""
 #: templates/category/detail.html:13 templates/category/list.html:5
 #: templates/category/list.html:12 templates/navbar/market.html:35
 msgid "Categorías"
-msgstr ""
+msgstr "Categories"
 
 #: market/models/provider.py:23
 msgid "Teléfono"
@@ -450,7 +452,7 @@ msgstr ""
 
 #: market/views/category.py:34
 msgid "Categoría añadida correctamente."
-msgstr ""
+msgstr "Categoria afegida correctament."
 
 #: market/views/consumer.py:27 market/views/provider.py:31 offers/views.py:66
 msgid "Buscar..."
@@ -549,7 +551,14 @@ msgstr ""
 msgid "Editar usuario"
 msgstr ""
 
-#: templates/account/preregister_switch.html:7
+#: templates/account/preregister_switch.html:5
+msgid ""
+"Se creará un usuario asociado a la cuenta con el mismo email, y se le "
+"enviará un correo electrónico de bienvenida con un enlace único para que "
+"establezca su contraseña inicial."
+msgstr ""
+
+#: templates/account/preregister_switch.html:6
 msgid "Esta acción se puede realizar a posteriori."
 msgstr ""
 
@@ -619,6 +628,10 @@ msgstr ""
 msgid "No hay ventajas para socias."
 msgstr ""
 
+#: templates/benefits/detail.html:119
+msgid "Para modificar esta ventaja ponte en contacto con"
+msgstr ""
+
 #: templates/benefits/edit.html:7 templates/benefits/edit.html:17
 msgid "Editar ventaja"
 msgstr ""
@@ -681,11 +694,11 @@ msgstr ""
 #: templates/category/create.html:6 templates/category/create.html:15
 #: templates/category/list.html:15
 msgid "Nueva categoría"
-msgstr ""
+msgstr "Nova categoria"
 
 #: templates/category/create.html:29
 msgid "Crear categoría"
-msgstr ""
+msgstr "Crear categoria"
 
 #: templates/category/query.html:6
 msgid "Número de entidades"
@@ -715,7 +728,7 @@ msgstr ""
 #: templates/consumer/create.html:6 templates/consumer/create.html:16
 #: templates/consumer/edit.html:6 templates/consumer/list.html:15
 msgid "Nueva consumidora"
-msgstr ""
+msgstr "Nova consumidora"
 
 #: templates/consumer/create.html:32
 msgid "Añadir consumidora"
@@ -855,6 +868,10 @@ msgstr ""
 
 #: templates/market/form.html:14
 msgid "Logo del mercado (preferiblemente PNG con transparencia)"
+msgstr ""
+
+#: templates/market/form.html:63 templates/provider/form.html:77
+msgid "Geolocalización"
 msgstr ""
 
 #: templates/market/form.html:64 templates/provider/form.html:78
@@ -1055,27 +1072,31 @@ msgstr ""
 msgid "Publicar oferta"
 msgstr ""
 
-#: templates/offers/entity_list.html:26
+#: templates/offers/entity_list.html:26 templates/offers/entity_list.html:33
 msgid "Añadir oferta"
 msgstr ""
 
-#: templates/offers/entity_list.html:36 templates/provider/detail.html:46
+#: templates/offers/entity_list.html:40 templates/provider/detail.html:46
 msgid "Ofertas en curso"
 msgstr ""
 
-#: templates/offers/entity_list.html:38 templates/provider/detail.html:50
+#: templates/offers/entity_list.html:42 templates/provider/detail.html:50
 msgid "No hay ninguna oferta activa actualmente."
 msgstr ""
 
-#: templates/offers/entity_list.html:43
+#: templates/offers/entity_list.html:47
 msgid "Ofertas pendientes"
 msgstr ""
 
-#: templates/offers/entity_list.html:46
+#: templates/offers/entity_list.html:50
 msgid "No hay ofertas pendientes (futuras o no activas)."
 msgstr ""
 
-#: templates/offers/entity_list.html:53
+#: templates/offers/entity_list.html:55
+msgid "Ofertas pasadas"
+msgstr ""
+
+#: templates/offers/entity_list.html:57
 msgid "No hay ofertas anteriores a las actuales."
 msgstr ""
 
@@ -1137,10 +1158,6 @@ msgstr ""
 msgid "Actualizar imagen"
 msgstr ""
 
-#: templates/provider/form.html:77
-msgid "Geolocalización"
-msgstr ""
-
 #: templates/provider/list.html:8
 msgid "Entidades"
 msgstr ""
@@ -1179,7 +1196,7 @@ msgstr ""
 
 #: templates/registration/password_base.html:19
 msgid "Nueva contraseña"
-msgstr ""
+msgstr "Nova contrasenya"
 
 #: templates/registration/password_reset_complete.html:7
 msgid ""
@@ -1190,10 +1207,10 @@ msgstr ""
 #: templates/registration/password_reset_confirm.html:14
 #: templates/registration/password_reset_confirm.html:31
 msgid "Contraseña nueva"
-msgstr ""
+msgstr "Contrasenya nova"
 
 #: templates/registration/password_reset_confirm.html:43
-#: templates/registration/password_reset_form.html:30
+#: templates/registration/password_reset_form.html:32
 #: templates/user/profile.html:69
 msgid "Actualizar contraseña"
 msgstr ""
@@ -1219,6 +1236,16 @@ msgstr ""
 msgid ""
 "Si no recibe un correo, por favor asegúrese de que ha introducido la "
 "dirección de correo con la que se registró y verifique su carpeta de spam."
+msgstr ""
+
+#: templates/registration/password_reset_form.html:6
+msgid ""
+"\n"
+"    Introduce la dirección de correo electrónico a la que está asociada tu "
+"usuario y te enviaremos un\n"
+"    email con un enlace  de un solo uso para poder restablecer tu "
+"contraseña.\n"
+"    "
 msgstr ""
 
 #: templates/registration/preregister.html:11 templates/user/query.html:7
@@ -1272,7 +1299,8 @@ msgstr ""
 
 #: templates/user/edit.html:43
 msgid ""
-"El usuario no ha completado aún el prerregistro para establecer su contraseña (debió recibir un email a su cuenta con un enlace de activación)"
+"El usuario no ha completado aún el prerregistro para establecer su "
+"contraseña (debió recibir un email a su cuenta con un enlace de activación)"
 msgstr ""
 
 #: templates/user/last_login.html:2
