@@ -1,5 +1,7 @@
 
 import uuid
+
+from django.utils import timezone
 from django.utils.translation import gettext as _
 import datetime
 from django.db import models
@@ -64,8 +66,8 @@ class Offer(models.Model):
     discount_percent = models.FloatField(null=True, blank=True, verbose_name=_('Porcentaje de descuento'), default=0)
     discounted_price = models.FloatField(null=True, blank=True, verbose_name=_('Precio con descuento'), default=0)
     active = models.BooleanField(default=True, null=False, verbose_name=_('Activa'))
-    begin_date = models.DateField(null=True, blank=True, verbose_name=_('Fecha de inicio'))
-    end_date = models.DateField(null=True, blank=True, verbose_name=_('Fecha de fin'))
+    begin_date = models.DateField(null=True, blank=True, default=timezone.now, verbose_name=_('Fecha de inicio'))
+    end_date = models.DateField(null=True, blank=True, default=timezone.now, verbose_name=_('Fecha de fin'))
 
     objects = OffersManager()
 
