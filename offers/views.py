@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
+from django.utils.html import strip_tags
 from django.utils.translation import gettext as _
 
 from django.urls import reverse
@@ -62,7 +63,7 @@ class CreateOffer(MarketMixin, CreateView):
             node_shortname=offer.provider.node.shortname,
             event=NotificationEvent.OFFER_ADDED,
             title=offer.title,
-            body=offer.description,
+            body=strip_tags(offer.description),
             data={'proveedora': offer.provider.name, 'id': str(offer.pk)},
             image=self.request.build_absolute_uri(offer.banner_thumbnail.url) if offer.banner_thumbnail.name else None,
         )
