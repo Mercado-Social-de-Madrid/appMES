@@ -70,7 +70,7 @@ class CreateOffer(MarketMixin, CreateView):
         return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
-        messages.add_message(self.request, messages.ERROR, 'Oferta añadida con éxito')
+        messages.add_message(self.request, messages.SUCCESS, 'Oferta añadida con éxito')
         return self.reverse('offers:entity_offers', kwargs={'pk': self.kwargs['pk'] })
 
 
