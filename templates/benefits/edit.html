@@ -2,8 +2,9 @@
 {% load static %}
 {% load settings_value %}
 {% load l10n %}
+{% load i18n %}
 
-{% block title %}{% if is_new %}Nueva ventaja{% else %}Editar ventaja{% endif %}{% endblock%}
+{% block title %}{% translate 'Editar ventaja' %}{% endblock%}
 
 {% block bodyattrs %}class="entity"{% endblock%}
 
@@ -13,7 +14,7 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
-                <h3 class="mb-0">Editar ventaja</h3>
+                <h3 class="mb-0">{% translate 'Editar ventaja' %}</h3>
             </div>
         </div>
         </div>

@@ -3,8 +3,9 @@
 {% load settings_value %}
 {% load l10n %}
 {% load market_url %}
+{% load i18n %}
 
-{% block title %}Ventajas{% endblock%}
+{% block title %}{% translate 'Ventajas' %}{% endblock%}
 
 {% block bodyattrs %}class="benefits"{% endblock%}
 
@@ -14,10 +15,10 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-7 col-md-8">
-                <h3 class="mb-0">Ventajas</h3>
+                <h3 class="mb-0">{% translate 'Ventajas' %}</h3>
             </div>
             <div class="col-sm-5 col-md-4 text-sm-right">
-                <a href="{% market_url 'benefits:add' %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">add</i> Añadir ventaja</a>
+                <a href="{% market_url 'benefits:add' %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">add</i> {% translate 'Añadir ventaja' %}</a>
             </div>
         </div>
         </div>
@@ -33,17 +34,17 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="modalTitle">Eliminar ventaja</h5>
+                <h5 class="modal-title" id="modalTitle">{% translate 'Eliminar ventaja' %}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                ¿Estás segura de que quieres eliminar esta ventaja? Esta acción no se puede deshacer.
+                {% translate '¿Estás segura de que quieres eliminar esta ventaja? Esta acción no se puede deshacer.' %}
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Aceptar</button>
+                <button type="button" class="btn" data-dismiss="modal">{% translate 'Cancelar' %}</button>
+                <button type="submit" class="btn btn-primary">{% translate 'Aceptar' %}</button>
               </div>
             </div>
           </div>

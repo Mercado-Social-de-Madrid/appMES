@@ -2,8 +2,9 @@
 {% load static %}
 {% load settings_value %}
 {% load l10n %}
+{% load i18n %}
 
-{% block title %}Añadir ventaja{% endblock%}
+{% block title %}{% translate 'Añadir ventaja' %}{% endblock%}
 
 {% block bodyattrs %}class="entity"{% endblock%}
 
@@ -13,7 +14,7 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
-                <h3 class="mb-0">Añadir ventaja</h3>
+                <h3 class="mb-0">{% translate 'Añadir ventaja' %}</h3>
             </div>
         </div>
         </div>
@@ -41,10 +42,10 @@
                     <div class="col-md-7 my-4">
                         <div class="input-group">
                             <span class="text-danger mr-2">*</span>
-                            <input type="text" name="user_placeholder" id="entity_input" disabled class="form-control" maxlength="250" value="{% if provider %}{{ provider.display_name }}{% endif %}" placeholder="Selecciona entidad">
+                            <input type="text" name="user_placeholder" id="entity_input" disabled class="form-control" maxlength="250" value="{% if provider %}{{ provider.display_name }}{% endif %}" placeholder="{% translate 'Selecciona entidad' %}">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-primary" type="button" id="fromBtn" style="min-width:0;">
-                                    <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Buscar">search</i>
+                                    <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Buscar' %}">search</i>
                                 </button>
                             </div>
                             {%if form.entity.errors %}
@@ -60,7 +61,7 @@
                     {% include 'benefits/form.html' %}
 
                     <div class="description text-center mt-5">
-                        <button type="submit" class="right-margin left-margin btn btn-primary btn-lg btn-action">Crear ventaja</button>
+                        <button type="submit" class="right-margin left-margin btn btn-primary btn-lg btn-action">{% translate 'Crear ventaja' %}</button>
                     </div>
                     </form>
                 </div>
@@ -71,7 +72,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="new-user-label">Selecciona entidad</h3>
+                <h3 class="modal-title" id="new-user-label">{% translate 'Selecciona entidad' %}</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -91,8 +92,8 @@
         <div class="container px-md-5">
             <div class="card mx-lg-5 mb-4 p-3">
                 <div class="card-body">
-                    <div>No tienes permisos para editar esta ventaja.</div>
-                    <a class="btn btn-primary mt-4" href="{% url 'benefit_detail' benefit.pk %}" data-toggle="tooltip" title="Volver"><i class="material-icons mr-2">arrow_back</i>Volver</a>
+                    <div>{% translate 'No tienes permisos para editar esta ventaja.' %}</div>
+                    <a class="btn btn-primary mt-4" href="{% url 'benefit_detail' benefit.pk %}" data-toggle="tooltip" title="Volver"><i class="material-icons mr-2">arrow_back</i>{% translate 'Volver' %}</a>
                 </div>
             </div>
         </div>

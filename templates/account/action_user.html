@@ -1,7 +1,8 @@
 {% load market_url %}
+{% load i18n %}
 
 {% if not item.owner %}
-    <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="Crear usuario"><i class="material-icons">person_add</i></a>
+    <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Crear usuario' %}"><i class="material-icons">person_add</i></a>
 {% else %}
-    <a class="btn btn-outline-primary" href="{% market_url 'auth:user_detail' item.owner.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="Editar usuario"><i class="material-icons">manage_accounts</i></a>
+    <a class="btn btn-outline-primary" href="{% market_url 'auth:user_detail' item.owner.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Editar usuario' %}"><i class="material-icons">manage_accounts</i></a>
 {% endif %}
