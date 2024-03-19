@@ -63,7 +63,8 @@ def broadcast_notification(node_shortname=None, data=None, event=NotificationEve
             logger.info("Sending FCM broadcast...")
             try:
                 data = data or {}
-                data["event"] = str(event.prefix)
+                data["event"] = "notification"
+                data["type"] = str(event.prefix)
 
                 if not body and not title:
                     silent = True
