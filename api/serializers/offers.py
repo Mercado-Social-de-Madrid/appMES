@@ -8,6 +8,6 @@ class OffersSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Offer
-        fields = ['active', 'title', 'description', 'banner_image', 'published_date', 'begin_date', 'end_date', 'discount_percent', 'discounted_price', 'provider']
+        exclude = []
 
 
