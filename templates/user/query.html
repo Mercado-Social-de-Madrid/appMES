@@ -31,7 +31,7 @@
 <td>{% include "user/last_login.html" with user=item %}</td>
 <td class="text-truncate" style="max-width:220px;">{{item.short_description|striptags|safe}}</td>
 <td class="table-actions">
-    <a class="btn btn-outline-primary" href="{% market_url 'auth:user_detail' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="{% translate "Editar" %}"><i class="material-icons">mode_edit</i></a>
-    <a class="btn btn-outline-primary action-delete" href="{% url 'auth:user_delete' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate "Eliminar usuario" %}"><i class="material-icons">delete</i></a>
+    <a class="btn btn-outline-primary" href="{% market_url 'auth:user_detail' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Editar' %}"><i class="material-icons">mode_edit</i></a>
+    <a class="btn btn-outline-primary action-delete" href="{% url 'auth:user_delete' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Eliminar usuario' %}"><i class="material-icons">delete</i></a>
 </td>
 {% endblock %}

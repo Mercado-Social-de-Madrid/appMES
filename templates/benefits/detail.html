@@ -116,7 +116,7 @@
         </div>
         {% if not request.user.is_superuser %}
         <p>
-            <h4>Para modificar esta ventaja ponte en contacto con <a href="mailto:madrid@mercadosocial.net">madrid@mercadosocial.net</a> </h4>
+            <h4>{% translate 'Para modificar esta ventaja ponte en contacto con' %} <a href="mailto:{{current_market.contact_email}}">{{current_market.contact_email}}</a> </h4>
         </p>
         {% endif %}
 </div>
