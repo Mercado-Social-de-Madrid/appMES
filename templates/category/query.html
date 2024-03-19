@@ -1,8 +1,9 @@
 {% extends 'common/list/base.html' %}
+{% load i18n %}
 
  {% block table_head %}
-    <th scope="col">Nombre</th>
-    <th scope="col">Número de entidades</th>
+    <th scope="col">{% translate 'Nombre' %}</th>
+    <th scope="col">{% translate 'Número de entidades' %}</th>
 {% endblock %}
 
 

@@ -1,11 +1,12 @@
+{% load i18n %}
 
     <div class="form-group col-lg-12 my-4" data-links="#benefit-for-entities">
-        <h4>Ventaja para entidades:</h4>
+        <h4>{% translate 'Ventaja para entidades' %}:</h4>
         {{ form.benefit_for_entities }}
     </div>
 
      <div class="form-group col-lg-12 my-4" data-links="#benefit-for-members">
-        <h4>Ventaja para socias:</h4>
+        <h4>{% translate 'Ventaja para socias' %}:</h4>
         {{ form.benefit_for_members }}
     </div>
 
@@ -13,7 +14,7 @@
         <div class="form-group">
             <label class="custom-control custom-checkbox">
                 {{form.includes_intercoop_members}}
-                <span class="custom-control-label">Incluye socias Intercoop</span>
+                <span class="custom-control-label">{% translate 'Incluye socias Intercoop' %}</span>
             </label>
         </div>
     </div>
@@ -23,7 +24,7 @@
         <div class="form-group">
             <label class="custom-control custom-checkbox">
                 {{form.in_person}}
-                <span class="custom-control-label">Solicitud física</span>
+                <span class="custom-control-label">{% translate 'Solicitud física' %}</span>
             </label>
             <small style="color: grey"></small>
         </div>
@@ -34,7 +35,7 @@
         <div class="form-group">
             <label class="custom-control custom-checkbox">
                 {{form.online}}
-                <span class="custom-control-label">Solicitud online</span>
+                <span class="custom-control-label">{% translate 'Solicitud online' %}</span>
             </label>
             <small style="color: grey"></small>
         </div>
@@ -65,7 +66,7 @@
                 {{form.active}}
                 <span class="custom-control-label">Activa</span>
             </label>
-            <small style="color: grey">Las ventajas no activas no se mostrarán a los usuarios. Puedes crear una ventaja desactivada y publicarla finalmente cuando creas oportuno.</small>
+            <small style="color: grey">{% translate 'Las ventajas no activas no se mostrarán a los usuarios. Puedes crear una ventaja desactivada y publicarla finalmente cuando creas oportuno.' %}</small>
         </div>
 
     </div>
