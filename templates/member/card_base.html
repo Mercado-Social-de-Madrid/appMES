@@ -23,7 +23,7 @@
 
   <div class="mesm_footer">
     {% if current_market and current_market.banner_image %}
-        <img src="{{current_market.banner_image.url}}" alt="Logo MESM">
+        <img src="{{current_market.banner_image.url}}" alt="Logo {{current_market.name}}">
     {% else %}
         <img src="{% static '/imgs/brand.png' %}" alt="Logo MESM">
     {% endif %}
