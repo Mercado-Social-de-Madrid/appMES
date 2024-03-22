@@ -5,8 +5,12 @@ from django.db import IntegrityError
 
 from news.models import News
 from core.models import Node
+from market.models import Category, Consumer, Provider
+from authentication.models import User
 
 from datetime import datetime
+from django.core.files import File
+from django.db.models import Q
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S.%f"
 
@@ -23,7 +27,60 @@ def import_news(news, node):
             more_info_url=item['more_info_url'],
         )
         news_created.published_date = datetime.strptime(item['published_date'], DATETIME_FORMAT)
+        news_created.banner_image.name = item['banner_image']
+        news_created.banner_thumbnail.name = item['banner_thumbnail']
         news_created.save()
+
+def import_categories(categories, node):
+    for item in categories:
+        Category.objects.create(
+            node=node,
+            id=item['id'],
+            name=item['name'],
+            description=item['description'],
+            color=item['color'],
+        )
+
+def import_consumers(consumers, node):
+    for item in consumers:
+
+        cif = item['nif']
+        email = item['email']
+
+        if not cif or len(cif) > 30:
+            print(f"Invalid consumer nif: {item['name']} - {cif}")
+            continue
+
+        existing_consumer = Consumer.objects.filter(Q(cif=cif) | Q(email=email) | Q(owner__email=email)).first()
+        if existing_consumer:
+            print(f"Consumer already exists: {item['email']} - {cif}")
+            continue
+
+        user_created = User.objects.create(
+            email=item['email'],
+            first_name=item['name'],
+            last_name=item['surname'],
+            password=item['password'],
+            node=node,
+        )
+
+        consumer_created = Consumer.objects.create(
+            id=item['id'],
+            node=node,
+            owner=user_created,
+            first_name=item['name'],
+            last_name=item['surname'],
+            email=item['email'],
+            is_intercoop=item['is_intercoop'],
+            cif=cif,
+            is_active= not item['inactive'],
+            member_id=item['member_id'],
+            address=item['address'],
+            registration_date=datetime.strptime(item['registered'], DATETIME_FORMAT),
+
+        )
+        consumer_created.profile_image.name = item['profile_image']
+        consumer_created.save()
 
 class Command(BaseCommand):
     help = 'Import all data of Madrid from old application'
@@ -39,7 +96,15 @@ class Command(BaseCommand):
 
         with open('all_data.json', 'rb') as f:
             data = json.load(f)
-            import_news(data['news'], node)
+
+            # print("Importing news, {} items".format(len(data['news'])))
+            # import_news(data['news'], node)
+
+            # print("Importing categories, {} items".format(len(data['categories'])))
+            # import_categories(data['categories'], node)
+
+            print("Importing consumers, {} items".format(len(data['consumers'])))
+            import_consumers(data['consumers'], node)
 
         return
 
