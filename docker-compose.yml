@@ -22,13 +22,14 @@ services:
   db:
     image: postgres:13
     ports:
-      - "5432:5432"
+      - "${DB_PORT:-5432}:${DB_PORT:-5432}"
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PWRD}
       - POSTGRES_DB=${DB_NAME}
+      - PGPORT=${DB_PORT}
     healthcheck:
       test: [ "CMD-SHELL", "sh -c 'pg_isready -U ${DB_USER} -d ${DB_NAME}'" ]
       interval: 10s
