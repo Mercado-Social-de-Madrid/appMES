@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView, UpdateView, CreateView
+from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 
 from authentication.forms.user import UserForm
 from authentication.models import User
@@ -32,6 +32,14 @@ class CreateUser(CreateView):
     def get_success_url(self):
         messages.success(self.request, _('Usuario creado correctamente.'))
         return reverse('auth:user_list')
+
+class UserDelete(MarketMixin, DeleteView):
+    template_name = 'user/delete.html'
+    model = User
+
+    def get_success_url(self):
+        messages.success(self.request, _('Usuario eliminado correctamente.'))
+        return self.reverse('auth:user_list')
 
 
 class MarketUserList(MarketMixin, UserList):

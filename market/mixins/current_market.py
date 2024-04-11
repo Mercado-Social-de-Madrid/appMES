@@ -25,5 +25,6 @@ class MarketMixin(object):
     def reverse(self, viewname, **kwargs):
         if not 'kwargs' in kwargs:
             kwargs['kwargs'] = {}
-        kwargs['kwargs']['market'] = self.node.pk
+        if self.node:
+            kwargs['kwargs']['market'] = self.node.pk
         return reverse(viewname, **kwargs)

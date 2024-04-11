@@ -18,12 +18,12 @@ urlpatterns = [
     path('users/', views.UserList.as_view(), name='user_list'),
     path('users/add/', views.CreateUser.as_view(), name='add_user'),
     path('users/<pk>/', views.UpdateUser.as_view(), name='user_detail'),
-    path('users/<pk>/delete', views.UserList.as_view(), name='user_delete'),
+    path('users/<pk>/delete', views.UserDelete.as_view(), name='user_delete'),
 
     path('<int:market>/users/', views.MarketUserList.as_view(), name='user_list'),
     path('<int:market>/users/add/', views.MarketCreateUser.as_view(), name='add_user'),
     path('<int:market>/users/<pk>/', views.MarketUpdateUser.as_view(), name='user_detail'),
-    path('<int:market>/users/<pk>/delete', views.UserList.as_view(), name='user_delete'),
+    path('<int:market>/users/<pk>/delete', views.UserDelete.as_view(), name='user_delete'),
 
     path('register/<token>/', views.PreRegister.as_view(), name='preregister'),
     path('register/<token>/resend_email/', views.ResendPreregisterEmailAction.as_view(), name='preregister_send_email'),
