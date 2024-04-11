@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load settings_value %}
+{% load market_url %}
+{% load i18n %}
+{% block title %}{% translate "Nuevo usuario" %}{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron text-light py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-12">
+                <h4 class="mb-0"><a href="{% url account.detail_url account.node.pk account.pk %}"> {{account.display_name}} </a><i class="material-icons md-18 ">arrow_forward_ios</i> {% translate "Nuevo usuario" %} </h4>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="mt-3 card bg-warning p-3 mx-auto mb-3">
+                    <strong class="text-primary">{% translate 'Prerregistro'  %}</strong><br>
+                {% translate 'Se creará un usuario asociado a la cuenta con el mismo email, y se le enviará un correo electrónico de bienvenida con un enlace único para que establezca su contraseña inicial.' %} <br>
+                </div>
+
+                <div class="mt-3 card p-3 mx-auto mb-5">
+                    {% include "account/card.html" with account=account %}
+                </div>
+             </div>
+
+
+            <div class="col-md-7">
+                <form method="post" class="mt-3 p-4">
+                {% csrf_token %}
+                {% include "user/form.html" with hide_staff=True %}
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg btn-action">{% translate "Crear usuario" %}</button>
+                </div>
+
+            </form>
+            </div>
+            </div>
+
+    </div>
+
+{% endblock %}

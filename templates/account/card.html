@@ -1,0 +1,13 @@
+{% load i18n %}
+<div class="d-flex">
+    <div class="mt-4">
+        {% include "account/profile_circle.html" with small=True %}
+    </div>
+
+    <div class="ml-3">
+        <h4 class="mb-0">{{account.display_name}}</h4>
+        <label>{% translate 'Fecha de alta' %}:</label>{{ account.registration_date|date:'d/m/Y' }}<br>
+        <div class="badge badge-secondary text-light typography-subheading"> {% include "member/member_type.html" with member=account %}</div>
+    </div>
+
+</div>

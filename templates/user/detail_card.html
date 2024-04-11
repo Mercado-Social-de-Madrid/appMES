@@ -5,7 +5,7 @@
 <label>{% translate "Usuario"  %}:</label>
 {% if not user %}
     <label class="primary-title"></label>{% translate "Aún no se ha creado usuario" %}<br>
-    <a class="btn btn-secondary btn-block mt-2" href="#"> <i class="material-icons mr-2">add</i>{% translate "Crear usuario"  %} </a>
+    <a class="btn btn-secondary btn-block mt-2" href="{% market_url 'market:account_user_detail' object.pk %}"> <i class="material-icons mr-2">add</i>{% translate "Crear usuario"  %} </a>
 {% else %}
     <a href="{% market_url 'auth:user_detail' user.pk %}">{% include "user/row_display.html"  %} </a> <br>
     <label>{% translate "Fecha de registro"  %}</label> {{user.created_at|date:'d/m/Y H:i'}}<br>

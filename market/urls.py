@@ -40,8 +40,8 @@ urlpatterns = [
     path('member/card_pdf/', views.member_card_pdf, name='member_card_pdf'),
     path('socia/', views.MemberCheck.as_view(), name='member_check'),
 
-    path('account/', views.UserAccountDetail.as_view(), name='user_account')
-
+    path('account/', views.UserAccountDetail.as_view(), name='user_account'),
+    path('<int:market>/account/<pk>/user/', views.ManageAccountUser.as_view(), name='account_user_detail'),
 ]
 
 '''

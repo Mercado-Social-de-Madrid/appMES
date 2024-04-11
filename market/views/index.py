@@ -31,6 +31,7 @@ class MarketDashboard(MarketMixin, TemplateView):
         context = super().get_context_data()
         context['last_news'] = News.objects.filter(node=self.node).order_by('-published_date')[:3]
         return context
+
 class UserDashboard(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard/user.html'
 
@@ -55,8 +56,3 @@ class UserDashboard(LoginRequiredMixin, TemplateView):
         context['last_news'] = News.objects.filter(node=account.node).order_by('-published_date')[:3]
 
         return context
-
-class UserAccountDetail(RedirectView):
-    def get_redirect_url(self, *args, **kwargs):
-        account = Account.objects.filter(owner=self.request.user).first()
-        return reverse(account.detail_url, kwargs={'market':account.node.pk, 'pk': account.pk })

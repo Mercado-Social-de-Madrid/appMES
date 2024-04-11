@@ -4,7 +4,7 @@
 {% load market_url %}
 {% load i18n %}
 
-{% block title %}{% translate "Usuarios" %} | {{object.display_name}}{% endblock %}
+{% block title %}{% translate 'Usuarios' %} | {{object.display_name}}{% endblock %}
 
 {% block content %}
 
@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-12">
-                <h4 class="mb-0"><a href="{% market_url 'auth:user_list' %}">{% translate "Usuarios" %}</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.display_name}}</h4>
+                <h4 class="mb-0"><a href="{% market_url 'auth:user_list' %}">{% translate 'Usuarios' %}</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.display_name}}</h4>
             </div>
         </div>
         </div>
@@ -31,16 +31,16 @@
                     {% endwith %}
                 {% endif %}
 
-                <label>{% translate "Fecha de registro" %}</label> {{object.created_at}}<br>
-                <label class="primary-title">{% translate "Último acceso" %}:</label>
+                <label>{% translate 'Fecha de registro' %}</label> {{object.created_at}}<br>
+                <label class="primary-title">{% translate 'Último acceso' %}:</label>
                 {% include "user/last_login.html" with user=object %}<br>
             </div>
         </div>
 
         {% if object.is_preregistered %}
         <div class="mt-3 card bg-warning p-3 ml-4" style="max-width:30rem;">
-            <h4>Prerregistro" %}</h4>
-            {% translate "El usuario no ha completado aún el prerregistro para establecer su contraseña (debió recibir un email a su cuenta con un enlace de activación)" %}
+            <h4>{% translate 'Prerregistro' %}</h4>
+            {% translate 'El usuario no ha completado aún el prerregistro para establecer su contraseña (debió recibir un email a su cuenta con un enlace de activación)' %}
             <div class="d-inline">
                 <label class="d-inline">Token:</label> <span>{{object.preregister.first.id}}</span>
             </div>
@@ -48,8 +48,8 @@
             <form class="pt-3" method="post" action="{% url 'auth:preregister_send_email' object.preregister.first.id %}">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{% market_url 'auth:user_detail' object.pk %}">
-                <a class="btn btn-secondary mb-2 copy-clipboard mr-2" href="#" data-clipboard-text="{% url 'auth:preregister' object.preregister.first.id %}"> <i class="material-icons mr-2">link</i>{% translate "Copiar enlace" %} </a>
-                 <button type="submit" class="btn btn-primary mb-2 copy-clipboard"> <i class="material-icons mr-2">send</i>{% translate "Reenviar email" %} </button>
+                <a class="btn btn-secondary mb-2 copy-clipboard mr-2" href="#" data-clipboard-text="{% url 'auth:preregister' object.preregister.first.id %}"> <i class="material-icons mr-2">link</i>{% translate 'Copiar enlace' %} </a>
+                 <button type="submit" class="btn btn-primary mb-2 copy-clipboard"> <i class="material-icons mr-2">send</i>{% translate 'Reenviar email' %} </button>
             </form>
 
             <div class="pt-3">

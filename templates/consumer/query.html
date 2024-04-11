@@ -3,6 +3,7 @@
 {% load i18n %}
  {% block table_head %}
     <th scope="col">{% translate "Usuario" %}</th>
+    <th scope="col">{% translate "Fecha de alta" %}</th>
     <th scope="col">{% translate "CIF" %}</th>
     <th scope="col">{% translate "Nombre" %}</th>
     <th scope="col">{% translate "Acciones" %}</th>
@@ -19,6 +20,7 @@
         <span class="text-muted" >{% translate "Pendiente registro" %}</span>
     {% endif %}
 </td>
+<td>{{item.registration_date|date:'d/m/Y'}}</td>
 <td>{{item.cif}}</td>
 
 <td>{{item.display_name}} {% if item.inactive %} ({% translate 'INACTIVA' %}) {% endif %}</td>

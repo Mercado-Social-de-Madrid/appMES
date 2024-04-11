@@ -1,3 +1,4 @@
+import datetime
 import uuid
 from django.db import models
 from polymorphic.models import PolymorphicModel
@@ -27,7 +28,7 @@ class Account(PolymorphicModel):
                                options={'quality': 90})
 
     last_updated = models.DateTimeField(verbose_name=_('Última actualización'), null=True, blank=True)
-    registration_date = models.DateField(verbose_name=_('Fecha de alta'), null=True, blank=True)
+    registration_date = models.DateField(verbose_name=_('Fecha de alta'), null=True, blank=True, default=datetime.date.today)
 
     @property
     def template_prefix(self):

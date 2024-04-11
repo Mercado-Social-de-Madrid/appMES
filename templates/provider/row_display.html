@@ -2,9 +2,7 @@
 {% load i18n %}
 
 <{% if show_inline %}div{% else %}td{% endif%} class="profile">
-      <div class="profile-circle small">
-          <img src="{% if item.profile_image %}{{item.profile_image.url}}{% else %}{% static 'imgs/entity.png' %}{% endif %}">
-      </div>
+    {% include 'account/profile_circle.html' with account=item small=True %}
     {% if request.user.is_superuser or request.user.is_staff  %}
       <span class="account-status">
           {% include 'user/status_circle.html' with user=item.owner %}

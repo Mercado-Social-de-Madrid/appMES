@@ -1,5 +1,5 @@
 {% load i18n %}
-{% if member.member_type == "provider" %}
+{% if member.member_type == "provider" or member.template_prefix == "provider" %}
   {% translate "socia proveedora" %}
 {% else %}
   {% if member.is_intercoop %}

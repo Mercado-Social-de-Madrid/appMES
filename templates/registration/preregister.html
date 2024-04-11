@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% translate 'Restaurar contraseña{% endblock %}
+{% block title %}{% translate 'Restaurar contraseña' %}{% endblock %}
 {% block bodyattrs %} class="main-bg"{% endblock%}
 {% block content %}
 
@@ -31,11 +31,10 @@
         {{form.errors}}
         <p class="lead text-primary">Hola, {{account.display_name}} </p>
         <h3 class="lead ">
-            {% translate 'Solo te falta este paso para empezar a usar la app del Mercado Social!
+            {% translate 'Solo te falta este paso para empezar a usar la app del Mercado Social!' %}
         </h3>
 
-        {% translate 'Introduce la contraseña que utilizarás a partir de ahora en la app y el panel web para gestionar
-        la información de tu perfil y las ofertas.' %}<br><br>
+        {% translate 'Introduce la contraseña que utilizarás a partir de ahora en la app y el panel web para gestionar la información de tu perfil y las ofertas.' %}<br><br>
 
         {% include "common/forms/field.html" with field=form.new_password1 %}
         {% include "common/forms/field.html" with field=form.new_password2 %}

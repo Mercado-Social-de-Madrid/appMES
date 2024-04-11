@@ -50,6 +50,12 @@ class PreRegisteredUser(models.Model):
         except Exception as e:
             print(e)
 
+    @staticmethod
+    def create(account):
+        PreRegisteredUser.objects.create(
+            account=account,
+            user=account.owner,
+        )
 
     @staticmethod
     def create_user_and_preregister(account):
@@ -57,10 +63,8 @@ class PreRegisteredUser(models.Model):
             account.owner = User.objects.create_user(email=account.email, first_name=account.display_name, is_active=True)
             account.save()
 
-        PreRegisteredUser.objects.create(
-            account=account,
-            user=account.owner,
-        )
+        PreRegisteredUser.create(account)
+
 
     def __srt__(self):
         return '{} ({})'.format(self.user, self.id)

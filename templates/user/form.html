@@ -17,9 +17,11 @@
         </div>
         {% endif %}
 
+        {% if not hide_staff %}
         <div class="col-sm-12 col-md-9">
           {% include "common/forms/switch.html" with field=form.is_staff %}
         </div>
+        {% endif %}
 
   {% if current_market %}
         {{form.node.as_hidden}}
