@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django_filters import FilterSet, BooleanFilter
 from django_filters.views import FilterView
 from django_filters.widgets import BooleanWidget
@@ -87,3 +87,17 @@ class ConsumerEdit(MarketMixin, UpdateView):
     def get_success_url(self):
         messages.success(self.request, _('Datos actualizados correctamente.'))
         return self.reverse('market:detail_consumer', kwargs={'pk':self.object.pk})
+
+
+class DeleteConsumer(MarketMixin, DeleteView):
+    template_name = 'consumer/delete.html'
+    model = Consumer
+
+    # def delete(self, request, *args, **kwargs):
+    #     Delete user owner?
+    #     response = super().delete(request, *args, **kwargs)
+    #     return response
+
+    def get_success_url(self):
+        messages.success(self.request, _('Consumidora eliminada correctamente.'))
+        return self.reverse('market:consumer_list')

@@ -19,18 +19,21 @@ urlpatterns = [
     path('<int:market>/categories/', views.CategoryList.as_view(), name='category_list'),
     path('<int:market>/categories/add/', views.CategoryCreate.as_view(), name='add_category'),
     path('<int:market>/categories/<pk>/', views.CategoryDetail.as_view(), name='category_detail'),
+    path('<int:market>/categories/<pk>/delete', views.CategoryDelete.as_view(), name='delete_category'),
 
     # Providers
     path('<int:market>/providers/', views.ProviderList.as_view(), name='provider_list'),
     path('<int:market>/providers/add/', views.CreateProvider.as_view(), name='add_provider'),
     path('<int:market>/providers/<pk>/', views.DetailProvider.as_view(), name='provider_detail'),
     path('<int:market>/providers/<pk>/edit/', views.UpdateProvider.as_view(), name='edit_provider'),
+    path('<int:market>/providers/<pk>/delete/', views.DeleteProvider.as_view(), name='delete_provider'),
 
     # Consumers
     path('<int:market>/consumers/', views.ConsumerList.as_view(), name='consumer_list'),
     path('<int:market>/consumers/add/', views.CreateConsumer.as_view(), name='add_consumer'),
     path('<int:market>/consumers/<pk>/', views.ConsumerDetail.as_view(), name='detail_consumer'),
     path('<int:market>/consumers/<pk>/edit/', views.ConsumerEdit.as_view(), name='edit_consumer'),
+    path('<int:market>/consumers/<pk>/delete/', views.DeleteConsumer.as_view(), name='delete_consumer'),
 
     # Single registration account views
     path('dashboard/', views.UserDashboard.as_view(), name='user_dashboard'),

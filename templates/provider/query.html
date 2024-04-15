@@ -29,6 +29,8 @@
                 <a class="btn btn-outline-primary" href="{% market_url 'benefits:detail' item.benefit.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ventajas"><i class="material-icons">local_activity</i></a>
             {% endif %}
             {% include 'account/action_user.html' %}
+            <a class="btn btn-outline-primary action-delete" href="{% market_url 'market:delete_provider' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Eliminar' %}"><i class="material-icons">delete</i></a>
+
         </td>
 
 {% endblock %}

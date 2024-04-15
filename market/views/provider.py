@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView, CreateView, UpdateView, DetailView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django_filters import FilterSet
 
 from authentication.models.preregister import PreRegisteredUser
@@ -156,4 +156,18 @@ class UpdateProvider(MarketMixin, UpdateView, ProviderFormSet):
 
     def get_success_url(self):
         messages.success(self.request, _('Proveedora actualizada correctamente.'))
+        return self.reverse('market:provider_list')
+
+
+class DeleteProvider(MarketMixin, DeleteView):
+    template_name = 'provider/delete.html'
+    model = Provider
+
+    # def delete(self, request, *args, **kwargs):
+    #     Delete user owner?
+    #     response = super().delete(request, *args, **kwargs)
+    #     return response
+
+    def get_success_url(self):
+        messages.success(self.request, _('Proveedora eliminada correctamente.'))
         return self.reverse('market:provider_list')

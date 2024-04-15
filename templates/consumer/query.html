@@ -28,7 +28,9 @@
 
 <td class="table-actions">
     <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Ver detalle' %}"><i class="material-icons">visibility</i></a>
-    <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Editar' %}"><i class="material-icons">mode_edit</i></a>
+    <a class="btn btn-outline-primary" href="{% market_url 'market:edit_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Editar' %}"><i class="material-icons">mode_edit</i></a>
     {% include 'account/action_user.html' %}
+    <a class="btn btn-outline-primary action-delete" href="{% market_url 'market:delete_consumer' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Eliminar' %}"><i class="material-icons">delete</i></a>
+
 </td>
 {% endblock %}

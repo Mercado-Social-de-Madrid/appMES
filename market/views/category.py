@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
@@ -45,3 +45,12 @@ class CategoryDetail(MarketMixin, UpdateView):
 
     def get_success_url(self):
         return self.reverse('market:category_detail', kwargs={'pk': self.object.pk})
+
+
+class CategoryDelete(MarketMixin, DeleteView):
+    template_name = 'category/delete.html'
+    model = Category
+
+    def get_success_url(self):
+        messages.success(self.request, _('Categoría eliminada correctamente.'))
+        return self.reverse('market:category_list')
