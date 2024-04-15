@@ -48,7 +48,7 @@ def import_consumers(consumers, node):
         email = item['email']
 
         if not cif or len(cif) > 30:
-            print(f"Invalid consumer nif: {item['name']} - {cif}")
+            print(f"Invalid consumer nif: {item['name']} - {email} - {cif}")
             continue
 
         existing_consumer = Consumer.objects.filter(Q(cif=cif) | Q(email=email) | Q(owner__email=email)).first()
