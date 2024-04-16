@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card mb-4">
-                <div class="header-img" data-aspect-ratio="0.6" {% if account.banner_image %} style="background-image:url('{{account.banner_image}}')" {% endif %}></div>
+                {% include 'provider/header_banner.html' with account=account %}
                 <div class="card-body">
                     <div class="card-title primary-title mb-0"><h3 class="mb-0"><i class="ic ic-entity"></i> {% translate 'Mi entidad' %}</h3></div>
                     <div class="card-text text-dark">
@@ -21,7 +21,7 @@
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action" href="{% url 'market:user_account' %}"><i class="material-icons mr-2">store</i> {% translate 'Ver perfil' %}</a>
                     <a class="list-group-item list-group-item-action" href="{% url 'market:member_card' %}"><i class="material-icons-outlined mr-2">perm_contact_calendar</i> {% translate 'Mi carnet de socia' %}</a>
-                    <a class="list-group-item list-group-item-action" href="#"><i class="material-icons-outlined mr-2">favorite</i> {% translate 'Ver balance social' %}</a>
+                    <a class="list-group-item list-group-item-action" href="{% url 'market:account_balance' %}"><i class="material-icons-outlined mr-2">favorite</i> {% translate 'Ver balance social' %}</a>
                     <a class="list-group-item list-group-item-action disabled" href="#"><i class="material-icons mr-2">bar_chart</i> {% translate 'Ver estadísticas de favoritos' %}</a>
                 </div>
             </div>

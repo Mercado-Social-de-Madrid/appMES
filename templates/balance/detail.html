@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% load qr_tags %}
+{% load settings_value %}
+{% load market_url %}
+{% load i18n %}
+{% block extra_styles %}
+<style>
+iframe{ border: 1px solid #ddd; outline:none; max-width:480px; width: 100%; height:150vw; margin:auto;}
+@media (min-width: 728px){
+iframe {
+    height:800px;
+}}
+</style>
+{% endblock extra_styles %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-5 mb-3">
+            <div class="card">
+                {% include 'provider/header_banner.html' with account=entity %}
+                <div class="card-body" ">
+                    <h4 class="text-primary font-weight-bold"><strong>{% translate 'Distintivo de calidad del MESM' %}</strong></h4>
+                    <div class="d-fluid">
+                        {% translate 'Al realizar el Balance Social, además de obtener el sello, infografía e informe personalizado, las entidades que lo soliciten, tendrán este Distintivo de calidad, como herramienta diferenciadora que dará visibilidad y prestigio a vuestra entidad.' %}
+                        <img src="{% static 'imgs/sello_mes.png' %}" alt="Sello MES" class="img-fluid p-md-3 pt-4">
+
+                        {% translate 'El distintivo contiene un QR que permite a las socias visitar un documento como el que se puede ver aquí.' %}
+                    </div>
+            </div>
+            </div>
+
+        </div>
+        <div class="col-lg-7 mb-3">
+            <iframe src="{% url 'market:balance_result' entity.member_id %}"></iframe>
+        </div>
+    </div>
+
+
+
+
+</div>
+{% endblock %}

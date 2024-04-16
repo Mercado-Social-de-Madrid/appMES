@@ -1,20 +1,22 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import TemplateView, RedirectView, CreateView
+from django.views.generic import RedirectView
 
 from authentication.models.preregister import PreRegisteredUser
 from authentication.views import MarketCreateUser
-from market.mixins.current_market import MarketMixin
-from market.models import Account, Provider
-from news.models import News
-from offers.models import Offer
+from market.models import Account
+
 
 class UserAccountDetail(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         account = Account.objects.filter(owner=self.request.user).first()
         return reverse(account.detail_url, kwargs={'market':account.node.pk, 'pk': account.pk })
+
+
+class UserAccountSocialBalance(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        account = Account.objects.filter(owner=self.request.user).first()
+        return reverse('market:provider_balance', kwargs={'market':account.node.pk, 'pk': account.pk })
 
 
 class ManageAccountUser(MarketCreateUser):

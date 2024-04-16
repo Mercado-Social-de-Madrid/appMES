@@ -1,0 +1,57 @@
+html{
+        font-size:2.45vw;
+}
+
+body{
+    background-color:#fff;
+    background-image:url('bg-heart.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:top right;
+    color:#4a165c;
+    text-align:justify;
+}
+
+.container{
+    margin-top:1.1rem;
+    font-size:1.7rem;
+    max-width:35rem;
+    font-weight:200;
+    line-height:1.1;
+}
+
+@media (min-width: 550px){
+    html { font-size: 13px; }
+}
+@media (min-width: 768px){
+    .container{ max-width:750px; }
+}
+.btn-lg{
+    font-size: 1.4rem;
+    padding: 1.6rem 1.6rem;
+    font-weight:600;
+}
+
+.lead{
+    font-size:1.87rem;
+    font-weight:200;
+    line-height:1.1;
+}
+ul.principios{
+    font-size:1.2rem;
+    font-weight:bold;
+    list-style:none;
+    margin:1.6rem 0;
+}
+ul.principios li {
+    margin-bottom:1.5rem;
+}
+.principios .pr1{ color: #9667ab; }
+.principios .pr2{ color: #dc9016; }
+.principios .pr3{ color: #8cadb4; }
+.principios .pr4{ color: #5ca06f; }
+.principios .pr5{ color: #c6394c; }
+.principios .pr6{ color: #cdc235; }
+
+em,strong{ font-weight:600; }
+em{ font-style: normal; font-weight:bold; color:#f18153; }

@@ -26,6 +26,7 @@ urlpatterns = [
     path('<int:market>/providers/add/', views.CreateProvider.as_view(), name='add_provider'),
     path('<int:market>/providers/<pk>/', views.DetailProvider.as_view(), name='provider_detail'),
     path('<int:market>/providers/<pk>/edit/', views.UpdateProvider.as_view(), name='edit_provider'),
+    path('<int:market>/providers/<pk>/balance/', views.ProviderSocialBalance.as_view(), name='provider_balance'),
     path('<int:market>/providers/<pk>/delete/', views.DeleteProvider.as_view(), name='delete_provider'),
 
     # Consumers
@@ -43,17 +44,11 @@ urlpatterns = [
     path('member/card_pdf/', views.member_card_pdf, name='member_card_pdf'),
     path('socia/', views.MemberCheck.as_view(), name='member_check'),
 
+
+    path('balance/<member_id>/', views.BalanceResult.as_view(), name='balance_result'),
+
     path('account/', views.UserAccountDetail.as_view(), name='user_account'),
+    path('account/balance/', views.UserAccountSocialBalance.as_view(), name='account_balance'),
     path('<int:market>/account/<pk>/user/', views.ManageAccountUser.as_view(), name='account_user_detail'),
+
 ]
-
-'''
-    
-    # Market admin urls
-
-    path('entity/balance/<pk>/', views.HomeView.as_view(), name='entity_balance'),
-    path('balance/<member_id>/', views.HomeView.as_view(), name='balance_detail'),
-
-
-
-'''

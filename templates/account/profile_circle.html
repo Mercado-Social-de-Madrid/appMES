@@ -2,7 +2,7 @@
 
 {% with account.template_prefix|default:'consumer' as account_image %}
 
-<div class="profile-circle {% if small %} small {% endif %}">
+<div class="profile-circle {% if small %} small {% endif %} {% if addclass %} {{addclass}} {% endif %}">
     <img id="profile-image"
      src="{% if account.profile_image %} {{ account.profile_image.url }}{% else %}{% static 'imgs/'|add:account_image|add:'.png' %}{% endif %}">
 </div>

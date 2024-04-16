@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import gettext_lazy as _
+from django.views.decorators.clickjacking import xframe_options_exempt
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django_filters import FilterSet
 
@@ -31,7 +32,6 @@ class ProviderFilter(FilterSet):
     search = SearchFilter(names=['address', 'cif', 'name', 'email', 'member_id'], lookup_expr='in', label=_('Buscar...'))
     o = LabeledOrderingFilter(fields=['name', 'registration_date', 'last_updated'],
                               field_labels={'last_name':'Apellido', 'registration_date':'Fecha de alta', 'last_updated':'ÚLtima actualización'})
-
     class Meta:
         model = Provider
         form = ProviderFilterForm
@@ -128,7 +128,6 @@ class CreateProvider(MarketMixin, CreateView, ProviderFormSet):
             PreRegisteredUser.create_user_and_preregister(self.object)
         return response
 
-
     def get_success_url(self):
         messages.success(self.request, _('Proveedora añadida correctamente.'))
         return self.reverse('market:provider_list')
@@ -157,6 +156,25 @@ class UpdateProvider(MarketMixin, UpdateView, ProviderFormSet):
     def get_success_url(self):
         messages.success(self.request, _('Proveedora actualizada correctamente.'))
         return self.reverse('market:provider_list')
+
+
+class ProviderSocialBalance(DetailView):
+    template_name = 'balance/detail.html'
+    context_object_name = 'entity'
+    model = Provider
+
+
+class BalanceResult(DetailView):
+    template_name = 'balance/results.html'
+    context_object_name = 'entity'
+    model = Provider
+
+    @xframe_options_exempt
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        return Provider.objects.filter(member_id=self.kwargs['member_id']).first()
 
 
 class DeleteProvider(MarketMixin, DeleteView):
