@@ -12,7 +12,7 @@ from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ExportAsCSVMixin import ExportAsCSVMixin
 from core.mixins.FormsetView import FormsetView
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
-from core.models import Gallery
+from core.models import Gallery, GalleryPhoto
 from helpers.filters.LabeledOrderingFilter import LabeledOrderingFilter
 from helpers.filters.SearchFilter import SearchFilter
 from helpers.filters.filtermixin import FilterMixin
@@ -74,12 +74,18 @@ class ProviderFormSet(FormsetView):
         else:
             gallery = provider.gallery
 
+        print(gallery_formset.cleaned_data)
         for photo_form in gallery_formset:
             photo = photo_form.save(commit=False)
             if not photo.photo or photo_form.cleaned_data.get('DELETE'):
                 continue
             photo.gallery = gallery
             photo.save()
+
+        for photo_form in gallery_formset.deleted_forms:
+            photo_id = photo_form.cleaned_data.get('photo_id')
+            GalleryPhoto.objects.filter(pk=photo_id).delete()
+            # TODO: Delete also associated image file
 
         provider.gallery = gallery
         provider.save()

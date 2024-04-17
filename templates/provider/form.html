@@ -14,7 +14,7 @@
                         <div class="description">
                             <div class="row">
                             <div class="col-md-4 text-center form-photo">
-                                <div class="file-field image-field d-inline-block mb-4" data-img-target="#profile-image" data-ref-type="image">
+                                <div class="file-field image-field d-inline-block mt-5 mb-4" data-img-target="#profile-image" data-ref-type="image">
                                     {% include "account/profile_circle.html" with account=object %}
                                     <div class="btn btn-primary btn-float" data-toggle="tooltip" data-placement="bottom" title="{% translate "Actualizar imagen" %}">
                                         <span><i class="material-icons">insert_photo</i></span>
@@ -49,13 +49,16 @@
                         {{ formsets.gallery.management_form }}
                         {% for gallery_form in formsets.gallery %}
                             <div class="gallery-form-photo file-field">
-                             {% if gallery_formset.can_delete %}
+                             {% if formsets.gallery.can_delete %}
                                 {{ gallery_form.DELETE }}
+                                {{ gallery_form.photo_id }}
                             {% endif %}
                                 <div class="form-photo">
                                     <div class="thumb" style="background-image:url('{{gallery_form.photo.value.url}}');"></div>
-                                    <i class="upload material-icons" data-placement="bottom" title="Subir foto">file_upload</i>
-                                    {{ gallery_form.photo }}
+                                    {% if not gallery_form.photo_id.value %}
+                                        <i class="upload material-icons" data-placement="bottom" title="Subir foto">file_upload</i>
+                                        {{ gallery_form.photo }}
+                                    {% endif %}
                                 </div>
                             {{ gallery_form.order.as_hidden }}
                             {{ gallery_form.title.as_hidden }}

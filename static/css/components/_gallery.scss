@@ -90,3 +90,8 @@
     background:#f00;
     background: repeating-conic-gradient(#dedede 0% 25%, transparent 0% 50%) 50% / 20px 20px;
 }
+
+.jumbotron{
+    background-repeat: no-repeat;
+    background-size:cover;
+}

@@ -6,7 +6,7 @@ from core.models import GalleryPhoto
 
 class PhotoGalleryForm(forms.ModelForm):
     photo = forms.FileField(required=False)
-
+    photo_id = forms.CharField(required=False, widget=forms.HiddenInput())
     class Meta:
         model = GalleryPhoto
         fields = ['order', 'photo', 'title']
@@ -30,7 +30,8 @@ class PhotoGalleryForm(forms.ModelForm):
             photos_data.append({
                 'order': photo.order,
                 'title': photo.title,
-                'photo': photo.photo
+                'photo': photo.photo,
+                'photo_id': photo.pk
             })
 
         return photos_data
