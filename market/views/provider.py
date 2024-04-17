@@ -74,7 +74,6 @@ class ProviderFormSet(FormsetView):
         else:
             gallery = provider.gallery
 
-        print(gallery_formset.cleaned_data)
         for photo_form in gallery_formset:
             photo = photo_form.save(commit=False)
             if not photo.photo or photo_form.cleaned_data.get('DELETE'):
@@ -84,8 +83,9 @@ class ProviderFormSet(FormsetView):
 
         for photo_form in gallery_formset.deleted_forms:
             photo_id = photo_form.cleaned_data.get('photo_id')
-            GalleryPhoto.objects.filter(pk=photo_id).delete()
-            # TODO: Delete also associated image file
+            if photo_id:
+                GalleryPhoto.objects.filter(pk=photo_id).delete()
+                # TODO: Delete also associated image file
 
         provider.gallery = gallery
         provider.save()
@@ -110,7 +110,7 @@ class ProviderFormSet(FormsetView):
                     social_profile.save()
 
 
-class CreateProvider(MarketMixin, CreateView, ProviderFormSet):
+class CreateProvider(MarketMixin, ProviderFormSet, CreateView):
     template_name = 'provider/create.html'
     model = Provider
     form_class = CreateProviderForm
@@ -143,13 +143,8 @@ class DetailProvider(MarketMixin, DetailView):
     template_name = 'provider/detail.html'
     model = Provider
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
 
-        return context
-
-
-class UpdateProvider(MarketMixin, UpdateView, ProviderFormSet):
+class UpdateProvider(MarketMixin, ProviderFormSet, UpdateView):
     template_name = 'provider/edit.html'
     model = Provider
     form_class = ProviderForm
