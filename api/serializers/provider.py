@@ -8,6 +8,7 @@ from market.models import Provider
 
 
 class ProviderSerializer(serializers.ModelSerializer):
+    profile_image = serializers.StringRelatedField(source="profile_image.name")
     social_profiles = SocialProfileSerializer(many=True, read_only=True)
     gallery = GallerySerializer(many=False, read_only=True)
     offers = OffersSerializer(many=True, read_only=True)
