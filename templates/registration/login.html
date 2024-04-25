@@ -23,8 +23,8 @@
     {% csrf_token %}
     {{form.next}}
         <div class="form-group">
-            <label>{% translate 'Nombre de usuario' %}</label>
-            <input class="form-control" id="{{ form.username.id_for_label }}" maxlength="90" name="{{ form.username.html_name }}" type="text" placeholder="{% translate 'Usuario' %}"/>
+            <label>{% translate 'Correo electrónico' %}</label>
+            <input class="form-control" id="{{ form.username.id_for_label }}" maxlength="90" name="{{ form.username.html_name }}" type="text" placeholder="{% translate 'Correo electrónico' %}"/>
             {%if form.username.errors %}
             <div class="d-block invalid-feedback">
                 {%for error in form.username.errors %} {{error}} {%endfor%}
