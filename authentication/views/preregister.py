@@ -41,7 +41,7 @@ class PreRegister(FormView):
             prereg_user.delete()
 
         messages.success(self.request, _('Contraseña actualizada correctamente'))
-        return redirect('auth:edit_profile')
+        return redirect('auth:login')
 
 class ResendPreregisterEmailAction(RedirectURLMixin, View):
     def post(self, request, *args, **kwargs):

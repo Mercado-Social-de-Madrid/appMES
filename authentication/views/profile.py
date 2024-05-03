@@ -1,48 +1,65 @@
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from django.views.generic import FormView
 
 from authentication.forms.password import PasswordForm
-from authentication.forms.user import ProfileForm, UserForm
+from authentication.forms.user import ProfileForm
+from market.mixins.current_market import MarketMixin
 
 
-@login_required
-def edit_profile(request):
-    if request.method == 'POST':
-        profile_form = ProfileForm(request.POST,)
-        if profile_form.is_valid():
-            profile_form.save()
-    else:
-        profile_form = ProfileForm(instance=request.user)
-        user_form = UserForm()
+class EditProfile(MarketMixin, LoginRequiredMixin, FormView):
+    template_name = 'user/profile.html'
+    form_class = ProfileForm
 
-    password_form = PasswordForm(user=request.user)
-    return render(request, 'user/profile.html',{
-            'profile_form': profile_form,
-            'password_form':password_form,
-            'profile_tab': True
-           })
+    def user_can_access(self):
+        return True
 
-@login_required
-def profile_password(request):
-    if request.method == 'POST':
-        password_form = PasswordForm(data=request.POST, user=request.user)
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({'instance': self.request.user})
+        return kwargs
 
-        if password_form.is_valid():
-            user = password_form.save()
-            update_session_auth_hash(request, user)  # Important!
-            messages.success(request, 'Contraseña actualizada correctamente')
-            return redirect('auth:edit_profile')
+    def get_success_url(self):
+        messages.success(self.request, 'Perfil actualizado correctamente')
+        return reverse_lazy('auth:edit_profile')
 
-    else:
-        password_form = PasswordForm(user=request.user)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile_form'] = self.get_form()
+        context['password_form'] = PasswordForm(user=self.request.user)
+        context['profile_tab'] = True
+        return context
 
-    profile_form = ProfileForm(instance=request.user)
-    user_form = UserForm()
-    return render(request, 'user/profile.html', {
-            'user_form': user_form,
-            'profile_form': profile_form,
-            'password_form':password_form,
-            'password_tab':True
-            })
+class EditProfilePassword(MarketMixin, LoginRequiredMixin, FormView):
+    template_name = 'user/profile.html'
+    form_class = PasswordForm
+
+    def user_can_access(self):
+        return True
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
+    def get_success_url(self):
+        messages.success(self.request, 'Contraseña actualizada correctamente')
+        return reverse_lazy('auth:edit_profile')
+
+    def form_invalid(self, form):
+        print(self.request.POST)
+        return super().form_invalid(form)
+
+    def form_valid(self, form):
+        user = form.save()
+        update_session_auth_hash(self.request, user)  # Important!
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile_form'] = ProfileForm(instance=self.request.user)
+        context['password_form'] = self.get_form()
+        context['password_tab'] = True
+        return context

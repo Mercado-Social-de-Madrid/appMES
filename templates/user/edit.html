@@ -22,7 +22,6 @@
 
         <div class="card detail-card">
             <div class="card-body">
-
                 {% if object.accounts_managed.exists %}
                 {% with account=object.accounts_managed.first %}
                     <label>{% translate "Cuenta que gestiona" %}</label>
@@ -38,7 +37,7 @@
         </div>
 
         {% if object.is_preregistered %}
-        <div class="mt-3 card bg-warning p-3 ml-4" style="max-width:30rem;">
+        <div class="mt-1 card bg-warning p-3 ml-4" style="max-width:30rem;">
             <h4>{% translate 'Prerregistro' %}</h4>
             {% translate 'El usuario no ha completado aún el prerregistro para establecer su contraseña (debió recibir un email a su cuenta con un enlace de activación)' %}
             <div class="d-inline">
@@ -59,15 +58,29 @@
         </div>
         {% endif %}
 
-        <form method="post" class="mt-3 p-4">
+    <div class="row">
+    <div class="col-md-7 col-lg-8 pr-0">
+        <form method="post" class="mt-3 pl-4 pr-0">
             {% csrf_token %}
             {% include "user/form.html" %}
-
+            {{form.is_staff.as_hidden}}
+            {% include "common/forms/switch.html" with field=form.is_staff %}
             {% include "common/forms/save_btn.html" %}
 
         </form>
     </div>
+        <div class="col-md-5 col-lg-4 mt-3">
+            <div class="card bg-brand">
+                <div class="card-body">
+                    <h4 class="text-light">{% translate 'Administrar' %}</h4>
+                    <a href="{% market_url 'auth:user_password' object.pk %}" class="btn btn-action btn-block btn-primary mb-3"><i class="material-icons mr-2">key</i> {% translate 'Actualizar contraseña' %}</a>
+                    <a href="{% market_url 'auth:user_delete' object.pk %}" class="btn btn-action btn-block btn-light mb-2"><i class="material-icons mr-2">delete</i> {% translate 'Eliminar usuario' %}</a>
+                </div>
+            </div>
+        </div>
 
+    </div>
+</div>
 {% endblock %}
 
 

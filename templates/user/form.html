@@ -12,14 +12,8 @@
         </div>
 
         {% if not current_market %}
-        <div class="col-sm-12 col-md-9">
+        <div class="col-sm-12 col-md-9 mb-3">
           {% include "common/forms/switch.html" with field=form.manages_multi %}
-        </div>
-        {% endif %}
-
-        {% if not hide_staff %}
-        <div class="col-sm-12 col-md-9">
-          {% include "common/forms/switch.html" with field=form.is_staff %}
         </div>
         {% endif %}
 

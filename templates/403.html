@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="container error-404 ml-2">
+        <div>
+            <h2>Error 403</h2>
+            <h1> {% translate 'No autorizada' %}</h1>
+            <div>
+                <button onclick="history.back()" class="btn btn-primary"><i class="material-icons mr-2">arrow_back</i> Volver</button>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

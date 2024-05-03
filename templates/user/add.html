@@ -24,6 +24,9 @@
             {% csrf_token %}
             {% include "user/form.html" %}
 
+            {{form.is_staff.as_hidden}}
+            {% include "common/forms/switch.html" with field=form.is_staff %}
+
             <div class="text-center mt-4">
                 <button type="submit" class="btn btn-primary btn-lg btn-action">{% translate "Crear usuario" %}</button>
             </div>
