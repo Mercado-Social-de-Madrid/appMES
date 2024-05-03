@@ -18,7 +18,7 @@ from helpers.filters.SearchFilter import SearchFilter
 from helpers.filters.filtermixin import FilterMixin
 from helpers.forms.BootstrapForm import BootstrapForm
 from market.forms.provider import ProviderForm, CreateProviderForm
-from market.mixins.current_market import MarketMixin
+from market.mixins.current_market import MarketMixin, AccountAccessMixin
 from market.models import Category, Provider
 from django_filters.views import FilterView
 
@@ -139,12 +139,12 @@ class CreateProvider(MarketMixin, ProviderFormSet, CreateView):
         return self.reverse('market:provider_list')
 
 
-class DetailProvider(MarketMixin, DetailView):
+class DetailProvider(AccountAccessMixin, MarketMixin, DetailView):
     template_name = 'provider/detail.html'
     model = Provider
 
 
-class UpdateProvider(MarketMixin, ProviderFormSet, UpdateView):
+class UpdateProvider(AccountAccessMixin, MarketMixin, ProviderFormSet, UpdateView):
     template_name = 'provider/edit.html'
     model = Provider
     form_class = ProviderForm
@@ -156,7 +156,7 @@ class UpdateProvider(MarketMixin, ProviderFormSet, UpdateView):
 
     def get_success_url(self):
         messages.success(self.request, _('Proveedora actualizada correctamente.'))
-        return self.reverse('market:provider_list')
+        return self.reverse('market:provider_detail', kwargs={'pk': self.object.pk})
 
 
 class ProviderSocialBalance(DetailView):

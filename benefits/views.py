@@ -45,6 +45,10 @@ class BenefitDetail(MarketMixin, DetailView):
             provider = Provider.objects.filter(owner=self.request.user).first()
             return Benefit.objects.filter(entity=provider).first()
 
+    def user_can_access_resource(self, user):
+        benefit = self.get_object()
+        return benefit.entity.owner == user
+
 
 class BenefitCreate(MarketMixin, CreateView):
     model = Benefit

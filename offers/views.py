@@ -20,7 +20,7 @@ from helpers.filters.LabeledOrderingFilter import LabeledOrderingFilter
 from helpers.filters.SearchFilter import SearchFilter
 from helpers.filters.filtermixin import FilterMixin
 from helpers.forms.BootstrapForm import BootstrapForm
-from market.mixins.current_market import MarketMixin
+from market.mixins.current_market import MarketMixin, AccountAccessMixin, OwnedByAccountAccessMixin
 from market.models import Provider
 from offers.forms.offer import OfferForm
 from offers.models import Offer
@@ -31,7 +31,7 @@ class UserOffers(LoginRequiredMixin, RedirectView):
         provider = Provider.objects.filter(owner=self.request.user).first()
         return reverse('offers:entity_offers', kwargs={ 'market': provider.node.pk, 'pk': provider.pk})
 
-class ProviderOffers(MarketMixin, DetailView):
+class ProviderOffers(AccountAccessMixin, MarketMixin, DetailView):
     model = Provider
     context_object_name = 'provider'
     template_name = 'offers/entity_list.html'
@@ -45,7 +45,8 @@ class ProviderOffers(MarketMixin, DetailView):
         })
         return context
 
-class CreateOffer(MarketMixin, CreateView):
+
+class CreateOffer(OwnedByAccountAccessMixin, MarketMixin, CreateView):
     template_name = 'offers/create.html'
     model = Offer
     form_class = OfferForm
@@ -106,12 +107,17 @@ class OffersList(FilterMixin, MarketMixin, ExportAsCSVMixin, FilterView, ListIte
         return super().get_queryset().filter(provider__node=self.node).order_by('-published_date').select_related('provider')
 
 
-class OfferDetail(MarketMixin, DetailView):
+class OfferAccessMixin(object):
+    def user_can_access_resource(self, user):
+        offer = self.get_object()
+        return user == offer.provider.owner
+
+class OfferDetail(OfferAccessMixin, MarketMixin, DetailView):
     template_name = 'offers/detail.html'
     model = Offer
 
 
-class OfferEdit(MarketMixin, UpdateView):
+class OfferEdit(OfferAccessMixin, MarketMixin, UpdateView):
     model = Offer
     form_class = OfferForm
     template_name = 'offers/edit.html'
