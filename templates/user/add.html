@@ -17,15 +17,25 @@
         </div>
     </div>
 
-
     <div class="container">
 
         <form method="post" class="mt-3 p-4">
             {% csrf_token %}
-            {% include "user/form.html" %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                     {% include "user/form.html" %}
 
-            {{form.is_staff.as_hidden}}
-            {% include "common/forms/switch.html" with field=form.is_staff %}
+                {{form.is_staff.as_hidden}}
+                {% include "common/forms/switch.html" with field=form.is_staff %}
+
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-warning p-3 mx-auto ">
+                        <h4 class="text-primary"><i class="material-icons">info</i> {% translate "Prerregistro"  %}</h4><br>
+                    {% translate 'Al crear una nueva usuaria, se le enviará un correo electrónico de bienvenida con un enlace único para que establezca su contraseña inicial.' %}
+                    </div>
+                </div>
+            </div>
 
             <div class="text-center mt-4">
                 <button type="submit" class="btn btn-primary btn-lg btn-action">{% translate "Crear usuario" %}</button>

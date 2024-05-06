@@ -1,29 +1,17 @@
-<div class="row">
-    <div class="col-sm-9 ">
-          {% include "common/forms/field.html" with field=form.first_name %}
-      </div>
 
-        <div class="col-sm-12 col-md-9">
-          {% include "common/forms/field.html" with field=form.email %}
-        </div>
+{% include "common/forms/field.html" with field=form.first_name %}
+{% include "common/forms/field.html" with field=form.email %}
+{% include "common/forms/field.html" with field=form.preferred_locale %}
 
-        <div class="col-sm-12 col-md-9">
-          {% include "common/forms/field.html" with field=form.preferred_locale %}
-        </div>
-
-        {% if not current_market %}
-        <div class="col-sm-12 col-md-9 mb-3">
-          {% include "common/forms/switch.html" with field=form.manages_multi %}
-        </div>
-        {% endif %}
-
-  {% if current_market %}
-        {{form.node.as_hidden}}
-  {% else %}
-      <div class="col-sm-12 col-md-9">
-          {% include "common/forms/field.html" with field=form.node not_floating=True %}
-        </div>
-  {% endif %}
-
-
+{% if not current_market %}
+<div class="mb-3">
+  {% include "common/forms/switch.html" with field=form.manages_multi %}
 </div>
+{% endif %}
+
+{% if current_market %}
+    {{form.node.as_hidden}}
+{% else %}
+      {% include "common/forms/field.html" with field=form.node not_floating=True %}
+{% endif %}
+

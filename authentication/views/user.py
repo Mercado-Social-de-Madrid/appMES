@@ -5,6 +5,7 @@ from django.views.generic import ListView, UpdateView, CreateView, DeleteView, F
 
 from authentication.forms.user import UserForm, PasswordForm
 from authentication.models import User
+from authentication.models.preregister import PreRegisteredUser
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
 from market.mixins.current_market import MarketMixin
@@ -61,6 +62,12 @@ class CreateUser(CreateView):
         initial = super().get_initial() or {}
         initial.update({'is_staff': True})
         return initial
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        # Creating the preregistered user sends the welcome email
+        PreRegisteredUser.objects.create(user=self.object)
+        return response
 
     def get_success_url(self):
         messages.success(self.request, _('Usuario creado correctamente.'))

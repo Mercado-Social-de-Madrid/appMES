@@ -29,7 +29,7 @@
   <form method="post" class="edit-form" >
         {% csrf_token %}
         {{form.errors}}
-        <p class="lead text-primary">Hola, {{account.display_name}} </p>
+        <p class="lead text-primary">Hola, {% if account %} {{account.display_name}} {% else %} {{prereg_user.display_name }} {% endif %}</p>
         <h3 class="lead ">
             {% translate 'Solo te falta este paso para empezar a usar la app del Mercado Social!' %}
         </h3>

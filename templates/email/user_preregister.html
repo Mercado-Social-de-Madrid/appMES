@@ -1,0 +1,27 @@
+{% extends 'common/email/base.html' %}
+{% load settings_value %}
+
+{% block title %}Registro{% endblock %}
+
+{% block maintitle %}Bienvenid@!{% endblock %}
+
+{% block content %}
+
+<h2 style="color: #f78154; line-height: 100%;">Hola, {{user.display_name}}!</h2>
+
+
+<p>Recibes este email porque has sido dada de alta recientemente para utilizar la app del Mercado Social.</p>
+<p>Solo falta un último paso, que es que cuentes con una manera de acceder a tu área privada.</p>
+<p>Introduce la contraseña que utilizarás a partir de ahora en la app para gestionar la información de tu perfil en el siguiente enlace: {% settings_value 'BASESITE_URL' %}{% url 'auth:preregister' token %}</p>
+<p></p>
+<p>Desde ese momento, podrás acceder al panel de administración del Mercado.</p>
+<p></p>
+
+{% endblock%}
+
+{% block call_button %}
+
+{% url 'auth:preregister' token as link %}
+
+{% include 'common/email/button.html' with link_text='Completar Registro' link_href=link %}
+{% endblock call_button %}
