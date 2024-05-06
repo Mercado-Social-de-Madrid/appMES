@@ -1,0 +1,73 @@
+{% load i18n %}
+{% load static %}
+{% load display_functions %}
+{% load l10n %}
+
+{% block extra_scripts %}
+	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+	<script type="text/javascript">
+		// Load the Visualization API and the piechart package.
+		google.load('visualization', '1.0', {'packages':['corechart'], 'callback':drawChart} );
+
+		// Set a callback to run when the Google Visualization API is loaded.
+		function drawChart() {
+			var data = new google.visualization.DataTable();
+			data.addColumn('date', "Fecha");
+			data.addColumn('number', "Total");
+			{% if graph_data.additional_rows %}
+				{% for add_row in graph_data.additional_rows %}
+					data.addColumn('number', "{{add_row.label}}");
+				{% endfor %}
+			{% endif %}
+
+			data.addRows( {{ graph_data|length }} );
+
+			{% for row in graph_data %}
+				{% if row.day %}
+				{% with forloop.counter0 as row_idx %}
+
+					data.setValue({{ row_idx }},0,new Date({{ row.day| date:'Y' }},{{ row.day|date:'n' }}-1,{{row.day|date:'j'}}));
+					data.setValue({{ row_idx }},1,{%if floatvalues %} {{ row.total|default:0|unlocalize }} {%else%} {{ row.total|default:0 }} {%endif%});
+					{% if graph_data.additional_rows %}
+						{% for add_row in graph_data.additional_rows %}
+							data.setValue({{ row_idx }},{{forloop.counter0|add:2}},{%if floatvalues %} {{ row|lookup:add_row.id|default:0|unlocalize }} {%else%} {{ row|lookup:add_row.id|default:0 }} {%endif%});
+						{% endfor %}
+					{% endif %}
+				{% endwith %}
+				{% endif %}
+			{% endfor %}
+	        var chart = new google.visualization.ColumnChart(document.getElementById('{{ chart_id|default:"activity_graph_div" }}'));
+	        chart.draw(data, {
+	            width: "100%",
+                height: {{chart_height|default:'250'}},
+
+			{% if chart_stacked %}
+				isStacked: true,
+			{% endif %}
+
+                hAxis: {gridlines: {color: 'transparent'}
+                {% if date_ranges %}
+                	, minValue: new Date({{ date_ranges.start| date:'Y' }},{{ date_ranges.start|date:'n' }}-1,{{date_ranges.start|date:'j'}}),
+                	maxValue:new Date({{ date_ranges.end| date:'Y' }},{{ date_ranges.end|date:'n' }}-1,{{date_ranges.end|date:'j'}}),
+                	viewWindow: {
+						min: new Date({{ date_ranges.start| date:'Y' }},{{ date_ranges.start|date:'n' }}-1,{{date_ranges.start|date:'j'}}),
+						max: new Date({{ date_ranges.end| date:'Y' }},{{ date_ranges.end|date:'n' }}-1,{{date_ranges.end|date:'j'}})
+					  },
+                {% endif %}
+
+                },
+                colors: ['#9c27b0', '#A7CE05'],
+                bar: {groupWidth: "35%"},
+                pointSize: 0,
+                chartArea: {left:0,top:10,width:"100%",height:"100%"},
+                backgroundColor: 'transparent',
+                series: [{areaOpacity:0.2}]
+                });
+	      }
+	</script>
+	{% endblock extra_scripts %}
+
+
+<div id="{{ chart_id|default:'activity_graph_div' }}" class="graph" style="height:{{chart_height|default:'250'}}px;">
+	<div class="mes-loader my-2"></div>
+	</div>

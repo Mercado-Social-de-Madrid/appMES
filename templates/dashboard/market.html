@@ -1,12 +1,76 @@
 {% extends "base.html" %}
 {% load static %}
+{% load market_url %}
+{% load i18n %}
+
 {% block title %}Principal{% endblock%}
 {% block bodyattrs %} class="main-bg"{% endblock%}
 {% block content %}
+
+ <div class="jumbotron text-light py-4 px-2">
+        <div class="container-fluid">
+            {% include 'reports/ranges_filter.html' %}
+        </div>
+    </div>
+
 <div class="container-fluid py-4">
 
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col">
+                    <div class="card bg-primary text-light mb-4">
+                        <div class="card-body">
+                            <div class="display-2 float-left"> {{total_providers}} </div>
+                            <div class="float-left pl-3">
+                                 <h5 class="lead text-primary text-light mb-0"> proveedoras <i class="material-icons">store</i></h5>
+                                {{new_providers.paginator.count}} nuevas
+                            </div>
+                            <table class="table table-stripped bg-primary ">
+                                <tbody class="text-light">
+                                    {% for account in new_providers %}
+                                    <tr><td> {{account.display_name}}</td> <td><a href="{% market_url account.detail_url account.pk %}" class="text-light "><i class="material-icons pt-1">keyboard_arrow_right</i></a> </td></tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            </div>
+                        <div class="card-actions">
+                            <a class="btn btn-outline-light" href="#">Ver informe</a>
+                            <a class="btn btn-outline-secondary" href="{% market_url 'market:provider_list' %}">Ir a entidades</a>
+                          </div>
+                    </div>
+
+                <div class="ajax-load" data-initial="{% market_url 'reports:offers' %}?last={{last}}" data-keepurl="false">
+                    <div class="results"></div>
+                </div>
+
+                </div>
+                <div class="col">
+                    <div class="card bg-secondary mb-4">
+                        <div class="card-body">
+                            <div class="display-2 float-left"> {{total_consumers}} </div>
+                            <div class="float-left pl-3">
+                                 <h5 class="lead text-primary mb-0"> consumidoras</h5>
+                                {{new_consumers.paginator.count}} nuevas
+                            </div>
+                            <table class="table table-stripped bg-secondary ">
+                                <tbody class="">
+                                    {% for account in new_consumers %}
+                                    <tr><td> {{account.display_name}}</td> <td><a href="{% market_url account.detail_url account.pk %}" class="text-light "><i class="material-icons pt-1">keyboard_arrow_right</i></a> </td></tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-actions">
+                            <a class="btn btn-outline-light" href="{% market_url 'market:consumer_list' %}">Ir a consumidoras</a>
+                          </div>
+                    </div>
+
+                     <div class="ajax-load" data-initial="{% market_url 'reports:benefits' %}?last={{last}}" data-keepurl="false">
+                        <div class="results"></div>
+                    </div>
+                </div>
+            </div>
 
         </div>
          <div class="col-md-4">
@@ -16,3 +80,12 @@
 </div>
 
 {% endblock content %}
+
+{% block scripts %}
+
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type="text/javascript">
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1.0', {'packages':['corechart']});
+</script>
+{% endblock scripts %}

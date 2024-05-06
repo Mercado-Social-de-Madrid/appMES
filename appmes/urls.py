@@ -30,6 +30,7 @@ urlpatterns = [
     path('', include('authentication.urls')),
     path('', include('benefits.urls')),
     path('', include('offers.urls')),
+    path('<int:market>/reports/', include('reports.urls')),
     path('<int:market>/news/', include('news.urls')),
 
     path('i18n/', include("django.conf.urls.i18n")),

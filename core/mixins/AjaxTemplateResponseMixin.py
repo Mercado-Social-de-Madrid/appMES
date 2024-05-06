@@ -12,6 +12,8 @@ class AjaxTemplateResponseMixin(TemplateResponseMixin):
         """
         If the request is Ajax, it adds the needed headers to the response
         """
+        if self.is_ajax():
+            context['is_ajax'] = True
 
         response = super(AjaxTemplateResponseMixin, self).render_to_response(context, **response_kwargs)
         if self.is_ajax():

@@ -1,0 +1,23 @@
+
+{% load l10n %}
+
+<div class="card">
+
+    <div class="card-body">
+        {% if is_ajax %}
+        <h4 class="primary-title text-secondary mb-4"><i class="material-icons mr-2">local_activity</i>Ventajas</h4>
+
+         <div class="display-2 float-left"> {{published}} </div>
+            <div class="float-left pl-3">
+                 <h5 class="lead text-secondary mb-0"> nuevas publicadas</h5>
+                {{total}}/{{num_providers}} total
+            </div>
+        {% endif %}
+
+    </div>
+    {% if request.is_ajax %}
+    <div class="card-actions">
+        <a class="btn btn-outline-secondary" href="{% url 'benefits:list' %}">Ir a Ventajas</a>
+      </div>
+    {% endif %}
+</div>

@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'news',
     'market',
     'core',
+    'reports',
 
     # Third-party apps
     'qrcode',
@@ -95,9 +96,9 @@ MIDDLEWARE = [
 
 CSP_EXCLUDE_URL_PREFIXES = ("/admin/", "/auth/")
 CSP_DEFAULT_SRC = ("'self'", "'unsafe-inline'", 'data:', 'maps.googleapis.com', 'chart.apis.google.com', 'maps.gstatic.com')
-CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", 'data:', 'fonts.googleapis.com', 'use.fontawesome.com', 'cdnjs.cloudflare.com')
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", 'data:', 'fonts.googleapis.com', 'www.gstatic.com', 'use.fontawesome.com', 'cdnjs.cloudflare.com')
 CSP_FONT_SRC = ("'self'", "'unsafe-inline'", 'fonts.gstatic.com', 'use.fontawesome.com')
-CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", 'code.jquery.com', 'cdnjs.cloudflare.com', 'maxcdn.bootstrapcdn.com', 'maps.googleapis.com')
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", 'code.jquery.com', 'www.google.com', 'www.gstatic.com', 'cdnjs.cloudflare.com', 'maxcdn.bootstrapcdn.com', 'maps.googleapis.com')
 
 
 ROOT_URLCONF = 'appmes.urls'

@@ -2,7 +2,9 @@
 
 {% if not 'from_app' in request.GET and not hide_navbar and not 'hide_toolbar' in request.GET %}
 <nav id="top-bar" class="navbar navbar-expand navbar-secondary bg-primary text-light sticky-top
-    {% if request.user.is_superuser or request.user.is_staff %} navbar-drawer {% endif %}"
+    {% if not hide_secondary_bar %}
+        {% if request.user.is_superuser or request.user.is_staff %} navbar-drawer {% endif %}
+    {% endif %}"
     style="{% if current_market %} {% endif %}"
 >
      <div class="container">
@@ -27,11 +29,12 @@
      </div>
 </nav>
 {% endif %}
-
+{% if not hide_secondary_bar %}
 {% if request.user.is_superuser or request.user.is_staff %}
     {% include 'navbar/drawer.html' %}
 {% else %}
     {% if request.user.is_authenticated %}
         {% include 'navbar/user.html' %}
     {% endif %}
+{% endif %}
 {% endif %}
