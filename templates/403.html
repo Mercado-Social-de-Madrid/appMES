@@ -1,14 +1,25 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
+{% block bodyattrs %} class="main-bg"{% endblock%}
+
+{% block navbar %}
+    {% include 'navbar/bar.html' with hide_secondary_bar=True %}
+{% endblock navbar %}
+
 {% block content %}
 
     <div class="container error-404 ml-2">
         <div>
             <h2>Error 403</h2>
             <h1> {% translate 'No autorizada' %}</h1>
+            <p class="lead">
+                No tienes permisos para acceder a la página que intentas visitar. Contacta con administración para gestionar tus permisos o si crees que es un error.
+            </p>
             <div>
-                <button onclick="history.back()" class="btn btn-primary"><i class="material-icons mr-2">arrow_back</i> Volver</button>
+                <button onclick="history.back()" class="btn btn-action btn-primary mr-2 mb-3"><i class="material-icons mr-2">arrow_back</i> Volver</button>
+                <button onclick="history.back()" class="btn btn-action btn-secondary mb-3"><i class="material-icons mr-2">description</i> Ver en el manual</button>
+
             </div>
         </div>
     </div>

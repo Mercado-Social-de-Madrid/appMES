@@ -32,7 +32,9 @@
   </head>
   <body {% block bodyattrs %}{% endblock%}>
 
+{% block navbar %}
 {% include 'navbar/bar.html' %}
+{% endblock navbar %}
 
 <div id="main-content">
 {% block content %}{% endblock content %}

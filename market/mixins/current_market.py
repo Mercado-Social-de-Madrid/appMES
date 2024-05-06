@@ -42,6 +42,8 @@ class MarketMixin(AccessMixin):
 
     def user_can_access(self):
         user = self.request.user
+        if not user.is_authenticated:
+            return False
         if user.is_superuser:
             return True
         elif user.is_staff:
