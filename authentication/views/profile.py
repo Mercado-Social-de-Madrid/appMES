@@ -1,11 +1,13 @@
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import PasswordResetConfirmView
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 
 from authentication.forms.password import PasswordForm
 from authentication.forms.user import ProfileForm
+from authentication.models.preregister import PreRegisteredUser
 from market.mixins.current_market import MarketMixin
 
 
@@ -48,10 +50,6 @@ class EditProfilePassword(MarketMixin, LoginRequiredMixin, FormView):
         messages.success(self.request, 'Contraseña actualizada correctamente')
         return reverse_lazy('auth:edit_profile')
 
-    def form_invalid(self, form):
-        print(self.request.POST)
-        return super().form_invalid(form)
-
     def form_valid(self, form):
         user = form.save()
         update_session_auth_hash(self.request, user)  # Important!
@@ -63,3 +61,13 @@ class EditProfilePassword(MarketMixin, LoginRequiredMixin, FormView):
         context['password_form'] = self.get_form()
         context['password_tab'] = True
         return context
+
+
+class PasswordResetView(PasswordResetConfirmView):
+    success_url = reverse_lazy("auth:password_reset_complete")
+
+    def form_valid(self, form):
+        # if the user is preregistered, we consider the password reset as an activation
+        PreRegisteredUser.objects.filter(user=self.user).delete()
+        return super().form_valid(form)
+    
