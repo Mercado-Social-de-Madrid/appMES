@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% load market_url %}
+{% load settings_value %}
+{% load l10n %}
+{% load i18n %}
+
+{% block title %}{{offer.title}}{% endblock%}
+
+{% block bodyattrs %}class="entity"{% endblock%}
+
+{% block content %}
+
+<div class="jumbo-header jumbo-entity form text-light " >
+    <div class="jumbotron bg-secondary pb-4 pt-4 pl-2" >
+        <div class="container-fluid pb-4">
+            {% if request.user.is_staff %}
+            <div class="row">
+                <div class="mb-3 text-light col-md-7">
+                        <h3 class="mb-0"><a href="{% market_url 'news:list' %}">{% translate 'Noticias' %}</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{ object.title }}</h3>
+                </div>
+
+
+                <div class="col-md-5 text-right mb-3 mb-md-0">
+                    <a href="{% market_url 'news:edit' object.pk %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">edit</i>{% translate "Editar noticia" %}</a>
+                </div>
+
+            </div>
+            {% endif %}
+        </div>
+
+        {% if edit_url %}
+
+        {% endif %}
+
+    </div>
+</div>
+
+<div class="container px-md-5">
+        <div class="card mx-md-5" >
+          <div class="card-body px-3 pr-md-5 py-4">
+            <div class="row">
+                <div class="col-md-5 text-center">
+                    <img class="img-fluid mb-4" id="offer-thumb" src="{% if object.banner_image %}{{ object.banner_image.url }}{% else %}{% static 'imgs/default-news.png' %}{% endif %}" alt="{{object.title}}">
+
+                    {% if news.more_info_url %}
+                         <a class="btn btn-action bg-brand d-none d-md-inline-block btn-primary" href="{{news.more_info_url}}">{% if news.more_info_text %} {{news.more_info_text}} {% else %} {% translate 'Saber más' %} {% endif %} </a>
+                    {% endif %}
+                </div>
+                <div class="col-md-7 pl-4 pl-md-0">
+                    <h3 class="flex-grow-1 mb-0">{{object.title}}</h3>
+                     <div class="small"> {{news.published_date|date:'d/m/Y'}}</div>
+                    <div class="text-primary"><strong>{{news.short_description|striptags|safe}}</strong></div>
+
+                    <div class="description">
+                        {{news.description|safe}}
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+</div>
+{% endblock%}
+
+{% block scripts %}
+
+{% endblock scripts %}

@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView, UpdateView, CreateView, DeleteView
+from django.views.generic import ListView, UpdateView, CreateView, DeleteView, DetailView
 from django_filters import FilterSet
 from django_filters.views import FilterView
 
@@ -69,7 +69,18 @@ class NewsCreate(MarketMixin, CreateView):
         return self.reverse('news:list')
 
 
-class NewsDetail(MarketMixin, UpdateView):
+class NewsDetail(MarketMixin, DetailView):
+    template_name = 'news/detail.html'
+    model = News
+
+    def get_queryset(self):
+        return super().get_queryset().filter(node=self.node)
+
+    def user_can_access_resource(self, user):
+        news = self.get_object()
+        return news.node == self.node
+
+class NewsUpdate(MarketMixin, UpdateView):
     template_name = 'news/edit.html'
     form_class = NewsForm
     model = News

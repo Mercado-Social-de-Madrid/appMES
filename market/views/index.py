@@ -57,7 +57,7 @@ class MarketDashboard(MarketMixin, TemplateView):
             1, elems_perpage=DASHBOARD_LIST_PAGECOUNT)
         return context
 
-class UserDashboard(LoginRequiredMixin, TemplateView):
+class UserDashboard(LoginRequiredMixin, MarketMixin, TemplateView):
     template_name = 'dashboard/user.html'
 
     def get_account(self):
@@ -69,6 +69,9 @@ class UserDashboard(LoginRequiredMixin, TemplateView):
             return 'dashboard/provider.html'
         else:
             return 'dashboard/consumer.html'
+
+    def user_can_access(self):
+        return True
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
