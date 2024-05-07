@@ -3,6 +3,7 @@
 {% load settings_value %}
 {% load l10n %}
 {% load i18n %}
+{% load market_url %}
 
 {% block title %}{% translate 'Editar ventaja' %}{% endblock%}
 
@@ -13,31 +14,35 @@
        <div class="jumbotron text-light py-4 px-2">
         <div class="container-fluid">
             <div class="row">
-            <div class="col-sm-12">
-                <h3 class="mb-0">{% translate 'Editar ventaja' %}</h3>
+            <div class="col-md-8">
+                <h4 class="mb-0">
+                    <a href="{% market_url 'market:provider_list' %}">{% translate "Proveedoras" %}</a>
+                    <i class="material-icons md-18 ">arrow_forward_ios</i>
+                    <a href="{% market_url 'market:provider_detail' entity.pk %}">{{ entity.display_name }}</a>
+                    <i class="material-icons md-18 ">arrow_forward_ios</i>
+                    {% translate 'Editar ventajas' %}</h4>
+            </div>
+            <div class="col-md-4 text-right">
+                 <a href="{% market_url 'benefits:detail' object.pk %}" class="btn btn-primary btn-action">
+                     <i class="material-icons mr-2">arrow_back</i>{% translate "Ver ventajas" %}</a>
             </div>
         </div>
         </div>
     </div>
 
-    {% include 'provider/header_detail.html' with account=entity %}
 
-        <div class="container px-md-5">
-            <div class="card mb-4 p-3">
-                <div class="card-body">
-                    <form method="POST" class="post-form gallery-form" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="card-title primary-title">
+        <div class="container mt-4 px-md-5">
+            <form method="POST" class="post-form gallery-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="card-title primary-title">
 
-                    {{form.media}}
-                    {{form.entity}}
+            {{form.media}}
+            {{form.entity}}
 
-                    {% include 'benefits/form.html' %}
+            {% include 'benefits/form.html' %}
 
-                    {% include "common/forms/save_btn.html" %}
-                    </form>
-                </div>
-            </div>
+            {% include "common/forms/save_btn.html" %}
+            </form>
         </div>
 
 {% endblock%}

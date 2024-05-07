@@ -14,7 +14,7 @@
 {% market_url 'market:edit_provider' object.pk as url %}
 {% include 'provider/header_detail.html' with account=object.provider edit_url=url %}
 
-<div class="container">
+<div class="container mt-1">
 
     {% if request.user.is_staff %}
     <div class="card detail-card">

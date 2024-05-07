@@ -18,7 +18,8 @@
         </div>
     </div>
 
-    <div class="container mt-3">
+    <div class="container-fluid mt-3 mb-4">
+        {% include 'common/list/filter_form.html' %}
         {% include 'common/list/ajax_wrapper.html' with query_template='news/query.html' %}
     </div>
 {% endblock %}

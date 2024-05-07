@@ -15,7 +15,7 @@
     {% url 'benefits:edit' benefit.entity.node.pk object.pk as url %}
 {% endif %}
 
-{% include 'provider/header_detail.html' with account=benefit.entity edit_url=url %}
+{% include 'provider/header_detail.html' with account=benefit.entity edit_url=url edit_label='Editar ventajas'  %}
 
 <div class="container px-md-5">
         <div class="card pb-4 px-">

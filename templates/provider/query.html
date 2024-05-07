@@ -15,22 +15,22 @@
 
 {% block item_row %}
 
-{% include 'provider/row_display.html'  %}
-        <td>{{ item.cif }}</td>
-        <td>{{ item.owner|default_if_none:'-' }}</td>
-        <td>
-            <strong>{{item.offers.all.count}} </strong> {% translate "oferta(s) publicada(s)" %}<br>
-            {% if item.benefit %}<i class="material-icons text-success">local_activity</i> {% translate "Ventajas" %} {%else %} <i class="material-icons text-muted">local_activity</i>  {% translate "Sin ventajas" %} {% endif %}
-        </td>
-        <td class="table-actions">
-            <a class="btn btn-outline-primary" href="{% market_url 'market:edit_provider' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
-            <a class="btn btn-outline-primary" href="{% market_url 'offers:entity_offers' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ofertas"><i class="material-icons">shopping_basket</i></a>
-            {% if item.benefit %}
-                <a class="btn btn-outline-primary" href="{% market_url 'benefits:detail' item.benefit.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ventajas"><i class="material-icons">local_activity</i></a>
-            {% endif %}
-            {% include 'account/action_user.html' %}
-            <a class="btn btn-outline-primary action-delete" href="{% market_url 'market:delete_provider' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Eliminar' %}"><i class="material-icons">delete</i></a>
+    {% include 'provider/row_display.html'  %}
+    <td>{{ item.cif }}</td>
+    <td>{{ item.owner|default_if_none:'-' }}</td>
+    <td>
+        <strong>{{item.offers.all.count}} </strong> {% translate "oferta(s) publicada(s)" %}<br>
+        {% if item.benefit %}<i class="material-icons text-success">local_activity</i> {% translate "Ventajas" %} {%else %} <i class="material-icons text-muted">local_activity</i>  {% translate "Sin ventajas" %} {% endif %}
+    </td>
+    <td class="table-actions">
+        <a class="btn btn-outline-primary" href="{% market_url 'market:edit_provider' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
+        <a class="btn btn-outline-primary" href="{% market_url 'offers:entity_offers' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ofertas"><i class="material-icons">shopping_basket</i></a>
+        {% if item.benefit %}
+            <a class="btn btn-outline-primary" href="{% market_url 'benefits:detail' item.benefit.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Ver ventajas"><i class="material-icons">local_activity</i></a>
+        {% endif %}
+        {% include 'account/action_user.html' %}
+        <a class="btn btn-outline-primary action-delete" href="{% market_url 'market:delete_provider' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Eliminar' %}"><i class="material-icons">delete</i></a>
 
-        </td>
+    </td>
 
 {% endblock %}

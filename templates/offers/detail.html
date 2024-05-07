@@ -13,7 +13,7 @@
 
 
 {% market_url 'offers:edit' object.pk as url %}
-{% include 'provider/header_detail.html' with account=object.provider edit_url=url %}
+{% include 'provider/header_detail.html' with account=object.provider edit_url=url edit_label='Editar oferta' %}
 
 
 <div class="container px-md-5">

@@ -35,6 +35,8 @@
                 {% include "user/last_login.html" with user=object %}<br>
             </div>
         </div>
+    <div class="row">
+    <div class="col-md-6">
 
         {% if object.is_preregistered %}
         <div class="mt-1 card bg-warning p-3 ml-4" style="max-width:30rem;">
@@ -58,8 +60,6 @@
         </div>
         {% endif %}
 
-    <div class="row">
-    <div class="col-md-6">
         <form method="post" class="mt-3 pl-4 pr-0">
             {% csrf_token %}
             {% include "user/form.html" %}
@@ -69,7 +69,7 @@
 
         </form>
     </div>
-        <div class="col-md-6 col-lg-4 mt-3">
+        <div class="col-md-6 col-lg-4 mt-3 offset-xs-0 offset-lg-2">
             <div class="card bg-brand">
                 <div class="card-body">
                     <h4 class="text-light">{% translate 'Administrar' %}</h4>

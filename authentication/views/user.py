@@ -2,18 +2,39 @@ from django.contrib import messages
 from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView, FormView
+from django_filters import FilterSet, BooleanFilter
+from django_filters.views import FilterView
+from django_filters.widgets import BooleanWidget
 
 from authentication.forms.user import UserForm, PasswordForm
 from authentication.models import User
 from authentication.models.preregister import PreRegisteredUser
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
+from helpers.filters.LabeledOrderingFilter import LabeledOrderingFilter
+from helpers.filters.SearchFilter import SearchFilter
+from helpers.filters.filtermixin import FilterMixin
+from helpers.forms.BootstrapForm import BootstrapForm
 from market.mixins.current_market import MarketMixin
 
+class UserFilterForm(BootstrapForm):
+    field_order = ['search', 'is_staff', 'is_superuser', 'o', ]
 
-class UserList(ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
+class UserFilter(FilterSet):
+    search = SearchFilter(names=['email', 'first_name', 'last_name'], lookup_expr='in', label=_('Buscar...'))
+    o = LabeledOrderingFilter(fields=['date_joined', 'last_login'],)
+    is_staff = BooleanFilter(field_name='is_staff', widget=BooleanWidget(attrs={'class': 'threestate'}))
+    is_superuser = BooleanFilter(field_name='is_superuser', widget=BooleanWidget(attrs={'class': 'threestate'}))
+
+    class Meta:
+        model = User
+        form = UserFilterForm
+        fields = {'is_staff', 'is_superuser' }
+
+class UserList(FilterMixin, FilterView, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
     template_name = 'user/list.html'
     model = User
+    filterset_class = UserFilter
     objects_url_name = 'user_detail'
     ajax_template_name = 'user/query.html'
     paginate_by = 15

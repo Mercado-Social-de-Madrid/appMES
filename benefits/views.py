@@ -1,21 +1,44 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse, reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import DeleteView, UpdateView, CreateView, DetailView, ListView
+from django_filters import FilterSet, BooleanFilter
+from django_filters.views import FilterView
+from django_filters.widgets import BooleanWidget
 
 from benefits.forms.benefitform import BenefitForm
 from benefits.models import Benefit
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
+from helpers.filters.LabeledOrderingFilter import LabeledOrderingFilter
+from helpers.filters.SearchFilter import SearchFilter
+from helpers.filters.filtermixin import FilterMixin
+from helpers.forms.BootstrapForm import BootstrapForm
 from market.mixins.current_market import MarketMixin
 from market.models import Provider
 
+class BenefitsFilterForm(BootstrapForm):
+    field_order = ['search', 'in_person', 'online', 'o', ]
 
-class BenefitList(MarketMixin, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
+class BenefitFilter(FilterSet):
+    search = SearchFilter(names=['entity__name', 'benefit_for_entities', 'benefit_for_members'], lookup_expr='in', label=_('Buscar...'))
+    o = LabeledOrderingFilter(fields=['end_date', 'last_updated', 'published_date'],)
+    in_person = BooleanFilter(field_name='in_person', widget=BooleanWidget(attrs={'class': 'threestate'}))
+    online = BooleanFilter(field_name='online', widget=BooleanWidget(attrs={'class': 'threestate'}))
+
+    class Meta:
+        model = Benefit
+        form = BenefitsFilterForm
+        fields = {'in_person', 'online' }
+
+
+class BenefitList(FilterMixin, MarketMixin, FilterView, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
     model = Benefit
     objects_url_name = 'detail'
     template_name = 'benefits/list.html'
     ajax_template_name = 'benefits/query.html'
+    filterset_class = BenefitFilter
     paginate_by = 7
 
     def get_queryset(self):
