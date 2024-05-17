@@ -29,16 +29,17 @@ class Command(BaseCommand):
                     continue
 
                 member_id = row[0]
-                nif = row[1]
-                name = row[2]
-                surnames = row[3]
-                email = row[4]
+                nif = row[1].replace("-", "").replace(" ", "")
+                name = row[2].title()
+                surnames = row[3].title()
+                email = row[4].lower()
                 phone = row[5]
                 district_code = row[6].replace(".", "")
-                city = row[7]
+                city = row[7].title()
                 address = row[8]
-                area = row[9]
+                area = row[9].capitalize()
                 registration_date = row[10]
+                intercoop = row[11] == "SI"
 
                 full_address = f"{address}, {district_code}, {city}, {area}"
 
@@ -52,11 +53,12 @@ class Command(BaseCommand):
                     first_name=name,
                     last_name=surnames,
                     email=email,
-                    cif=nif.replace("-", ""),
+                    cif=nif,
                     member_id=member_id,
                     address=full_address,
                     city=city,
                     phone_number=phone,
                     registration_date=datetime.strptime(registration_date, "%d/%m/%Y") if registration_date else None,
+                    is_intercoop=intercoop,
 
                 )
