@@ -20,7 +20,6 @@ class Provider(Account):
 
     categories = models.ManyToManyField(Category, blank=True, verbose_name=_('Categorías'))
 
-    phone_number = models.CharField(null=True, blank=True, verbose_name=_('Teléfono'), max_length=25)
     num_workers = models.IntegerField(default=0, verbose_name=_('Número de trabajadores'), validators=[MinValueValidator(0)])
     legal_form = models.TextField(null=True, blank=True, verbose_name=_('Formulario legal'))
 

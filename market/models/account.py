@@ -18,6 +18,7 @@ class Account(PolymorphicModel):
     is_active = models.BooleanField(default=True, verbose_name=_('Activa'))
     cif = models.CharField(max_length=30, null=False, blank=False, verbose_name=_('NIF/CIF/Pasaporte'))
     email = models.CharField(null=False, blank=False, verbose_name='Email', max_length=250)
+    phone_number = models.CharField(null=True, blank=True, verbose_name=_('Teléfono'), max_length=25)
     member_id = models.CharField(null=True, blank=True, max_length=20, verbose_name=_('Número de socia'))
     address = models.TextField(null=True, blank=True, verbose_name=_('Dirección'))
     city = models.CharField(null=True, blank=True, max_length=250, verbose_name=_('Municipio'))
