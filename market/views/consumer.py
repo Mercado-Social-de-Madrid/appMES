@@ -45,7 +45,7 @@ class ConsumerList(FilterMixin, MarketMixin, ExportAsCSVMixin, FilterView, ListI
     paginate_by = 15
 
     csv_filename = 'consumidoras'
-    available_fields = ['cif', 'first_name', 'last_name', 'address', 'email', 'phone_numer', 'node',]
+    available_fields = ['cif', 'first_name', 'last_name', 'address', 'email', 'phone_numer', 'node', 'registration_date']
 
     def get_queryset(self):
         return super().get_queryset().filter(node=self.node)

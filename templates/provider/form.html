@@ -23,10 +23,12 @@
                                 </div>
                             </div>
                                 <div class="col-md-8">
+                                    {% include "common/forms/field.html" with field=form.cif %}
                                     {% include "common/forms/field.html" with field=form.name %}
                                     {% include "common/forms/field.html" with field=form.email %}
-                                    {% include "common/forms/field.html" with field=form.cif %}
+                                    {% include "common/forms/field.html" with field=form.phone_number %}
                                     {% include "common/forms/field.html" with field=form.member_id %}
+                                    {% include "common/forms/field.html" with field=form.registration_date %}
                                 </div>
                             </div>
 

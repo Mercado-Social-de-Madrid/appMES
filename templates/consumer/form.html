@@ -25,6 +25,7 @@
                 </div>
 
                 {% include "common/forms/field.html" with field=form.member_id %}
+                {% include "common/forms/field.html" with field=form.registration_date %}
                 {% if object %}
                     {% include "common/forms/field.html" with field=form.owner %}
                 {% endif %}
