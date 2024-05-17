@@ -94,7 +94,7 @@ class Command(BaseCommand):
         node_id = options['node']
         node = Node.objects.get(pk=node_id)
 
-        with open('all_data.json', 'rb') as f:
+        with open('data/all_data.json', 'rb') as f:
             data = json.load(f)
 
             # print("Importing news, {} items".format(len(data['news'])))

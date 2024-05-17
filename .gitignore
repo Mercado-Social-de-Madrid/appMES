@@ -163,3 +163,4 @@ cython_debug/
 documentation/*/site
 
 appMes
+/data/

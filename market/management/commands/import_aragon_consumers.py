@@ -19,7 +19,7 @@ class Command(BaseCommand):
         node_id = options['node']
         node = Node.objects.get(pk=node_id)
 
-        with open('aragon_consumers.csv', 'r', encoding="utf8") as fp:
+        with open('data/aragon_consumers.csv', 'r', encoding="utf8") as fp:
             csv_reader = csv.reader(fp, delimiter=';')
             line = 0
 
