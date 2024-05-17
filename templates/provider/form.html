@@ -37,7 +37,11 @@
                             <small style="color: grey">Introduce únicamente la dirección y número de la calle (ej.: "C/ Libreros, 1")</small>
                         </div>
 
-                        {% include "common/forms/field.html" with field=form.description not_floating=True %}
+                        <div class="col-md-10">
+                            {% include "common/forms/label.html" with field=form.description%}
+                            {{form.description}}
+                        </div>
+
                         {% include "common/forms/multiselect.html" with field=form.categories tags=categories %}
                         {% include "common/forms/field.html" with field=form.num_workers %}
                         {% include "common/forms/field.html" with field=form.balance_detail %}
