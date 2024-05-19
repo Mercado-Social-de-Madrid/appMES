@@ -27,7 +27,7 @@ class CheckMemberStatus(TemplateView):
             if member is None:
                 return None
             status_info['member_type'] = 'entity'
-        status_info['is_active'] = not member.inactive
+        status_info['is_active'] = member.is_active
         return status_info
 
     def get_context_data(self, **kwargs):
