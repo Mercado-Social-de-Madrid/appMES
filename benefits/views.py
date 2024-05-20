@@ -70,7 +70,7 @@ class BenefitDetail(MarketMixin, DetailView):
 
     def user_can_access_resource(self, user):
         benefit = self.get_object()
-        return benefit.entity.owner == user
+        return not benefit or benefit.entity.owner == user
 
 
 class BenefitCreate(MarketMixin, CreateView):
