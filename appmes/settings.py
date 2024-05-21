@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'reports',
 
     # Third-party apps
-    'qrcode',
+    'qr_code',
     'ckeditor',
     'imagekit',
     'sass_processor',

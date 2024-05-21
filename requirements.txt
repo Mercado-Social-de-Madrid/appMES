@@ -8,7 +8,7 @@ django-filter==23.5
 django-imagekit==4.1.0
 django-log-viewer==1.1.7
 django-polymorphic==3.1
-django-qrcode==0.3
+django-qr-code==3.1.1
 djangorestframework==3.14.0
 django-sass-processor==1.4
 django-unused-media==0.2.2

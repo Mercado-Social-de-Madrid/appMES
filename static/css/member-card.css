@@ -51,11 +51,11 @@
 
 .member_qr{
     position:absolute;
-    bottom:120px;
+    bottom:60px;
     width:100%;
     z-index:1;
 }
-.member_qr img{
+.member_qr svg{
     width:75%;
     display:block;
     margin:auto;
