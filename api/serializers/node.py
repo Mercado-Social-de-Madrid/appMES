@@ -1,3 +1,6 @@
+import os
+
+from django.conf import settings
 from rest_framework import serializers
 
 from api.serializers.social_profile import SocialProfileSerializer
@@ -10,3 +13,10 @@ class NodeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Node
         exclude = []
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        if data['info_page_url'] is None:
+            data['info_page_url'] = os.path.join(settings.BASESITE_URL, str(instance.id), "info")
+
+        return data
