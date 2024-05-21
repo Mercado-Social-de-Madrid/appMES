@@ -1,0 +1,20 @@
+meta {
+  name: Member Status
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{URL}}/api/v2/member_status?city=MAD&member_id=123
+  body: none
+  auth: none
+}
+
+query {
+  city: MAD
+  member_id: 123
+}
+
+headers {
+  Authorization: Token {{token}}
+}
