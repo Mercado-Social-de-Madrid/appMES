@@ -16,7 +16,7 @@ class NodeSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        if data['info_page_url'] is None:
+        if not data['info_page_url']:
             data['info_page_url'] = os.path.join(settings.BASESITE_URL, str(instance.id), "info")
 
         return data
