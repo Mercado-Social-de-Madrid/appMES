@@ -1,18 +1,27 @@
 import json
+from datetime import datetime
 
 from django.core.management.base import BaseCommand
-from django.db import IntegrityError
-
-from news.models import News
-from core.models import Node
-from market.models import Category, Consumer, Provider
-from authentication.models import User
-
-from datetime import datetime
-from django.core.files import File
 from django.db.models import Q
 
+from authentication.models import User
+from benefits.models import Benefit
+from core.models import Node, Gallery, GalleryPhoto
+from core.models.social_profile import SocialNetwork, ProviderSocialProfile
+from market.models import Category, Consumer, Provider
+from news.models import News
+from offers.models import Offer
+
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S.%f"
+DATE_FORMAT = "%Y-%m-%d"
+
+social_network_map = {
+    'facebook_link': 'Facebook',
+    'twitter_link': 'X',
+    'instagram_link': 'Instagram',
+    'telegram_link': 'Telegram',
+}
+
 
 def import_news(news, node):
     for item in news:
@@ -21,8 +30,6 @@ def import_news(news, node):
             title=item['title'],
             description=item['description'],
             short_description=item['short_description'],
-            # banner_image=File(...)item['banner_image'],
-            # banner_thumbnail=File(...)item['banner_thumbnail'],
             more_info_text=item['more_info_text'],
             more_info_url=item['more_info_url'],
         )
@@ -30,6 +37,7 @@ def import_news(news, node):
         news_created.banner_image.name = item['banner_image']
         news_created.banner_thumbnail.name = item['banner_thumbnail']
         news_created.save()
+
 
 def import_categories(categories, node):
     for item in categories:
@@ -41,46 +49,233 @@ def import_categories(categories, node):
             color=item['color'],
         )
 
+
 def import_consumers(consumers, node):
+
+    current = 0
+    invalid = 0
+    duplicated = 0
+    save_errors = 0
+
     for item in consumers:
+
+        current += 1
+        print(f'Current: {current}', end='\r')
+
+        if item['inactive'] or item['is_guest_account']:
+            continue
+
+        uuids_to_ignore = [
+            '1bb8e193-2f4c-43b4-88dc-4a201a0bef08',
+            'ead1aa61-8334-4a47-88e9-1197c1f08326',
+            '2d9d5dd4-e0ff-496b-a41e-721a1ac26a9d',
+            'cfba9d2f-6a65-4ad5-a62d-82704604c2c2',
+            'e42ddb47-ff07-453b-acc6-762cf0083281',
+            'd827fb30-cbd5-4c97-9ec1-66d9fa3d092a',
+        ]
+
+        if item['id'] in uuids_to_ignore:
+            continue
 
         cif = item['nif']
         email = item['email']
 
         if not cif or len(cif) > 30:
             print(f"Invalid consumer nif: {item['name']} - {email} - {cif}")
+            invalid += 1
             continue
 
         existing_consumer = Consumer.objects.filter(Q(cif=cif) | Q(email=email) | Q(owner__email=email)).first()
         if existing_consumer:
-            print(f"Consumer already exists: {item['email']} - {cif}")
+            duplicated += 1
+            print(f"Consumer already exists: {email} - {cif}")
             continue
 
-        user_created = User.objects.create(
-            email=item['email'],
-            first_name=item['name'],
-            last_name=item['surname'],
-            password=item['password'],
-            node=node,
+        try:
+            user_created = User.objects.create(
+                email=item['email'],
+                first_name=item['name'],
+                last_name=item['surname'],
+                password=item['password'],
+                node=node,
+            )
+
+            consumer_created = Consumer.objects.create(
+                id=item['id'],
+                node=node,
+                owner=user_created,
+                first_name=item['name'],
+                last_name=item['surname'],
+                email=item['email'],
+                is_intercoop=item['is_intercoop'],
+                cif=cif,
+                is_active= not item['inactive'],
+                member_id=item['member_id'],
+                address=item['address'],
+                registration_date=datetime.strptime(item['registered'], DATETIME_FORMAT),
+
+            )
+            consumer_created.profile_image.name = item['profile_image']
+            consumer_created.save()
+        except Exception as error:
+            save_errors += 1
+            print(f"Consumer save error: {email} - {cif} - {error}. Current: {current}")
+
+    print(f'Invalid: {invalid}, duplicated: {duplicated}, save_errors: {save_errors}')
+
+
+def set_social_profiles(provider_data, provider_instance):
+
+    for field in provider_data:
+        if field in social_network_map and provider_data[field]:
+            social_network = SocialNetwork.objects.get(name=social_network_map[field])
+            url = provider_data[field]
+            ProviderSocialProfile.objects.create(social_network=social_network, url=url, provider=provider_instance)
+
+
+def set_offers(provider_data, provider_instance):
+
+    for offer in provider_data['offers']:
+        offer_created = Offer.objects.create(
+            provider=provider_instance,
+            id=offer['id'],
+            title=offer['title'],
+            description=offer['description'],
+            discount_percent=offer['discount_percent'],
+            discounted_price=offer['discounted_price'],
+            active=offer['active'],
         )
 
-        consumer_created = Consumer.objects.create(
-            id=item['id'],
-            node=node,
-            owner=user_created,
-            first_name=item['name'],
-            last_name=item['surname'],
-            email=item['email'],
-            is_intercoop=item['is_intercoop'],
-            cif=cif,
-            is_active= not item['inactive'],
-            member_id=item['member_id'],
-            address=item['address'],
-            registration_date=datetime.strptime(item['registered'], DATETIME_FORMAT),
+        offer_created.published_date = datetime.strptime(offer['published_date'], DATETIME_FORMAT)
+        offer_created.begin_date = datetime.strptime(offer['begin_date'], DATE_FORMAT) if offer['begin_date'] else None
+        offer_created.end_date = datetime.strptime(offer['end_date'], DATE_FORMAT) if offer['end_date'] else None
+        offer_created.banner_image.name = offer['banner_image']
+        offer_created.banner_thumbnail.name = offer['banner_thumbnail']
+        offer_created.save()
 
+
+def set_benefit(provider_data, provider_instance):
+    benefit = provider_data['benefit']
+    if benefit:
+        benefit_created = Benefit.objects.create(
+            entity=provider_instance,
+            benefit_for_entities=benefit['benefit_for_entities'],
+            benefit_for_members=benefit['benefit_for_members'],
+            includes_intercoop_members=benefit['includes_intercoop_members'],
+            in_person=benefit['in_person'],
+            online=benefit['online'],
+            discount_code=benefit['discount_code'],
+            discount_link_entities=benefit['discount_link_entities'],
+            discount_link_members=benefit['discount_link_members'],
+            discount_link_text=benefit['discount_link_text'],
+            active=benefit['active'],
         )
-        consumer_created.profile_image.name = item['profile_image']
-        consumer_created.save()
+
+        benefit_created.published_date = datetime.strptime(benefit['published_date'], DATETIME_FORMAT)
+        benefit_created.last_updated = datetime.strptime(benefit['last_updated'], DATETIME_FORMAT)
+        benefit_created.save()
+
+
+def set_gallery(item, provider_instance):
+    gallery = item['gallery_data']
+    if gallery:
+        gallery_created = Gallery.objects.create(title=gallery['title'])
+        for photo in gallery['photos']:
+            photo_created = GalleryPhoto.objects.create(
+                gallery=gallery_created,
+                order=photo['order'],
+                title=photo['title'],
+            )
+
+            photo_created.photo.name = photo['image']
+            photo_created.image_thumbnail.name = photo['image_thumbnail']
+            photo_created.uploaded = datetime.strptime(photo['uploaded'], DATETIME_FORMAT)
+            photo_created.save()
+
+        provider_instance.gallery = gallery_created
+        provider_instance.save()
+
+
+def import_providers(providers, node):
+
+    current = 0
+    invalid = 0
+    duplicated = 0
+    save_errors = 0
+
+    for item in providers:
+
+        current += 1
+        print(f'Current: {current}', end='\r')
+
+        if item['inactive']:
+            continue
+
+        cif = item['cif']
+        email = item['email']
+
+        if not cif or len(cif) > 30:
+            print(f"Invalid provider nif: {item['name']} - {email} - {cif}")
+            invalid += 1
+            continue
+
+        existing_provider = Provider.objects.filter(Q(cif=cif) | Q(email=email) | Q(owner__email=email)).first()
+        if existing_provider:
+            duplicated += 1
+            print(f"Provider already exists: {item['email']} - {cif}")
+            continue
+
+        try:
+            user_created = User.objects.create(
+                email=item['email'],
+                first_name=item['name'],
+                password=item['password'],
+                node=node,
+            )
+
+            provider_created = Provider.objects.create(
+                id=item['id'],
+                node=node,
+                owner=user_created,
+                cif=cif,
+                name=item['name'],
+                is_active= not item['inactive'],
+                email=item['email'],
+                member_id=item['member_id'],
+                address=item['address'],
+                phone_number=item['phone_number'],
+                registration_date=datetime.strptime(item['registered'], DATETIME_FORMAT),
+
+                description=item['description'],
+                short_description=item['short_description'],
+                latitude=item['latitude'],
+                longitude=item['longitude'],
+                num_workers=item['num_workers'],
+                legal_form=item['legal_form'],
+                balance_detail=item['balance_detail'],
+                not_listed=item['hidden'],
+                webpage_link=item['webpage_link'],
+
+            )
+
+            provider_created.profile_image.name = item['logo']
+
+            if item['categories']:
+                provider_created.categories.set(Category.objects.filter(id__in=item['categories']))
+
+            provider_created.save()
+
+            set_social_profiles(item, provider_created)
+            set_offers(item, provider_created)
+            set_benefit(item, provider_created)
+            set_gallery(item, provider_created)
+
+        except Exception as error:
+            save_errors += 1
+            print(f"Provider save error: {email} - {cif} - {error}. Current: {current}")
+
+    print(f'Invalid: {invalid}, duplicated: {duplicated}, save_errors: {save_errors}')
+
 
 class Command(BaseCommand):
     help = 'Import all data of Madrid from old application'
@@ -97,92 +292,14 @@ class Command(BaseCommand):
         with open('data/all_data.json', 'rb') as f:
             data = json.load(f)
 
-            # print("Importing news, {} items".format(len(data['news'])))
-            # import_news(data['news'], node)
+            print("Importing news, {} items".format(len(data['news'])))
+            import_news(data['news'], node)
 
-            # print("Importing categories, {} items".format(len(data['categories'])))
-            # import_categories(data['categories'], node)
+            print("Importing categories, {} items".format(len(data['categories'])))
+            import_categories(data['categories'], node)
 
             print("Importing consumers, {} items".format(len(data['consumers'])))
             import_consumers(data['consumers'], node)
 
-        return
-
-
-
-        entities = []
-        with open(jsonfile, 'rb') as fp:
-            list = json.load(fp)
-
-            for item in list:
-
-                try:
-                    entity = Entity.objects.get(email=item['email'])
-                except:
-                    continue
-
-                if 'name' in item and item['name']:
-                    entity.name = item['name']
-
-                if 'email' in item and item['email']:
-                    entity.email = item['email']
-
-                if 'address' in item and item['address']:
-                    entity.address = item['address']
-
-                if 'description' in item and item['description']:
-                    entity.description = item['description']
-
-                if 'short_description' in item and item['short_description']:
-                    entity.short_description = item['short_description']
-
-                if 'latitude' in item and item['latitude']:
-                    entity.latitude = item['latitude']
-
-                if 'longitude' in item and item['longitude']:
-                    entity.longitude = item['longitude']
-
-                if 'max_percent_payment' in item and item['max_percent_payment']:
-                    entity.max_percent_payment = item['max_percent_payment']
-
-                if 'bonus_percent_general' in item and item['bonus_percent_general']:
-                    entity.bonus_percent_general = item['bonus_percent_general']
-
-                if 'bonus_percent_entity' in item and item['bonus_percent_entity']:
-                    entity.bonus_percent_entity = item['bonus_percent_entity']
-
-                if 'facebook_link' in item and item['facebook_link']:
-                    entity.facebook_link = item['facebook_link']
-
-                if 'twitter_link' in item and item['twitter_link']:
-                    entity.twitter_link = item['twitter_link']
-
-                if 'instagram_link' in item and item['instagram_link']:
-                    entity.instagram_link = item['instagram_link']
-
-                if 'telegram_link' in item and item['telegram_link']:
-                    entity.telegram_link = item['telegram_link']
-
-                if 'webpage_link' in item and item['webpage_link']:
-                    entity.webpage_link = item['webpage_link']
-
-                entity.categories.clear()
-                print(entity.name)
-                for categ_name in item['categories']:
-                    category = Category.objects.get(name=categ_name)
-                    if not category:
-                        raise Exception('category not found: ' + categ_name + ", Entity: " + entity.name)
-                    entity.categories.add(category)
-
-                entities.append(entity)
-
-            print('Saving entities lenght: ' + str(len(entities)))
-            for entity in entities:
-
-                print('saving: ' + entity.name)
-                try:
-                    entity.save()
-                except IntegrityError as e:
-                    print(e)
-                except Exception as e:
-                    print(e)
+            print("Importing providers, {} items".format(len(data['providers'])))
+            import_providers(data['providers'], node)

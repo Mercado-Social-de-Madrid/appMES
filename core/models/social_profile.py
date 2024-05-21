@@ -26,6 +26,9 @@ class SocialProfile(PolymorphicModel):
     social_network = models.ForeignKey(SocialNetwork, verbose_name=_("Red social"), on_delete=models.CASCADE)
     url = models.URLField(verbose_name=_("Enlace a la red social"))
 
+    def __str__(self):
+        return f'{self.social_network} - {self.url}'
+
 
 class NodeSocialProfile(SocialProfile):
     # Social profile related to a node

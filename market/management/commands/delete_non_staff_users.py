@@ -1,7 +1,7 @@
+from django.core.management.base import BaseCommand
+
 from authentication.models import User
 from core.models import Node
-from market.models import Account, Provider, Consumer
-from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
@@ -15,16 +15,16 @@ class Command(BaseCommand):
         node_id = options['node']
         node = Node.objects.get(pk=node_id)
 
-        consumers = Consumer.objects.filter(node=node)
+        users = User.objects.filter(node=node, is_staff=False, is_superuser=False)
 
-        print(f'Deleting consumers. Total {len(consumers)}')
+        print(f'Deleting users. Total {len(users)}')
         current = 0
 
-        for consumer in consumers:
+        for user in users:
+
             current += 1
             print(f'Current: {current}', end='\r')
-            if consumer.owner:
-                consumer.owner.delete()
-            consumer.delete()
+
+            user.delete()
 
         print("\n")

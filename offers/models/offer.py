@@ -47,6 +47,7 @@ class OffersManager(models.Manager):
         else:
             return query.filter(end_date__lt=today, provider=provider)
 
+
 class Offer(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
