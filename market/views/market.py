@@ -2,12 +2,13 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, TemplateView
 
 from core.forms.social_profiles import SocialProfileForm, NodeSocialProfileForm
 from core.mixins.FormsetView import FormsetView
 from core.models import Node
 from market.forms.market import MarketForm
+from market.mixins.current_market import MarketMixin
 
 
 class MarketList(ListView):
@@ -60,4 +61,18 @@ class EditMarket(UpdateView, MarketFormsetView):
     def get_success_url(self):
         messages.success(self.request, _('Datos actualizados correctamente.'))
         return reverse('market:edit_market', kwargs={"pk": self.object.pk})
+
+
+class MarketInfoView(MarketMixin, TemplateView):
+    template_name = 'market/info/default.html'
+    model = Node
+
+    def get_template_names(self):
+        return [f"market/info/{self.node.name.lower() }.html", "market/info/default.html"]
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['node'] = self.node.name
+        return context
+
 

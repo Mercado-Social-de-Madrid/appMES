@@ -55,3 +55,9 @@ ul.principios li {
 
 em,strong{ font-weight:600; }
 em{ font-style: normal; font-weight:bold; color:#f18153; }
+
+.emphasis {
+    font-family: "Veneer Three", sans-serif;
+    font-size: 2.5rem;
+    color: #f78154;
+}

@@ -1,0 +1,38 @@
+{% extends "base_external.html" %}
+{% load static %}
+{% load settings_value %}
+
+{% block extra_styles %}
+<link href="{% static "css/balance.css" %}?v=1" rel="stylesheet">
+{% endblock extra_styles %}
+
+{% block title %}Info del Mercado Social de {{node}}{% endblock title%}
+
+{% block content %}
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <p class="lead">
+                En el Mercado Social de {{node}} nos encontramos a las personas y entidades que, ante los grandes retos de nuestro tiempo,
+                estamos construyendo un <strong>nuevo modelo económico que sea respetuoso con las personas, los animales, el planeta y la sociedad.</strong>
+            </p>
+            <p class="mb-1">
+                Todas las entidades cumplen las prácticas de los <em>6 principios de la Economía Solidaria</em>:
+            </p>
+        </div>
+        <div class="col-md-6">
+
+    <ul class="principios">
+        <li class="pr1">Equidad</li>
+        <li class="pr2">Trabajo digno</li>
+        <li class="pr3">Cooperación</li>
+        <li class="pr4">Sostenibilidad ecológica</li>
+        <li class="pr5">Reparto justo de la riqueza</li>
+        <li class="pr6">Compromiso con el entorno</li>
+    </ul>
+        </div>
+    </div>
+    <p class="emphasis text-center mt-3 mb-5">AL FORMAR PARTE Y CONSUMIR EN EL MES ESTÁS TRANSFORMANDO EL CONSUMO EN {{node}}</p>
+
+</div>
+{% endblock %}

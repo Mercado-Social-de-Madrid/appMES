@@ -5,6 +5,13 @@ $mes-font-emphasis: 'League Gothic', sans-serif;
 $font-family-brand: 'Lato', sans-serif;
 $font-family-emphasis: 'League Gothic', sans-serif;
 
+@font-face {
+  font-family: "Veneer Three";
+  src: url("../fonts/Veneer Three.woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
 $mes-secondary: #b6b10a;
 $mes-secondary-light: #9258af;
 $mes-secondary-lighter: #9258af;

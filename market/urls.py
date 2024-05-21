@@ -50,5 +50,6 @@ urlpatterns = [
     path('account/', views.UserAccountDetail.as_view(), name='user_account'),
     path('account/balance/', views.UserAccountSocialBalance.as_view(), name='account_balance'),
     path('<int:market>/account/<pk>/user/', views.ManageAccountUser.as_view(), name='account_user_detail'),
+    path('<int:market>/info/', views.MarketInfoView.as_view(), name='market_info'),
 
 ]
