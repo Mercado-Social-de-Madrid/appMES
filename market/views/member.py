@@ -50,7 +50,7 @@ class CheckMemberStatus(TemplateView):
 
 
 def get_card_data(member_type, member):
-    params = f'?city={member.node.id}&member_id={member.member_id}'
+    params = f'?city={member.node.shortname}&member_id={member.member_id}'
     member_data_url = settings.BASESITE_URL + reverse('market:member_check') + params
 
     card_data = {
