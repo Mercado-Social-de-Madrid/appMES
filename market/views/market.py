@@ -75,4 +75,6 @@ class MarketInfoView(MarketMixin, TemplateView):
         context['node'] = self.node.name
         return context
 
+    def user_can_access(self):
+        return True
 
