@@ -1,0 +1,10 @@
+{% load i18n %}
+  <li class="nav-item">
+    <a class="nav-link {% if request.resolver_match.url_name == 'user_dashboard' %}active{% endif %}" href="{% url 'market:index' %}"><i class="material-icons-outlined mr-2">home</i> {% translate "Inicio" %}</a>
+  </li>
+ <li class="nav-item">
+    <a class="nav-link {% if request.resolver_match.url_name == 'detail_consumer' %}active{% endif %}" href="{% url 'market:user_account' %}"><i class="material-icons-outlined mr-2">directions_walk</i> {% translate "Mi perfil" %}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.resolver_match.url_name == 'member_card' %}active{% endif %}" href="{% url 'market:member_card' %}"><i class="material-icons-outlined mr-2">perm_contact_calendar</i>{% translate "Mi carnet de socia" %}</a>
+  </li>

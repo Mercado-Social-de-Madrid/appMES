@@ -6,7 +6,7 @@
 {% block title %}{% translate "Nueva consumidora" %}{% endblock %}
 
 {% block content %}
-
+{% if request.user.is_staff %}
     <div class="jumbotron text-light py-4 px-2">
         <div class="container-fluid">
             <div class="row">
@@ -16,6 +16,9 @@
         </div>
         </div>
     </div>
+{% else %}
+<div class="container">
+{% endif %}
 
     <div class="container-fluid">
         <form  method="post" class="post-form gallery-form p-4 mt-3" enctype="multipart/form-data">
@@ -29,4 +32,7 @@
         </form>
     </div>
 
+{% if not request.user.is_staff %}
+</div>
+{% endif %}
 {% endblock %}

@@ -8,6 +8,7 @@
 
 {% block content %}
 
+{% if request.user.is_staff %}
    <div class="jumbotron text-light py-4 px-2">
         <div class="container-fluid">
             <div class="row">
@@ -17,12 +18,12 @@
         </div>
         </div>
     </div>
-
+{% endif %}
 
 <div class="container px-md-5 mt-4">
 
     {% if request.user.is_staff %}
-    <div class="card detail-card">
+    <div class="card detail-card mt-4">
         <div class="card-body">
             {% include "user/detail_card.html" with user=object.owner %}
         </div>

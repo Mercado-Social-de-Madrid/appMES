@@ -11,8 +11,9 @@
         {% include "common/forms/field.html" with field=form.address not_floating=True %}
 
     </div>
+
     <div class="col-md-5">
-        <div class="card mb-4 ">
+        <div class="card mb-4 " {% if not request.user.is_staff %} style="display:none;" {% endif %}>
             <div class="card-body form-photo">
                 <div class="text-center">
                     <div class="file-field image-field d-inline-block mb-4" data-img-target="#profile-image" data-ref-type="image">
@@ -25,11 +26,15 @@
                 </div>
 
                 {% include "common/forms/field.html" with field=form.member_id %}
+
+                {% if current_market.has_linked_crm %}
+                    <small>{% translate 'Este campo es <strong class="text-danger">editable para admin</strong>, pero el valor debería venir de la H.Gestora' %}</small>
+                {% endif %}
+
                 {% include "common/forms/field.html" with field=form.registration_date %}
                 {% if object %}
                     {% include "common/forms/field.html" with field=form.owner %}
                 {% endif %}
-                <small>{% translate 'Este campo es <strong class="text-danger">editable para admin</strong>, pero el valor debería venir de la H.Gestora' %}</small>
                 {% include "common/forms/checkbox.html" with field=form.is_intercoop %}
                 {% include "common/forms/checkbox.html" with field=form.is_active %}
             </div>

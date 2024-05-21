@@ -9,7 +9,7 @@ class ProviderForm(AccountForm):
 
     class Meta(AccountForm.Meta):
         model = Provider
-        widgets = {
+        widgets = AccountForm.Meta.widgets | {
             'description': CKEditorWidget(attrs={'cols': 80, 'rows': 30}),
         }
 

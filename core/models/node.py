@@ -25,6 +25,8 @@ class Node(models.Model):
     webpage_link = models.URLField(blank=True, null=True, verbose_name=_('Página web'), max_length=250)
     takahe_server = models.URLField(blank=True, null=True, verbose_name=_('Servidor de Takahe'))
 
+    has_linked_crm = models.BooleanField(default=False, verbose_name=_('Utiliza herramienta de gestión para las socias'))
+    linked_crm_url = models.URLField(blank=True, null=True, verbose_name=_('URL del servidor de la Herramienta de gestión'))
     member_card_enabled = models.BooleanField(default=True, verbose_name=_('Carnet de socia activa'))
     info_page_url = models.TextField(blank=True, null=True, verbose_name=_('Enlace a página con información básica del mercado'))
 

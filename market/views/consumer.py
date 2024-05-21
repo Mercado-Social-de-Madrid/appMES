@@ -14,7 +14,7 @@ from helpers.filters.SearchFilter import SearchFilter
 from helpers.filters.filtermixin import FilterMixin
 from helpers.forms.BootstrapForm import BootstrapForm
 from market.forms.consumer import ConsumerForm, CreateConsumerForm
-from market.mixins.current_market import MarketMixin
+from market.mixins.current_market import MarketMixin, AccountAccessMixin
 from market.models import Consumer
 
 
@@ -74,12 +74,12 @@ class CreateConsumer(MarketMixin, CreateView):
     def form_invalid(self, form):
         return super().form_invalid(form)
 
-class ConsumerDetail(MarketMixin, DetailView):
+class ConsumerDetail(AccountAccessMixin, MarketMixin, DetailView):
     model = Consumer
     template_name = 'consumer/detail.html'
 
 
-class ConsumerEdit(MarketMixin, UpdateView):
+class ConsumerEdit(AccountAccessMixin, MarketMixin, UpdateView):
     model = Consumer
     form_class = ConsumerForm
     template_name = 'consumer/edit.html'

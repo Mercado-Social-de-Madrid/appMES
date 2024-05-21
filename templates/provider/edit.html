@@ -10,7 +10,7 @@
 {% block bodyattrs %}class="entity"{% endblock%}
 
 {% block content %}
-
+{% if request.user.is_staff %}
     <div class="jumbotron text-light py-4 px-2">
         <div class="container-fluid">
             <div class="row">
@@ -21,11 +21,19 @@
         </div>
     </div>
 
+{% else %}
+<div class="container">
+{% endif %}
+
 <form method="POST" class="post-form gallery-form mt-4" enctype="multipart/form-data">
     {% csrf_token %}
     {% include 'provider/form.html' %}
     {% include "common/forms/save_btn.html" %}
 </form>
+
+{% if not request.user.is_staff %}
+</div>
+{% endif %}
 {% endblock %}
 
 {% block scripts %}

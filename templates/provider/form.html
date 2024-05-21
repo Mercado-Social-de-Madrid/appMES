@@ -27,7 +27,14 @@
                                     {% include "common/forms/field.html" with field=form.name %}
                                     {% include "common/forms/field.html" with field=form.email %}
                                     {% include "common/forms/field.html" with field=form.phone_number %}
-                                    {% include "common/forms/field.html" with field=form.member_id %}
+                                    {% if request.user.is_staff %}
+                                       {% include "common/forms/field.html" with field=form.member_id %}
+                                        {% if current_market.has_linked_crm %}
+                                            <small class="d-block mb-3">{% translate 'Este campo es <strong class="text-danger">editable para admin</strong>, pero el valor debería venir de la H.Gestora' %}</small>
+                                        {% endif %}
+                                    {% else %}
+                                        {{form.member_id.as_hidden}}
+                                    {% endif %}
                                     {% include "common/forms/field.html" with field=form.registration_date %}
                                 </div>
                             </div>
@@ -44,7 +51,6 @@
 
                         {% include "common/forms/multiselect.html" with field=form.categories tags=categories %}
                         {% include "common/forms/field.html" with field=form.num_workers %}
-                        {% include "common/forms/field.html" with field=form.balance_detail %}
                     </div>
                 </div>
                 </div>
@@ -96,10 +102,15 @@
                     </div>
                 </div>
 
+                {% if request.user.is_staff %}
                 <div class="card mb-4 p-4">
                     {% include "common/forms/switch.html" with field=form.not_listed %}
                     {% include "common/forms/switch.html" with field=form.is_active %}
                 </div>
+                 {% else %}
+                    {{form.not_listed.as_hidden}}
+                    {{form.is_active.as_hidden}}
+                {% endif %}
 
                 <div class="card mb-4 pb-4">
                     <div class="social-links card-body pr-5">
