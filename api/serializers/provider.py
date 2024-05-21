@@ -13,6 +13,7 @@ class ProviderSerializer(serializers.ModelSerializer):
     gallery = GallerySerializer(many=False, read_only=True)
     offers = OffersSerializer(many=True, read_only=True)
     benefit = BenefitsSerializer(many=False, read_only=True)
+    balance_url = serializers.StringRelatedField()
 
     class Meta:
         model = Provider
