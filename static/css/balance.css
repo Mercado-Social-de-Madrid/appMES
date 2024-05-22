@@ -52,6 +52,7 @@ ul.principios li {
 .principios .pr4{ color: #5ca06f; }
 .principios .pr5{ color: #c6394c; }
 .principios .pr6{ color: #cdc235; }
+.principios img {width: 1.5em;}
 
 em,strong{ font-weight:600; }
 em{ font-style: normal; font-weight:bold; color:#f18153; }

@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-6">
             <p class="lead">
-                Tener acceso a la <em>infografía</em> de una entidad que pertenece al <strong>Mercado Social de Madrid</strong>
+                Tener acceso a la <em>infografía</em> de una entidad que pertenece al <strong>Mercado Social de {{entity.node.name}}</strong>
                 es tener <em>acceso al corazón</em>
             de esa entidad.
             </p>
@@ -24,12 +24,12 @@
         <div class="col-md-6">
 
     <ul class="principios">
-        <li class="pr1">Equidad</li>
-        <li class="pr2">Trabajo digno</li>
-        <li class="pr3">Cooperación</li>
-        <li class="pr4">Sostenibilidad ecológica</li>
-        <li class="pr5">Reparto justo de la riqueza</li>
-        <li class="pr6">Compromiso con el entorno</li>
+        <li class="pr1"><img src="{% static '/imgs/equidad.png' %}" class="mr-2"> Equidad</li>
+        <li class="pr2"><img src="{% static '/imgs/trabajo_digno.png' %}" class="mr-2"> Trabajo digno</li>
+        <li class="pr3"><img src="{% static '/imgs/cooperacion.png' %}" class="mr-2"> Cooperación</li>
+        <li class="pr4"><img src="{% static '/imgs/sostenibilidad_ecologica.png' %}" class="mr-2"> Sostenibilidad ecológica</li>
+        <li class="pr5"><img src="{% static '/imgs/reparto_justo_riqueza.png' %}" class="mr-2"> Reparto justo de la riqueza</li>
+        <li class="pr6"><img src="{% static '/imgs/compromiso_entorno.png' %}" class="mr-2"> Compromiso con el entorno</li>
     </ul>
         </div>
     </div>
@@ -43,9 +43,7 @@
             <strong class="text-dark">No hay infografía para esta entidad :( </strong>
         {% endif %}
     </div>
-
-    <img src="{% static '/imgs/balance-banner.png' %}" class="img-fluid mt-3 mb-5" alt="Consume en la ESS y transforma el consumo en Madrid">
-
+    <p class="emphasis text-center mt-5 mb-5">CONSUME EN LA ESS Y TRANSFORMA EL CONSUMO EN {{entity.node.name}}</p>
 
 
 </div>
