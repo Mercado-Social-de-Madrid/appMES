@@ -5,7 +5,8 @@ from django.urls import reverse
 from django.views.generic import TemplateView
 
 from helpers.pdf import render_pdf_response
-from market.models import Account, Provider
+from market.mixins.current_market import MarketMixin
+from market.models import Account, Provider, Consumer
 import urllib.parse
 
 
@@ -13,17 +14,17 @@ class MemberCheck(TemplateView):
     template_name = 'member/check_outside_app.html'
 
 
-class CheckMemberStatus(TemplateView):
+class CheckMemberStatus(MarketMixin, TemplateView):
     template_name = 'member/check_form.html'
 
     def get_member_status(self, member_id):
         status_info = {}
-        member = Account.objects.filter(member_id=member_id).first()
+        member = Consumer.objects.filter(node=self.node, member_id=member_id).first()
         if member is not None:
             status_info['member_type'] = 'person'
             status_info['is_intercoop'] = member.is_intercoop
         else:
-            member = Account.objects.filter(member_id=member_id).first()
+            member = Provider.objects.filter(node=self.node, member_id=member_id).first()
             if member is None:
                 return None
             status_info['member_type'] = 'entity'
@@ -42,6 +43,9 @@ class CheckMemberStatus(TemplateView):
                 context['status'] = status
 
         return context
+
+    def user_can_access(self):
+        return True
 
     def post(self, request, *args, **kwargs):
         kwargs['member_id'] = self.request.POST.get('member_id', None)

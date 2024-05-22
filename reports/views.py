@@ -32,7 +32,7 @@ class OffersChartView(MarketMixin, AjaxTemplateResponseMixin, TemplateView):
 
         context['last'] = last
         context['published'] = published
-        context['active'] = Offer.objects.active_last_days(days)
+        context['active'] = Offer.objects.active_last_days(days).filter(provider__node=self.node)
         context['providers'] = Provider.objects.filter(node=self.node, pk__in=published.values_list('provider').distinct())
         context['daily'] = published.annotate(day=TruncDay('published_date')).values('day').annotate(total=Count('id')).order_by('day')
         context['date_ranges'] = { 'start': since, 'end': today }

@@ -47,8 +47,8 @@ class MarketDashboard(MarketMixin, TemplateView):
         today = datetime.date.today()
         since = today - datetime.timedelta(days=query)
         context['last'] = last
-        context['total_providers'] = Provider.objects.count()
-        context['total_consumers'] = Consumer.objects.count()
+        context['total_providers'] = Provider.objects.filter(node=self.node).count()
+        context['total_consumers'] = Consumer.objects.filter(node=self.node).count()
         context['new_providers'] = helpers.paginate(
             Provider.objects.filter(node=self.node, registration_date__gte=since),
             1, elems_perpage=DASHBOARD_LIST_PAGECOUNT)
