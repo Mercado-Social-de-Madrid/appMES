@@ -9,6 +9,8 @@ from core.models import Node
 
 class NodeSerializer(serializers.ModelSerializer):
     social_profiles = SocialProfileSerializer(many=True, read_only=True)
+    banner_image = serializers.StringRelatedField(source="banner_image.name")
+    balance_badge = serializers.StringRelatedField(source="balance_badge.name")
 
     class Meta:
         model = Node
