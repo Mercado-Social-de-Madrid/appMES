@@ -5,7 +5,7 @@ from core.models import Node
 
 
 class Command(BaseCommand):
-    help = 'Delete consumers and its associated User'
+    help = 'Delete non staff users'
 
     def add_arguments(self, parser):
         parser.add_argument('--node', type=int, help='Node Id')

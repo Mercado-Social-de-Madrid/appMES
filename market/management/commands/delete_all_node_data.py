@@ -7,7 +7,7 @@ from news.models import News
 
 
 class Command(BaseCommand):
-    help = 'Delete consumers and its associated User'
+    help = 'Delete all data of node'
 
     def add_arguments(self, parser):
         parser.add_argument('--node', type=int, help='Node Id')
