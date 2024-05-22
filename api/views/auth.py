@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.utils.translation import gettext_lazy as _
 
+from authentication.forms.password import PasswordReset
 from authentication.models.api_token import APIToken
 from market.models import Account, Provider
 
@@ -121,24 +122,22 @@ class DeleteUserView(APIView):
         user = APIToken.objects.get(pk=request.user.auth_token).user
         user.delete()
         logout(request)
-        return Response(
-            status=status.HTTP_200_OK,
-            data={'response': _('Usuario eliminado con éxito.')}
-        )
+        return Response(status=status.HTTP_200_OK, data={'response': _('Usuario eliminado con éxito.')} )
 
-#
-# class ResetPasswordView(APIView):
-#     permission_classes = (AllowAny,)
-#
-#     def post(self, request, *args, **kwargs):
-#         user_email = request.data['email']
-#         logger.info(f"Starting reset password process for user [{user_email}]")
-#         try:
-#             user = User.objects.get(email=user_email)
-#             reset_password_token, created = ResetPasswordToken.objects.update_or_create(user=user)
-#         except User.DoesNotExist:
-#             return Response(status=status.HTTP_404_NOT_FOUND)
-#
-#         email.send_email(user, email.RESET_PASSWORD_EMAIL, {"reset_password_token": reset_password_token.key})
-#         return Response(status=status.HTTP_200_OK)
-#
+
+class ResetPasswordView(APIView):
+     permission_classes = (AllowAny,)
+
+     def post(self, request, *args, **kwargs):
+         email = request.data.get('email')
+         logger.info(f"Starting reset password process for email [{email}]")
+         try:
+             User.objects.get(email=email)
+             reset_form = PasswordReset(request.data)
+             if reset_form.is_valid():
+                reset_form.save()
+                return Response(status=status.HTTP_200_OK)
+             else:
+                 return Response(status=status.HTTP_400_BAD_REQUEST, data=reset_form.errors)
+         except User.DoesNotExist:
+             return Response(status=status.HTTP_404_NOT_FOUND)
