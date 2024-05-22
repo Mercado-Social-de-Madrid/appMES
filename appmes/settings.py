@@ -316,3 +316,6 @@ FCM_DJANGO_SETTINGS = {
     "ONE_DEVICE_PER_USER": False,
     "DELETE_INACTIVE_DEVICES": False,
 }
+
+# ======= APP Links Configuration ======
+ASSETLINKS_FILE = os.path.join(ROOT_DIR, env('ASSETLINKS_FILE'))
