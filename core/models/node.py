@@ -21,6 +21,9 @@ class Node(models.Model):
     banner_image = ProcessedImageField(null=True, blank=True, upload_to=RandomFileName('node/'),
                                        verbose_name=_('Imagen principal'),
                                        processors=[ResizeToFit(756, 512, upscale=False)], format='PNG')
+    balance_badge = ProcessedImageField(null=True, blank=True, upload_to=RandomFileName('badge/'),
+                                       verbose_name=_('Imagen del distintivo de balance'),
+                                       processors=[ResizeToFit(512, 512, upscale=False)], format='PNG')
 
     webpage_link = models.URLField(blank=True, null=True, verbose_name=_('Página web'), max_length=250)
     takahe_server = models.URLField(blank=True, null=True, verbose_name=_('Servidor de Takahe'))

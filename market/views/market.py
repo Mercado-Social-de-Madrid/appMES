@@ -52,15 +52,16 @@ class AddMarket(CreateView, MarketFormsetView):
         return reverse('market:market_list', )
 
 
-class EditMarket(UpdateView, MarketFormsetView):
+class EditMarket(MarketMixin, UpdateView, MarketFormsetView):
     template_name = 'market/edit.html'
+    pk_url_kwarg = 'market'
     form_class = MarketForm
     model = Node
     initial = {'preffered_locale': 'es-ES'}
 
     def get_success_url(self):
         messages.success(self.request, _('Datos actualizados correctamente.'))
-        return reverse('market:edit_market', kwargs={"pk": self.object.pk})
+        return reverse('market:edit_market', kwargs={"market": self.object.pk})
 
 
 class MarketInfoView(MarketMixin, TemplateView):

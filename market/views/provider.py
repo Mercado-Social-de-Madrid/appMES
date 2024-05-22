@@ -168,7 +168,7 @@ class UpdateProvider(AccountAccessMixin, MarketMixin, ProviderFormSet, UpdateVie
         return self.reverse('market:provider_detail', kwargs={'pk': self.object.pk})
 
 
-class ProviderSocialBalance(DetailView):
+class ProviderSocialBalance(AccountAccessMixin, MarketMixin, DetailView):
     template_name = 'balance/detail.html'
     context_object_name = 'entity'
     model = Provider

@@ -6,12 +6,45 @@
 
   <div class="col-sm-9 col-md-7 ">
     <div class="card mb-4">
-        <div class="card-body">
+        <div class="card-body py-3">
         {% include "common/forms/field.html" with field=form.name %}
 
         {% include "common/forms/field.html" with field=form.shortname %}
 
-          <label class="mt-3 mb-2">{% translate 'Logo del mercado (preferiblemente PNG con transparencia)' %}</label>
+
+
+          {% include "common/forms/field.html" with field=form.preferred_locale %}
+
+
+            <div class="mt-5 mb-3">
+
+          </div>
+          <div class="mt-5">
+              {% include "common/forms/switch.html" with field=form.visible %}
+              {% include "common/forms/switch.html" with field=form.self_register_allowed %}
+              {% include "common/forms/switch.html" with field=form.member_card_enabled %}
+          </div>
+          <div class="mt-3" data-visible-by="#id_self_register_allowed">
+              {% include "common/forms/field.html" with field=form.register_provider_url %}
+              {% include "common/forms/field.html" with field=form.register_consumer_url %}
+          </div>
+            {% include "common/forms/switch.html" with field=form.has_linked_crm %}
+             <div class="mt-3" data-visible-by="#id_has_linked_crm">
+              {% include "common/forms/field.html" with field=form.linked_crm_url %}
+          </div>
+
+        </div>
+    </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title"><i class="material-icons">edit_location</i> {% translate 'Datos públicos' %}</h4>
+
+            {% include "common/forms/field.html" with field=form.info_page_url %}
+
+             {% include "common/forms/field.html" with field=form.contact_email %}
+
+            <label class="mt-3 mb-2">{% translate 'Logo del mercado (preferiblemente PNG con transparencia)' %}</label>
           <div class="card form-photo mb-3">
               <div class="bg-checkers p-4">
                   <img class="img-fluid" id="offer-thumb" src="{% if object.banner_image %}{{ object.banner_image.url }}{% else %}{% static 'imgs/brand.png' %}{% endif %}" alt="{{object.title}}">
@@ -29,32 +62,36 @@
                 </div>
             </div>
 
-          {% include "common/forms/field.html" with field=form.preferred_locale %}
+            <div class="row mt-5">
 
-          {% include "common/forms/field.html" with field=form.contact_email %}
+                <div class="col-sm-7 ">
+                    <h5 class="mb-0 text-primary">{% translate 'Distintivo de balance social' %} </h5>
+                    <p>{% translate 'Imagen (preferiblemente PNG con transparencia) para representar el distintivo de balance social de este mercado. ' %}</p>
+                    {% translate 'Se utiliza desde la app para acceder al detalle de balance de cada proveedora' %}
+                </div>
 
-          <div class="mt-5">
-              {% include "common/forms/switch.html" with field=form.self_register_allowed %}
-              {% include "common/forms/switch.html" with field=form.member_card_enabled %}
-          </div>
-          <div class="mt-3" data-visible-by="#id_self_register_allowed">
-              {% include "common/forms/field.html" with field=form.register_provider_url %}
-              {% include "common/forms/field.html" with field=form.register_consumer_url %}
-          </div>
-          <div class="mt-5 mb-3">
-              {% include "common/forms/switch.html" with field=form.visible %}
-          </div>
+                <div class="col-sm-5">
+                    <div class="card form-photo mb-3">
+                        <div class="bg-checkers px-4 py-2">
+                             <img class="img-fluid" id="badge-thumb" src="{% if object.balance_badge %}{{ object.balance_badge.url }}{% else %}{% static 'imgs/sello_mes.png' %}{% endif %}" alt="{{object.title}}">
 
-            {% include "common/forms/field.html" with field=form.info_page_url %}
-            {% include "common/forms/switch.html" with field=form.has_linked_crm %}
-             <div class="mt-3" data-visible-by="#id_has_linked_crm">
-              {% include "common/forms/field.html" with field=form.linked_crm_url %}
-          </div>
+                        </div>
+
+                        <div class=" action-btns outside">
+                            <a class="btn btn-primary text-light btn-float btn-lg btn-fab-photo" href="#" data-toggle="tooltip" data-placement="bottom" title="Editar imagen"><i class="material-icons">edit</i></a>
+                         </div>
+
+                        <div class="file-field" data-img-target="#badge-thumb">
+                        <div class="uploaded">
+                                {{ form.balance_badge }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
-    </div>
-
-
+      </div>
   </div>
 
   <div class="col-sm-12 col-md-5">

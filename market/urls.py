@@ -10,7 +10,7 @@ urlpatterns = [
     # Superadmin market management
     path('m/', views.MarketList.as_view(), name='market_list'),
     path('m/add/', views.AddMarket.as_view(), name='add_market'),
-    path('m/<pk>/', views.EditMarket.as_view(), name='edit_market'),
+    path('m/<market>/', views.EditMarket.as_view(), name='edit_market'),
 
     #### Market management #####
     path('<int:market>/dashboard/', views.MarketDashboard.as_view(), name='market_dashboard'),

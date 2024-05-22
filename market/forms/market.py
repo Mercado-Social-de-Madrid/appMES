@@ -12,6 +12,7 @@ class MarketForm(forms.ModelForm, BootstrapForm):
             'register_consumer_url': forms.TextInput(),
             'register_provider_url': forms.TextInput(),
             'info_page_url': forms.TextInput(),
-            'banner_image': forms.FileInput()
+            'banner_image': forms.FileInput(),
+            'balance_badge': forms.FileInput(),
         }
         exclude = []
