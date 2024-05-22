@@ -8,8 +8,10 @@ from market.models import Consumer, Provider
 
 
 class MemberStatusViewSet(APIView):
-    authentication_classes = [authentication.TokenAuthentication]
-    permission_classes = (IsAuthenticated,)
+    # authentication_classes = [authentication.TokenAuthentication]
+    # permission_classes = (IsAuthenticated,)
+    authentication_classes = []
+    permission_classes = ()
 
     def get(self, request, format=None):
         city = request.GET["city"]
