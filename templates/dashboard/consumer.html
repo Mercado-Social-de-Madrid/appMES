@@ -26,7 +26,10 @@
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action" href="{% url 'market:user_account' %}"><i class="material-icons mr-2">directions_walk</i> {% translate 'Ver perfil' %}</a>
                     <a class="list-group-item list-group-item-action" href="{% url 'market:member_card' %}"><i class="material-icons-outlined mr-2">perm_contact_calendar</i> {% translate 'Mi carnet de socia' %}</a>
-                    <a class="list-group-item list-group-item-action disabled" href="#"><i class="material-icons mr-2">bar_chart</i> {% translate 'Ver estadísticas de favoritos' %}</a>
+                    {% comment %}
+                        <!-- TODO: #137 -->
+                        <a class="list-group-item list-group-item-action disabled" href="#"><i class="material-icons mr-2">bar_chart</i> {% translate 'Ver estadísticas de favoritos' %}</a>
+                    {% endcomment %}
                 </div>
             </div>
         </div>
