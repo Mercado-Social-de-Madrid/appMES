@@ -4,12 +4,12 @@
 <div class="member_card">
 
   <div class="member_qr">
-    {% qr_from_text member_qr size="l" %}
+    {% qr_from_text member_qr size="l" image_format="png" %}
   </div>
 
   <div class="member_profile">
     {% if profile_image %}
-      <img src="{{profile_image.url}}">
+      <img src="{% if baseurl %}{{baseurl}}{% endif %}{{profile_image.url}}">
     {% endif %}
   </div>
 
@@ -22,10 +22,10 @@
   </div>
 
   <div class="mesm_footer">
-    {% if current_market and current_market.banner_image %}
-        <img src="{{current_market.banner_image.url}}" alt="Logo {{current_market.name}}">
+    {% if market_banner %}
+        <img src="{% if baseurl %}{{baseurl}}{% endif %}{{market_banner.url}}" alt="Logo MES">
     {% else %}
-        <img src="{% static '/imgs/brand.png' %}" alt="Logo MESM">
+        <img src="{% static '/imgs/brand.png' %}" alt="Logo MES">
     {% endif %}
   </div>
 

@@ -94,7 +94,7 @@ html {
     width:100%;
     z-index:1;
 }
-.member_qr svg{
+.member_qr img{
     width:78%;
     display:block;
     margin:auto;
@@ -118,7 +118,7 @@ html {
 
  <body>
  <div class="container">
-{% include 'member/card_base.html' %}
+{% include 'member/card_base.html' with baseurl='local:/' %}
      </div>
 
 </body>

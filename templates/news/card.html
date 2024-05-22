@@ -13,10 +13,9 @@
         <div class="text-primary"><strong>{{news.short_description|striptags|safe}}</strong></div>
     </div>
 </div>
-<div class="bg-light p-2 text-right my-3">
-
+<div class="bg-light p-2 text-right my-2">
 {% if news.more_info_url %}
-     <a class="btn btn-action btn-primary" href="{{news.more_info_url}}">{% if news.more_info_text %} {{news.more_info_text}} {% else %} {% translate 'Saber más' %} {% endif %} </a>
+     <a class="btn btn-action btn-primary mb-3 mb-sm-0 mb-md-3" href="{{news.more_info_url}}">{% if news.more_info_text %} {{news.more_info_text}} {% else %} {% translate 'Saber más' %} {% endif %} </a>
 {% endif %}
-    <a class="btn btn-action btn-secondary text-light" href="{% market_url 'news:detail' news.pk %}">{% translate 'ver noticia' %}</a>
+    <a class="btn btn-action btn-secondary mb-3 mb-sm-0 mb-md-3 text-light" href="{% market_url 'news:detail' news.pk %}">{% translate 'ver noticia' %}</a>
 </div>

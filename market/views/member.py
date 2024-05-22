@@ -65,6 +65,7 @@ def get_card_data(member_type, member):
         'display_name': member.display_name,
         'profile_image': member.profile_image,
         'member_qr': urllib.parse.quote(member_data_url),
+        'market_banner': member.node.banner_image
     }
 
     if member_type == 'consumer':
