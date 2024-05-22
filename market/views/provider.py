@@ -22,6 +22,8 @@ from market.mixins.current_market import MarketMixin, AccountAccessMixin
 from market.models import Category, Provider
 from django_filters.views import FilterView
 
+from offers.models import Offer
+
 
 class ProviderFilterForm(BootstrapForm):
     field_order = [ 'search', 'categories', 'o',]
@@ -143,6 +145,11 @@ class CreateProvider(MarketMixin, ProviderFormSet, CreateView):
 class DetailProvider(AccountAccessMixin, MarketMixin, DetailView):
     template_name = 'provider/detail.html'
     model = Provider
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['offers'] = Offer.objects.current(provider=self.object)
+        return context
 
 
 class UpdateProvider(AccountAccessMixin, MarketMixin, ProviderFormSet, UpdateView):

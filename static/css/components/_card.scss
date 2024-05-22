@@ -28,7 +28,19 @@
         background-repeat:no-repeat;
         background-size:contain;
     }
+
+    .feature{
+        text-align:center;
+        span{
+            display: block;
+            height: 1.2rem;
+            font-family: "League Gothic", sans-serif;
+            text-transform: uppercase;
+            font-size: 1.2em;
+        }
+    }
 }
+
 
 .detail-card{
     position:relative;
