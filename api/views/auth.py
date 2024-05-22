@@ -18,11 +18,7 @@ logger = logging.getLogger(__name__)
 User = get_user_model()
 
 
-def parse_entity_data(account):
-    pass
-
-
-def parse_person_data(account):
+def parse_account_data(account):
     return {
         'id': account.id,
         'member_id': account.member_id,
@@ -30,15 +26,30 @@ def parse_person_data(account):
         'email': account.email,
         'inactive': not account.is_active,
         'is_active': account.is_active,
+        'address': account.address,
+        'profile_image': account.profile_image.name,
+        'profile_thumbnail': account.profile_image.name,
+    }
+
+
+def parse_entity_data(account):
+    account_data = parse_account_data(account)
+    return account_data | {
+        'hidden': False,
+        'cif': account.cif,
+        'name': account.name,
+    }
+
+
+def parse_person_data(account):
+    account_data = parse_account_data(account)
+    return account_data | {
         'name': account.first_name,
         'surname': account.last_name,
         'is_guest_account': False,
         'is_intercoop': account.is_intercoop,
         'fav_entities': [],
-        'address': account.address,
         'nif': account.cif,
-        'profile_image': account.profile_image.name,
-        'profile_thumbnail': account.profile_image.name,
     }
 
 
