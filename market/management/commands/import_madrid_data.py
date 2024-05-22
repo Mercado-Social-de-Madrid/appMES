@@ -298,8 +298,9 @@ class Command(BaseCommand):
             print("Importing categories, {} items".format(len(data['categories'])))
             import_categories(data['categories'], node)
 
+            print("Importing providers, {} items".format(len(data['providers'])))
+            import_providers(data['providers'], node)
+
             print("Importing consumers, {} items".format(len(data['consumers'])))
             import_consumers(data['consumers'], node)
 
-            print("Importing providers, {} items".format(len(data['providers'])))
-            import_providers(data['providers'], node)

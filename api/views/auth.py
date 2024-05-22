@@ -10,11 +10,36 @@ from rest_framework.views import APIView
 from django.utils.translation import gettext_lazy as _
 
 from authentication.models.api_token import APIToken
+from market.models import Account, Provider
 
 logger = logging.getLogger(__name__)
 
 
 User = get_user_model()
+
+
+def parse_entity_data(account):
+    pass
+
+
+def parse_person_data(account):
+    return {
+        'id': account.id,
+        'member_id': account.member_id,
+        'city': account.node.shortname,
+        'email': account.email,
+        'inactive': not account.is_active,
+        'is_active': account.is_active,
+        'name': account.first_name,
+        'surname': account.last_name,
+        'is_guest_account': False,
+        'is_intercoop': account.is_intercoop,
+        'fav_entities': [],
+        'address': account.address,
+        'nif': account.cif,
+        'profile_image': account.profile_image.name,
+        'profile_thumbnail': account.profile_image.name,
+    }
 
 
 class LoginView(ObtainAuthToken):
@@ -36,11 +61,33 @@ class LoginView(ObtainAuthToken):
         user = serializer.validated_data['user']
         token, created = APIToken.objects.get_or_create(user=user)
         login(request, user)
+
+
+        # RESPONSE RETROCOMPATIBLE, PENDING REFACTOR
+        account = Account.objects.get(owner=user)
+        is_provider = isinstance(account, Provider)
+
+        entity = None
+        person = None
+
+        if is_provider:
+            entity = parse_entity_data(account)
+        else:
+            person = parse_person_data(account)
+
+        data = {
+            'api_key': token.key,
+            'user_id': user.pk,
+            'type': 'entity' if is_provider else 'person',
+            'entity': entity,
+            'person': person,
+        }
+
         return Response(
             status=status.HTTP_200_OK,
             data={
-                'token': token.key,
-                'user_id': user.pk,
+                'success': True,
+                'data': data
             }
         )
 

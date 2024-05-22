@@ -1,11 +1,11 @@
 meta {
-  name: Consumer
+  name: Update Consumer
   type: http
-  seq: 4
+  seq: 2
 }
 
-get {
-  url: {{URL}}/api/v2/nodes/1001/consumer/
+put {
+  url: {{URL}}/api/v2/nodes/{{node_id}}/consumer/
   body: none
   auth: none
 }

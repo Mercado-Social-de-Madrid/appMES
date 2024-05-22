@@ -1,0 +1,15 @@
+meta {
+  name: Consumer
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{URL}}/api/v2/nodes/{{node_id}}/consumer/
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Token {{token}}
+}
