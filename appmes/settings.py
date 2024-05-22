@@ -307,6 +307,7 @@ sentry_sdk.init(
     dsn=env('SENTRY_DSN'),
     traces_sample_rate=1.0,
     profiles_sample_rate=0.5,
+    environment=env('SENTRY_ENV')
 )
 
 # ======= Firebase Configuration ========
