@@ -136,7 +136,7 @@ class ResetPasswordView(APIView):
              reset_form = PasswordReset(request.data)
              if reset_form.is_valid():
                 reset_form.save()
-                return Response(status=status.HTTP_200_OK)
+                return Response(status=status.HTTP_200_OK, data={})
              else:
                  return Response(status=status.HTTP_400_BAD_REQUEST, data=reset_form.errors)
          except User.DoesNotExist:
