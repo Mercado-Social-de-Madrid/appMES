@@ -1,3 +1,4 @@
+import json
 import os
 
 from django.conf import settings
@@ -15,8 +16,8 @@ class AppLinksView(View):
 
         try:
             with open(assetlinks_path, 'r') as file:
-                file_content = file.read()
+                file_content = json.loads(file.read())
         except Exception as e:
             return JsonResponse({'error': f"An error occurred: {e}"}, status=500)
 
-        return JsonResponse({'file_content': file_content})
+        return JsonResponse(file_content, safe=False)
