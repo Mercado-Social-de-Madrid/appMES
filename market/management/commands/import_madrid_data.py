@@ -208,7 +208,7 @@ def import_providers(providers, node):
         current += 1
         print(f'Current: {current}', end='\r')
 
-        if item['inactive']:
+        if item['inactive'] or item['email'] == 'etics@mercadosocial.net':
             continue
 
         cif = item['cif']
