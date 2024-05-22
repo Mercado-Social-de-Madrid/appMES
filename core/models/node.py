@@ -27,6 +27,7 @@ class Node(models.Model):
 
     webpage_link = models.URLField(blank=True, null=True, verbose_name=_('Página web'), max_length=250)
     takahe_server = models.URLField(blank=True, null=True, verbose_name=_('Servidor de Takahe'))
+    takahe_invite_url = models.URLField(blank=True, null=True, verbose_name=_('Enlace de invitación a Takahe'))
 
     has_linked_crm = models.BooleanField(default=False, verbose_name=_('Utiliza herramienta de gestión para las socias'))
     linked_crm_url = models.URLField(blank=True, null=True, verbose_name=_('URL del servidor de la Herramienta de gestión'))

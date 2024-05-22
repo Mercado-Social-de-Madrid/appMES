@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
 from api.serializers.benefits import BenefitsSerializer
-from api.serializers.category import CategorySerializer
 from api.serializers.gallery import GallerySerializer
 from api.serializers.offers import OffersSerializer
 from api.serializers.social_profile import SocialProfileSerializer
@@ -15,7 +14,6 @@ class ProviderSerializer(serializers.ModelSerializer):
     offers = OffersSerializer(many=True, read_only=True)
     benefit = BenefitsSerializer(many=False, read_only=True)
     balance_url = serializers.StringRelatedField()
-    # categories = CategorySerializer(many=True, read_only=True)
 
     class Meta:
         model = Provider
