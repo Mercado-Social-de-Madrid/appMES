@@ -36,7 +36,7 @@ class Provider(Account):
 
     @property
     def balance_url(self):
-        return settings.BASESITE_URL + "/balance/" + self.member_id if self.member_id and self.balance_detail else None
+        return f"{settings.BASESITE_URL}/{self.node.id}/balance/{self.member_id}" if self.member_id and self.balance_detail else None
 
     @property
     def display_name(self):
