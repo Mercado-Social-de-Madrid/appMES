@@ -3,17 +3,18 @@
     <div class="jumbotron bg-secondary pb-4" >
         <div class="container pb-4">
             <div class="row">
-                <div class="mb-3 text-light {% if edit_url %}col-md-7{% else %}col-md-12{% endif %}">
+                <div class="mb-3 text-light {% if edit_url %}col-md-8{% else %}col-md-12{% endif %}">
                     <div class="profile pt-0">
                         {% include 'account/profile_circle.html' with addclass='float-left' %}
                         <h3 class="mb-0">{{account.name}}</h3>
                         {{account.address }}
+                        {% include 'category/tag_list_detail.html' with tags=account.categories.all %}
                     </div>
 
                 </div>
 
                 {% if edit_url %}
-                <div class="col-md-5 text-right">
+                <div class="col-md-4 text-right">
                     <a href="{{edit_url}}" class="btn btn-primary btn-action"><i class="material-icons mr-2">edit</i>
                         {% if edit_label %} {% translate edit_label %} {% else %} {% translate "Editar" %} {% endif %}</a>
                 </div>

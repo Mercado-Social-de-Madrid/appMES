@@ -35,6 +35,7 @@ class Command(BaseCommand):
             print(f'Current: {current}', end='\r')
             if provider.owner:
                 provider.owner.delete()
+            if provider.gallery:
                 provider.gallery.delete()
             provider.delete()
 
