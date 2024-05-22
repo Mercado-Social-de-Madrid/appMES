@@ -33,7 +33,7 @@ iframe {
 
         </div>
         <div class="col-lg-7 mb-3">
-            <iframe src="{% url 'market:balance_result' entity.member_id %}"></iframe>
+            <iframe src="{% url 'market:balance_result' entity.node.pk entity.member_id %}"></iframe>
         </div>
     </div>
 

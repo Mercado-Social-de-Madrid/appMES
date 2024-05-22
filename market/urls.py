@@ -44,8 +44,8 @@ urlpatterns = [
     path('member/card_pdf/', views.member_card_pdf, name='member_card_pdf'),
     path('socia/', views.MemberCheck.as_view(), name='member_check'),
 
-
-    path('balance/<member_id>/', views.BalanceResult.as_view(), name='balance_result'),
+    path('balance/<member_id>/', views.BalanceRedirect.as_view(), name='balance_result'),
+    path('<int:market>/balance/<member_id>/', views.BalanceResult.as_view(), name='balance_result'),
 
     path('account/', views.UserAccountDetail.as_view(), name='user_account'),
     path('account/balance/', views.UserAccountSocialBalance.as_view(), name='account_balance'),

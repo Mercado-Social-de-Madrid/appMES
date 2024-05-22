@@ -1,8 +1,9 @@
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.clickjacking import xframe_options_exempt
-from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, RedirectView
 from django_filters import FilterSet
 
 from authentication.models.preregister import PreRegisteredUser
@@ -12,7 +13,7 @@ from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ExportAsCSVMixin import ExportAsCSVMixin
 from core.mixins.FormsetView import FormsetView
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
-from core.models import Gallery, GalleryPhoto
+from core.models import Gallery, GalleryPhoto, Node
 from helpers.filters.LabeledOrderingFilter import LabeledOrderingFilter
 from helpers.filters.SearchFilter import SearchFilter
 from helpers.filters.filtermixin import FilterMixin
@@ -173,6 +174,19 @@ class ProviderSocialBalance(DetailView):
     model = Provider
 
 
+class BalanceRedirect(RedirectView):
+    # Legacy compatibility view (node was included in previous app)
+    def get_redirect_url(self, *args, **kwargs):
+        providers = Provider.objects.filter(member_id=self.kwargs['member_id'])
+        if providers.count() > 1:
+        # If there is more than one provider with that member ID, redirect by default to mad
+            node = Node.objects.filter(shortname='mad').first()
+            kwargs.update({ 'market': node.pk })
+        else:
+            kwargs.update({ 'market': providers.first().node.pk })
+
+        return reverse('market:balance_result', kwargs=kwargs)
+
 class BalanceResult(DetailView):
     template_name = 'balance/results.html'
     context_object_name = 'entity'
@@ -183,7 +197,9 @@ class BalanceResult(DetailView):
         return super().dispatch(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
-        return Provider.objects.filter(member_id=self.kwargs['member_id']).first()
+        member_id = self.kwargs.get('member_id')
+        node = self.kwargs.get('market')
+        return Provider.objects.filter(member_id=member_id, node=node).first()
 
 
 class DeleteProvider(MarketMixin, DeleteView):
