@@ -1,3 +1,4 @@
+import json
 import logging
 
 from django.contrib.auth import get_user_model, logout, login
@@ -14,7 +15,6 @@ from authentication.models.api_token import APIToken
 from market.models import Account, Provider
 
 logger = logging.getLogger(__name__)
-
 
 User = get_user_model()
 
@@ -74,7 +74,6 @@ class LoginView(ObtainAuthToken):
         token, created = APIToken.objects.get_or_create(user=user)
         login(request, user)
 
-
         # RESPONSE RETROCOMPATIBLE, PENDING REFACTOR
         account = Account.objects.get(owner=user)
         is_provider = isinstance(account, Provider)
@@ -122,22 +121,22 @@ class DeleteUserView(APIView):
         user = APIToken.objects.get(pk=request.user.auth_token).user
         user.delete()
         logout(request)
-        return Response(status=status.HTTP_200_OK, data={'response': _('Usuario eliminado con éxito.')} )
+        return Response(status=status.HTTP_200_OK, data={'response': _('Usuario eliminado con éxito.')})
 
 
 class ResetPasswordView(APIView):
-     permission_classes = (AllowAny,)
+    permission_classes = (AllowAny,)
 
-     def post(self, request, *args, **kwargs):
-         email = request.data.get('email')
-         logger.info(f"Starting reset password process for email [{email}]")
-         try:
-             User.objects.get(email=email)
-             reset_form = PasswordReset(request.data)
-             if reset_form.is_valid():
+    def post(self, request, *args, **kwargs):
+        email = request.data.get('email')
+        logger.info(f"Starting reset password process for email [{email}]")
+        try:
+            User.objects.get(email=email)
+            reset_form = PasswordReset(request.data)
+            if reset_form.is_valid():
                 reset_form.save()
                 return Response(status=status.HTTP_200_OK, data={})
-             else:
-                 return Response(status=status.HTTP_400_BAD_REQUEST, data=reset_form.errors)
-         except User.DoesNotExist:
-             return Response(status=status.HTTP_404_NOT_FOUND)
+            else:
+                return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': json.dumps(reset_form.errors)})
+        except User.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
