@@ -12,6 +12,10 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
+        if not settings.ENABLE_EMAIL_SENDING:
+            print('Email sending disabled')
+            return
+
         email_dest = options['email_dest']
         message = options['message']
 

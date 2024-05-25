@@ -9,7 +9,7 @@ class Command(BaseCommand):
     help = 'Take a list of emails of file (in data/ path) and send preregister emails to them'
 
     def add_arguments(self, parser):
-        parser.add_argument('--filename', type=str, help='Filename of email list (each in new line)')
+        parser.add_argument('--filename', type=str, help='Filename of email list (each in new line), inside data/ dir')
 
     def handle(self, *args, **options):
 
