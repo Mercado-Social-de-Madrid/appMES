@@ -1,6 +1,7 @@
-
+from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.core.mail import send_mail
+
 
 class Command(BaseCommand):
     help = 'Just a command to test emails are working'
@@ -14,10 +15,14 @@ class Command(BaseCommand):
         email_dest = options['email_dest']
         message = options['message']
 
-        send_mail(
-            "Email prueba Mercado Social",
-            message,
-            "from@example.com",
-            [email_dest],
-            fail_silently=True,
-        )
+        try:
+            send_mail(
+                "Email prueba Mercado Social",
+                message,
+                settings.EMAIL_SEND_FROM,
+                [email_dest],
+                fail_silently=False,
+            )
+
+        except Exception as e:
+            print(e)
