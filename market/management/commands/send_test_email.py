@@ -25,4 +25,5 @@ class Command(BaseCommand):
             )
 
         except Exception as e:
+            print("error")
             print(e)

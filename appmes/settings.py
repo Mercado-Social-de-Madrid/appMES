@@ -302,6 +302,8 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 EMAIL_SEND_FROM = env('EMAIL_SEND_FROM')
 
+ENABLE_EMAIL_SENDING = env('ENABLE_EMAIL_SENDING')
+
 # ======= Sentry Configuration ========
 sentry_sdk.init(
     dsn=env('SENTRY_DSN'),
