@@ -1,0 +1,48 @@
+import argparse
+import time
+
+from django.core.management.base import BaseCommand
+
+from authentication.models import User
+from authentication.models.preregister import PreRegisteredUser
+from core.models import Node
+from market.models import Account
+from market.models import Consumer
+
+
+class Command(BaseCommand):
+    help = 'Show count (optionaly detail) of accounts, users, and preregisters'
+
+    def add_arguments(self, parser):
+        parser.add_argument('--node', type=int, help='Node Id')
+        parser.add_argument('--detail', action=argparse.BooleanOptionalAction)
+        parser.set_defaults(detail=False)
+
+    def handle(self, *args, **options):
+
+        node_id = options['node']
+        detail = options['detail']
+
+        node = Node.objects.get(pk=node_id)
+
+        accounts = Account.objects.filter(node=node)
+        print(f'Accounts: {accounts.count()}')
+        if detail:
+            print([account.email for account in accounts])
+
+        accounts_with_users = accounts.filter(owner__isnull=False)
+        print(f'\nUsers of accounts: {accounts_with_users.count()}')
+        if detail:
+            print([account.email for account in accounts_with_users])
+
+        preregisters = PreRegisteredUser.objects.filter(account__node=node)
+        print(f'\nPreregisters: {preregisters.count()}')
+        if detail:
+            print([preregister.user.email for preregister in preregisters])
+
+        no_mail_preregisters = preregisters.filter(email_sent=False)
+        print(f'\nPreregisters with no sent email: {no_mail_preregisters.count()}')
+        if detail:
+            print([no_mail_preregister.user.email for no_mail_preregister in no_mail_preregisters])
+
+        print()

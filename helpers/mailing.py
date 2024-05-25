@@ -17,4 +17,4 @@ def send_template_email(title, destination, template_name, template_params):
             fail_silently=False
         )
     else:
-        print("Email sending is disabled")
+        raise Exception("Email sending is disabled")
