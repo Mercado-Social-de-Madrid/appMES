@@ -26,14 +26,19 @@ class Command(BaseCommand):
         node = Node.objects.get(pk=node_id)
 
         accounts = Account.objects.filter(node=node)
-        print(f'Accounts: {accounts.count()}')
+        print(f'\nAccounts: {accounts.count()}')
         if detail:
             print([account.email for account in accounts])
 
         accounts_with_users = accounts.filter(owner__isnull=False)
-        print(f'\nUsers of accounts: {accounts_with_users.count()}')
+        print(f'\nAccounts with users: {accounts_with_users.count()}')
         if detail:
             print([account.email for account in accounts_with_users])
+
+        accounts_without_users = accounts.filter(owner__isnull=True)
+        print(f'\nAccounts without users: {accounts_without_users.count()}')
+        if detail:
+            print([account.email for account in accounts_without_users])
 
         preregisters = PreRegisteredUser.objects.filter(account__node=node)
         print(f'\nPreregisters: {preregisters.count()}')
