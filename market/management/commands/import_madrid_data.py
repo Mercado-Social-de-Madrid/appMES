@@ -133,6 +133,11 @@ def set_social_profiles(provider_data, provider_instance):
             ProviderSocialProfile.objects.create(social_network=social_network, url=url, provider=provider_instance)
 
 
+def set_categories(provider_data, provider_instance):
+    if 'categories' in provider_data and provider_data['categories']:
+        provider_instance.categories.set(Category.objects.filter(pk__in=provider_data['categories']))
+
+
 def set_offers(provider_data, provider_instance):
 
     for offer in provider_data['offers']:
@@ -260,8 +265,7 @@ def import_providers(providers, node):
 
             provider_created.profile_image.name = item['logo']
 
-            if item['categories']:
-                provider_created.categories.set(Category.objects.filter(id__in=item['categories']))
+            set_categories(item, provider_created)
 
             provider_created.save()
 

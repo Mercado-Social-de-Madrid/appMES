@@ -1,0 +1,23 @@
+meta {
+  name: Fetch Account
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{URL}}/api/v1/fetch/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Token {{token}}
+}
+
+body:json {
+  {
+    "uuid": "",
+    "cif": "" ,
+    "email": ""
+  }
+}

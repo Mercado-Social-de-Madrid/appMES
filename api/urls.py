@@ -10,6 +10,7 @@ from api.views.member_status import MemberStatusViewSet
 from api.views.news import NewsViewSet
 from api.views.offers import OffersViewSet
 from api.views.provider import EntitiesView
+from api.views.user import FetchUserView, PreRegisterUserView
 
 router = DefaultRouter()
 router.register("devices", FCMDeviceAuthorizedViewSet)
@@ -29,6 +30,9 @@ urlpatterns = [
     re_path(r"v2/nodes/(?P<node>\d+)/consumer/", ConsumerViewSet.as_view()),
 
     path("v1/entities/", EntitiesView.as_view()),
+    path("v1/fetch/", FetchUserView.as_view()),
+    path("v1/preregister/", PreRegisterUserView.as_view())
+
 ]
 
 

@@ -1,0 +1,34 @@
+meta {
+  name: Preregister Intercoop
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{URL}}/api/v1/preregister/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Token {{token}}
+}
+
+body:json {
+  {
+    "person": {
+      "cif": "1234567A",
+      "member_id": "1234",
+      "name": "Prueba",
+      "surname": "Intercoop",
+      "email": "",
+      "contact_phone": "123123456",
+      "address": "Calle falsa 123",
+      "city": "MAD",
+      "is_intercoop": true
+    },
+    "email": ""
+    
+    
+  }
+}

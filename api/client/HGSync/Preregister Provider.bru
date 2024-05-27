@@ -1,0 +1,44 @@
+meta {
+  name: Preregister Provider
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{URL}}/api/v1/preregister/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Token {{token}}
+}
+
+body:json {
+  {
+    "entity": {
+      "cif": "1234567A",
+      "name": "Entidad falsa",
+      "member_id": "1234",
+      "description": "Entidad falsa descripción larga",
+      "short_description": "Entidad falsa descripción corta",
+      "email": "",
+      "contact_phone": "123123456",
+      "address": "Calle falsa 123",
+      "city" : "MAD",
+      "latitude": 0,
+      "longitude": 0,
+      "legal_form": "cooperativa",
+      "num_workers": 1,
+      "telegram_link": "www.telegram.com",
+      "twitter_link": "www.twitter.com",
+      "webpage_link": "app.mercadosocial.net",
+      "facebook_link": "https://www.facebook.com",
+      "instagram_link": "https://www.instagram.com",
+      "categories": ["97924fef-a60a-4c9e-adc1-0ce35e0dd8b9", "83d97ae0-538e-43d5-908e-d30b77c4405a"]
+    },
+    "email": ""
+    
+    
+  }
+}

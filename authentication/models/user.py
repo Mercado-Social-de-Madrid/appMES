@@ -82,6 +82,9 @@ class User(TimeStampedModel, AbstractUser):
     def is_preregistered(self):
         return self.preregister.all().count() > 0
 
+    def is_registered(self):
+        return self.preregister.count() == 0
+
     @property
     def display_name(self):
         return self.first_name or self.email
