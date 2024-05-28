@@ -61,8 +61,13 @@ class LoginView(ObtainAuthToken):
         try:
             serializer.is_valid(raise_exception=True)
         except ValidationError as e:
-            u = User.objects.get(email=request.data['username'])
-            if not u.is_active:
+            u = User.objects.filter(email=request.data['username']).first()
+            if not u:
+                return Response(
+                    status=status.HTTP_404_NOT_FOUND,
+                    data={'error': _('Usuario no encontrado.')}
+                )
+            elif not u.is_active:
                 return Response(
                     status=status.HTTP_403_FORBIDDEN,
                     data={'error': _('Tu cuenta no está activa, revisa tu bandeja de entrada de correo.')}
@@ -74,22 +79,30 @@ class LoginView(ObtainAuthToken):
         token, created = APIToken.objects.get_or_create(user=user)
         login(request, user)
 
-        # RESPONSE RETROCOMPATIBLE, PENDING REFACTOR
-        account = Account.objects.get(owner=user)
-        is_provider = isinstance(account, Provider)
-
+        # RESPONSE RETROCOMPATIBLE, PENDING REFACTOR WHEN APPS ARE READY
+        type = None
         entity = None
         person = None
 
-        if is_provider:
-            entity = parse_entity_data(account)
+        if user.is_superuser:
+            type = 'superuser'
+        elif user.is_staff:
+            type = 'staff'
         else:
-            person = parse_person_data(account)
+            account = Account.objects.get(owner=user)
+            is_provider = isinstance(account, Provider)
+
+            if is_provider:
+                entity = parse_entity_data(account)
+                type = 'entity'
+            else:
+                person = parse_person_data(account)
+                type = 'person'
 
         data = {
             'api_key': token.key,
             'user_id': user.pk,
-            'type': 'entity' if is_provider else 'person',
+            'type': type,
             'entity': entity,
             'person': person,
         }
