@@ -1,0 +1,9 @@
+{% load settings_value %}
+
+Nueva usuaria registrada en la app.
+
+{% if account %}
+    Se ha creado correctamente un usuario en la app para {{account.display_name}} y se le ha enviado el email de bienvenida a {{account.email}}
+{% else %}
+    Se ha creado correctamente un usuario en la app para {{user.email}} (Sin cuenta de miembro asociada) y se le ha enviado el email de bienvenida.
+{% endif %}

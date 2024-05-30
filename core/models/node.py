@@ -14,6 +14,7 @@ class Node(models.Model):
     longitude = models.FloatField(null=False, verbose_name=_('Longitud'), default=0)
 
     contact_email = models.EmailField(null=True, blank=True, max_length=200, verbose_name=_('Email de contacto'))
+    admin_email = models.EmailField(null=True, blank=True, max_length=200, verbose_name=_('Email de administración'), help_text=_('Para mensajes de la herramienta'))
     self_register_allowed = models.BooleanField(default=False, verbose_name=_('Permitir el registro abierto'))
     register_provider_url = models.TextField(blank=True, null=True, verbose_name=_('Enlace al formulario de registro de proveedoras'))
     register_consumer_url = models.TextField(blank=True, null=True, verbose_name=_('Enlace al formulario de registro de consumidoras'))

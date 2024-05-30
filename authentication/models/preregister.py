@@ -47,6 +47,16 @@ class PreRegisteredUser(models.Model):
 
             self.email_sent = True
             self.save()
+
+            # Admin confirmation email
+            send_template_email(
+                title=_('Nueva usuaria creada en la app'),
+                destination=self.account.node.admin_email,
+                template_name='admin_preregister_confirm_msg',
+                template_params={
+                    'user': self.user,
+                    'account': self.account }
+            )
         except Exception as e:
             print(e)
 
