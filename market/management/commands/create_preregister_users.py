@@ -9,18 +9,22 @@ from core.models import Node
 from market.models import Account, Consumer
 
 
+def create_preregister(account):
+    PreRegisteredUser.create_user_and_preregister(account)
+    time.sleep(2)  # to void possible errors due to very quick email sending
+
+
 class Command(BaseCommand):
     help = 'Create preregister user for all accounts of node'
 
     def add_arguments(self, parser):
         parser.add_argument('--node', type=int, help='Node Id')
         parser.add_argument('--intercoop', action=argparse.BooleanOptionalAction)
-        parser.set_defaults(intercoop=True)
 
     def handle(self, *args, **options):
 
         node_id = options['node']
-        include_intercoop = options['intercoop']
+        intercoop = options['intercoop']
 
         node = Node.objects.get(pk=node_id)
 
@@ -42,13 +46,15 @@ class Command(BaseCommand):
                 existing_emails.append(account.email)
                 continue
 
-            if not include_intercoop and isinstance(account, Consumer) and account.is_intercoop:
-                print(f"Skiping intercoop: {account.email}")
-                continue
-
-            print(f"Creating user and preregister: {account.email}")
-            PreRegisteredUser.create_user_and_preregister(account)
-            time.sleep(2)  # to void possible errors due to very quick email sending
+            if intercoop is None:
+                print(f"Creating user and preregister: {account.email}")
+                create_preregister(account)
+            elif intercoop is True and account.is_intercoop:
+                print(f"Creating Intercoop user and preregister: {account.email}")
+                create_preregister(account)
+            elif intercoop is False and not account.is_intercoop:
+                print(f"Creating not Intercoop user and preregister: {account.email}")
+                create_preregister(account)
 
         print("\nExisting emails:")
         print("\n".join(existing_emails))
