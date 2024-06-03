@@ -2,11 +2,12 @@ import argparse
 import time
 
 from django.core.management.base import BaseCommand
+from django.db.models import Q
 
 from authentication.models import User
 from authentication.models.preregister import PreRegisteredUser
 from core.models import Node
-from market.models import Account, Consumer
+from market.models import Account, Consumer, Provider
 
 
 def create_preregister(account):
@@ -28,9 +29,22 @@ class Command(BaseCommand):
 
         node = Node.objects.get(pk=node_id)
 
-        accounts = Account.objects.filter(node=node)
+        print(intercoop)
+        print(type(intercoop))
+
+        accounts = None
+        if intercoop is None:
+            accounts = Account.objects.filter(node=node)
+        elif intercoop is True:
+            accounts = Consumer.objects.filter(node=node, is_intercoop=True)
+        elif intercoop is False:
+            providers = Provider.objects.filter(node=node)
+            consumers_no_intercoop = Consumer.objects.filter(node=node, is_intercoop=False)
+            accounts = list(providers) + list(consumers_no_intercoop)
 
         print(f'Generating users and preregisters. Total {len(accounts)}')
+        print(accounts)
+
         current = 0
 
         existing_emails = []
@@ -46,15 +60,8 @@ class Command(BaseCommand):
                 existing_emails.append(account.email)
                 continue
 
-            if intercoop is None:
-                print(f"Creating user and preregister: {account.email}")
-                create_preregister(account)
-            elif intercoop is True and account.is_intercoop:
-                print(f"Creating Intercoop user and preregister: {account.email}")
-                create_preregister(account)
-            elif intercoop is False and not account.is_intercoop:
-                print(f"Creating not Intercoop user and preregister: {account.email}")
-                create_preregister(account)
+            print(f"Creating user and preregister: {account.email}")
+            create_preregister(account)
 
         print("\nExisting emails:")
         print("\n".join(existing_emails))
