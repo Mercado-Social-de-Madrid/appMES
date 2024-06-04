@@ -1,3 +1,4 @@
+import logging
 
 from django.core.exceptions import MultipleObjectsReturned
 from django.http import HttpResponse, HttpResponseNotFound, JsonResponse, HttpResponseForbidden
@@ -16,6 +17,7 @@ from market.management.commands.import_madrid_data import set_social_profiles, s
 from market.models import Account, Provider, Consumer, Category
 from django.utils.translation import gettext_lazy as _
 
+logger = logging.getLogger(__name__)
 
 class FetchUserView(APIView):
     authentication_classes = [authentication.TokenAuthentication]
@@ -84,15 +86,21 @@ class PreRegisterUserView(APIView):
     permission_classes = (IsAuthenticated, IsAdminUser)
 
     def post(self, request, *args, **kwargs):
+        logger.info("Recibida petición de pre-registro")
+
         data = request.data
 
         account = None
         email = data['email']
 
         if not request.user.node:
+            logger.info(f"Este usuario no gestiona ningún mercado")
             return HttpResponse(_("Este usuario no gestiona ningún mercado."), status=400)
 
+        logger.info(f"Iniciando pre-registro para [{email}]")
+
         if User.objects.filter(email=email).exists():
+            logger.warning("Ya existe un usuario registrado con este correo electrónico.")
             return HttpResponse(_("Ya existe un usuario registrado con este correo electrónico."), status=400)
 
         result = {}
@@ -138,4 +146,5 @@ class PreRegisterUserView(APIView):
             return HttpResponse(_("No existe objeto entity o person"), status=400)
 
         PreRegisteredUser.create_user_and_preregister(account)
+        logger.info("Usuario pre-registrado con exito.")
         return JsonResponse(result, status=200)
