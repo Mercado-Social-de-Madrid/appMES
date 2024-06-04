@@ -55,6 +55,7 @@ def import_consumers(consumers, node):
     current = 0
     invalid = 0
     duplicated = 0
+    cif_duplicated = 0
     save_errors = 0
 
     for item in consumers:
@@ -65,14 +66,7 @@ def import_consumers(consumers, node):
         if item['inactive'] or item['is_guest_account']:
             continue
 
-        uuids_to_ignore = [
-            '1bb8e193-2f4c-43b4-88dc-4a201a0bef08',
-            'ead1aa61-8334-4a47-88e9-1197c1f08326',
-            '2d9d5dd4-e0ff-496b-a41e-721a1ac26a9d',
-            'cfba9d2f-6a65-4ad5-a62d-82704604c2c2',
-            'e42ddb47-ff07-453b-acc6-762cf0083281',
-            'd827fb30-cbd5-4c97-9ec1-66d9fa3d092a',
-        ]
+        uuids_to_ignore = []
 
         if item['id'] in uuids_to_ignore:
             continue
@@ -81,15 +75,20 @@ def import_consumers(consumers, node):
         email = item['email']
 
         if not cif or len(cif) > 30:
-            print(f"Invalid consumer nif: {item['name']} - {email} - {cif}")
+            print(f"Invalid consumer nif: {item['name']} - {email} - {cif}. SKIPPING...")
             invalid += 1
             continue
 
-        existing_consumer = Consumer.objects.filter(Q(cif=cif) | Q(email=email) | Q(owner__email=email)).first()
+        existing_consumer = Consumer.objects.filter(Q(email=email) | Q(owner__email=email)).first()
         if existing_consumer:
             duplicated += 1
-            print(f"Consumer already exists: {email} - {cif}")
+            print(f"Consumer email already exists: {email}. SKIPPING...")
             continue
+
+        existing_consumer_cif = Consumer.objects.filter(cif=cif).first()
+        if existing_consumer_cif:
+            cif_duplicated += 1
+            print(f"Consumer CIF already exists: {cif}. SAVING ANYWAY...")
 
         try:
             user_created = User.objects.create(
@@ -121,7 +120,7 @@ def import_consumers(consumers, node):
             save_errors += 1
             print(f"Consumer save error: {email} - {cif} - {error}. Current: {current}")
 
-    print(f'Invalid: {invalid}, duplicated: {duplicated}, save_errors: {save_errors}')
+    print(f'Invalid: {invalid}, duplicated email: {duplicated}, duplicated CIF: {cif_duplicated}, save_errors: {save_errors}')
 
 
 def set_social_profiles(provider_data, provider_instance):
@@ -206,6 +205,7 @@ def import_providers(providers, node):
     current = 0
     invalid = 0
     duplicated = 0
+    cif_duplicated = 0
     save_errors = 0
 
     for item in providers:
@@ -220,15 +220,20 @@ def import_providers(providers, node):
         email = item['email']
 
         if not cif or len(cif) > 30:
-            print(f"Invalid provider nif: {item['name']} - {email} - {cif}")
+            print(f"Invalid provider nif: {item['name']} - {email} - {cif}. SKIPPING...")
             invalid += 1
             continue
 
-        existing_provider = Provider.objects.filter(Q(cif=cif) | Q(email=email) | Q(owner__email=email)).first()
+        existing_provider = Provider.objects.filter(Q(email=email) | Q(owner__email=email)).first()
         if existing_provider:
             duplicated += 1
-            print(f"Provider already exists: {item['email']} - {cif}")
+            print(f"Provider already exists: {item['email']}. SKIPPING...")
             continue
+
+        existing_provider_cif = Provider.objects.filter(cif=cif).first()
+        if existing_provider_cif:
+            cif_duplicated += 1
+            print(f"Provider CIF already exists: {cif}. SAVING ANYWAY...")
 
         try:
             user_created = User.objects.create(
@@ -278,7 +283,7 @@ def import_providers(providers, node):
             save_errors += 1
             print(f"Provider save error: {email} - {cif} - {error}. Current: {current}")
 
-    print(f'Invalid: {invalid}, duplicated: {duplicated}, save_errors: {save_errors}')
+    print(f'Invalid: {invalid}, duplicated email: {duplicated}, duplicated CIF: {cif_duplicated}, save_errors: {save_errors}')
 
 
 class Command(BaseCommand):
