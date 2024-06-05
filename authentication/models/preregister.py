@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import logging
 import uuid
 
 from django.conf import settings
@@ -13,6 +14,7 @@ from authentication.models import User
 from helpers import send_template_email
 from market.models import Account
 
+logger = logging.getLogger(__name__)
 
 class PreRegisteredUser(models.Model):
 
@@ -35,6 +37,7 @@ class PreRegisteredUser(models.Model):
         title = _('Todo listo para empezar a usar la aplicación móvil del Mercado Social')
 
         try:
+            logger.info("Enviando email de bienvenida de pre-registro")
             send_template_email(
                 title=title,
                 destination=self.user.email,
@@ -49,6 +52,7 @@ class PreRegisteredUser(models.Model):
             self.save()
 
             if self.account.node.admin_email:
+                logger.info("Enviando confirmación de email de bienvenida a admin")
                 send_template_email(
                     title=_('Nueva usuaria creada en la app'),
                     destination=self.account.node.admin_email,
@@ -59,7 +63,7 @@ class PreRegisteredUser(models.Model):
                 )
 
         except Exception as e:
-            print(e)
+            logger.error(f"Error al enviar email de bienvenida: {str(e)}")
 
     @staticmethod
     def create(account):
@@ -75,7 +79,6 @@ class PreRegisteredUser(models.Model):
             account.save()
 
         PreRegisteredUser.create(account)
-
 
     def __srt__(self):
         return '{} ({})'.format(self.user, self.id)

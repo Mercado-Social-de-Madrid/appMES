@@ -94,7 +94,7 @@ class PreRegisterUserView(APIView):
         email = data['email']
 
         if not request.user.node:
-            logger.info(f"Este usuario no gestiona ningún mercado")
+            logger.info(f"Este usuario no gestiona ningún mercado: {request.user.email}")
             return HttpResponse(_("Este usuario no gestiona ningún mercado."), status=400)
 
         logger.info(f"Iniciando pre-registro para [{email}]")
@@ -143,8 +143,9 @@ class PreRegisterUserView(APIView):
 
             result = {"entity": {"id": account.id}}
         else:
-            return HttpResponse(_("No existe objeto entity o person"), status=400)
+            logger.error("No existe objeto entity o person en el cuerpo de la petición")
+            return HttpResponse(_("No existe objeto entity o person en el cuerpo de la petición"), status=400)
 
         PreRegisteredUser.create_user_and_preregister(account)
-        logger.info("Usuario pre-registrado con exito.")
+        logger.info("Usuario pre-registrado creado con exito.")
         return JsonResponse(result, status=200)

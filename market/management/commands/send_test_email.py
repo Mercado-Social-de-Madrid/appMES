@@ -1,6 +1,10 @@
+import logging
+
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.core.mail import send_mail
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -20,6 +24,7 @@ class Command(BaseCommand):
         message = options['message']
 
         try:
+            logger.info(f"Enviando email de prueba a {email_dest}, mensaje: {message}")
             send_mail(
                 "Email prueba Mercado Social",
                 message,
@@ -29,5 +34,4 @@ class Command(BaseCommand):
             )
 
         except Exception as e:
-            print("error")
-            print(e)
+            logger.error(f"Error al enviar email de prueba: {str(e)}")
