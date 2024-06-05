@@ -234,6 +234,7 @@ def import_providers(providers, node):
         if existing_provider_cif:
             cif_duplicated += 1
             print(f"Provider CIF already exists: {cif}. SAVING ANYWAY...")
+            continue
 
         try:
             user_created = User.objects.create(
