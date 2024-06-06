@@ -27,7 +27,7 @@ urlpatterns = [
     path("v2/logout/", LogoutView.as_view()),
     path("v2/reset_password/", ResetPasswordView.as_view()),
     path("v2/member_status/", MemberStatusViewSet.as_view()),
-    re_path(r"v2/nodes/(?P<node>\d+)/consumer/", ConsumerViewSet.as_view()),
+    re_path(r"v2/consumer/", ConsumerViewSet.as_view()),
 
     path("v1/entities/", EntitiesView.as_view()),
     path("v1/fetch/", FetchUserView.as_view()),
