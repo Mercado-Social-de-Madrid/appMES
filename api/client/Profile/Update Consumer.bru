@@ -6,10 +6,21 @@ meta {
 
 put {
   url: {{URL}}/api/v2/nodes/{{node_id}}/consumer/
-  body: none
+  body: json
   auth: none
 }
 
 headers {
   Authorization: Token {{token}}
+}
+
+body:json {
+  {
+    "first_name": "Consumidora",
+    "lastname": "Madrid",
+    "email": "consumidora_mad@mercadosocial.net",
+    "phone_number": "546545654",
+    "city": "Alcalá",
+    "address": "calle falsa 123"
+  }
 }
