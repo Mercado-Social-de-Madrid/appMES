@@ -22,6 +22,7 @@ class ProviderSocialProfileInline(admin.TabularInline):
 class ProviderAdmin(admin.ModelAdmin):
     list_display = ["name", "member_id", "is_active", "node", ]
     list_filter = ["node", "is_active"]
+    search_fields = ["email", "first_name", "last_name"]
     inlines = [ProviderSocialProfileInline]
 
 
@@ -29,6 +30,7 @@ class ProviderAdmin(admin.ModelAdmin):
 class ConsumerAdmin(admin.ModelAdmin):
     list_display = ["name", "member_id", "is_active", "node", ]
     list_filter = ["node", "is_active"]
+    search_fields = ["email", "first_name", "last_name"]
 
     @admin.display(description=_("Nombre"))
     def name(self, obj):
