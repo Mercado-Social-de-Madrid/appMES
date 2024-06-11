@@ -1,15 +1,10 @@
-from rest_framework import serializers
+
+
+from api.serializers.account import AccountSerializer
 from market.models import Consumer
 
 
-class ConsumerSerializer(serializers.ModelSerializer):
-    cif = serializers.ReadOnlyField()
-    node = serializers.ReadOnlyField(source='node.pk')
-    member_id = serializers.ReadOnlyField()
-    owner = serializers.ReadOnlyField(source='owner.pk')
-    is_active = serializers.ReadOnlyField()
-    last_updated = serializers.ReadOnlyField()
-    registration_date = serializers.ReadOnlyField()
+class ConsumerSerializer(AccountSerializer):
 
     class Meta:
         model = Consumer
