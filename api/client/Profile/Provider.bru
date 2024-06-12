@@ -1,11 +1,15 @@
 meta {
   name: Provider
   type: http
-  seq: 3
+  seq: 1
 }
 
 get {
-  url: {{URL}}/api/v2/nodes/{{node_id}}/providers/{{provider_uuid}}
+  url: {{URL}}/api/v2/provider/
   body: none
   auth: none
+}
+
+headers {
+  Authorization: Token {{token}}
 }

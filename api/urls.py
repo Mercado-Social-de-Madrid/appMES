@@ -10,7 +10,7 @@ from api.views.consumer import ConsumerViewSet
 from api.views.member_status import MemberStatusViewSet
 from api.views.news import NewsViewSet
 from api.views.offers import OffersViewSet
-from api.views.provider import EntitiesView
+from api.views.provider import EntitiesView, ProviderAuthViewSet
 from api.views.user import FetchUserView, PreRegisterUserView
 
 router = DefaultRouter()
@@ -29,6 +29,7 @@ urlpatterns = [
     path("v2/reset_password/", ResetPasswordView.as_view()),
     path("v2/member_status/", MemberStatusViewSet.as_view()),
     path("v2/consumer/", ConsumerViewSet.as_view()),
+    path("v2/provider/", ProviderAuthViewSet.as_view()),
     path("v2/profile_image/", ProfileImageViewSet.as_view()),
 
     path("v1/entities/", EntitiesView.as_view()),

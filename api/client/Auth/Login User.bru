@@ -18,7 +18,7 @@ body:form-urlencoded {
 script:post-response {
   
   let data = res.getBody();
-  let token = bru.setEnvVar("token", data.token);
+  let token = bru.setEnvVar("token", data.data.api_key);
 }
 
 tests {
