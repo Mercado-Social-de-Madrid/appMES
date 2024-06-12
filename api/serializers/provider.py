@@ -18,3 +18,9 @@ class ProviderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Provider
         exclude = []
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        if representation['profile_image'] is None:
+            representation['profile_image'] = ''
+        return representation

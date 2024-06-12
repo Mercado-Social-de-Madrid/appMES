@@ -14,3 +14,9 @@ class ConsumerSerializer(AccountSerializer):
     class Meta:
         model = Consumer
         exclude = ["polymorphic_ctype"]
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        if representation['profile_image'] is None:
+            representation['profile_image'] = ''
+        return representation
