@@ -1,4 +1,4 @@
----
+`---
 icon: material/account-circle
 ---
 
@@ -19,4 +19,4 @@ Seleccionando la opción de editar perfil se abrirá una nueva pantalla donde po
 
 
 # Cerrar Sesión
-Seleccionando la opción de cerrar sesión, la aplicación finalizará la sesión con la cuenta actual y nos redigirá a la pantalla de inicio de sesión.
+Seleccionando la opción de cerrar sesión, la aplicación finalizará la sesión con la cuenta actual y nos redigirá a la pantalla de inicio de sesión.`

@@ -2,6 +2,8 @@ yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema
 
 site_name: Guía de usuario de la AppMES
 site_url: https://0.0.0.0/docs/user
+extra_css:
+  - assets/css/extra.css
 
 theme:
   name: material
@@ -9,6 +11,10 @@ theme:
   language: es
   features:
     - navigation.instant
+    - navigation.expand
+    - navigation.indexes
+    - navigation.tracking
+    - toc.follow
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -29,11 +35,14 @@ theme:
         name: Modo claro
 
 markdown_extensions:
-  - pymdownx.emoji
+  - attr_list
   - pymdownx.blocks.admonition
   - pymdownx.blocks.details
   - pymdownx.blocks.tab:
       alternate_style: True
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 plugins:
   - search
@@ -54,3 +63,12 @@ plugins:
         - locale: gl
           name: Galego
           build: true
+
+nav:
+  - Proveedoras:
+    - proveedoras/index.md
+    - proveedoras/inicio.md
+    - proveedoras/mi_entidad.md
+    - proveedoras/ofertas.md
+    - proveedoras/ventajas.md
+  - Consumidoras: consumidoras/index.md
