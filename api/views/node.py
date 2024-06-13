@@ -5,5 +5,5 @@ from core.models import Node
 
 
 class NodeViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Node.objects.all()
+    queryset = Node.objects.filter(visible=True)
     serializer_class = NodeSerializer
