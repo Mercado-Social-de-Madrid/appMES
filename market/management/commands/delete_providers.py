@@ -8,7 +8,7 @@ class Command(BaseCommand):
     help = 'Delete providers and its associated User'
 
     def add_arguments(self, parser):
-        parser.add_argument('--node', type=int, help='Node Id')
+        parser.add_argument('-n', '--node', type=int, required=True, help='Node Id (required)')
 
     def handle(self, *args, **options):
 

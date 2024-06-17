@@ -1,22 +1,10 @@
-import csv
 import json
-import re
 
-import requests
-from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
-from django.db import IntegrityError
 
-from market.models import Account, Provider
 from core.models import Node
-from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
-from django.db.utils import DataError
-
-from geopy.geocoders import Nominatim
-from geopy.exc import GeocoderTimedOut
-
 from market.models import Category
-from core.models import Node
+
 
 class Command(BaseCommand):
     help = 'Import categories'

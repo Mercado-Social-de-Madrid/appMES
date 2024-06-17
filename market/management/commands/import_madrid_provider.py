@@ -68,8 +68,8 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
 
-        parser.add_argument('--node', type=int, help='Node Id of Madrid')
-        parser.add_argument('--id', type=str, help='ID of Provider')
+        parser.add_argument('-n', '--node', type=int, required=True, help='Node Id of Madrid (required)')
+        parser.add_argument('--id', type=str, required=True, help='ID of Provider')
 
     def handle(self, *args, **options):
 

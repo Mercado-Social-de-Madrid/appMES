@@ -1,33 +1,32 @@
+import argparse
 import time
 
 from django.core.management.base import BaseCommand
 
-from authentication.models import User
+from authentication.models.preregister import PreRegisteredUser
+from core.models import Node
 
 
 class Command(BaseCommand):
-    help = 'Take a list of emails of file (in data/ path) and send preregister emails to them'
+    help = 'Send welcome emails to accounts of node with pending preregister'
 
     def add_arguments(self, parser):
-        parser.add_argument('--filename', type=str, help='Filename of email list (each in new line), inside data/ dir')
+        parser.add_argument('-n', '--node', type=int, required=True, help='Node Id (required)')
+        parser.add_argument('--onlycheck', action=argparse.BooleanOptionalAction)
 
     def handle(self, *args, **options):
 
-        filename = options['filename']
+        node_id = options['node']
+        only_check = options['onlycheck']
+        node = Node.objects.get(pk=node_id)
 
-        not_found_emails = []
+        preregisters = PreRegisteredUser.objects.filter(account__isnull=False, account__node=node)
+        print(f'Sending emails. Preregisters count: {len(preregisters)}')
+        current = 0
+        for preregister in preregisters:
+            current += 1
+            print(f'Current: {current}. {preregister.account.display_name}')
+            if not only_check:
+                preregister.send_email()
+                time.sleep(2)  # to void possible errors due to very quick email sending
 
-        with open(f'data/{filename}', 'r') as file:
-            for line in file:
-                email = line.strip()
-                user = User.objects.filter(email=email).first()
-                if user and user.preregister:
-                    print(f'Sending preregister email: {email}')
-                    user.preregister.first().send_email()
-                    time.sleep(2)  # to void possible errors due to very quick email sending
-                else:
-                    not_found_emails.append(email)
-                    print(f'User or preregister not found: {email}')
-
-        print("\nNot found user or preregister emails:")
-        print("\n".join(not_found_emails))

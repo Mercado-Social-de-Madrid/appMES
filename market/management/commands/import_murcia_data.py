@@ -85,11 +85,11 @@ def import_providers(providers, node):
 
 
 class Command(BaseCommand):
-    help = 'Import all data of Madrid from old application'
+    help = 'Import all data of Murcia from old application'
 
     def add_arguments(self, parser):
 
-        parser.add_argument('--node', type=int, help='Node Id of Madrid')
+        parser.add_argument('-n', '--node', type=int, required=True, help='Node Id of Murcia (required)')
 
     def handle(self, *args, **options):
 

@@ -1,21 +1,18 @@
 import argparse
-import time
 
 from django.core.management.base import BaseCommand
 
-from authentication.models import User
 from authentication.models.preregister import PreRegisteredUser
 from core.models import Node
 from market.models import Account
-from market.models import Consumer
 
 
 class Command(BaseCommand):
     help = 'Show count (optionaly detail) of accounts, users, and preregisters'
 
     def add_arguments(self, parser):
-        parser.add_argument('--node', type=int, help='Node Id')
-        parser.add_argument('--detail', action=argparse.BooleanOptionalAction)
+        parser.add_argument('-n', '--node', type=int, required=True, help='Node Id (required)')
+        parser.add_argument('-d', '--detail', action=argparse.BooleanOptionalAction)
         parser.set_defaults(detail=False)
 
     def handle(self, *args, **options):

@@ -19,7 +19,7 @@ class Command(BaseCommand):
     help = 'Create preregister user for all accounts of node'
 
     def add_arguments(self, parser):
-        parser.add_argument('--node', type=int, help='Node Id')
+        parser.add_argument('-n', '--node', type=int, required=True, help='Node Id (required)')
         parser.add_argument('--intercoop', action=argparse.BooleanOptionalAction)
 
     def handle(self, *args, **options):

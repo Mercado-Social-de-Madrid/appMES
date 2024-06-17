@@ -12,7 +12,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
 
-        parser.add_argument('--node', type=int, help='Node Id of Aragon')
+        parser.add_argument('-n', '--node', type=int, required=True, help='Node Id of Aragón (required)')
 
     def handle(self, *args, **options):
 
