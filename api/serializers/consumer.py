@@ -6,17 +6,13 @@ from market.models import Consumer
 
 class ConsumerSerializer(AccountSerializer):
 
-    name = serializers.CharField(source='first_name')
-    surname = serializers.CharField(source='last_name')
-    nif = serializers.CharField(source='cif')
-    profile_thumbnail = serializers.CharField(source='profile_image')
+    name = serializers.StringRelatedField(source='first_name')
+    surname = serializers.StringRelatedField(source='last_name')
+    nif = serializers.ReadOnlyField(source='cif')
+    profile_image = serializers.StringRelatedField(source='profile_image.name')
+    profile_thumbnail = serializers.StringRelatedField(source='profile_image.name')
 
     class Meta:
         model = Consumer
         exclude = ["polymorphic_ctype"]
 
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        if representation['profile_image'] is None:
-            representation['profile_image'] = ''
-        return representation
