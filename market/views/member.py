@@ -27,14 +27,14 @@ class CheckMemberStatus(MarketMixin, TemplateView):
             member = Provider.objects.filter(node=self.node, member_id=member_id).first()
             if member is None:
                 return None
-            status_info['member_type'] = 'entity'
+            status_info['member_type'] = 'provider'
         status_info['is_active'] = member.is_active
         return status_info
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if 'member_id' in kwargs:
-            member_id = kwargs['member_id']
+            member_id = kwargs.get('member_id', '').strip()
             context['member_id'] = member_id
             status = self.get_member_status(member_id)
             if status is None:
