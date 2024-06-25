@@ -68,6 +68,7 @@ class Command(BaseCommand):
                 web = row[4]
                 address = f"{row[6]}, {row[5]}, {row[14]}, {row[12]}"
                 email = row[9]
+                phone = row[10]
 
                 geolocator = Nominatim(user_agent="aslkj23ñl4lkfj34")
 
@@ -85,6 +86,7 @@ class Command(BaseCommand):
                         description=description,
                         webpage_link=web,
                         email=email,
+                        phone_number=phone,
                         address=address,
                         latitude=location.latitude if location and location.latitude else 0,
                         longitude=location.longitude if location and location.longitude else 0,
