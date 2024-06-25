@@ -8,7 +8,7 @@ from django.utils.html import strip_tags
 from django.utils.translation import gettext_lazy as _
 
 from django.urls import reverse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, RedirectView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, RedirectView, DeleteView
 from django_filters import FilterSet
 from django_filters.views import FilterView
 
@@ -123,4 +123,13 @@ class OfferEdit(OfferAccessMixin, MarketMixin, UpdateView):
     template_name = 'offers/edit.html'
 
     def get_success_url(self):
+        return self.reverse('offers:entity_offers', kwargs={'pk': self.object.provider.pk })
+
+
+class OfferDelete(OfferAccessMixin, MarketMixin, DeleteView):
+    template_name = 'offers/delete.html'
+    model = Offer
+
+    def get_success_url(self):
+        messages.success(self.request, _('Oferta eliminada correctamente.'))
         return self.reverse('offers:entity_offers', kwargs={'pk': self.object.provider.pk })

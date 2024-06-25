@@ -35,6 +35,7 @@
         <td  class="table-actions">
             <a class="btn btn-outline-primary" href="{% market_url 'offers:detail' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Ver detalle"><i class="material-icons">visibility</i></a>
             <a class="btn btn-outline-primary" href="{% market_url 'offers:edit' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="material-icons">mode_edit</i></a>
+            <a class="btn btn-outline-primary" href="{% market_url 'offers:delete' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="Eliminar"><i class="material-icons">delete</i></a>
         <td>
 
 {% endblock %}

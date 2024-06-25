@@ -11,4 +11,5 @@ urlpatterns = [
     path('<int:market>/providers/<pk>/add_offer/', views.CreateOffer.as_view(), name='add'),
     path('<int:market>/offers/<pk>/', views.OfferDetail.as_view(), name='detail'),
     path('<int:market>/offers/<pk>/edit/', views.OfferEdit.as_view(), name='edit'),
+    path('<int:market>/offers/<pk>/delete/', views.OfferDelete.as_view(), name='delete'),
 ]
