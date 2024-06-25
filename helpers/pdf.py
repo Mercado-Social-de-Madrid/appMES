@@ -8,8 +8,8 @@ from weasyprint import HTML, CSS, default_url_fetcher
 from weasyprint.fonts import FontConfiguration
 
 def weasyprint_local_fetcher(url):
-    if url.startswith('local://'):
-        filepath = settings.MEDIA_ROOT + url[13:]
+    if url.startswith('local:/'):
+        filepath = settings.MEDIA_ROOT + url[14:]
         with open(filepath, 'rb') as f:
             file_data = f.read()
         return {
@@ -17,6 +17,7 @@ def weasyprint_local_fetcher(url):
             'mime_type': mimetypes.guess_type(filepath)[0],
         }
     return default_url_fetcher(url)
+
 
 def render_pdf_response(request, pdf_template, context_params, filename='temp'):
     html_string = render_to_string(pdf_template, context_params)

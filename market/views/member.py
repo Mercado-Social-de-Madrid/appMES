@@ -74,17 +74,32 @@ def get_card_data(member_type, member):
     return card_data
 
 
-@login_required
-def member_card(request):
-    account = Account.objects.filter(owner=request.user).first()
-    member_type = 'provider' if isinstance(account, Provider) else 'consumer'
-    card_data = get_card_data(member_type, account)
-    return render(request, 'member/card.html', card_data)
+class MemberCard(TemplateView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        account = Account.objects.filter(owner=self.request.user).first()
+        member_type = 'provider' if isinstance(account, Provider) else 'consumer'
+        context.update(get_card_data(member_type, account))
+        return context
 
 
+class MarketMemberCard(MarketMixin, TemplateView):
+    template_name = 'member/card.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        account = Account.objects.filter(node=self.node, pk=self.kwargs['pk']).first()
+        member_type = 'provider' if isinstance(account, Provider) else 'consumer'
+        context['account'] = account
+        context.update(get_card_data(member_type, account))
+        return context
+
 @login_required
-def member_card_pdf(request):
-    account = Account.objects.filter(owner=request.user).first()
+def member_card_pdf(request, market=None, pk=None):
+    if market is not None and pk is not None:
+        account = Account.objects.filter(node=market, pk=pk).first()
+    else:
+        account = Account.objects.filter(owner=request.user).first()
     member_type = 'provider' if isinstance(account, Provider) else 'consumer'
     card_data = get_card_data(member_type, account)
 

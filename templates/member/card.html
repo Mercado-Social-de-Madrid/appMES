@@ -3,7 +3,7 @@
 {% load settings_value %}
 {% load l10n %}
 {% load i18n %}
-
+{% load market_url %}
 {% block title %}{% translate "Mi carnet de socia" %}{% endblock%}
 
 {% block bodyattrs %}class="entity"{% endblock%}
@@ -29,7 +29,11 @@
                         <br> <br>
                  </div>
                   <div class="col-lg-4 text-center">
+                  {% if request.user.is_staff %}
+                        <a href="{% market_url 'market:member_card_pdf' account.pk %}" target="_blank" class="btn py-3 mt-2 btn-lg btn-primary btn-action"><span class="material-icons mr-2">download</span>{% translate "Descargar PDF" %}</a>
+                  {% else %}
                       <a href="{% url 'market:member_card_pdf' %}" target="_blank" class="btn py-3 mt-2 btn-lg btn-primary btn-action"><span class="material-icons mr-2">download</span>{% translate "Descargar PDF" %}</a>
+                  {% endif %}
                   </div>
               </div>
               {% include 'member/card_base.html' %}

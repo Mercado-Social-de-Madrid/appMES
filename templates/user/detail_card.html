@@ -20,7 +20,7 @@
     <form class="pt-3" method="post" action="{% url 'auth:preregister_send_email' user.preregister.first.id %}">
         {% csrf_token %}
         <input type="hidden" name="next" value="{% market_url 'auth:user_detail' user.pk %}">
-        <a class="btn btn-secondary mb-2 copy-clipboard mr-2" href="#" data-clipboard-text="{% url 'auth:preregister' user.preregister.first.id %}"> <i class="material-icons mr-2">link</i>{% translate "Copiar enlace"  %} </a>
+        <a class="btn btn-secondary mb-2 copy-clipboard mr-2" href="#" data-clipboard-text="{% settings_value 'BASESITE_URL' %}{% url 'auth:preregister' user.preregister.first.id %}"> <i class="material-icons mr-2">link</i>{% translate "Copiar enlace"  %} </a>
          <button type="submit" class="btn btn-primary mb-2 copy-clipboard"> <i class="material-icons mr-2">send</i>{% translate "Reenviar email"  %} </button>
     </form>
 {% endif %}

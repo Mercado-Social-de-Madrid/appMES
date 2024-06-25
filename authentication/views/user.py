@@ -71,7 +71,7 @@ class ChangeUserPassword(MarketMixin, FormView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('auth:user_detail', kwargs={'pk': self.user.pk})
+        return self.reverse('auth:user_detail', kwargs={'pk': self.user.pk})
 
 
 class CreateUser(CreateView):

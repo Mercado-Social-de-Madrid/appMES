@@ -22,7 +22,7 @@
 
         <div class="card-body px-5">
             <div class="primary-title lead d-flex  justify-content-around align-items-center mt-4">
-                <p>Activa:
+                <p>{% translate 'Activa' %}:
                 {% if benefit.active %}
                     <i class="material-icons text-success" data-toggle="tooltip" data-placement="right" title="{% translate 'Activa' %}">check_circle</i>
                 {% else %}
@@ -61,7 +61,7 @@
                             {{ benefit.benefit_for_entities }}
                         {% endautoescape %}
                     {% else %}
-                        <div class="text-grey">{% translate 'No hay ventajas para entidades.</div>
+                        <div class="text-grey">{% translate 'No hay ventajas para entidades.' %}</div>
                     {% endif %}
 
                     {% if request.user.get_related_entity.0 == 'entity' or request.user.is_staff or request.user.is_superuser%}

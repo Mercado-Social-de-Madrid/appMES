@@ -26,6 +26,8 @@
     <div class="card detail-card mt-4">
         <div class="card-body">
             {% include "user/detail_card.html" with user=object.owner %}
+            <hr>
+            <a href="{% market_url 'market:member_card' object.pk %}" class="btn d-block bg-brand btn-primary btn-action">{% translate "Ver carnet de socia" %}</a>
         </div>
     </div>
     {% endif %}

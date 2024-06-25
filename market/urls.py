@@ -40,9 +40,11 @@ urlpatterns = [
     path('dashboard/', views.UserDashboard.as_view(), name='user_dashboard'),
 
     path('member/check/', views.CheckMemberStatus.as_view(), name='member_check_form'),
-    path('member/card/', views.member_card, name='member_card'),
+    path('member/card/', views.MemberCard.as_view(), name='member_card'),
     path('member/card_pdf/', views.member_card_pdf, name='member_card_pdf'),
     path('socia/', views.MemberCheck.as_view(), name='member_check'),
+    path('<int:market>/member/<pk>/card/', views.MarketMemberCard.as_view(), name='member_card'),
+    path('<int:market>/member/<pk>/card_pdf/', views.member_card_pdf, name='member_card_pdf'),
 
     path('balance/<member_id>/', views.BalanceRedirect.as_view(), name='balance_result'),
     path('<int:market>/balance/<member_id>/', views.BalanceResult.as_view(), name='balance_result'),
