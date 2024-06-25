@@ -35,7 +35,7 @@ class Command(BaseCommand):
             print(f"Node shortname not found: {node_shortname}")
             return
 
-        with open(csvfile, 'r', encoding="utf8") as fp:
+        with open(f"data/{csvfile}", 'r', encoding="utf8") as fp:
             csv_reader = csv.reader(fp, delimiter=';')
             line = 0
 
