@@ -75,6 +75,8 @@ def get_card_data(member_type, member):
 
 
 class MemberCard(TemplateView):
+    template_name = 'member/card.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         account = Account.objects.filter(owner=self.request.user).first()
