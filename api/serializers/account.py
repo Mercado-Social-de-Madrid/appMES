@@ -25,3 +25,12 @@ class ProfileImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = ["profile_image"]
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        profile_image_url = data['profile_image']
+        # Remove "/media" prefix as the mobile apps expects the path without it
+        prefix = "/media"
+        if profile_image_url.startswith(prefix):
+            data['profile_image'] = profile_image_url.replace(prefix, "")
+        return data
