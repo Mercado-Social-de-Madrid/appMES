@@ -188,6 +188,7 @@ LANGUAGES = (
     ('eu', _('Euskara')),
     ('gl', _('Galego')),
 )
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'es'
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
