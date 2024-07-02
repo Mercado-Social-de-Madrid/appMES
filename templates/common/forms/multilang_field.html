@@ -1,0 +1,34 @@
+{% load i18n %}
+{% load get_attr %}
+
+{% with form|get_attr:fieldname as base_field %}
+
+<div class="form-group">
+<div class="multilang-field">
+    {% include "common/forms/label.html" with field=base_field %}
+
+    <ul class="nav nav-justified nav-tabs input-language" id="multilangfield-{{fieldname}}" role="tablist">
+    {% for lang in LANGUAGES %}
+      <li class="nav-item">
+        <a aria-controls="home" aria-selected="true" class="nav-link  {% if lang.0 == LANGUAGE_CODE %}active{% endif %}" data-toggle="tab" href="#multilangfield-{{fieldname}}-{{lang.0}}" id="{{fieldname}}-{{lang.0}}-tab" role="tab">{{lang.0}}</a>
+      </li>
+    {% endfor %}
+    </ul>
+</div>
+
+<div class="tab-content" id="justifiedTabContent">
+{% for lang in LANGUAGES %}
+
+  <div aria-labelledby="{{fieldname}}-{{lang.0}}-tab" class="tab-pane fade show {% if lang.0 == LANGUAGE_CODE %}active{% endif %}" id="multilangfield-{{fieldname}}-{{lang.0}}" role="tabpanel">
+       {% with fieldname|add:'_'|add:lang.0 as field_name  %}
+          {{ form|get_attr:field_name }}
+        {% endwith %}
+  </div>
+{% endfor %}
+</div>
+{% if base_field.help_text%}
+  <small class="text-muted mt-2 d-block">{{ base_field.help_text|safe }}</small>
+{% endif %}
+</div>
+
+{% endwith %}

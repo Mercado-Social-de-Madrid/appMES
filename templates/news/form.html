@@ -5,7 +5,7 @@
 {{form.media}}
 <div class="row">
     <div class="col-md-5 mb-4">
-        {% include "common/forms/field.html" with field=form.title %}
+        {% include "common/forms/multilang_field.html" with form=form fieldname='title' %}
 
         <label>{% translate 'Imagen de la noticia' %}</label>
 
@@ -25,7 +25,8 @@
         <div class="mt-4">
             {% include "common/forms/field.html" with field=form.more_info_url %}
             <div data-visible-by="#{{form.more_info_url.auto_id}}">
-            {% include "common/forms/field.html" with field=form.more_info_text %}
+
+            {% include "common/forms/multilang_field.html" with form=form fieldname='more_info_text' %}
             </div>
         </div>
 
@@ -34,11 +35,12 @@
     </div>
 
     <div class="col-md-7">
+        {% include "common/forms/multilang_field.html" with form=form fieldname='short_description' %}
 
-        {% include "common/forms/field.html" with field=form.short_description not_floating=True %}
+        <div class="mt-4">
+            {% include "common/forms/multilang_field.html" with form=form fieldname='description' %}
+        </div>
 
-        {% include "common/forms/label.html" with field=form.description%}
-        {{form.description}}
 
     </div>
 </div>

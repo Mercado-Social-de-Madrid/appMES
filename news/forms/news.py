@@ -1,13 +1,13 @@
 # coding=utf-8
-
-from django import forms
 from ckeditor.widgets import CKEditorWidget
+from django import forms
 
+from helpers.forms.MultiLangForm import MultiLangForm
 from helpers.forms.BootstrapForm import BootstrapForm
 from news.models import News
 
 
-class NewsForm(BootstrapForm, forms.ModelForm):
+class NewsForm(BootstrapForm, MultiLangForm, forms.ModelForm):
 
     class Meta:
         model = News
