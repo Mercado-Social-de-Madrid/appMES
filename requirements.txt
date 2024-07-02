@@ -7,6 +7,7 @@ django-environ==0.11.2
 django-filter==23.5
 django-imagekit==4.1.0
 django-log-viewer==1.1.7
+django-modeltranslation==0.18.12
 django-polymorphic==3.1
 django-qr-code==3.1.1
 djangorestframework==3.14.0
