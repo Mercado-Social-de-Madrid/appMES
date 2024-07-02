@@ -20,10 +20,10 @@
     </div>
 {% endif %}
 
-<div class="container px-md-5 mt-4">
+<div class="container px-md-5 ">
 
     {% if request.user.is_staff %}
-    <div class="card detail-card mt-4">
+    <div class="card detail-card">
         <div class="card-body">
             {% include "user/detail_card.html" with user=object.owner %}
             <hr>
@@ -93,4 +93,11 @@
               </div>
  </div>
           </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+<script type="text/javascript">
+    new ClipboardJS('.copy-clipboard');
+</script>
 {% endblock %}
