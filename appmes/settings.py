@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'fcm_django',
     'django_unused_media',
+    'modeltranslation',
 
     # Django apps
     'django.contrib.admin',
