@@ -47,6 +47,7 @@ class AddMarket(CreateView, MarketFormsetView):
     template_name = 'market/create.html'
     form_class = MarketForm
     model = Node
+    initial = {'preffered_locale': 'es', 'multilang_enabled_es': True }
 
     def get_success_url(self):
         return reverse('market:market_list', )
@@ -57,7 +58,7 @@ class EditMarket(MarketMixin, UpdateView, MarketFormsetView):
     pk_url_kwarg = 'market'
     form_class = MarketForm
     model = Node
-    initial = {'preffered_locale': 'es-ES'}
+    initial = {'preffered_locale': 'es'}
 
     def get_success_url(self):
         messages.success(self.request, _('Datos actualizados correctamente.'))

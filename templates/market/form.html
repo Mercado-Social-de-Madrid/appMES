@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load get_attr %}
 
 {% csrf_token %}
 <div class="row">
@@ -11,15 +12,7 @@
 
         {% include "common/forms/field.html" with field=form.shortname %}
 
-
-
-          {% include "common/forms/field.html" with field=form.preferred_locale %}
-
-
-            <div class="mt-5 mb-3">
-
-          </div>
-          <div class="mt-5">
+          <div class="mt-4">
               {% include "common/forms/switch.html" with field=form.visible %}
               {% include "common/forms/switch.html" with field=form.self_register_allowed %}
               {% include "common/forms/switch.html" with field=form.member_card_enabled %}
@@ -36,6 +29,36 @@
         </div>
     </div>
 
+      <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title"><i class="material-icons">translate</i> {% translate 'Multi-idioma' %}</h4>
+            <div class="row">
+                <div class="col-lg-3">
+                    {% include "common/forms/field.html" with field=form.preferred_locale not_floating=True %}
+                </div>
+
+
+
+            <div class="col-lg-9">
+                <label>{% translate 'Idiomas habilitados' %}</label>
+                <div class="btn-group d-flex justify-content-center m-auto bg-brand multilang-select" data-toggle="buttons" role="group">
+
+            {% for lang in LANGUAGES %}
+                {% with 'multilang_enabled_'|add:lang.0 as field_name %}
+                    {% with form|get_form_field:field_name as multilang_field %}
+                     <label class="btn btn-sm {% if multilang_field.value %} active {% endif %}">
+                        {{ multilang_field }}
+                         <span><h4 class="mb-0 text-light">{{lang.0 }}</h4>{{lang.1 }}</span>
+                      </label>
+                    {% endwith %}
+                {% endwith %}
+            {% endfor %}
+                </div>
+            </div>
+                </div>
+
+        </div>
+      </div>
       <div class="card mb-4">
         <div class="card-body">
             <h4 class="card-title"><i class="material-icons">edit_location</i> {% translate 'Datos públicos' %}</h4>

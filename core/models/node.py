@@ -18,7 +18,7 @@ class Node(models.Model):
     self_register_allowed = models.BooleanField(default=False, verbose_name=_('Permitir el registro abierto'))
     register_provider_url = models.TextField(blank=True, null=True, verbose_name=_('Enlace al formulario de registro de proveedoras'))
     register_consumer_url = models.TextField(blank=True, null=True, verbose_name=_('Enlace al formulario de registro de consumidoras'))
-    preferred_locale = models.CharField(max_length=10, default='es-ES', verbose_name=_('Idioma preferido de la interfaz'))
+
     banner_image = ProcessedImageField(null=True, blank=True, upload_to=RandomFileName('node/'),
                                        verbose_name=_('Imagen principal'),
                                        processors=[ResizeToFit(756, 512, upscale=False)], format='PNG')
@@ -34,6 +34,9 @@ class Node(models.Model):
     linked_crm_url = models.URLField(blank=True, null=True, verbose_name=_('URL del servidor de la Herramienta de gestión'))
     member_card_enabled = models.BooleanField(default=True, verbose_name=_('Carnet de socia activa'))
     info_page_url = models.TextField(blank=True, null=True, verbose_name=_('Enlace a página con información básica del mercado'))
+
+    preferred_locale = models.CharField(max_length=10, default='es-ES', verbose_name=_('Idioma preferido de la interfaz'))
+    multilang_enabled = models.BooleanField(default=False, verbose_name=_('Utiliza multi-idioma'))
 
     class Meta:
         verbose_name = _('Mercado')

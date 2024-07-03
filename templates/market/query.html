@@ -1,18 +1,34 @@
 {% extends 'common/list/base.html' %}
 {% load i18n %}
+{% load get_attr %}
 
 {% block table_head %}
     <th scope="col">{% translate 'Mercado' %}</th>
-    <th></th>
+    <th scope="col">{% translate 'Identificador' %}</th>
+    <th scope="col">{% translate 'Carnet de socia' %}</th>
+    <th scope="col">{% translate 'Idiomas' %}</th>
 {% endblock %}
 
 
 {% block item_row %}
 
 <td class="entity-td"> {{item.name}}</td>
+<td class="entity-td"> <code>{{item.shortname}}</code></td>
+<td> {% if item.member_card_enabled %} <i class="material-icons text-dark">check_circle</i>{% endif %} </td>
+<td>
+{% for lang in LANGUAGES %}
+   {% with 'multilang_enabled_'|add:lang.0 as field_name  %}
+        {% with item|get_attr:field_name as lang_enabled %}
+            {% if lang_enabled %}
+    <span class="chip">{{lang.1}}</span>
+            {% endif %}
+        {% endwith %}
+    {% endwith %}
+{% endfor %}
+</td>
 <td class="table-actions">
     <a class="btn btn-outline-primary" href="{% url 'market:edit_market' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Editar mercado' %}"><i class="material-icons">edit</i></a>
-    <a class="btn btn-outline-primary" href="{% url 'market:market_dashboard' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Gestionar mercado' %}"><i class="material-icons">visibility</i></a>
+    <a class="btn btn-outline-primary" href="{% url 'market:market_dashboard' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Gestionar mercado' %}"><i class="material-icons">arrow_forward</i></a>
 </td>
 
 {% endblock %}
