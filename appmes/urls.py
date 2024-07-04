@@ -18,6 +18,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include, re_path
 
+from authentication.views import set_language_and_save_profile
 from documentation.views import DocsView
 
 urlpatterns = [
@@ -33,7 +34,7 @@ urlpatterns = [
     path('<int:market>/reports/', include('reports.urls')),
     path('<int:market>/news/', include('news.urls')),
 
-    path('i18n/', include("django.conf.urls.i18n")),
+    path("i18n/setlang/", set_language_and_save_profile, name="set_language"),
     path('admin/', admin.site.urls),
 ]
 

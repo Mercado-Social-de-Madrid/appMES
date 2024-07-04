@@ -70,7 +70,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ["email", "password", "is_active", "is_staff"]
+        fields = ["email", "password", "is_active", "is_staff", "preferred_locale"]
 
 
 class UserPasswordChangeForm(AdminPasswordChangeForm):
@@ -93,7 +93,7 @@ class UserAdmin(BaseUserAdmin):
     ordering = ['email']
     fieldsets = (
         (_('Información'), {
-            'fields': ('email', 'first_name', 'last_name', 'password'),
+            'fields': ('email', 'first_name', 'last_name', 'password', 'preferred_locale'),
         }),
         (_('Fechas'), {
             'fields': ('date_joined', 'last_login', 'created_at', 'updated_at',),

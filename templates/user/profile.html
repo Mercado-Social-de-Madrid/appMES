@@ -37,23 +37,12 @@
         <h4><i class="material-icons mr-3">account_circle</i> {% translate "Datos de perfil" %}</h4>
       <div class="row">
           <div class="col-sm-12">
-              {% include "common/forms/field.html" with field=user_form.username %}
+              {% include "common/forms/field.html" with field=profile_form.email %}
           </div>
 
-          <div class="col-sm-12">
-              {% include "common/forms/field.html" with field=user_form.email %}
-          </div>
-
-          <div class="col-sm-9">
-              {% include "common/forms/field.html" with field=user_form.first_name %}
-          </div>
-
-          <div class="col-sm-12 ">
-              {% include "common/forms/field.html" with field=user_form.last_name %}
-          </div>
 
            <div class="col-sm-12 ">
-              {% include "common/forms/field.html" with field=profile_form.preferred_locale %}
+              {% include "common/forms/field.html" with field=profile_form.preferred_locale not_floating=True %}
           </div>
 
       </div>
