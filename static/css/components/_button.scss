@@ -4,3 +4,9 @@
     padding: $btn-padding-y 2rem;
     border-radius:2rem;
 }
+
+button.badge{
+    outline:none;
+    border:none;
+    cursor:pointer;
+}

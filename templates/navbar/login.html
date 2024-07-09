@@ -1,48 +1,46 @@
 {% load i18n %}
 
-{% if request.user.is_authenticated %}
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="material-icons">account_circle</i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right pt-0" aria-labelledby="navbarDropdownMenuLink">
-            <div class="bg-light text-dark p-3">
-                <div class="primary-title">{{request.user.get_username}}</div>
 
-                <small class="text-muted">{{request.user.email}}</small><br>
-                <hr>
-                <div class="mb-2">{% translate "Idioma de la interfaz" %}:<br>
-                    {% for lang in LANGUAGES %}
-                        {% if lang.0 == LANGUAGE_CODE %}
-                           <span class="badge text-uppercase badge-secondary text-light"  title="{{lang.1}}">{{lang.0}}</span>
-                        {% else %}
-                            <form class="d-inline" action="{% url 'set_language' %}" method="post">
-                                {% csrf_token %}
-                                <input type="hidden" name="language" value="{{lang.0}}">
-                                <button type="submit" class="badge text-uppercase badge-primary" title="{{lang.1}}">{{lang.0}}</button>
-                            </form>
-
-                        {% endif %}
-                {% endfor %}
-                </div>
-
-
-            </div>
-
-          <a class="dropdown-item" href="{% url 'auth:edit_profile' %}"><i class="material-icons">mode_edit</i> {% translate "Editar perfil" %}</a>
-            <div class="dropdown-divider"></div>
-            <form method="post" action="{% url 'auth:logout' %}">
-                {% csrf_token %}
-                <input type="hidden" name="next" value="{% url 'market:index' %}">
-                <button type="submit" class="dropdown-item"><i class="material-icons">exit_to_app</i> {% translate "Cerrar sesión" %}</button>
-            </form>
-        </div>
-      </li>
-    <a class="nav-link d-none d-md-block pr-0 px-2" title="Guía de usuario" href="{% url 'user_docs' ''%}" target="_blank">
-        <i class="material-icons-outlined">description</i>
-    </a>
-{% else %}
+{% if not request.user.is_authenticated %}
     <li class="nav-item">
       <a class="nav-link btn btn-outline-primary" href="{% url 'auth:login' %}"><i class="fas fa-plug mr-2" aria-hidden="true"></i> {% translate 'Entrar' %}</a>
   </li>
 {% endif %}
+
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle px-1" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% if request.user.is_authenticated %}
+            <i class="material-icons">account_circle</i>
+            {% else %}
+            <i class="material-icons">settings</i>
+            {% endif %}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right pt-0" aria-labelledby="navbarDropdownMenuLink">
+            <div class="bg-light text-dark p-3">
+
+            {% if request.user.is_authenticated %}
+                <div class="primary-title">{{request.user.get_username}}</div>
+                <small class="text-muted">{{request.user.email}}</small><br>
+                <hr>
+            {% endif %}
+                <div class="mb-2">{% translate "Idioma de la interfaz" %}:<br>
+                    {% include "navbar/lang_select.html" %}
+                </div>
+            </div>
+
+            {% if request.user.is_authenticated %}
+          <a class="dropdown-item" href="{% url 'auth:edit_profile' %}"><i class="material-icons">mode_edit</i> {% translate "Editar perfil" %}</a>
+
+            <form method="post" action="{% url 'auth:logout' %}">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{% url 'market:index' %}">
+                <button type="submit" class="dropdown-item"><i class="material-icons text-danger">exit_to_app</i> {% translate "Cerrar sesión" %}</button>
+            </form>
+            <div class="dropdown-divider"></div>
+            {% endif %}
+
+            <a class="dropdown-item" href="{% url 'user_docs' '' %}" target="_blank"><i class="material-icons">description</i> {% translate "Guía de usuario" %}</a>
+        </div>
+      </li>
+

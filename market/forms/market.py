@@ -1,5 +1,7 @@
 
 from django import forms
+from django.conf import settings
+
 from core.models import Node
 from helpers.forms.BootstrapForm import BootstrapForm
 
@@ -14,5 +16,6 @@ class MarketForm(forms.ModelForm, BootstrapForm):
             'info_page_url': forms.TextInput(),
             'banner_image': forms.FileInput(),
             'balance_badge': forms.FileInput(),
+            'preferred_locale': forms.Select(choices=settings.LANGUAGES)
         }
         exclude = ["takahe_server", "takahe_invite_url"]

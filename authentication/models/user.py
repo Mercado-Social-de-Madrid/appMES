@@ -85,6 +85,15 @@ class User(TimeStampedModel, AbstractUser):
     def is_registered(self):
         return self.preregister.count() == 0
 
+    def get_node(self):
+        if self.is_superuser:
+            return None
+        elif self.is_staff:
+            return self.node
+        else:
+            account = self.accounts_managed.first()
+            return None if account is None else account.node
+
     @property
     def display_name(self):
         return self.first_name or self.email

@@ -10,7 +10,7 @@ urlpatterns = [
     path('profile/edit/', views.EditProfile.as_view(), name='edit_profile'),
     path('profile/edit/password', views.EditProfilePassword.as_view(), name='profile_password'),
 
-    path('login/', auth_views.LoginView.as_view(), {'redirect_authenticated_user': True}, name='login'),
+    path('login/', views.LoginAndSetLang.as_view(), {'redirect_authenticated_user': True}, name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('account/password_reset/', auth_views.PasswordResetView.as_view(form_class=PasswordReset, success_url=reverse_lazy('auth:password_reset_done')), name='password_reset'),
     path('account/password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),

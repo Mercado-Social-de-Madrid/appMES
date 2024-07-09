@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{% for lang in LANGUAGES %}
+        {% if lang.0 == LANGUAGE_CODE %}
+           <span class="badge text-uppercase badge-secondary text-light"  title="{{lang.1}}">{{lang.0}}</span>
+        {% else %}
+            <form class="d-inline" action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="language" value="{{lang.0}}">
+                <button type="submit" class="badge text-uppercase badge-primary" title="{{lang.1}}">{{lang.0}}</button>
+            </form>
+
+        {% endif %}
+{% endfor %}
