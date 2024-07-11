@@ -15,4 +15,4 @@ class MarketForm(forms.ModelForm, BootstrapForm):
             'banner_image': forms.FileInput(),
             'balance_badge': forms.FileInput(),
         }
-        exclude = []
+        exclude = ["takahe_server", "takahe_invite_url"]
