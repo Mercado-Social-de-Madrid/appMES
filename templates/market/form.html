@@ -41,21 +41,17 @@
 
             <div class="col-lg-9">
                 <label>{% translate 'Idiomas habilitados' %}</label>
-                <div class="btn-group d-flex justify-content-center m-auto bg-brand multilang-select" data-toggle="buttons" role="group">
 
-            {% for lang in LANGUAGES %}
-                {% with 'multilang_enabled_'|add:lang.0 as field_name %}
-                    {% with form|get_form_field:field_name as multilang_field %}
-                     <label class="btn btn-sm {% if multilang_field.value %} active {% endif %}">
-                        {{ multilang_field }}
-                         <span><h4 class="mb-0 text-light">{{lang.0 }}</h4>{{lang.1 }}</span>
-                      </label>
-                    {% endwith %}
-                {% endwith %}
-            {% endfor %}
+                <div class="btn-group d-flex justify-content-center m-auto bg-brand multilang-select" data-toggle="buttons" role="group">
+                    {% for lang_code, label in form.enabled_langs.field.choices %}
+                        <label class="btn btn-sm {% if lang_code in form.enabled_langs.value %} active {% endif %}">
+                            <input type="checkbox" name="{{ form.enabled_langs.name }}" value="{{ lang_code }}" {% if lang_code in form.enabled_langs.value %} checked {% endif %}>
+                            <h4 class="mb-0 text-light">{{lang_code}}</h4>{{label}}
+                        </label>
+                    {% endfor %}
                 </div>
             </div>
-                </div>
+        </div>
 
         </div>
       </div>

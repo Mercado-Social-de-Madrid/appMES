@@ -7,7 +7,10 @@ from helpers.forms.BootstrapForm import BootstrapForm
 
 
 class MarketForm(forms.ModelForm, BootstrapForm):
-
+    enabled_langs = forms.MultipleChoiceField(
+        choices=settings.LANGUAGES,
+        widget=forms.CheckboxSelectMultiple,
+    )
     class Meta:
         model = Node
         widgets = {
@@ -17,5 +20,6 @@ class MarketForm(forms.ModelForm, BootstrapForm):
             'banner_image': forms.FileInput(),
             'balance_badge': forms.FileInput(),
             'preferred_locale': forms.Select(choices=settings.LANGUAGES)
+
         }
         exclude = ["takahe_server", "takahe_invite_url"]

@@ -1,33 +1,32 @@
 {% load i18n %}
 {% load get_attr %}
+{% load get_active_lang %}
 
 {% with form|get_form_field:fieldname as base_field %}
+{% with current_market|get_active_lang as active_lang%}
 
 <div class="form-group">
 <div class="multilang-field">
     {% include "common/forms/label.html" with field=base_field %}
     <ul class="nav nav-justified nav-tabs input-language" id="multilangfield-{{fieldname}}" role="tablist">
-    {% for lang in LANGUAGES %}
-        {% with 'multilang_enabled_'|add:lang.0 as field_name  %}
-        {% with current_market|get_attr:field_name as lang_enabled %}
-            {% if lang_enabled %}
+    {% if current_market.enabled_langs|length > 1 %}
+        {% for lang in LANGUAGES %}
+            {% if lang.0 in current_market.enabled_langs %}
               <li class="nav-item">
-                <a aria-controls="home" aria-selected="true" class="nav-link  {% if lang.0 == LANGUAGE_CODE %}active{% endif %}" data-toggle="tab" href="#multilangfield-{{fieldname}}-{{lang.0}}" id="{{fieldname}}-{{lang.0}}-tab" role="tab">{{lang.0}}</a>
+                  <a aria-controls="home" aria-selected="true" class="nav-link  {% if lang.0 == active_lang %}active{% endif %}" data-toggle="tab" href="#multilangfield-{{fieldname}}-{{lang.0}}" id="{{fieldname}}-{{lang.0}}-tab" role="tab">{{lang.0}}</a>
               </li>
             {% endif %}
-        {% endwith %}
-        {% endwith %}
-    {% endfor %}
+        {% endfor %}
+    {% endif %}
     </ul>
 </div>
 
 <div class="tab-content" id="justifiedTabContent">
 {% for lang in LANGUAGES %}
-
-  <div aria-labelledby="{{fieldname}}-{{lang.0}}-tab" class="tab-pane fade show {% if lang.0 == LANGUAGE_CODE %}active{% endif %}" id="multilangfield-{{fieldname}}-{{lang.0}}" role="tabpanel">
+  <div aria-labelledby="{{fieldname}}-{{lang.0}}-tab" class="tab-pane fade show {% if lang.0 == active_lang %}active{% endif %}" id="multilangfield-{{fieldname}}-{{lang.0}}" role="tabpanel">
        {% with fieldname|add:'_'|add:lang.0 as field_name  %}
           {{ form|get_form_field:field_name }}
-        {% endwith %}
+       {% endwith %}
   </div>
 {% endfor %}
 </div>
@@ -36,4 +35,5 @@
 {% endif %}
 </div>
 
+{% endwith %}
 {% endwith %}

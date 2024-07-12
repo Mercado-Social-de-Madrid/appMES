@@ -1,7 +1,9 @@
+from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from imagekit.models import ProcessedImageField
 from pilkit.processors import ResizeToFit
+from django.contrib.postgres.fields import ArrayField
 
 from helpers import RandomFileName
 
@@ -36,7 +38,8 @@ class Node(models.Model):
     info_page_url = models.TextField(blank=True, null=True, verbose_name=_('Enlace a página con información básica del mercado'))
 
     preferred_locale = models.CharField(max_length=10, default='es-ES', verbose_name=_('Idioma preferido de la interfaz'))
-    multilang_enabled = models.BooleanField(default=False, verbose_name=_('Utiliza multi-idioma'))
+    enabled_langs = ArrayField(models.CharField(max_length=3, choices=settings.LANGUAGES), blank=True, default=[], verbose_name=_('Idiomas habilitados'))
+
 
     class Meta:
         verbose_name = _('Mercado')
