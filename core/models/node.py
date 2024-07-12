@@ -40,6 +40,9 @@ class Node(models.Model):
     preferred_locale = models.CharField(max_length=10, default='es-ES', verbose_name=_('Idioma preferido de la interfaz'))
     enabled_langs = ArrayField(models.CharField(max_length=3, choices=settings.LANGUAGES), blank=True, default=[], verbose_name=_('Idiomas habilitados'))
 
+    @property
+    def is_multilang_enabled(self):
+        return len(self.enabled_langs) > 1
 
     class Meta:
         verbose_name = _('Mercado')

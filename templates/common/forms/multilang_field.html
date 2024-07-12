@@ -3,17 +3,17 @@
 {% load get_active_lang %}
 
 {% with form|get_form_field:fieldname as base_field %}
-{% with current_market|get_active_lang as active_lang%}
 
 <div class="form-group">
 <div class="multilang-field">
     {% include "common/forms/label.html" with field=base_field %}
     <ul class="nav nav-justified nav-tabs input-language" id="multilangfield-{{fieldname}}" role="tablist">
-    {% if current_market.enabled_langs|length > 1 %}
+    {% if current_market.is_multilang_enabled %}
         {% for lang in LANGUAGES %}
             {% if lang.0 in current_market.enabled_langs %}
+                {% is_active_lang lang.0 as is_active_lang %}
               <li class="nav-item">
-                  <a aria-controls="home" aria-selected="true" class="nav-link  {% if lang.0 == active_lang %}active{% endif %}" data-toggle="tab" href="#multilangfield-{{fieldname}}-{{lang.0}}" id="{{fieldname}}-{{lang.0}}-tab" role="tab">{{lang.0}}</a>
+                  <a aria-controls="home" aria-selected="true" class="nav-link  {% if is_active_lang %}active{% endif %}" data-toggle="tab" href="#multilangfield-{{fieldname}}-{{lang.0}}" id="{{fieldname}}-{{lang.0}}-tab" role="tab">{{lang.0}}</a>
               </li>
             {% endif %}
         {% endfor %}
@@ -21,12 +21,17 @@
     </ul>
 </div>
 
-<div class="tab-content" id="justifiedTabContent">
+<div class="tab-content" id="multilangfield-{{fieldname}}-tabs">
 {% for lang in LANGUAGES %}
-  <div aria-labelledby="{{fieldname}}-{{lang.0}}-tab" class="tab-pane fade show {% if lang.0 == active_lang %}active{% endif %}" id="multilangfield-{{fieldname}}-{{lang.0}}" role="tabpanel">
-       {% with fieldname|add:'_'|add:lang.0 as field_name  %}
+    {% is_active_lang lang.0 as is_active_lang %}
+  <div aria-labelledby="{{fieldname}}-{{lang.0}}-tab" class="tab-pane fade show {% if is_active_lang %}active{% endif %}" id="multilangfield-{{fieldname}}-{{lang.0}}" role="tabpanel">
+       {% if base_field.field.required and lang.0 == LANGUAGE_CODE %}
+            {{ base_field }}
+        {% else %}
+        {% with fieldname|add:'_'|add:lang.0 as field_name  %}
           {{ form|get_form_field:field_name }}
-       {% endwith %}
+        {% endwith %}
+        {% endif %}
   </div>
 {% endfor %}
 </div>
@@ -35,5 +40,4 @@
 {% endif %}
 </div>
 
-{% endwith %}
 {% endwith %}

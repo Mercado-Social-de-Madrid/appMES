@@ -17,13 +17,9 @@
 <td> {% if item.member_card_enabled %} <i class="material-icons text-dark">check_circle</i>{% endif %} </td>
 <td>
 {% for lang in LANGUAGES %}
-   {% with 'multilang_enabled_'|add:lang.0 as field_name  %}
-        {% with item|get_attr:field_name as lang_enabled %}
-            {% if lang_enabled %}
+   {% if lang.0 in item.enabled_langs %}
     <span class="chip">{{lang.1}}</span>
-            {% endif %}
-        {% endwith %}
-    {% endwith %}
+    {% endif %}
 {% endfor %}
 </td>
 <td class="table-actions">

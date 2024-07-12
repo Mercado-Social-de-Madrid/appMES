@@ -1,3 +1,5 @@
+import logging
+
 from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from django.contrib import messages
@@ -10,6 +12,7 @@ from core.models import Node
 from market.forms.market import MarketForm
 from market.mixins.current_market import MarketMixin
 
+logger = logging.getLogger(__name__)
 
 class MarketList(ListView):
     template_name = 'market/list.html'
@@ -47,7 +50,7 @@ class AddMarket(CreateView, MarketFormsetView):
     template_name = 'market/create.html'
     form_class = MarketForm
     model = Node
-    initial = {'preffered_locale': 'es', 'multilang_enabled_es': True }
+    initial = {'preferred_locale': 'es' }
 
     def get_success_url(self):
         return reverse('market:market_list', )
@@ -58,7 +61,11 @@ class EditMarket(MarketMixin, UpdateView, MarketFormsetView):
     pk_url_kwarg = 'market'
     form_class = MarketForm
     model = Node
-    initial = {'preffered_locale': 'es'}
+    initial = {'preferred_locale': 'es'}
+
+    def form_invalid(self, form):
+        logger.debug(form.errors)
+        return super().form_invalid(form)
 
     def get_success_url(self):
         messages.success(self.request, _('Datos actualizados correctamente.'))
