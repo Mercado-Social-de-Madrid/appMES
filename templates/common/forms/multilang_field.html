@@ -6,7 +6,9 @@
 
 <div class="form-group">
 <div class="multilang-field">
-    {% include "common/forms/label.html" with field=base_field %}
+    {% if not hide_label %}
+        {% include "common/forms/label.html" with field=base_field %}
+    {% endif %}
     <ul class="nav nav-justified nav-tabs input-language" id="multilangfield-{{fieldname}}" role="tablist">
     {% if current_market.is_multilang_enabled %}
         {% for lang in LANGUAGES %}

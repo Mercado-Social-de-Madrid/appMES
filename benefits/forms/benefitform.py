@@ -5,9 +5,10 @@ from django import forms
 
 from benefits.models import Benefit
 from helpers.forms.BootstrapForm import BootstrapForm
+from helpers.forms.MultiLangForm import MultiLangForm
 
 
-class BenefitForm(BootstrapForm, forms.ModelForm):
+class BenefitForm(BootstrapForm, MultiLangForm, forms.ModelForm):
 
     class Meta:
         model = Benefit
