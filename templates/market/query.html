@@ -5,6 +5,7 @@
 {% block table_head %}
     <th scope="col">{% translate 'Mercado' %}</th>
     <th scope="col">{% translate 'Identificador' %}</th>
+    <th scope="col">{% translate 'Visibilidad pública' %}</th>
     <th scope="col">{% translate 'Carnet de socia' %}</th>
     <th scope="col">{% translate 'Idiomas' %}</th>
 {% endblock %}
@@ -12,9 +13,12 @@
 
 {% block item_row %}
 
-<td class="entity-td"> {{item.name}}</td>
-<td class="entity-td"> <code>{{item.shortname}}</code></td>
-<td> {% if item.member_card_enabled %} <i class="material-icons text-dark">check_circle</i>{% endif %} </td>
+<td> {{item.name}}</td>
+<td> <code>{{item.shortname}}</code></td>
+<td>
+    {% if item.visible %} <i class="material-icons text-dark">visibility</i> Visible {% else %} <i class="material-icons text-muted">visibility_off</i> oculta {% endif %}
+</td>
+<td> {% if item.member_card_enabled %} <i class="material-icons ">check_circle</i>{% endif %} </td>
 <td>
 {% for lang in LANGUAGES %}
    {% if lang.0 in item.enabled_langs %}

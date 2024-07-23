@@ -3,5 +3,34 @@
 {% block title %}Principal{% endblock%}
 {% block bodyattrs %} class="main-bg"{% endblock%}
 {% block content %}
-Hola!
+
+ <div class="jumbotron text-light py-4 px-2">
+    <div class="container-fluid">
+        {% include 'reports/ranges_filter.html' %}
+    </div>
+</div>
+
+<div class="container-fluid py-4">
+
+    <div class="card-columns">
+    {% for item in info_nodes %}
+        <div class="card">
+            <div class="card-img-top bg-light py-3 px-5">
+                <img class="img-fluid" src="{% if item.node.banner_image %}{{ item.node.banner_image.url }}{% else %}{% static 'imgs/brand.png' %}{% endif %}" alt="{{node.name}}">
+            </div>
+             <div class="card-header pb-2">
+                <h4 class="card-title mb-0">{{item.node.name}} <code class="small">{{item.node.shortname}}</code></h4>
+             </div>
+            <div class="card-body">
+                 <div class="row">
+                    <div class="col-sm-4 feature"><div class="display-4"> {{item.total_consumers}}</div><span class="text-primary">consumidoras</span></div>
+                     <div class="col-sm-4 feature"><div class="display-4"> {{item.total_providers}}</div><span class="text-secondary">proveedoras</span></div>
+                     <div class="col-sm-4 feature"><div class="display-4"> {{item.node.news_set.all.count}}</div><span class="text-primary">noticias</span></div>
+                 </div>
+              </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
 {% endblock content %}

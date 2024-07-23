@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.views.generic import TemplateView, RedirectView
 
 import helpers
+from core.models import Node
 from market.mixins.current_market import MarketMixin
 from market.models import Account, Provider, Consumer
 from news.models import News
@@ -32,9 +33,35 @@ class HomeView(LoginRequiredMixin, RedirectView):
             return reverse('market:user_dashboard')
 
 
+def get_node_data(node, since):
+    info_dict = { 'node': node }
+    info_dict['total_providers'] = Provider.objects.filter(node=node).count()
+    info_dict['total_consumers'] = Consumer.objects.filter(node=node).count()
+    info_dict['new_providers'] = helpers.paginate(
+        Provider.objects.filter(node=node, registration_date__gte=since),
+        1, elems_perpage=DASHBOARD_LIST_PAGECOUNT)
+    info_dict['new_consumers'] = helpers.paginate(
+        Consumer.objects.filter(node=node, registration_date__gte=since),
+        1, elems_perpage=DASHBOARD_LIST_PAGECOUNT)
+    return info_dict
 class AdminDashboard(TemplateView):
     template_name = 'dashboard/admin.html'
 
+    def get_context_data(self, **kwargs):
+        context  = super().get_context_data()
+        last = self.request.GET.get('last', 'month')
+        query = days_query[last]
+        today = datetime.date.today()
+        since = today - datetime.timedelta(days=query)
+        context['last'] = last
+
+        nodes = Node.objects.all()
+        info_nodes = []
+        for node in nodes:
+            info_nodes.append(get_node_data(node, since))
+        context['info_nodes'] = info_nodes
+
+        return context
 
 class MarketDashboard(MarketMixin, TemplateView):
     template_name = 'dashboard/market.html'
@@ -47,14 +74,7 @@ class MarketDashboard(MarketMixin, TemplateView):
         today = datetime.date.today()
         since = today - datetime.timedelta(days=query)
         context['last'] = last
-        context['total_providers'] = Provider.objects.filter(node=self.node).count()
-        context['total_consumers'] = Consumer.objects.filter(node=self.node).count()
-        context['new_providers'] = helpers.paginate(
-            Provider.objects.filter(node=self.node, registration_date__gte=since),
-            1, elems_perpage=DASHBOARD_LIST_PAGECOUNT)
-        context['new_consumers'] = helpers.paginate(
-            Consumer.objects.filter(node=self.node, registration_date__gte=since),
-            1, elems_perpage=DASHBOARD_LIST_PAGECOUNT)
+        context.update(get_node_data(self.node, since))
         return context
 
 class UserDashboard(LoginRequiredMixin, MarketMixin, TemplateView):
