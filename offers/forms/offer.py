@@ -3,10 +3,11 @@ from ckeditor.widgets import CKEditorWidget
 from django import forms
 
 from helpers.forms.BootstrapForm import BootstrapForm
+from helpers.forms.MultiLangForm import MultiLangForm
 from offers.models import Offer
 
 
-class OfferForm(BootstrapForm, forms.ModelForm):
+class OfferForm(BootstrapForm, MultiLangForm,  forms.ModelForm):
 
     class Meta:
         model = Offer

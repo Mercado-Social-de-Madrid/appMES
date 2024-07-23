@@ -1,13 +1,23 @@
 # -*- coding: utf-8 -*-
-
+from ckeditor.widgets import CKEditorWidget
+from django import forms
 from django.contrib import admin
+from modeltranslation.admin import TabbedTranslationAdmin
 
 # Register your models here.
 from offers.models import Offer
 
 
+class OfferAdminForm(forms.ModelForm):
+    widgets = {'description': CKEditorWidget(attrs={'cols': 80, 'rows': 30})}
+
+    class Meta:
+        model = Offer
+        fields = '__all__'
+
+
 @admin.register(Offer)
-class OffersAdmin(admin.ModelAdmin):
+class OffersAdmin(TabbedTranslationAdmin):
 
     def pub_date(self, obj):
         return obj.published_date.strftime("%d/%m/%Y")
@@ -21,6 +31,7 @@ class OffersAdmin(admin.ModelAdmin):
     def provider_name(self, obj):
         return obj.provider.display_name
 
+    form = OfferAdminForm
     list_display = ('provider_name', 'title', 'active', 'pub_date', 'begin_date_format', 'end_date_format')
     ordering = '-published_date',
     pub_date.short_description = 'Publicado'

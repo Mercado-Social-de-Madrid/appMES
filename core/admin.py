@@ -1,4 +1,5 @@
 from django.contrib import admin
+from modeltranslation.admin import TabbedTranslationAdmin
 
 from core.models import Node, Gallery, GalleryPhoto
 from core.models.social_profile import SocialNetwork, NodeSocialProfile
@@ -13,7 +14,7 @@ class NodeSocialProfileInline(admin.TabularInline):
 
 
 @admin.register(Node)
-class NodeAdmin(admin.ModelAdmin):
+class NodeAdmin(TabbedTranslationAdmin):
     list_display = ["name", "shortname"]
     inlines = [NodeSocialProfileInline]
 
