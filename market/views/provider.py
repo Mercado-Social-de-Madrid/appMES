@@ -150,6 +150,7 @@ class DetailProvider(AccountAccessMixin, MarketMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['offers'] = Offer.objects.current(provider=self.object)
+        context['contact_email'] = self.object.node.contact_email
         return context
 
 

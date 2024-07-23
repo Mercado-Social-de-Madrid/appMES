@@ -68,7 +68,7 @@
                 {% elif request.user.is_staff or request.user.is_superuser %}
                     <a class="btn btn-primary btn-action mr-4" href="{% market_url 'benefits:add_provider_benefit' object.pk %}" data-toggle="tooltip" title="Añadir ventaja"><i class="material-icons mr-2">local_activity</i>{% translate "Añadir ventaja" %}</a>
                 {% elif request.user.entity == entity %}
-                <h5 class="mb-3">Ahora mismo no ofreces ventajas, para añadirlas ponte en contacto con <a href="mailto:madrid@mercadosocial.net">madrid@mercadosocial.net</a> </h5>
+                <h5 class="mb-3">Ahora mismo no ofreces ventajas, para añadirlas ponte en contacto con <a href="mailto:{{ contact_email }}">{{ contact_email }}</a> </h5>
                 {% endif %}
 
         </div>
