@@ -189,6 +189,7 @@ LANGUAGES = (
     ('gl', _('Galego')),
 )
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'es'
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('es', 'eu', 'ca', 'gl')
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
