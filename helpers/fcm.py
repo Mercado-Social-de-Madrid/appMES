@@ -65,33 +65,41 @@ def broadcast_notification(node=None, data=None, event=NotificationEvent.OTHER, 
             data["event"] = "notification"
             data["type"] = str(event.prefix)
 
+            # Backwards compatibility issue to send notifications to existing topic for people
+            # who haven't updated the app with the multilang feature.
+            topic = node.shortname.lower() + "_" + event.prefix
+            send_broadcast(topic, data, title, body, image, silent)
+
             current_language = get_language()
             for lang in node.enabled_langs:
                 activate(lang)
-
-                if not body and not title:
-                    silent = True
-                if title and silent:
-                    data['title'] = title
-                if body and silent:
-                    data['message'] = body
-
                 topic = node.shortname.lower() + "_" + event.prefix + "_" + lang
-                logger.info(f"Sending message to topic: {topic}")
-
-                if silent:
-                    result = FCMDevice.send_topic_message(
-                        Message(data=data),
-                        topic
-                    )
-                else:
-                    result = FCMDevice.send_topic_message(
-                        Message(notification=Notification(title=title, body=body, image=image), data=data),
-                        topic
-                    )
-                logger.info(f"FCM Broadcast sent: {result}")
+                send_broadcast(topic, data, title, body, image, silent)
 
             activate(current_language)  # Activate original lang back
         except Exception as e:
             logger.error(e)
+
+
+def send_broadcast(topic, data, title, body, image, silent):
+    if not body and not title:
+        silent = True
+    if title and silent:
+        data['title'] = title
+    if body and silent:
+        data['message'] = body
+
+    logger.info(f"Sending message to topic: {topic}")
+
+    if silent:
+        result = FCMDevice.send_topic_message(
+            Message(data=data),
+            topic
+        )
+    else:
+        result = FCMDevice.send_topic_message(
+            Message(notification=Notification(title=title, body=body, image=image), data=data),
+            topic
+        )
+    logger.info(f"FCM Broadcast sent: {result}")
 
