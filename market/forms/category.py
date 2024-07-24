@@ -1,10 +1,11 @@
 from django import forms
 
 from helpers.forms.BootstrapForm import BootstrapForm
+from helpers.forms.MultiLangForm import MultiLangForm
 from market.models import Category
 
 
-class CategoryForm(forms.ModelForm, BootstrapForm):
+class CategoryForm(MultiLangForm, BootstrapForm, forms.ModelForm):
 
     class Meta:
         model = Category

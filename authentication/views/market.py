@@ -13,7 +13,7 @@ class MarketUserList(MarketMixin, UserList):
 class MarketCreateUser(MarketMixin, CreateUser):
     def get_initial(self):
         initial = super().get_initial() or {}
-        initial.update({'node': self.node})
+        initial.update({'node': self.node, 'preferred_locale': self.node.preferred_locale })
         return initial
 
     def get_success_url(self):

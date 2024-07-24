@@ -1,16 +1,16 @@
 {{ form.node }}
 
 <div class="row">
-    <div class="col-sm-9 ">
-          {% include "common/forms/field.html" with field=form.name %}
+    <div class="col-sm-9 col-lg-5">
+        {% include "common/forms/multilang_field.html" with form=form fieldname='name' %}
       </div>
 
-        <div class="col-sm-12 col-md-9">
+        <div class="col-sm-9 col-lg-5 mt-2">
           {% include "common/forms/field.html" with field=form.color %}
         </div>
 
         <div class="col-sm-12 ">
-          {% include "common/forms/field.html" with field=form.description not_floating=True %}
+            {% include "common/forms/multilang_field.html" with form=form fieldname='description' not_floating=True %}
       </div>
 
 </div>

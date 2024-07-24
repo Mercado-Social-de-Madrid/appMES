@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+from modeltranslation.admin import TabbedTranslationAdmin
 
 from core.models.social_profile import ProviderSocialProfile
 from market.models import Provider, Category, Consumer
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(TabbedTranslationAdmin):
     list_display = ["name", "node", "color"]
     list_filter = ["node"]
 
@@ -19,7 +20,7 @@ class ProviderSocialProfileInline(admin.TabularInline):
 
 
 @admin.register(Provider)
-class ProviderAdmin(admin.ModelAdmin):
+class ProviderAdmin(TabbedTranslationAdmin):
     list_display = ["name", "member_id", "is_active", "node", ]
     list_filter = ["node", "is_active"]
     search_fields = ["email", "first_name", "last_name"]
