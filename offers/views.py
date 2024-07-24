@@ -61,7 +61,7 @@ class CreateOffer(OwnedByAccountAccessMixin, MarketMixin, CreateView):
         offer.save()
 
         broadcast_notification(
-            node_shortname=offer.provider.node.shortname,
+            node=offer.provider.node,
             event=NotificationEvent.OFFER_ADDED,
             title=offer.title,
             body=strip_tags(offer.description),

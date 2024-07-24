@@ -4,7 +4,7 @@ from django.conf import settings
 from firebase_admin.messaging import Message, Notification
 
 from fcm_django.models import FCMDevice
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, activate, get_language
 
 logger = logging.getLogger(__name__)
 
@@ -54,17 +54,20 @@ def notify_user(user, data, event=NotificationEvent.OTHER, title=None, body=None
     logger.info(f"FCM Notification sent: {result}")
 
 
-def broadcast_notification(node_shortname=None, data=None, event=NotificationEvent.OTHER, title=None, body=None, image=None, silent=False):
+def broadcast_notification(node=None, data=None, event=NotificationEvent.OTHER, title=None, body=None, image=None, silent=False):
         '''
             Sends an FCM notification broadcast to all devices subscribed to topic
             If the message is silent, title and message are included in the data dictionary
         '''
-        if not settings.DEBUG:
-            logger.info("Sending FCM broadcast...")
-            try:
-                data = data or {}
-                data["event"] = "notification"
-                data["type"] = str(event.prefix)
+        logger.info("Sending FCM broadcast...")
+        try:
+            data = data or {}
+            data["event"] = "notification"
+            data["type"] = str(event.prefix)
+
+            current_language = get_language()
+            for lang in node.enabled_langs:
+                activate(lang)
 
                 if not body and not title:
                     silent = True
@@ -73,7 +76,8 @@ def broadcast_notification(node_shortname=None, data=None, event=NotificationEve
                 if body and silent:
                     data['message'] = body
 
-                topic = node_shortname + "_" + event.prefix
+                topic = node.shortname.lower() + "_" + event.prefix + "_" + lang
+                logger.info(f"Sending message to topic: {topic}")
 
                 if silent:
                     result = FCMDevice.send_topic_message(
@@ -86,8 +90,8 @@ def broadcast_notification(node_shortname=None, data=None, event=NotificationEve
                         topic
                     )
                 logger.info(f"FCM Broadcast sent: {result}")
-            except Exception as e:
-                logger.error(e)
-        else:
-            logger.info(f"Simulate sending Broadcast (DEBUG mode is enabled).")
+
+            activate(current_language)  # Activate original lang back
+        except Exception as e:
+            logger.error(e)
 

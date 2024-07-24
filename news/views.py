@@ -55,7 +55,7 @@ class NewsCreate(MarketMixin, CreateView):
         news.save()
 
         broadcast_notification(
-            node_shortname=news.node.shortname,
+            node=news.node,
             event=NotificationEvent.NEWS_ADDED,
             title=news.title,
             body=news.short_description,
