@@ -3,6 +3,7 @@
 {% block title %}Principal{% endblock%}
 {% block bodyattrs %} class="main-bg"{% endblock%}
 {% block content %}
+{% load i18n %}
 
  <div class="jumbotron text-light py-4 px-2">
     <div class="container-fluid">
@@ -23,9 +24,9 @@
              </div>
             <div class="card-body">
                  <div class="row">
-                    <div class="col-sm-4 feature"><div class="display-4"> {{item.total_consumers}}</div><span class="text-primary">consumidoras</span></div>
-                     <div class="col-sm-4 feature"><div class="display-4"> {{item.total_providers}}</div><span class="text-secondary">proveedoras</span></div>
-                     <div class="col-sm-4 feature"><div class="display-4"> {{item.node.news_set.all.count}}</div><span class="text-primary">noticias</span></div>
+                    <div class="col-sm-4 feature"><div class="display-4"> {{item.total_consumers}}</div><span class="text-primary"> {% translate 'consumidoras' %}</span></div>
+                     <div class="col-sm-4 feature"><div class="display-4"> {{item.total_providers}}</div><span class="text-secondary"> {% translate 'proveedoras' %}</span></div>
+                     <div class="col-sm-4 feature"><div class="display-4"> {{item.node.news_set.all.count}}</div><span class="text-primary"> {% translate 'noticias' %}</span></div>
                  </div>
               </div>
         </div>

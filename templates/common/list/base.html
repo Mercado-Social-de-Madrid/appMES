@@ -1,4 +1,5 @@
 {% load market_url %}
+{% load i18n %}
 
 <div class="table-responsive mb-4">
 <table class="table table-hover {% if valign %}valign{% endif %} {% if narrow %}narrow{% endif %}" {% if ajax_url %} data-ajax-url="{{ajax_url}}" {% endif %}>
@@ -24,7 +25,7 @@
 {% empty %}
     {% if not simple_list %}
     <tr>
-      <td colspan="4">No hay ningún elemento con los criterios de búsqueda actuales...</td>
+      <td colspan="4">{% translate 'No hay ningún elemento con los criterios de búsqueda actuales...' %}</td>
     </tr>
     {% endif %}
 

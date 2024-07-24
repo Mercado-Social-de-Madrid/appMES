@@ -23,8 +23,8 @@
                         <div class="card-body">
                             <div class="display-2 float-left"> {{total_providers}} </div>
                             <div class="float-left pl-3">
-                                 <h5 class="lead text-primary text-light mb-0"> proveedoras <i class="material-icons">store</i></h5>
-                                {{new_providers.paginator.count}} nuevas
+                                 <h5 class="lead text-primary text-light mb-0"> {% translate 'proveedoras' %} <i class="material-icons">store</i></h5>
+                                {{new_providers.paginator.count}} {% translate 'nuevas' %}
                             </div>
                             <table class="table table-stripped bg-primary ">
                                 <tbody class="text-light">
@@ -35,8 +35,8 @@
                             </table>
                             </div>
                         <div class="card-actions">
-                            <a class="btn btn-outline-light" href="#">Ver informe</a>
-                            <a class="btn btn-outline-secondary" href="{% market_url 'market:provider_list' %}">Ir a entidades</a>
+                            <a class="btn btn-outline-light" href="#">{% translate 'Ver informe' %}</a>
+                            <a class="btn btn-outline-secondary" href="{% market_url 'market:provider_list' %}">{% translate 'Ir a entidades' %}</a>
                           </div>
                     </div>
 
@@ -50,8 +50,8 @@
                         <div class="card-body">
                             <div class="display-2 float-left"> {{total_consumers}} </div>
                             <div class="float-left pl-3">
-                                 <h5 class="lead text-primary mb-0"> consumidoras</h5>
-                                {{new_consumers.paginator.count}} nuevas
+                                 <h5 class="lead text-primary mb-0"> {% translate 'consumidoras' %}</h5>
+                                {{new_consumers.paginator.count}} {% translate 'nuevas' %}
                             </div>
                             <table class="table table-stripped bg-secondary ">
                                 <tbody class="">
@@ -62,7 +62,7 @@
                             </table>
                         </div>
                         <div class="card-actions">
-                            <a class="btn btn-outline-light" href="{% market_url 'market:consumer_list' %}">Ir a consumidoras</a>
+                            <a class="btn btn-outline-light" href="{% market_url 'market:consumer_list' %}">{% translate 'Ir a consumidoras' %}</a>
                           </div>
                     </div>
 

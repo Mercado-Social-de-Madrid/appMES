@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-19 12:37+0000\n"
+"POT-Creation-Date: 2024-07-24 12:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,27 +18,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: api/views/auth.py:31
+#: api/views/auth.py:68
+msgid "Usuario no encontrado."
+msgstr ""
+
+#: api/views/auth.py:73
 msgid "Tu cuenta no está activa, revisa tu bandeja de entrada de correo."
 msgstr ""
 
-#: api/views/auth.py:68
+#: api/views/auth.py:137
 msgid "Usuario eliminado con éxito."
 msgstr ""
 
-#: appmes/settings.py:179
+#: api/views/user.py:98
+msgid "Este usuario no gestiona ningún mercado."
+msgstr ""
+
+#: api/views/user.py:104
+msgid "Ya existe un usuario registrado con este correo electrónico."
+msgstr ""
+
+#: api/views/user.py:147
+msgid "No existe objeto entity o person en el cuerpo de la petición"
+msgstr ""
+
+#: appmes/settings.py:186
 msgid "Castellano"
 msgstr ""
 
-#: appmes/settings.py:180
+#: appmes/settings.py:187
 msgid "Catalá"
 msgstr ""
 
-#: appmes/settings.py:181
+#: appmes/settings.py:188
 msgid "Euskara"
 msgstr ""
 
-#: appmes/settings.py:182
+#: appmes/settings.py:189
 msgid "Galego"
 msgstr ""
 
@@ -69,6 +85,19 @@ msgstr ""
 msgid "Permisos"
 msgstr ""
 
+#: authentication/forms/user.py:13 authentication/models/user.py:56
+msgid "Mercado que gestiona"
+msgstr ""
+
+#: authentication/forms/user.py:20 authentication/models/user.py:54
+#: core/models/node.py:12 core/models/social_profile.py:10 market/admin.py:36
+#: market/models/category.py:10 market/models/consumer.py:8
+#: market/models/provider.py:13 templates/category/query.html:6
+#: templates/consumer/detail.html:61 templates/consumer/query.html:8
+#: templates/offers/query.html:7
+msgid "Nombre"
+msgstr ""
+
 #: authentication/models/api_token.py:8
 msgid "API Token"
 msgstr ""
@@ -85,65 +114,60 @@ msgstr ""
 msgid "Grupos"
 msgstr ""
 
-#: authentication/models/preregister.py:21
+#: authentication/models/preregister.py:23
 msgid "Cuenta"
 msgstr ""
 
-#: authentication/models/preregister.py:22
+#: authentication/models/preregister.py:24
 msgid "Email preregistro enviado"
 msgstr ""
 
-#: authentication/models/preregister.py:25 templates/user/detail_card.html:18
+#: authentication/models/preregister.py:27 templates/account/add_user.html:25
+#: templates/user/add.html:34 templates/user/detail_card.html:18
+#: templates/user/edit.html:42
 msgid "Prerregistro"
 msgstr ""
 
-#: authentication/models/preregister.py:26
+#: authentication/models/preregister.py:28
 msgid "Prerregistros"
 msgstr ""
 
-#: authentication/models/preregister.py:35
+#: authentication/models/preregister.py:37
 msgid "Todo listo para empezar a usar la aplicación móvil del Mercado Social"
+msgstr ""
+
+#: authentication/models/preregister.py:57
+msgid "Nueva usuaria creada en la app"
 msgstr ""
 
 #: authentication/models/user.py:53
 msgid "Correo Electrónico"
 msgstr ""
 
-#: authentication/models/user.py:54 core/models/node.py:10
-#: core/models/social_profile.py:10 market/admin.py:33
-#: market/models/category.py:10 market/models/consumer.py:8
-#: market/models/provider.py:13 templates/category/query.html:5
-#: templates/consumer/detail.html:58 templates/consumer/query.html:7
-#: templates/offers/query.html:7
-msgid "Nombre"
-msgstr ""
-
 #: authentication/models/user.py:55 market/models/consumer.py:9
-#: templates/consumer/detail.html:63
+#: templates/consumer/detail.html:66
 msgid "Apellidos"
-msgstr ""
-
-#: authentication/models/user.py:56
-msgid "Mercado que gestiona"
 msgstr ""
 
 #: authentication/models/user.py:57
 msgid "Maneja entidades en más de un mercado"
 msgstr ""
 
-#: authentication/models/user.py:58 core/models/node.py:20
+#: authentication/models/user.py:58 core/models/node.py:40
 msgid "Idioma preferido de la interfaz"
 msgstr ""
 
 #: authentication/models/user.py:66 templates/consumer/query.html:5
-#: templates/registration/login.html:27 templates/user/detail_card.html:5
+#: templates/user/detail_card.html:5
 msgid "Usuario"
 msgstr ""
 
 #: authentication/models/user.py:67 templates/navbar/admin.html:19
 #: templates/navbar/market.html:16 templates/user/add.html:14
-#: templates/user/edit.html:7 templates/user/edit.html:15
-#: templates/user/list.html:4 templates/user/list.html:11
+#: templates/user/delete.html:18 templates/user/edit.html:7
+#: templates/user/edit.html:15 templates/user/list.html:4
+#: templates/user/list.html:11 templates/user/password.html:7
+#: templates/user/password.html:17
 msgid "Usuarios"
 msgstr ""
 
@@ -171,6 +195,10 @@ msgstr ""
 msgid "Puede añadir usuarios"
 msgstr ""
 
+#: authentication/views/market.py:20 authentication/views/user.py:94
+msgid "Usuario creado correctamente."
+msgstr ""
+
 #: authentication/views/preregister.py:43
 msgid "Contraseña actualizada correctamente"
 msgstr ""
@@ -179,8 +207,14 @@ msgstr ""
 msgid "Email de prerregistro reenviado"
 msgstr ""
 
-#: authentication/views/user.py:33 authentication/views/user.py:47
-msgid "Usuario creado correctamente."
+#: authentication/views/user.py:24 benefits/views.py:25
+#: market/views/consumer.py:27 market/views/provider.py:35 news/views.py:24
+#: offers/views.py:85
+msgid "Buscar..."
+msgstr ""
+
+#: authentication/views/user.py:103
+msgid "Usuario eliminado correctamente."
 msgstr ""
 
 #: benefits/models/benefit.py:10 templates/benefits/detail.html:58
@@ -225,18 +259,18 @@ msgstr ""
 msgid "Solicitar descuento"
 msgstr ""
 
-#: benefits/models/benefit.py:19 market/models/account.py:17
-#: offers/models/offer.py:66 templates/benefits/detail.html:27
-#: templates/benefits/query.html:9 templates/benefits/query.html:20
-#: templates/member/check_form.html:55
+#: benefits/models/benefit.py:19 market/models/account.py:18
+#: offers/models/offer.py:69 templates/benefits/detail.html:25
+#: templates/benefits/detail.html:27 templates/benefits/query.html:9
+#: templates/benefits/query.html:20 templates/member/check_form.html:55
 msgid "Activa"
 msgstr ""
 
-#: core/admin.py:11 core/models/social_profile.py:18 market/admin.py:17
+#: core/admin.py:12 core/models/social_profile.py:18 market/admin.py:18
 msgid "Red Social"
 msgstr ""
 
-#: core/admin.py:12 core/models/social_profile.py:19 market/admin.py:18
+#: core/admin.py:13 core/models/social_profile.py:19 market/admin.py:19
 msgid "Redes Sociales"
 msgstr ""
 
@@ -249,7 +283,7 @@ msgstr ""
 msgid "Título"
 msgstr ""
 
-#: core/models/gallery.py:13 templates/provider/form.html:47
+#: core/models/gallery.py:13 templates/provider/form.html:61
 msgid "Galería"
 msgstr ""
 
@@ -269,66 +303,94 @@ msgstr ""
 msgid "Fotos"
 msgstr ""
 
-#: core/models/node.py:12
+#: core/models/node.py:14
 msgid "Visible en listado público"
 msgstr ""
 
-#: core/models/node.py:12
+#: core/models/node.py:14
 msgid ""
 "Por defecto, un nuevo mercado empieza oculto hasta que esté listo para "
 "incluir en la aplicación"
 msgstr ""
 
-#: core/models/node.py:13 market/models/provider.py:18
+#: core/models/node.py:15 market/models/provider.py:18
 msgid "Latitud"
 msgstr ""
 
-#: core/models/node.py:14 market/models/provider.py:19
+#: core/models/node.py:16 market/models/provider.py:19
 msgid "Longitud"
 msgstr ""
 
-#: core/models/node.py:16
+#: core/models/node.py:18
 msgid "Email de contacto"
 msgstr ""
 
-#: core/models/node.py:17
-msgid "Permitir el registro abierto"
-msgstr ""
-
-#: core/models/node.py:18
-msgid "Enlace al formulario de registro de proveedoras"
+#: core/models/node.py:19
+msgid "Email de administración"
 msgstr ""
 
 #: core/models/node.py:19
+msgid "Para mensajes de la herramienta"
+msgstr ""
+
+#: core/models/node.py:20
+msgid "Permitir el registro abierto"
+msgstr ""
+
+#: core/models/node.py:21
+msgid "Enlace al formulario de registro de proveedoras"
+msgstr ""
+
+#: core/models/node.py:22
 msgid "Enlace al formulario de registro de consumidoras"
 msgstr ""
 
-#: core/models/node.py:22 news/models/news.py:20 offers/models/offer.py:56
+#: core/models/node.py:25 news/models/news.py:20 offers/models/offer.py:59
 msgid "Imagen principal"
 msgstr ""
 
-#: core/models/node.py:25 market/models/provider.py:31
+#: core/models/node.py:28
+msgid "Imagen del distintivo de balance"
+msgstr ""
+
+#: core/models/node.py:31 market/models/provider.py:30
 msgid "Página web"
 msgstr ""
 
-#: core/models/node.py:26
+#: core/models/node.py:32
 msgid "Servidor de Takahe"
 msgstr ""
 
-#: core/models/node.py:28
+#: core/models/node.py:33
+msgid "Enlace de invitación a Takahe"
+msgstr ""
+
+#: core/models/node.py:35
+msgid "Utiliza herramienta de gestión para las socias"
+msgstr ""
+
+#: core/models/node.py:36
+msgid "URL del servidor de la Herramienta de gestión"
+msgstr ""
+
+#: core/models/node.py:37
 msgid "Carnet de socia activa"
 msgstr ""
 
-#: core/models/node.py:29
+#: core/models/node.py:38
 msgid "Enlace a página con información básica del mercado"
 msgstr ""
 
-#: core/models/node.py:32 core/models/social_profile.py:32
-#: market/views/provider.py:52 templates/market/query.html:5
+#: core/models/node.py:41 templates/market/form.html:43
+msgid "Idiomas habilitados"
+msgstr ""
+
+#: core/models/node.py:48 core/models/social_profile.py:35
+#: market/views/provider.py:56 templates/market/query.html:6
 msgid "Mercado"
 msgstr ""
 
-#: core/models/node.py:33 templates/market/edit.html:5
+#: core/models/node.py:49 templates/market/edit.html:5
 #: templates/market/list.html:4 templates/navbar/admin.html:27
 msgid "Mercados"
 msgstr ""
@@ -349,8 +411,21 @@ msgstr ""
 msgid "Enlace a la red social"
 msgstr ""
 
-#: core/models/social_profile.py:37
+#: core/models/social_profile.py:40
 msgid "Proveedora"
+msgstr ""
+
+#: helpers/fcm.py:18
+msgid "Otro"
+msgstr ""
+
+#: helpers/fcm.py:19 templates/news/add.html:8 templates/news/add.html:19
+msgid "Nueva noticia"
+msgstr ""
+
+#: helpers/fcm.py:20 templates/offers/create.html:6
+#: templates/offers/create.html:20 templates/offers/edit.html:7
+msgid "Nueva oferta"
 msgstr ""
 
 #: helpers/filters/LabeledOrderingFilter.py:6
@@ -365,38 +440,43 @@ msgstr ""
 msgid "Ya existe un usuario registrado con este email."
 msgstr ""
 
-#: market/models/account.py:16 templates/provider/query.html:9
+#: market/models/account.py:17 templates/provider/query.html:9
 msgid "Gestionado por"
 msgstr ""
 
-#: market/models/account.py:18
+#: market/models/account.py:19
 msgid "NIF/CIF/Pasaporte"
 msgstr ""
 
-#: market/models/account.py:20 templates/consumer/detail.html:48
+#: market/models/account.py:21 templates/consumer/detail.html:83
+msgid "Teléfono"
+msgstr ""
+
+#: market/models/account.py:22 templates/consumer/detail.html:51
 #: templates/member/check_form.html:38 templates/provider/detail.html:40
 msgid "Número de socia"
 msgstr ""
 
-#: market/models/account.py:21 templates/consumer/detail.html:80
+#: market/models/account.py:23 templates/consumer/detail.html:88
 msgid "Dirección"
 msgstr ""
 
-#: market/models/account.py:22
+#: market/models/account.py:24
 msgid "Municipio"
 msgstr ""
 
-#: market/models/account.py:29
+#: market/models/account.py:31
 msgid "Última actualización"
 msgstr ""
 
-#: market/models/account.py:30
+#: market/models/account.py:32 templates/account/card.html:9
+#: templates/consumer/query.html:6
 msgid "Fecha de alta"
 msgstr ""
 
 #: market/models/category.py:11 market/models/provider.py:14
-#: news/models/news.py:18 offers/models/offer.py:54 templates/news/query.html:9
-#: templates/offers/form.html:34
+#: news/models/news.py:18 offers/models/offer.py:57
+#: templates/category/query.html:7 templates/news/query.html:9
 msgid "Descripción"
 msgstr ""
 
@@ -413,9 +493,9 @@ msgid "Consumidora"
 msgstr ""
 
 #: market/models/consumer.py:15 templates/consumer/create.html:15
-#: templates/consumer/detail.html:15 templates/consumer/edit.html:14
-#: templates/consumer/list.html:5 templates/consumer/list.html:12
-#: templates/navbar/market.html:50
+#: templates/consumer/delete.html:18 templates/consumer/detail.html:16
+#: templates/consumer/edit.html:14 templates/consumer/list.html:5
+#: templates/consumer/list.html:12 templates/navbar/market.html:50
 msgid "Consumidoras"
 msgstr ""
 
@@ -427,25 +507,22 @@ msgstr ""
 msgid "Oculta en listado público"
 msgstr ""
 
-#: market/models/provider.py:21 templates/category/detail.html:5
-#: templates/category/detail.html:13 templates/category/list.html:5
-#: templates/category/list.html:12 templates/navbar/market.html:35
+#: market/models/provider.py:21 templates/category/delete.html:18
+#: templates/category/detail.html:5 templates/category/detail.html:13
+#: templates/category/list.html:5 templates/category/list.html:12
+#: templates/navbar/market.html:35
 msgid "Categorías"
 msgstr ""
 
 #: market/models/provider.py:23
-msgid "Teléfono"
-msgstr ""
-
-#: market/models/provider.py:24
 msgid "Número de trabajadores"
 msgstr ""
 
-#: market/models/provider.py:25
-msgid "Formulario legal"
+#: market/models/provider.py:24
+msgid "Forma legal"
 msgstr ""
 
-#: market/models/provider.py:29
+#: market/models/provider.py:28
 msgid "Informe balance"
 msgstr ""
 
@@ -453,24 +530,32 @@ msgstr ""
 msgid "Categoría añadida correctamente."
 msgstr ""
 
-#: market/views/consumer.py:27 market/views/provider.py:31 offers/views.py:66
-msgid "Buscar..."
+#: market/views/category.py:55
+msgid "Categoría eliminada correctamente."
 msgstr ""
 
 #: market/views/consumer.py:63
 msgid "Consumidora añadida correctamente."
 msgstr ""
 
-#: market/views/consumer.py:88 market/views/market.py:61
+#: market/views/consumer.py:88 market/views/market.py:71
 msgid "Datos actualizados correctamente."
 msgstr ""
 
-#: market/views/provider.py:133
+#: market/views/consumer.py:102
+msgid "Consumidora eliminada correctamente."
+msgstr ""
+
+#: market/views/provider.py:142
 msgid "Proveedora añadida correctamente."
 msgstr ""
 
-#: market/views/provider.py:158
+#: market/views/provider.py:167
 msgid "Proveedora actualizada correctamente."
+msgstr ""
+
+#: market/views/provider.py:215
+msgid "Proveedora eliminada correctamente."
 msgstr ""
 
 #: news/models/news.py:13
@@ -489,36 +574,44 @@ msgstr ""
 msgid "URL con más información"
 msgstr ""
 
-#: news/views.py:53
+#: news/views.py:92
 msgid "Noticia actualizada correctamente."
 msgstr ""
 
-#: news/views.py:65
+#: news/views.py:104
 msgid "Noticia eliminada correctamente."
 msgstr ""
 
-#: offers/models/offer.py:53
+#: offers/models/offer.py:56
 msgid "Título de la oferta"
 msgstr ""
 
-#: offers/models/offer.py:64 templates/offers/form.html:63
+#: offers/models/offer.py:67 templates/offers/form.html:62
 msgid "Porcentaje de descuento"
 msgstr ""
 
-#: offers/models/offer.py:65
+#: offers/models/offer.py:68
 msgid "Precio con descuento"
 msgstr ""
 
-#: offers/models/offer.py:67
+#: offers/models/offer.py:70
 msgid "Fecha de inicio"
 msgstr ""
 
-#: offers/models/offer.py:68
+#: offers/models/offer.py:71
 msgid "Fecha de fin"
 msgstr ""
 
-#: offers/views.py:85
+#: offers/views.py:104
 msgid "Fecha de publicación"
+msgstr ""
+
+#: offers/views.py:134
+msgid "Oferta eliminada correctamente."
+msgstr ""
+
+#: templates/403.html:15
+msgid "No autorizada"
 msgstr ""
 
 #: templates/404.html:9
@@ -541,8 +634,8 @@ msgstr ""
 msgid "Volver"
 msgstr ""
 
-#: templates/account/action_user.html:5 templates/user/add.html:28
-#: templates/user/detail_card.html:8
+#: templates/account/action_user.html:5 templates/account/add_user.html:41
+#: templates/user/add.html:41 templates/user/detail_card.html:8
 msgid "Crear usuario"
 msgstr ""
 
@@ -550,6 +643,13 @@ msgstr ""
 msgid "Editar usuario"
 msgstr ""
 
+#: templates/account/add_user.html:6 templates/account/add_user.html:14
+#: templates/user/add.html:6 templates/user/add.html:14
+#: templates/user/list.html:14
+msgid "Nuevo usuario"
+msgstr ""
+
+#: templates/account/add_user.html:26
 #: templates/account/preregister_switch.html:5
 msgid ""
 "Se creará un usuario asociado a la cuenta con el mismo email, y se le "
@@ -561,8 +661,30 @@ msgstr ""
 msgid "Esta acción se puede realizar a posteriori."
 msgstr ""
 
+#: templates/balance/detail.html:24
+msgid "Distintivo de calidad del MESM"
+msgstr ""
+
+#: templates/balance/detail.html:26
+msgid ""
+"Al realizar el Balance Social, además de obtener el sello, infografía e "
+"informe personalizado, las entidades que lo soliciten, tendrán este "
+"Distintivo de calidad, como herramienta diferenciadora que dará visibilidad "
+"y prestigio a vuestra entidad."
+msgstr ""
+
+#: templates/balance/detail.html:28
+msgid ""
+"El distintivo contiene un QR que permite a las socias visitar un documento "
+"como el que se puede ver aquí."
+msgstr ""
+
+#: templates/base.html:10
+msgid "Mercado Social"
+msgstr ""
+
 #: templates/benefits/add.html:7 templates/benefits/add.html:17
-#: templates/benefits/list.html:21 templates/provider/detail.html:62
+#: templates/benefits/list.html:21 templates/provider/detail.html:69
 msgid "Añadir ventaja"
 msgstr ""
 
@@ -607,6 +729,10 @@ msgstr ""
 msgid "No acepta solicitud online"
 msgstr ""
 
+#: templates/benefits/detail.html:64
+msgid "No hay ventajas para entidades."
+msgstr ""
+
 #: templates/benefits/detail.html:70 templates/benefits/detail.html:94
 msgid "Link de descuento"
 msgstr ""
@@ -631,8 +757,23 @@ msgstr ""
 msgid "Para modificar esta ventaja ponte en contacto con"
 msgstr ""
 
-#: templates/benefits/edit.html:7 templates/benefits/edit.html:17
+#: templates/benefits/edit.html:8
 msgid "Editar ventaja"
+msgstr ""
+
+#: templates/benefits/edit.html:19 templates/navbar/market.html:43
+#: templates/offers/entity_list.html:20 templates/provider/create.html:18
+#: templates/provider/delete.html:18 templates/provider/edit.html:18
+#: templates/provider/list.html:18
+msgid "Proveedoras"
+msgstr ""
+
+#: templates/benefits/edit.html:23
+msgid "Editar ventajas"
+msgstr ""
+
+#: templates/benefits/edit.html:27 templates/provider/detail.html:67
+msgid "Ver ventajas"
 msgstr ""
 
 #: templates/benefits/form.html:4 templates/benefits/query.html:7
@@ -650,9 +791,10 @@ msgid ""
 msgstr ""
 
 #: templates/benefits/list.html:8 templates/benefits/list.html:18
-#: templates/dashboard/provider.html:49 templates/navbar/market.html:64
+#: templates/dashboard/provider.html:53 templates/navbar/market.html:64
 #: templates/navbar/user_provider_menu.html:13
-#: templates/provider/detail.html:57 templates/provider/query.html:23
+#: templates/provider/detail.html:64 templates/provider/query.html:23
+#: templates/reports/benefits_card.html:8
 msgid "Ventajas"
 msgstr ""
 
@@ -666,11 +808,17 @@ msgid ""
 "deshacer."
 msgstr ""
 
-#: templates/benefits/list.html:46 templates/news/delete.html:34
+#: templates/benefits/list.html:46 templates/category/delete.html:34
+#: templates/consumer/delete.html:35 templates/news/delete.html:34
+#: templates/offers/delete.html:37 templates/provider/delete.html:35
+#: templates/user/delete.html:36
 msgid "Cancelar"
 msgstr ""
 
-#: templates/benefits/list.html:47 templates/news/delete.html:33
+#: templates/benefits/list.html:47 templates/category/delete.html:33
+#: templates/consumer/delete.html:34 templates/news/delete.html:33
+#: templates/offers/delete.html:36 templates/provider/delete.html:34
+#: templates/user/delete.html:35
 msgid "Aceptar"
 msgstr ""
 
@@ -678,15 +826,15 @@ msgstr ""
 msgid "Entidad"
 msgstr ""
 
-#: templates/benefits/query.html:10 templates/consumer/query.html:8
+#: templates/benefits/query.html:10 templates/consumer/query.html:9
 #: templates/news/query.html:10 templates/offers/query.html:12
 #: templates/provider/query.html:11
 msgid "Acciones"
 msgstr ""
 
-#: templates/benefits/query.html:25 templates/consumer/detail.html:52
-#: templates/consumer/query.html:29 templates/news/query.html:21
-#: templates/provider/header_detail.html:13 templates/user/query.html:34
+#: templates/benefits/query.html:25 templates/consumer/detail.html:55
+#: templates/consumer/query.html:31 templates/news/query.html:21
+#: templates/provider/header_detail.html:19 templates/user/query.html:34
 msgid "Editar"
 msgstr ""
 
@@ -699,8 +847,33 @@ msgstr ""
 msgid "Crear categoría"
 msgstr ""
 
-#: templates/category/query.html:6
+#: templates/category/delete.html:18 templates/category/delete.html:30
+msgid "Eliminar categoría"
+msgstr ""
+
+#: templates/category/delete.html:32
+msgid "¿Estás segura de que quieres eliminar la categoría seleccionada?"
+msgstr ""
+
+#: templates/category/query.html:8
 msgid "Número de entidades"
+msgstr ""
+
+#: templates/category/query.html:18 templates/consumer/query.html:33
+#: templates/provider/query.html:32
+msgid "Eliminar"
+msgstr ""
+
+#: templates/category/query.html:19
+msgid "Ver proveedoras"
+msgstr ""
+
+#: templates/common/forms/save_btn.html:3
+msgid "Guardar cambios"
+msgstr ""
+
+#: templates/common/list/base.html:28
+msgid "No hay ningún elemento con los criterios de búsqueda actuales..."
 msgstr ""
 
 #: templates/common/list/export_csv.html:4
@@ -724,6 +897,10 @@ msgstr ""
 msgid "Descargar fichero CSV"
 msgstr ""
 
+#: templates/common/pagination.html:5
+msgid "elementos"
+msgstr ""
+
 #: templates/consumer/create.html:6 templates/consumer/create.html:16
 #: templates/consumer/edit.html:6 templates/consumer/list.html:15
 msgid "Nueva consumidora"
@@ -733,50 +910,75 @@ msgstr ""
 msgid "Añadir consumidora"
 msgstr ""
 
-#: templates/consumer/detail.html:40
+#: templates/consumer/delete.html:18 templates/consumer/delete.html:30
+msgid "Eliminar consumidora"
+msgstr ""
+
+#: templates/consumer/delete.html:32
+msgid "¿Estás segura de que quieres eliminar la consumidora seleccionada?"
+msgstr ""
+
+#: templates/consumer/detail.html:30 templates/provider/detail.html:37
+msgid "Ver carnet de socia"
+msgstr ""
+
+#: templates/consumer/detail.html:43
 msgid "Cuenta invitada"
 msgstr ""
 
-#: templates/consumer/detail.html:44
+#: templates/consumer/detail.html:47
 msgid "Socia de intercooperación"
 msgstr ""
 
-#: templates/consumer/detail.html:69
+#: templates/consumer/detail.html:72
 msgid "NIF/CIF"
 msgstr ""
 
-#: templates/consumer/detail.html:75 templates/user/query.html:6
+#: templates/consumer/detail.html:78 templates/user/query.html:6
 msgid "Email"
 msgstr ""
 
-#: templates/consumer/form.html:30
+#: templates/consumer/form.html:31 templates/provider/form.html:33
 msgid ""
 "Este campo es <strong class=\"text-danger\">editable para admin</strong>, "
 "pero el valor debería venir de la H.Gestora"
 msgstr ""
 
-#: templates/consumer/query.html:6 templates/provider/query.html:8
+#: templates/consumer/query.html:7 templates/provider/query.html:8
 msgid "CIF"
 msgstr ""
 
-#: templates/consumer/query.html:18 templates/consumer/query.html:19
+#: templates/consumer/query.html:19 templates/consumer/query.html:20
 #: templates/user/status_circle.html:7
 msgid "Pendiente registro"
 msgstr ""
 
-#: templates/consumer/query.html:24
+#: templates/consumer/query.html:26
 msgid "INACTIVA"
 msgstr ""
 
-#: templates/consumer/query.html:28
+#: templates/consumer/query.html:30
 msgid "Ver detalle"
+msgstr ""
+
+#: templates/dashboard/admin.html:27 templates/dashboard/market.html:53
+msgid "consumidoras"
+msgstr ""
+
+#: templates/dashboard/admin.html:28 templates/dashboard/market.html:26
+msgid "proveedoras"
+msgstr ""
+
+#: templates/dashboard/admin.html:29
+msgid "noticias"
 msgstr ""
 
 #: templates/dashboard/consumer.html:5 templates/dashboard/provider.html:5
 msgid "Principal"
 msgstr ""
 
-#: templates/dashboard/consumer.html:19 templates/user/profile.html:4
+#: templates/dashboard/consumer.html:19
+#: templates/navbar/user_consumer_menu.html:6 templates/user/profile.html:4
 #: templates/user/profile.html:13
 msgid "Mi perfil"
 msgstr ""
@@ -788,14 +990,11 @@ msgstr ""
 #: templates/dashboard/consumer.html:28 templates/dashboard/provider.html:23
 #: templates/member/card.html:7 templates/member/card.html:24
 #: templates/member/check_form.html:6
+#: templates/navbar/user_consumer_menu.html:9
 msgid "Mi carnet de socia"
 msgstr ""
 
-#: templates/dashboard/consumer.html:29 templates/dashboard/provider.html:25
-msgid "Ver estadísticas de favoritos"
-msgstr ""
-
-#: templates/dashboard/consumer.html:41
+#: templates/dashboard/consumer.html:45
 msgid "¿Tienes ya la app del Mercado Social?"
 msgstr ""
 
@@ -807,6 +1006,22 @@ msgstr ""
 msgid "No hay noticias publicadas en este mercado..."
 msgstr ""
 
+#: templates/dashboard/market.html:27 templates/dashboard/market.html:54
+msgid "nuevas"
+msgstr ""
+
+#: templates/dashboard/market.html:38
+msgid "Ver informe"
+msgstr ""
+
+#: templates/dashboard/market.html:39
+msgid "Ir a entidades"
+msgstr ""
+
+#: templates/dashboard/market.html:65
+msgid "Ir a consumidoras"
+msgstr ""
+
 #: templates/dashboard/provider.html:14
 #: templates/navbar/user_provider_menu.html:6
 msgid "Mi entidad"
@@ -816,35 +1031,71 @@ msgstr ""
 msgid "Ver balance social"
 msgstr ""
 
-#: templates/dashboard/provider.html:33 templates/navbar/market.html:57
+#: templates/dashboard/provider.html:37 templates/navbar/market.html:57
 #: templates/navbar/user_provider_menu.html:9 templates/offers/create.html:20
-#: templates/offers/edit.html:21 templates/offers/entity_list.html:23
-#: templates/offers/list.html:5 templates/offers/list.html:12
+#: templates/offers/delete.html:18 templates/offers/edit.html:21
+#: templates/offers/entity_list.html:23 templates/offers/list.html:5
+#: templates/offers/list.html:12 templates/reports/offers_card.html:8
+#: templates/reports/offers_card.html:11 templates/reports/offers_card.html:12
 msgid "Ofertas"
 msgstr ""
 
-#: templates/dashboard/provider.html:41
+#: templates/dashboard/provider.html:45
 msgid "Ver ofertas publicadas"
 msgstr ""
 
-#: templates/dashboard/provider.html:42
+#: templates/dashboard/provider.html:46
 msgid "Publicar nueva oferta"
 msgstr ""
 
-#: templates/dashboard/provider.html:51
+#: templates/dashboard/provider.html:55
 msgid "No ofreces ventajas"
 msgstr ""
 
-#: templates/dashboard/provider.html:54
+#: templates/dashboard/provider.html:56
+msgid "Para añadirlas ponte en contacto con"
+msgstr ""
+
+#: templates/dashboard/provider.html:58
 msgid "Actualmente tienes publicadas ventajas para socias del mercado :)"
 msgstr ""
 
-#: templates/dashboard/provider.html:61 templates/dashboard/provider.html:63
+#: templates/dashboard/provider.html:65 templates/dashboard/provider.html:67
 msgid "Ver ventajas publicadas"
 msgstr ""
 
-#: templates/dashboard/provider.html:65 templates/member/check_form.html:23
+#: templates/dashboard/provider.html:69 templates/member/check_form.html:23
 msgid "Comprobar estado de socia"
+msgstr ""
+
+#: templates/email/password_reset.html:14 templates/email/password_reset.txt:7
+#: templates/registration/password_reset_email.html:12
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: templates/email/password_reset.html:17 templates/email/password_reset.txt:12
+#: templates/registration/password_reset_email.html:18
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: templates/email/password_reset.html:25
+#: templates/registration/password_base.html:4
+#: templates/registration/password_reset_email.html:26
+#: templates/registration/preregister.html:4
+msgid "Restaurar contraseña"
+msgstr ""
+
+#: templates/email/password_reset.txt:8
+#: templates/registration/password_reset_email.html:14
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: templates/email/password_reset.txt:11
+#: templates/registration/password_reset_email.html:16
+msgid "Your username, in case you’ve forgotten:"
 msgstr ""
 
 #: templates/market/create.html:6 templates/market/create.html:15
@@ -865,34 +1116,73 @@ msgstr ""
 msgid "Explorar mercado"
 msgstr ""
 
-#: templates/market/form.html:14
+#: templates/market/form.html:34
+msgid "Multi-idioma"
+msgstr ""
+
+#: templates/market/form.html:67
+msgid "Datos públicos"
+msgstr ""
+
+#: templates/market/form.html:74
 msgid "Logo del mercado (preferiblemente PNG con transparencia)"
 msgstr ""
 
-#: templates/market/form.html:63 templates/provider/form.html:77
+#: templates/market/form.html:95
+msgid "Distintivo de balance social"
+msgstr ""
+
+#: templates/market/form.html:96
+msgid ""
+"Imagen (preferiblemente PNG con transparencia) para representar el "
+"distintivo de balance social de este mercado. "
+msgstr ""
+
+#: templates/market/form.html:97
+msgid ""
+"Se utiliza desde la app para acceder al detalle de balance de cada proveedora"
+msgstr ""
+
+#: templates/market/form.html:132 templates/provider/form.html:94
 msgid "Geolocalización"
 msgstr ""
 
-#: templates/market/form.html:64 templates/provider/form.html:78
+#: templates/market/form.html:133 templates/provider/form.html:95
 msgid ""
 "Mueve el pin por el mapa hasta posicionarlo en la localización correcta."
 msgstr ""
 
-#: templates/market/form.html:78 templates/provider/form.html:85
+#: templates/market/form.html:147 templates/provider/form.html:102
 msgid ""
 "Puedes hacer zoom en los controles del mapa para ajustar al máximo la "
 "posición, o entrar en la vista de pantalla completa."
 msgstr ""
 
-#: templates/market/form.html:84 templates/provider/form.html:96
+#: templates/market/form.html:153 templates/provider/form.html:118
 msgid "Redes sociales"
 msgstr ""
 
-#: templates/market/query.html:14
+#: templates/market/query.html:7
+msgid "Identificador"
+msgstr ""
+
+#: templates/market/query.html:8
+msgid "Visibilidad pública"
+msgstr ""
+
+#: templates/market/query.html:9
+msgid "Carnet de socia"
+msgstr ""
+
+#: templates/market/query.html:10
+msgid "Idiomas"
+msgstr ""
+
+#: templates/market/query.html:30
 msgid "Editar mercado"
 msgstr ""
 
-#: templates/market/query.html:15
+#: templates/market/query.html:31
 msgid "Gestionar mercado"
 msgstr ""
 
@@ -909,7 +1199,7 @@ msgid ""
 "tener físico, imprímelo pulsando este botón"
 msgstr ""
 
-#: templates/member/card.html:32
+#: templates/member/card.html:33 templates/member/card.html:35
 msgid "Descargar PDF"
 msgstr ""
 
@@ -976,52 +1266,47 @@ msgstr ""
 msgid "Editar mercados"
 msgstr ""
 
-#: templates/navbar/drawer.html:18
+#: templates/navbar/drawer.html:21
 msgid "Guía de administración"
 msgstr ""
 
-#: templates/navbar/login.html:14
-msgid "Idioma de la interfaz"
-msgstr ""
-
-#: templates/navbar/login.html:32
-msgid "Editar perfil"
-msgstr ""
-
-#: templates/navbar/login.html:37
-msgid "Cerrar sesión"
-msgstr ""
-
-#: templates/navbar/login.html:46 templates/registration/login.html:14
+#: templates/navbar/login.html:6 templates/registration/login.html:14
 #: templates/registration/login.html:57
 msgid "Entrar"
 msgstr ""
 
+#: templates/navbar/login.html:27
+msgid "Idioma de la interfaz"
+msgstr ""
+
+#: templates/navbar/login.html:33
+msgid "Editar perfil"
+msgstr ""
+
+#: templates/navbar/login.html:38
+msgid "Cerrar sesión"
+msgstr ""
+
+#: templates/navbar/login.html:43
+msgid "Guía de usuario"
+msgstr ""
+
 #: templates/navbar/market.html:23 templates/news/add.html:19
-#: templates/news/edit.html:18 templates/news/list.html:5
-#: templates/news/list.html:12
+#: templates/news/detail.html:20 templates/news/edit.html:18
+#: templates/news/list.html:5 templates/news/list.html:12
 msgid "Noticias"
 msgstr ""
 
-#: templates/navbar/market.html:43 templates/offers/entity_list.html:20
-#: templates/provider/create.html:18 templates/provider/edit.html:18
-#: templates/provider/list.html:18
-msgid "Proveedoras"
-msgstr ""
-
+#: templates/navbar/user_consumer_menu.html:3
 #: templates/navbar/user_provider_menu.html:3
 msgid "Inicio"
-msgstr ""
-
-#: templates/news/add.html:8 templates/news/add.html:19
-msgid "Nueva noticia"
 msgstr ""
 
 #: templates/news/add.html:31
 msgid "Publicar"
 msgstr ""
 
-#: templates/news/card.html:18
+#: templates/news/card.html:18 templates/news/detail.html:47
 msgid "Saber más"
 msgstr ""
 
@@ -1038,7 +1323,8 @@ msgstr ""
 msgid "¿Estás segura de que quieres eliminar la noticia seleccionada?"
 msgstr ""
 
-#: templates/news/edit.html:8 templates/news/edit.html:18
+#: templates/news/detail.html:25 templates/news/edit.html:8
+#: templates/news/edit.html:18
 msgid "Editar noticia"
 msgstr ""
 
@@ -1062,24 +1348,28 @@ msgstr ""
 msgid "Fecha"
 msgstr ""
 
-#: templates/offers/create.html:6 templates/offers/create.html:20
-#: templates/offers/edit.html:7
-msgid "Nueva oferta"
-msgstr ""
-
 #: templates/offers/create.html:34
 msgid "Publicar oferta"
+msgstr ""
+
+#: templates/offers/delete.html:8 templates/offers/delete.html:18
+#: templates/offers/delete.html:30 templates/offers/edit.html:24
+msgid "Eliminar oferta"
+msgstr ""
+
+#: templates/offers/delete.html:34
+msgid "¿Estás segura de que quieres eliminar la oferta seleccionada?"
 msgstr ""
 
 #: templates/offers/entity_list.html:26 templates/offers/entity_list.html:33
 msgid "Añadir oferta"
 msgstr ""
 
-#: templates/offers/entity_list.html:40 templates/provider/detail.html:46
+#: templates/offers/entity_list.html:40 templates/provider/detail.html:53
 msgid "Ofertas en curso"
 msgstr ""
 
-#: templates/offers/entity_list.html:42 templates/provider/detail.html:50
+#: templates/offers/entity_list.html:42 templates/provider/detail.html:57
 msgid "No hay ninguna oferta activa actualmente."
 msgstr ""
 
@@ -1107,15 +1397,15 @@ msgstr ""
 msgid "Desde - hasta..."
 msgstr ""
 
-#: templates/offers/form.html:44
+#: templates/offers/form.html:43
 msgid "Imagen de la oferta"
 msgstr ""
 
-#: templates/offers/form.html:50
+#: templates/offers/form.html:49
 msgid "Editar oferta"
 msgstr ""
 
-#: templates/offers/form.html:75
+#: templates/offers/form.html:74
 msgid ""
 "Las ofertas no activas no se mostrarán a los usuarios. Puedes crear una "
 "encuesta desactivada y publicarla finalmente cuando creas oportuno."
@@ -1145,19 +1435,23 @@ msgstr ""
 msgid "Crear entidad"
 msgstr ""
 
-#: templates/provider/create.html:47 templates/provider/edit.html:40
+#: templates/provider/create.html:47 templates/provider/edit.html:48
 msgid "Eliminar foto"
 msgstr ""
 
-#: templates/provider/detail.html:60
-msgid "Ver ventajas"
+#: templates/provider/delete.html:18 templates/provider/delete.html:30
+msgid "Eliminar proveedora"
+msgstr ""
+
+#: templates/provider/delete.html:32
+msgid "¿Estás segura de que quieres eliminar la proveedora seleccionada?"
 msgstr ""
 
 #: templates/provider/form.html:19
 msgid "Actualizar imagen"
 msgstr ""
 
-#: templates/provider/list.html:8
+#: templates/provider/list.html:8 templates/reports/offers_card.html:13
 msgid "Entidades"
 msgstr ""
 
@@ -1177,16 +1471,12 @@ msgstr ""
 msgid "Sin ventajas"
 msgstr ""
 
-#: templates/registration/login.html:26
-msgid "Nombre de usuario"
+#: templates/registration/login.html:26 templates/registration/login.html:27
+msgid "Correo electrónico"
 msgstr ""
 
 #: templates/registration/login.html:58
 msgid "¿Has olvidado tu contraseña?"
-msgstr ""
-
-#: templates/registration/password_base.html:4
-msgid "Restaurar contraseña"
 msgstr ""
 
 #: templates/registration/password_base.html:11
@@ -1210,7 +1500,8 @@ msgstr ""
 
 #: templates/registration/password_reset_confirm.html:43
 #: templates/registration/password_reset_form.html:32
-#: templates/user/profile.html:69
+#: templates/user/edit.html:75 templates/user/password.html:21
+#: templates/user/profile.html:58
 msgid "Actualizar contraseña"
 msgstr ""
 
@@ -1259,24 +1550,93 @@ msgstr ""
 msgid "El código de registro es incorrecto..."
 msgstr ""
 
-#: templates/registration/preregister.html:44
+#: templates/registration/preregister.html:34
+msgid "Solo te falta este paso para empezar a usar la app del Mercado Social!"
+msgstr ""
+
+#: templates/registration/preregister.html:37
+msgid ""
+"Introduce la contraseña que utilizarás a partir de ahora en la app y el "
+"panel web para gestionar la información de tu perfil y las ofertas."
+msgstr ""
+
+#: templates/registration/preregister.html:43
 msgid "Finalizar registro"
 msgstr ""
 
-#: templates/user/add.html:6 templates/user/add.html:14
-#: templates/user/list.html:14
-msgid "Nuevo usuario"
+#: templates/reports/benefits_card.html:12
+msgid "nuevas publicadas"
+msgstr ""
+
+#: templates/reports/benefits_card.html:13
+msgid "total"
+msgstr ""
+
+#: templates/reports/benefits_card.html:20
+msgid "Ir a Ventajas"
+msgstr ""
+
+#: templates/reports/offers_card.html:11
+msgid "Activas"
+msgstr ""
+
+#: templates/reports/offers_card.html:12
+msgid "Publicadas"
+msgstr ""
+
+#: templates/reports/offers_card.html:13
+msgid "Por"
+msgstr ""
+
+#: templates/reports/offers_card.html:24
+msgid "Ver detalles"
+msgstr ""
+
+#: templates/reports/offers_card.html:25
+msgid "Ir a ofertas"
+msgstr ""
+
+#: templates/reports/ranges_filter.html:3
+msgid "Último año"
+msgstr ""
+
+#: templates/reports/ranges_filter.html:4
+msgid "Últimos 3 meses"
+msgstr ""
+
+#: templates/reports/ranges_filter.html:5
+msgid "Último mes"
+msgstr ""
+
+#: templates/reports/ranges_filter.html:6
+msgid "Última semana"
+msgstr ""
+
+#: templates/user/add.html:35
+msgid ""
+"Al crear una nueva usuaria, se le enviará un correo electrónico de "
+"bienvenida con un enlace único para que establezca su contraseña inicial."
+msgstr ""
+
+#: templates/user/delete.html:8 templates/user/delete.html:18
+#: templates/user/delete.html:30 templates/user/edit.html:76
+#: templates/user/query.html:35
+msgid "Eliminar usuario"
+msgstr ""
+
+#: templates/user/delete.html:32
+msgid "¿Estás segura de que quieres eliminar el usuario seleccionado?"
 msgstr ""
 
 #: templates/user/detail_card.html:7
 msgid "Aún no se ha creado usuario"
 msgstr ""
 
-#: templates/user/detail_card.html:11 templates/user/edit.html:34
+#: templates/user/detail_card.html:11 templates/user/edit.html:32
 msgid "Fecha de registro"
 msgstr ""
 
-#: templates/user/detail_card.html:12 templates/user/edit.html:35
+#: templates/user/detail_card.html:12 templates/user/edit.html:33
 msgid "Último acceso"
 msgstr ""
 
@@ -1292,7 +1652,7 @@ msgstr ""
 msgid "Reenviar email"
 msgstr ""
 
-#: templates/user/edit.html:28
+#: templates/user/edit.html:26
 msgid "Cuenta que gestiona"
 msgstr ""
 
@@ -1302,8 +1662,27 @@ msgid ""
 "contraseña (debió recibir un email a su cuenta con un enlace de activación)"
 msgstr ""
 
+#: templates/user/edit.html:74
+msgid "Administrar"
+msgstr ""
+
 #: templates/user/last_login.html:2
 msgid "Nunca"
+msgstr ""
+
+#: templates/user/password.html:38
+msgid "¡Cuidado! Vas a cambiar la contraseña de otro usuario"
+msgstr ""
+
+#: templates/user/password.html:39
+msgid ""
+"Esto puede ser disruptivo para la otra persona si seguía usando su "
+"contraseña. Asegúrate de tener su consentimiento y utiliza esta "
+"funcionalidad solo para situaciones de necesidad."
+msgstr ""
+
+#: templates/user/password.html:43
+msgid "Actualizar"
 msgstr ""
 
 #: templates/user/profile.html:23
@@ -1314,7 +1693,7 @@ msgstr ""
 msgid "Datos de perfil"
 msgstr ""
 
-#: templates/user/profile.html:86
+#: templates/user/profile.html:75
 msgid "Cambiar contraseña"
 msgstr ""
 
@@ -1336,10 +1715,6 @@ msgstr ""
 
 #: templates/user/query.html:22
 msgid "Normal"
-msgstr ""
-
-#: templates/user/query.html:35
-msgid "Eliminar usuario"
 msgstr ""
 
 #: templates/user/status_circle.html:4

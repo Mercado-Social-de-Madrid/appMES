@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 {% load static %}
 {% load sass_tags %}
-
-<html lang="es">
+{% load i18n %}
+<html lang="{{LANGUAGE_CODE}}">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport" />
-    <title>Mercado Social | {% block title %}{% endblock title%}</title>
+    <title>{% translate 'Mercado Social' %} | {% block title %}{% endblock title%}</title>
 
     <!-- CSS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />

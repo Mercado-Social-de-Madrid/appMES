@@ -52,7 +52,7 @@
                         <div class="card-title "><h3><i class="material-icons-outlined">eco</i> {% translate 'Ventajas' %}</h3></div>
                         {% if not account.benefit %}
                             <div class="card-text figure pt-2"><p class="label mb-0"> {% translate 'No ofreces ventajas' %}</p></div>
-                            <div class="clearboth pb-3">Para añadirlas ponte en contacto con  <a href="mailto:madrid@mercadosocial.net">madrid@mercadosocial.net</a></div>
+                            <div class="clearboth pb-3">{% translate 'Para añadirlas ponte en contacto con' %}<a href="mailto:{{current_market.contact_email}}">{{current_market.contact_email}}</a></div>
                         {% else %}
                             <div class="card-text figure pt-2 pb-3"><p class="label mb-0"> {% translate 'Actualmente tienes publicadas ventajas para socias del mercado :)' %}</p></div>
                         {% endif %}
