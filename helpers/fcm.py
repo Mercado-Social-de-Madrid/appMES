@@ -1,6 +1,5 @@
 import logging
 
-from django.conf import settings
 from firebase_admin.messaging import Message, Notification
 
 from fcm_django.models import FCMDevice
@@ -67,16 +66,17 @@ def broadcast_notification(node=None, data=None, event=NotificationEvent.OTHER, 
 
             # Backwards compatibility issue to send notifications to existing topic for people
             # who haven't updated the app with the multilang feature.
-            topic = node.shortname.lower() + "_" + event.prefix
-            send_broadcast(topic, data, title, body, image, silent)
+            topic = f"{node.shortname.lower()}_{event.prefix}"
+            send_broadcast(topic, data, title(), body(), image, silent)
 
             current_language = get_language()
             for lang in node.enabled_langs:
                 activate(lang)
-                topic = node.shortname.lower() + "_" + event.prefix + "_" + lang
-                send_broadcast(topic, data, title, body, image, silent)
+                topic = f"{node.shortname.lower()}_{event.prefix}_{lang}"
+                send_broadcast(topic, data, title(), body(), image, silent)
 
             activate(current_language)  # Activate original lang back
+
         except Exception as e:
             logger.error(e)
 

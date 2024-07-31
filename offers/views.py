@@ -63,8 +63,8 @@ class CreateOffer(OwnedByAccountAccessMixin, MarketMixin, CreateView):
         broadcast_notification(
             node=offer.provider.node,
             event=NotificationEvent.OFFER_ADDED,
-            title=offer.title,
-            body=strip_tags(offer.description),
+            title=lambda: offer.title,
+            body=lambda: strip_tags(offer.description),
             data={'proveedora': offer.provider.name, 'id': str(offer.pk)},
             image=self.request.build_absolute_uri(offer.banner_thumbnail.url) if offer.banner_thumbnail.name else None,
         )
