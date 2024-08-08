@@ -1,7 +1,7 @@
 {% extends "base_external.html" %}
 {% load static %}
 {% load settings_value %}
-
+{% load i18n %}
 {% block extra_styles %}
 <link href="{% static "css/balance.css" %}?v=1" rel="stylesheet">
 {% endblock extra_styles %}
@@ -13,8 +13,7 @@
     <div class="row">
         <div class="col-md-6">
             <p class="lead">
-                En el Mercado Social de {{node}} nos encontramos a las personas y entidades que, ante los grandes retos de nuestro tiempo,
-                estamos construyendo un <strong>nuevo modelo económico que sea respetuoso con las personas, los animales, el planeta y la sociedad.</strong>
+                {% blocktranslate with mercado=node context 'info mercado' %}En el Mercado Social de {{mercado}} nos encontramos las personas y entidades que, ante los grandes retos de nuestro tiempo, estamos construyendo un <strong>nuevo modelo económico que sea respetuoso con las personas, los animales, el planeta y la sociedad.</strong>{% endblocktranslate %}
             </p>
             <p class="mb-1">
                 Todas las entidades cumplen las prácticas de los <em>6 principios de la Economía Solidaria</em>:
@@ -23,16 +22,20 @@
         <div class="col-md-6">
 
     <ul class="principios">
-        <li class="pr1"><img src="{% static '/imgs/equidad.png' %}" class="mr-2"> Equidad</li>
-        <li class="pr2"><img src="{% static '/imgs/trabajo_digno.png' %}" class="mr-2"> Trabajo digno</li>
-        <li class="pr3"><img src="{% static '/imgs/cooperacion.png' %}" class="mr-2"> Cooperación</li>
-        <li class="pr4"><img src="{% static '/imgs/sostenibilidad_ecologica.png' %}" class="mr-2"> Sostenibilidad ecológica</li>
-        <li class="pr5"><img src="{% static '/imgs/reparto_justo_riqueza.png' %}" class="mr-2"> Reparto justo de la riqueza</li>
-        <li class="pr6"><img src="{% static '/imgs/compromiso_entorno.png' %}" class="mr-2"> Compromiso con el entorno</li>
+        <li class="pr1"><img src="{% static '/imgs/equidad.png' %}" class="mr-2"> {% translate 'Equidad' context 'info mercado' %}</li>
+        <li class="pr2"><img src="{% static '/imgs/trabajo_digno.png' %}" class="mr-2"> {% translate 'Trabajo digno' context 'info mercado' %}</li>
+        <li class="pr3"><img src="{% static '/imgs/cooperacion.png' %}" class="mr-2"> {% translate 'Cooperación' context 'info mercado' %}</li>
+        <li class="pr4"><img src="{% static '/imgs/sostenibilidad_ecologica.png' %}" class="mr-2"> {% translate 'Sostenibilidad ecológica' context 'info mercado' %}</li>
+        <li class="pr5"><img src="{% static '/imgs/reparto_justo_riqueza.png' %}" class="mr-2"> {% translate 'Reparto justo de la riqueza' context 'info mercado' %}</li>
+        <li class="pr6"><img src="{% static '/imgs/compromiso_entorno.png' %}" class="mr-2"> {% translate 'Compromiso con el entorno' context 'info mercado' %}</li>
     </ul>
         </div>
     </div>
-    <p class="emphasis text-center mt-3 mb-5">AL FORMAR PARTE Y CONSUMIR EN EL MERCADO SOCIAL ESTÁS TRANSFORMANDO EL CONSUMO EN {{node|upper}}</p>
+    {% with node|upper as node_name %}
+    <p class="emphasis text-center mt-3 mb-5">
+        {% blocktranslate with mercado=node_name context 'info mercado' %}AL FORMAR PARTE Y CONSUMIR EN EL MERCADO SOCIAL ESTÁS TRANSFORMANDO EL CONSUMO EN {{mercado}} {% endblocktranslate %}
+    </p>
+    {% endwith %}
 
 </div>
 {% endblock %}

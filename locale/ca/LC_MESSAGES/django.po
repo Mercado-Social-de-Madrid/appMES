@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-24 12:25+0000\n"
+"POT-Creation-Date: 2024-08-08 09:01+0000\n"
 "PO-Revision-Date: 2024-03-19 11:59+0000\n"
 "Last-Translator:  None <jjoseba@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -421,15 +421,15 @@ msgstr "Enllaç a la xarxa social"
 msgid "Proveedora"
 msgstr "Proveïdora"
 
-#: helpers/fcm.py:18
+#: helpers/fcm.py:17
 msgid "Otro"
 msgstr "Un altre"
 
-#: helpers/fcm.py:19 templates/news/add.html:8 templates/news/add.html:19
+#: helpers/fcm.py:18 templates/news/add.html:8 templates/news/add.html:19
 msgid "Nueva noticia"
 msgstr "Nova notícia"
 
-#: helpers/fcm.py:20 templates/offers/create.html:6
+#: helpers/fcm.py:19 templates/offers/create.html:6
 #: templates/offers/create.html:20 templates/offers/edit.html:7
 msgid "Nueva oferta"
 msgstr "Nova oferta"
@@ -556,11 +556,11 @@ msgstr "Consumidora eliminada correctament."
 msgid "Proveedora añadida correctamente."
 msgstr "Proveïdora afegida correctament."
 
-#: market/views/provider.py:167
+#: market/views/provider.py:168
 msgid "Proveedora actualizada correctamente."
 msgstr "Proveïdora actualitzada correctament."
 
-#: market/views/provider.py:215
+#: market/views/provider.py:216
 msgid "Proveedora eliminada correctamente."
 msgstr "Proveïdora eliminada correctament."
 
@@ -1185,6 +1185,54 @@ msgstr ""
 #: templates/market/form.html:153 templates/provider/form.html:118
 msgid "Redes sociales"
 msgstr "Xarxes socials"
+
+#: templates/market/info/default.html:16
+#, python-format
+msgctxt "info mercado"
+msgid ""
+"En el Mercado Social de %(mercado)s nos encontramos las personas y entidades "
+"que, ante los grandes retos de nuestro tiempo, estamos construyendo un "
+"<strong>nuevo modelo económico que sea respetuoso con las personas, los "
+"animales, el planeta y la sociedad.</strong>"
+msgstr ""
+
+#: templates/market/info/default.html:25
+msgctxt "info mercado"
+msgid "Equidad"
+msgstr ""
+
+#: templates/market/info/default.html:26
+msgctxt "info mercado"
+msgid "Trabajo digno"
+msgstr ""
+
+#: templates/market/info/default.html:27
+msgctxt "info mercado"
+msgid "Cooperación"
+msgstr "Informació"
+
+#: templates/market/info/default.html:28
+msgctxt "info mercado"
+msgid "Sostenibilidad ecológica"
+msgstr "Visibilitat pública"
+
+#: templates/market/info/default.html:29
+msgctxt "info mercado"
+msgid "Reparto justo de la riqueza"
+msgstr ""
+
+#: templates/market/info/default.html:30
+msgctxt "info mercado"
+msgid "Compromiso con el entorno"
+msgstr ""
+
+#: templates/market/info/default.html:36
+#, python-format
+msgctxt "info mercado"
+msgid ""
+"AL FORMAR PARTE Y CONSUMIR EN EL MERCADO SOCIAL ESTÁS TRANSFORMANDO EL "
+"CONSUMO EN %(mercado)s "
+msgstr ""
 
 #: templates/market/query.html:7
 msgid "Identificador"
