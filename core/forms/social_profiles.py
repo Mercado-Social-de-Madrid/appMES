@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 class SocialProfileForm(forms.ModelForm, BootstrapForm):
     social_network = forms.ModelChoiceField(queryset=SocialNetwork.objects.all(), widget=SocialNetworkWidget)
-    url = forms.CharField(max_length=100, required=False, widget=forms.widgets.TextInput(attrs={'placeholder': 'Enlace a la red social.'}))
+    url = forms.CharField(max_length=100, required=False, widget=forms.widgets.TextInput(attrs={'placeholder': _('Enlace a la red social.')}))
 
     class Meta:
         model = SocialProfile
