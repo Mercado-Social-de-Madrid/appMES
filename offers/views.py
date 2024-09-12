@@ -25,6 +25,7 @@ from market.models import Provider
 from offers.forms.offer import OfferForm
 from offers.models import Offer
 
+import html
 
 class UserOffers(LoginRequiredMixin, RedirectView):
     def get_redirect_url(self, *args, **kwargs):
@@ -64,7 +65,7 @@ class CreateOffer(OwnedByAccountAccessMixin, MarketMixin, CreateView):
             node=offer.provider.node,
             event=NotificationEvent.OFFER_ADDED,
             title=lambda: offer.title,
-            body=lambda: strip_tags(offer.description),
+            body=lambda: strip_tags(html.unescape(offer.description)),
             data={'proveedora': offer.provider.name, 'id': str(offer.pk)},
             image=self.request.build_absolute_uri(offer.banner_thumbnail.url) if offer.banner_thumbnail.name else None,
         )
