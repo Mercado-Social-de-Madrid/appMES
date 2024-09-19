@@ -78,7 +78,7 @@ class PreRegisteredUser(models.Model):
             account.owner = User.objects.create_user(
                 email=account.email,
                 first_name=account.display_name,
-                preferred_local=account.node.preferred_locale,
+                preferred_locale=account.node.preferred_locale,
                 is_active=True)
             account.save()
 
