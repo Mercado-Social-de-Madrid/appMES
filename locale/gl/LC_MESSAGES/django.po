@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-08 09:01+0000\n"
+"POT-Creation-Date: 2024-12-10 08:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,7 +209,7 @@ msgstr ""
 
 #: authentication/views/user.py:24 benefits/views.py:25
 #: market/views/consumer.py:27 market/views/provider.py:35 news/views.py:24
-#: offers/views.py:85
+#: offers/views.py:86
 msgid "Buscar..."
 msgstr ""
 
@@ -272,6 +272,10 @@ msgstr ""
 
 #: core/admin.py:13 core/models/social_profile.py:19 market/admin.py:19
 msgid "Redes Sociales"
+msgstr ""
+
+#: core/forms/social_profiles.py:18
+msgid "Enlace a la red social."
 msgstr ""
 
 #: core/forms/social_profiles.py:35
@@ -602,11 +606,11 @@ msgstr ""
 msgid "Fecha de fin"
 msgstr ""
 
-#: offers/views.py:104
+#: offers/views.py:105
 msgid "Fecha de publicación"
 msgstr ""
 
-#: offers/views.py:134
+#: offers/views.py:135
 msgid "Oferta eliminada correctamente."
 msgstr ""
 
@@ -1170,6 +1174,13 @@ msgid ""
 "que, ante los grandes retos de nuestro tiempo, estamos construyendo un "
 "<strong>nuevo modelo económico que sea respetuoso con las personas, los "
 "animales, el planeta y la sociedad.</strong>"
+msgstr ""
+
+#: templates/market/info/default.html:19
+msgctxt "info mercado"
+msgid ""
+"Todas las entidades cumplen las prácticas de los <em>6 principios de la "
+"Economía Solidaria</em>:"
 msgstr ""
 
 #: templates/market/info/default.html:25

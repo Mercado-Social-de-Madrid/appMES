@@ -2,92 +2,90 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MES web app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-08 10:20+0100\n"
+"POT-Creation-Date: 2024-12-10 08:28+0000\n"
 "PO-Revision-Date: 2024-08-16 17:44+0100\n"
 "Last-Translator: Julio\n"
 "Language-Team: Basque (Spain)\n"
 "Language: eu-ES\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Loco https://localise.biz\n"
 "X-Loco-Source-Locale: es-ES\n"
 "X-Loco-Project-Id: 161257\n"
-"X-Loco-Api-Version: 1.0.28 20240827-1"
+"X-Loco-Api-Version: 1.0.28 20240827-1\n"
 
-#: api/views/auth.py:68 loco:66b48e385dddbc5de40cff62
+#: api/views/auth.py:68
 msgid "Usuario no encontrado."
 msgstr "Erabiltzailea ez da aurkitu."
 
-#: api/views/auth.py:73 loco:66b48e385dddbc5de40cff63
+#: api/views/auth.py:73
 msgid "Tu cuenta no está activa, revisa tu bandeja de entrada de correo."
 msgstr ""
 "Zure kontua ez dago aktibo, egiaztatu zure posta elektronikoko sarrera-"
 "ontzia."
 
-#: api/views/auth.py:137 loco:66b48e385dddbc5de40cff64
+#: api/views/auth.py:137
 msgid "Usuario eliminado con éxito."
 msgstr "Erabiltzailea behar bezala ezabatu da."
 
-#: api/views/user.py:98 loco:66b48e385dddbc5de40cff65
+#: api/views/user.py:98
 msgid "Este usuario no gestiona ningún mercado."
 msgstr "Erabiltzaile honek ez du inolako merkaturik kudeatzen."
 
-#: api/views/user.py:104 loco:66b48e385dddbc5de40cff66
+#: api/views/user.py:104
 msgid "Ya existe un usuario registrado con este correo electrónico."
 msgstr "Badago posta elektroniko honekin erregistratutako erabiltzaile bat."
 
-#: api/views/user.py:147 loco:66b48e385dddbc5de40cff67
+#: api/views/user.py:147
 msgid "No existe objeto entity o person en el cuerpo de la petición"
 msgstr "Ez dago entitate edo pertsona objekturik eskaeraren gorputzean"
 
-#: appmes/settings.py:186 loco:66b48e385dddbc5de40cff68
+#: appmes/settings.py:186
 msgid "Castellano"
 msgstr "gaztelania"
 
-#: appmes/settings.py:187 loco:66b48e385dddbc5de40cff69
+#: appmes/settings.py:187
 msgid "Catalá"
 msgstr "Katalana"
 
-#: appmes/settings.py:188 loco:66b48e385dddbc5de40cff6a
+#: appmes/settings.py:188
 msgid "Euskara"
 msgstr "euskara"
 
-#: appmes/settings.py:189 loco:66b48e385dddbc5de40cff6b
+#: appmes/settings.py:189
 msgid "Galego"
 msgstr "Galiziera"
 
 #: authentication/admin.py:34 authentication/admin.py:67
 #: templates/registration/login.html:36 templates/user/profile.html:26
-#: loco:66b48e385dddbc5de40cff6c
 msgid "Contraseña"
 msgstr "Pasahitza"
 
-#: authentication/admin.py:36 loco:66b48e385dddbc5de40cff6d
+#: authentication/admin.py:36
 msgid "Repetir contraseña"
 msgstr "Pasahitza errepikatu "
 
-#: authentication/admin.py:68 loco:66b48e385dddbc5de40cff6e
+#: authentication/admin.py:68
 msgid ""
 "Puedes cambiar la contraseña haciendo click en <a href=\"../password/\">este "
 "enlace</a>."
 msgstr "Pasahitza alda dezakezu <a href=\"../password/\">esteka honetan."
 
-#: authentication/admin.py:95 loco:66b48e385dddbc5de40cff6f
+#: authentication/admin.py:95
 msgid "Información"
 msgstr "Informazioa"
 
-#: authentication/admin.py:98 loco:66b48e385dddbc5de40cff70
+#: authentication/admin.py:98
 msgid "Fechas"
 msgstr "Datak"
 
-#: authentication/admin.py:101 loco:66b48e385dddbc5de40cff71
+#: authentication/admin.py:101
 msgid "Permisos"
 msgstr "Baimenak"
 
 #: authentication/forms/user.py:13 authentication/models/user.py:56
-#: loco:66b48e385dddbc5de40cff72
 msgid "Mercado que gestiona"
 msgstr "Zuk kudeatzen duzun merkatua"
 
@@ -96,72 +94,71 @@ msgstr "Zuk kudeatzen duzun merkatua"
 #: market/models/category.py:10 market/models/consumer.py:8
 #: market/models/provider.py:13 templates/category/query.html:6
 #: templates/consumer/detail.html:61 templates/consumer/query.html:8
-#: templates/offers/query.html:7 loco:66b48e385dddbc5de40cff73
+#: templates/offers/query.html:7
 msgid "Nombre"
 msgstr "Izena"
 
-#: authentication/models/api_token.py:8 loco:66b48e385dddbc5de40cff74
+#: authentication/models/api_token.py:8
 msgid "API Token"
 msgstr "API Tokena"
 
-#: authentication/models/api_token.py:9 loco:66b48e385dddbc5de40cff75
+#: authentication/models/api_token.py:9
 msgid "API Tokens"
 msgstr "API Tokenak"
 
-#: authentication/models/group.py:7 loco:66b48e385dddbc5de40cff76
+#: authentication/models/group.py:7
 msgid "Grupo"
 msgstr "Taldea"
 
-#: authentication/models/group.py:8 loco:66b48e385dddbc5de40cff77
+#: authentication/models/group.py:8
 msgid "Grupos"
 msgstr "Taldeak"
 
-#: authentication/models/preregister.py:23 loco:66b48e385dddbc5de40cff78
+#: authentication/models/preregister.py:23
 msgid "Cuenta"
 msgstr "Kontua"
 
-#: authentication/models/preregister.py:24 loco:66b48e385dddbc5de40cff79
+#: authentication/models/preregister.py:24
 msgid "Email preregistro enviado"
 msgstr "Aldez aurretik izena emateko mezu elektronikoa bidali da"
 
 #: authentication/models/preregister.py:27 templates/account/add_user.html:25
 #: templates/user/add.html:34 templates/user/detail_card.html:18
-#: templates/user/edit.html:42 loco:66b48e385dddbc5de40cff7a
+#: templates/user/edit.html:42
 msgid "Prerregistro"
 msgstr "Aurre-izen ematea"
 
-#: authentication/models/preregister.py:28 loco:66b48e385dddbc5de40cff7b
+#: authentication/models/preregister.py:28
 msgid "Prerregistros"
 msgstr "Aurreinskripzioak"
 
-#: authentication/models/preregister.py:37 loco:66b48e385dddbc5de40cff7c
+#: authentication/models/preregister.py:37
 msgid "Todo listo para empezar a usar la aplicación móvil del Mercado Social"
 msgstr "Dena prest Merkatu Sozialaren aplikazio mugikorra erabiltzen hasteko"
 
-#: authentication/models/preregister.py:57 loco:66b48e385dddbc5de40cff7d
+#: authentication/models/preregister.py:57
 msgid "Nueva usuaria creada en la app"
 msgstr "Erabiltzaile berria sortu da aplikazioan"
 
-#: authentication/models/user.py:53 loco:66b48e385dddbc5de40cff7e
+#: authentication/models/user.py:53
 msgid "Correo Electrónico"
 msgstr "Posta elektronikoa"
 
 #: authentication/models/user.py:55 market/models/consumer.py:9
-#: templates/consumer/detail.html:66 loco:66b48e385dddbc5de40cff7f
+#: templates/consumer/detail.html:66
 msgid "Apellidos"
 msgstr "Abizenak"
 
-#: authentication/models/user.py:57 loco:66b48e385dddbc5de40cff80
+#: authentication/models/user.py:57
 msgid "Maneja entidades en más de un mercado"
 msgstr "Merkatu batean baino gehiagotan entitateak kudeatzea"
 
 #: authentication/models/user.py:58 core/models/node.py:40
-#: loco:66b48e385dddbc5de40cff81
 msgid "Idioma preferido de la interfaz"
 msgstr "Interfaze hizkuntza hobetsia"
 
 #: authentication/models/user.py:66 templates/consumer/query.html:5
-#: templates/user/detail_card.html:5 loco:66b48e385dddbc5de40cff82
+#: templates/user/detail_card.html:5
 msgid "Usuario"
 msgstr "Erabiltzailea"
 
@@ -170,99 +167,95 @@ msgstr "Erabiltzailea"
 #: templates/user/delete.html:18 templates/user/edit.html:7
 #: templates/user/edit.html:15 templates/user/list.html:4
 #: templates/user/list.html:11 templates/user/password.html:7
-#: templates/user/password.html:17 loco:66b48e385dddbc5de40cff83
+#: templates/user/password.html:17
 msgid "Usuarios"
 msgstr "Erabiltzaileak"
 
-#: authentication/models/user.py:70 loco:66b48e385dddbc5de40cff84
+#: authentication/models/user.py:70
 msgid "Puede ver la lista de usuarios"
 msgstr "Erabiltzaileen zerrenda ikus dezakezu"
 
-#: authentication/models/user.py:71 loco:66b48e385dddbc5de40cff85
+#: authentication/models/user.py:71
 msgid "Puede cambiar la contraseña de un usuario"
 msgstr "Erabiltzaile baten pasahitza alda dezakezu"
 
-#: authentication/models/user.py:72 loco:66b48e385dddbc5de40cff86
+#: authentication/models/user.py:72
 msgid "Puede consultar el historial de un usuario"
 msgstr "Erabiltzaile baten historia begiratu dezakezu"
 
-#: authentication/models/user.py:73 loco:66b48e385dddbc5de40cff87
+#: authentication/models/user.py:73
 msgid "Puede modificar usuarios"
 msgstr "Erabiltzaileak alda ditzakezu"
 
-#: authentication/models/user.py:74 loco:66b48e385dddbc5de40cff88
+#: authentication/models/user.py:74
 msgid "Puede ver los detalles de un usuario"
 msgstr "Erabiltzaile baten xehetasunak ikus ditzakezu"
 
-#: authentication/models/user.py:75 loco:66b48e385dddbc5de40cff89
+#: authentication/models/user.py:75
 msgid "Puede añadir usuarios"
 msgstr "Erabiltzaileak gehi ditzakezu"
 
 #: authentication/views/market.py:20 authentication/views/user.py:94
-#: loco:66b48e385dddbc5de40cff8a
 msgid "Usuario creado correctamente."
 msgstr "Erabiltzailea behar bezala sortu da."
 
-#: authentication/views/preregister.py:43 loco:66b48e385dddbc5de40cff8b
+#: authentication/views/preregister.py:43
 msgid "Contraseña actualizada correctamente"
 msgstr "Pasahitza behar bezala eguneratu da"
 
-#: authentication/views/preregister.py:50 loco:66b48e385dddbc5de40cff8c
+#: authentication/views/preregister.py:50
 msgid "Email de prerregistro reenviado"
 msgstr "Aurrez izena emateko mezu elektronikoa birbidali da"
 
 #: authentication/views/user.py:24 benefits/views.py:25
 #: market/views/consumer.py:27 market/views/provider.py:35 news/views.py:24
-#: offers/views.py:85 loco:66b48e385dddbc5de40cff8d
+#: offers/views.py:86
 msgid "Buscar..."
 msgstr "Bilatu..."
 
-#: authentication/views/user.py:103 loco:66b48e385dddbc5de40cff8e
+#: authentication/views/user.py:103
 msgid "Usuario eliminado correctamente."
 msgstr "Erabiltzailea behar bezala ezabatu da."
 
 #: benefits/models/benefit.py:10 templates/benefits/detail.html:58
-#: loco:66b48e385dddbc5de40cff8f
 msgid "Ventajas para entidades"
 msgstr "Entitateentzako abantailak"
 
-#: benefits/models/benefit.py:11 loco:66b48e385dddbc5de40cff90
+#: benefits/models/benefit.py:11
 msgid "Ventajas para socias"
 msgstr "Bazkideentzako abantailak"
 
 #: benefits/models/benefit.py:12 templates/benefits/form.html:17
-#: loco:66b48e385dddbc5de40cff91
 msgid "Incluye socias Intercoop"
 msgstr "Intercoop-eko kideak barne"
 
 #: benefits/models/benefit.py:13 templates/benefits/detail.html:34
-#: templates/benefits/form.html:27 loco:66b48e385dddbc5de40cff92
+#: templates/benefits/form.html:27
 msgid "Solicitud física"
 msgstr "Eskaera fisikoa"
 
 #: benefits/models/benefit.py:14 templates/benefits/detail.html:43
-#: templates/benefits/form.html:38 loco:66b48e385dddbc5de40cff93
+#: templates/benefits/form.html:38
 msgid "Solicitud online"
 msgstr "On line eskaera"
 
 #: benefits/models/benefit.py:15 templates/benefits/detail.html:110
-#: loco:66b48e385dddbc5de40cff94
 msgid "Código de descuento"
 msgstr "Deskontu kodea"
 
-#: benefits/models/benefit.py:16 loco:66b48e385dddbc5de40cff95
+#: benefits/models/benefit.py:16
 msgid "Link de descuento para entidades"
 msgstr "Entitateentzako deskontu esteka"
 
-#: benefits/models/benefit.py:17 loco:66b48e385dddbc5de40cff96
+#: benefits/models/benefit.py:17
 msgid "Link de descuento para socias"
 msgstr "Bazkideentzako deskontu esteka"
 
-#: benefits/models/benefit.py:18 loco:66b48e385dddbc5de40cff97
+#: benefits/models/benefit.py:18
 msgid "Texto del botón del link de descuento"
 msgstr "Deskontu estekaren botoiaren testua"
 
-#: benefits/models/benefit.py:18 loco:66b48e385dddbc5de40cff98
+#: benefits/models/benefit.py:18
 msgid "Solicitar descuento"
 msgstr "Deskontua eskatu"
 
@@ -270,55 +263,57 @@ msgstr "Deskontua eskatu"
 #: offers/models/offer.py:69 templates/benefits/detail.html:25
 #: templates/benefits/detail.html:27 templates/benefits/query.html:9
 #: templates/benefits/query.html:20 templates/member/check_form.html:55
-#: loco:66b48e385dddbc5de40cff99
 msgid "Activa"
 msgstr "Aktiboa"
 
 #: core/admin.py:12 core/models/social_profile.py:18 market/admin.py:18
-#: loco:66b48e385dddbc5de40cff9a
 msgid "Red Social"
 msgstr "Sare Soziala"
 
 #: core/admin.py:13 core/models/social_profile.py:19 market/admin.py:19
-#: loco:66b48e385dddbc5de40cff9b
 msgid "Redes Sociales"
 msgstr "Sare sozialak"
 
-#: core/forms/social_profiles.py:35 loco:66b48e385dddbc5de40cff9c
+#: core/forms/social_profiles.py:18
+#, fuzzy
+#| msgid "Enlace a la red social"
+msgid "Enlace a la red social."
+msgstr "Sare sozialerako esteka"
+
+#: core/forms/social_profiles.py:35
 msgid "Introduce una URL válida."
 msgstr "Sartu baliozko URL bat."
 
 #: core/models/gallery.py:10 core/models/gallery.py:21
-#: templates/news/query.html:6 loco:66b48e385dddbc5de40cff9d
+#: templates/news/query.html:6
 msgid "Título"
 msgstr "Izenburua"
 
 #: core/models/gallery.py:13 templates/provider/form.html:61
-#: loco:66b48e385dddbc5de40cff9e
 msgid "Galería"
 msgstr "Galeria"
 
-#: core/models/gallery.py:14 loco:66b48e385dddbc5de40cff9f
+#: core/models/gallery.py:14
 msgid "Galerías"
 msgstr "Galeriak"
 
-#: core/models/gallery.py:20 loco:66b48e385dddbc5de40cffa0
+#: core/models/gallery.py:20
 msgid "Orden"
 msgstr "Agindua"
 
-#: core/models/gallery.py:32 loco:66b48e385dddbc5de40cffa1
+#: core/models/gallery.py:32
 msgid "Foto"
 msgstr "Argazkia"
 
-#: core/models/gallery.py:33 loco:66b48e385dddbc5de40cffa2
+#: core/models/gallery.py:33
 msgid "Fotos"
 msgstr "Argazkiak"
 
-#: core/models/node.py:14 loco:66b48e385dddbc5de40cffa3
+#: core/models/node.py:14
 msgid "Visible en listado público"
 msgstr "Zerrenda publikoan ikusgai"
 
-#: core/models/node.py:14 loco:66b48e385dddbc5de40cffa4
+#: core/models/node.py:14
 msgid ""
 "Por defecto, un nuevo mercado empieza oculto hasta que esté listo para "
 "incluir en la aplicación"
@@ -327,197 +322,183 @@ msgstr ""
 "prest dagoen arte"
 
 #: core/models/node.py:15 market/models/provider.py:18
-#: loco:66b48e385dddbc5de40cffa5
 msgid "Latitud"
 msgstr "Latitudea"
 
 #: core/models/node.py:16 market/models/provider.py:19
-#: loco:66b48e385dddbc5de40cffa6
 msgid "Longitud"
 msgstr "Luzera"
 
-#: core/models/node.py:18 loco:66b48e385dddbc5de40cffa7
+#: core/models/node.py:18
 msgid "Email de contacto"
 msgstr "Harremanetarako posta elektronikoa"
 
-#: core/models/node.py:19 loco:66b48e385dddbc5de40cffa8
+#: core/models/node.py:19
 msgid "Email de administración"
 msgstr "Administrazioaren posta elektronikoa"
 
-#: core/models/node.py:19 loco:66b48e385dddbc5de40cffa9
+#: core/models/node.py:19
 msgid "Para mensajes de la herramienta"
 msgstr "Tresnaren mezuetarako"
 
-#: core/models/node.py:20 loco:66b48e385dddbc5de40cffaa
+#: core/models/node.py:20
 msgid "Permitir el registro abierto"
 msgstr "Izen-emate irekia baimendu"
 
-#: core/models/node.py:21 loco:66b48e385dddbc5de40cffab
+#: core/models/node.py:21
 msgid "Enlace al formulario de registro de proveedoras"
 msgstr "Hornitzaileen izena emateko formulariorako esteka"
 
-#: core/models/node.py:22 loco:66b48e385dddbc5de40cffac
+#: core/models/node.py:22
 msgid "Enlace al formulario de registro de consumidoras"
 msgstr "Kontsumitzaileen izena emateko formulariorako esteka"
 
 #: core/models/node.py:25 news/models/news.py:20 offers/models/offer.py:59
-#: loco:66b48e385dddbc5de40cffad
 msgid "Imagen principal"
 msgstr "Irudi nagusia"
 
-#: core/models/node.py:28 loco:66b48e385dddbc5de40cffae
+#: core/models/node.py:28
 msgid "Imagen del distintivo de balance"
 msgstr "Auditoretza sozialaren bereizgarriaren irudia"
 
 #: core/models/node.py:31 market/models/provider.py:30
-#: loco:66b48e385dddbc5de40cffaf
 msgid "Página web"
 msgstr "Web orria"
 
-#: core/models/node.py:32 loco:66b48e385dddbc5de40cffb0
+#: core/models/node.py:32
 msgid "Servidor de Takahe"
 msgstr "Takahe zerbitzaria"
 
-#: core/models/node.py:33 loco:66b48e385dddbc5de40cffb1
+#: core/models/node.py:33
 msgid "Enlace de invitación a Takahe"
 msgstr "Takahe gonbidapen-esteka"
 
-#: core/models/node.py:35 loco:66b48e385dddbc5de40cffb2
+#: core/models/node.py:35
 msgid "Utiliza herramienta de gestión para las socias"
 msgstr "Kudeaketa-tresna bazkideentzat erabili"
 
-#: core/models/node.py:36 loco:66b48e385dddbc5de40cffb3
+#: core/models/node.py:36
 msgid "URL del servidor de la Herramienta de gestión"
 msgstr "Kudeaketa-tresnaren zerbitzariaren URLa"
 
-#: core/models/node.py:37 loco:66b48e385dddbc5de40cffb4
+#: core/models/node.py:37
 msgid "Carnet de socia activa"
 msgstr "Bazkide txartela aktiboa"
 
-#: core/models/node.py:38 loco:66b48e385dddbc5de40cffb5
+#: core/models/node.py:38
 msgid "Enlace a página con información básica del mercado"
 msgstr "Merkatuaren oinarrizko informazioa duen orrialderako esteka."
 
 #: core/models/node.py:41 templates/market/form.html:43
-#: loco:66b48e385dddbc5de40cffb6
 msgid "Idiomas habilitados"
 msgstr "Hizkuntzak gaituta"
 
 #: core/models/node.py:48 core/models/social_profile.py:35
 #: market/views/provider.py:56 templates/market/query.html:6
-#: loco:66b48e385dddbc5de40cffb7
 msgid "Mercado"
 msgstr "Merkatua"
 
 #: core/models/node.py:49 templates/market/edit.html:5
 #: templates/market/list.html:4 templates/navbar/admin.html:27
-#: loco:66b48e385dddbc5de40cffb8
 msgid "Mercados"
 msgstr "Merkatuak"
 
-#: core/models/social_profile.py:11 loco:66b48e385dddbc5de40cffb9
+#: core/models/social_profile.py:11
 msgid "Logo"
 msgstr "Logoa"
 
-#: core/models/social_profile.py:15 loco:66b48e385dddbc5de40cffba
+#: core/models/social_profile.py:15
 msgid "Logo png"
 msgstr "Logotipoa png irudiak"
 
-#: core/models/social_profile.py:26 loco:66b48e385dddbc5de40cffbb
+#: core/models/social_profile.py:26
 msgid "Red social"
 msgstr "sare soziala"
 
-#: core/models/social_profile.py:27 loco:66b48e385dddbc5de40cffbc
+#: core/models/social_profile.py:27
 msgid "Enlace a la red social"
 msgstr "Sare sozialerako esteka"
 
-#: core/models/social_profile.py:40 loco:66b48e385dddbc5de40cffbd
+#: core/models/social_profile.py:40
 msgid "Proveedora"
 msgstr "Hornitzailea"
 
-#: helpers/fcm.py:17 loco:66b48e385dddbc5de40cffbe
+#: helpers/fcm.py:17
 msgid "Otro"
 msgstr "Besteak"
 
 #: helpers/fcm.py:18 templates/news/add.html:8 templates/news/add.html:19
-#: loco:66b48e385dddbc5de40cffbf
 msgid "Nueva noticia"
 msgstr "Albiste berria"
 
 #: helpers/fcm.py:19 templates/offers/create.html:6
 #: templates/offers/create.html:20 templates/offers/edit.html:7
-#: loco:66b48e385dddbc5de40cffc0
 msgid "Nueva oferta"
 msgstr "Eskaintza berria"
 
-#: helpers/filters/LabeledOrderingFilter.py:6 loco:66b48e385dddbc5de40cffc1
+#: helpers/filters/LabeledOrderingFilter.py:6
 msgid "Ordenar por..."
 msgstr "antolatu..."
 
-#: market/forms/account.py:23 loco:66b48e385dddbc5de40cffc2
+#: market/forms/account.py:23
 msgid "Crear usuaria y mandar email de prerregistro"
 msgstr ""
 "Sortu erabiltzailea eta bidali aurre-erregistratzeko posta elektronikoa"
 
-#: market/forms/account.py:33 loco:66b48e385dddbc5de40cffc3
+#: market/forms/account.py:33
 msgid "Ya existe un usuario registrado con este email."
 msgstr ""
 "Dagoeneko erregistratutako erabiltzaile bat dago posta elektroniko honekin."
 
 #: market/models/account.py:17 templates/provider/query.html:9
-#: loco:66b48e385dddbc5de40cffc4
 msgid "Gestionado por"
 msgstr "kudeatua"
 
-#: market/models/account.py:19 loco:66b48e385dddbc5de40cffc5
+#: market/models/account.py:19
 msgid "NIF/CIF/Pasaporte"
 msgstr "IFZ/IFK/Pasaportea"
 
 #: market/models/account.py:21 templates/consumer/detail.html:83
-#: loco:66b48e385dddbc5de40cffc6
 msgid "Teléfono"
 msgstr "Telefonoa"
 
 #: market/models/account.py:22 templates/consumer/detail.html:51
 #: templates/member/check_form.html:38 templates/provider/detail.html:40
-#: loco:66b48e385dddbc5de40cffc7
 msgid "Número de socia"
 msgstr "Bazkide zenbakia"
 
 #: market/models/account.py:23 templates/consumer/detail.html:88
-#: loco:66b48e385dddbc5de40cffc8
 msgid "Dirección"
 msgstr "Helbidea"
 
-#: market/models/account.py:24 loco:66b48e385dddbc5de40cffc9
+#: market/models/account.py:24
 msgid "Municipio"
 msgstr "Udala"
 
-#: market/models/account.py:31 loco:66b48e385dddbc5de40cffca
+#: market/models/account.py:31
 msgid "Última actualización"
 msgstr "Azken eguneratzea"
 
 #: market/models/account.py:32 templates/account/card.html:9
-#: templates/consumer/query.html:6 loco:66b48e385dddbc5de40cffcb
+#: templates/consumer/query.html:6
 msgid "Fecha de alta"
 msgstr "Izena emateko data"
 
 #: market/models/category.py:11 market/models/provider.py:14
 #: news/models/news.py:18 offers/models/offer.py:57
 #: templates/category/query.html:7 templates/news/query.html:9
-#: loco:66b48e385dddbc5de40cffcc
 msgid "Descripción"
 msgstr "Deskribapena"
 
-#: market/models/consumer.py:10 loco:66b48e385dddbc5de40cffcd
+#: market/models/consumer.py:10
 msgid "Favoritos"
 msgstr "Faboritoak"
 
-#: market/models/consumer.py:11 loco:66b48e385dddbc5de40cffce
+#: market/models/consumer.py:11
 msgid "Es socia de intercooperación"
 msgstr "Interkooperazioko bazkidea da"
 
-#: market/models/consumer.py:14 loco:66b48e385dddbc5de40cffcf
+#: market/models/consumer.py:14
 msgid "Consumidora"
 msgstr "Kontsumitzailea"
 
@@ -525,167 +506,161 @@ msgstr "Kontsumitzailea"
 #: templates/consumer/delete.html:18 templates/consumer/detail.html:16
 #: templates/consumer/edit.html:14 templates/consumer/list.html:5
 #: templates/consumer/list.html:12 templates/navbar/market.html:50
-#: loco:66b48e385dddbc5de40cffd0
 msgid "Consumidoras"
 msgstr "Kontsumitzaileak"
 
 #: market/models/provider.py:15 news/models/news.py:17
-#: loco:66b48e385dddbc5de40cffd1
 msgid "Descripción corta"
 msgstr "Deskribapen laburra"
 
-#: market/models/provider.py:17 loco:66b48e385dddbc5de40cffd2
+#: market/models/provider.py:17
 msgid "Oculta en listado público"
 msgstr "Zerrenda publikoan ezkutatuta"
 
 #: market/models/provider.py:21 templates/category/delete.html:18
 #: templates/category/detail.html:5 templates/category/detail.html:13
 #: templates/category/list.html:5 templates/category/list.html:12
-#: templates/navbar/market.html:35 loco:66b48e385dddbc5de40cffd3
+#: templates/navbar/market.html:35
 msgid "Categorías"
 msgstr "Kategoriak"
 
-#: market/models/provider.py:23 loco:66b48e385dddbc5de40cffd4
+#: market/models/provider.py:23
 msgid "Número de trabajadores"
 msgstr "Langile kopurua"
 
-#: market/models/provider.py:24 loco:66b48e385dddbc5de40cffd5
+#: market/models/provider.py:24
 msgid "Forma legal"
 msgstr "Forma juridikoa"
 
-#: market/models/provider.py:28 loco:66b48e385dddbc5de40cffd6
+#: market/models/provider.py:28
 msgid "Informe balance"
 msgstr "Auditoretza sozialaren txostena"
 
-#: market/views/category.py:34 loco:66b48e385dddbc5de40cffd7
+#: market/views/category.py:34
 msgid "Categoría añadida correctamente."
 msgstr "Kategoria behar bezala gehitu da."
 
-#: market/views/category.py:55 loco:66b48e385dddbc5de40cffd8
+#: market/views/category.py:55
 msgid "Categoría eliminada correctamente."
 msgstr "Kategoria behar bezala ezabatu da."
 
-#: market/views/consumer.py:63 loco:66b48e385dddbc5de40cffd9
+#: market/views/consumer.py:63
 msgid "Consumidora añadida correctamente."
 msgstr "Kontsumitzailea behar bezala gehitu da."
 
 #: market/views/consumer.py:88 market/views/market.py:71
-#: loco:66b48e385dddbc5de40cffda
 msgid "Datos actualizados correctamente."
 msgstr "Datuak behar bezala eguneratu dira."
 
-#: market/views/consumer.py:102 loco:66b48e385dddbc5de40cffdb
+#: market/views/consumer.py:102
 msgid "Consumidora eliminada correctamente."
 msgstr "Kontsumitzailea behar bezala ezabatu da."
 
-#: market/views/provider.py:142 loco:66b48e385dddbc5de40cffdc
+#: market/views/provider.py:142
 msgid "Proveedora añadida correctamente."
 msgstr "Hornitzailea ondo gehitu da."
 
-#: market/views/provider.py:168 loco:66b48e385dddbc5de40cffdd
+#: market/views/provider.py:168
 msgid "Proveedora actualizada correctamente."
 msgstr "Hornitzailea behar bezala eguneratu da."
 
-#: market/views/provider.py:216 loco:66b48e385dddbc5de40cffde
+#: market/views/provider.py:216
 msgid "Proveedora eliminada correctamente."
 msgstr "Hornitzailea behar bezala ezabatu da."
 
-#: news/models/news.py:13 loco:66b48e385dddbc5de40cffdf
+#: news/models/news.py:13
 msgid "Mercado en el que se publica"
 msgstr "Argitaratzen den merkatua"
 
-#: news/models/news.py:15 loco:66b48e385dddbc5de40cffe0
+#: news/models/news.py:15
 msgid "Título (máx 200 caracteres)"
 msgstr "Izenburua (200 karaktere gehienez)"
 
-#: news/models/news.py:28 loco:66b48e385dddbc5de40cffe1
+#: news/models/news.py:28
 msgid "Texto del botón de info"
 msgstr "Informazio botoiaren testua"
 
-#: news/models/news.py:29 loco:66b48e385dddbc5de40cffe2
+#: news/models/news.py:29
 msgid "URL con más información"
 msgstr "informazio gehiago duen URLa"
 
-#: news/views.py:92 loco:66b48e385dddbc5de40cffe3
+#: news/views.py:92
 msgid "Noticia actualizada correctamente."
 msgstr "Albisteak behar bezala eguneratuta."
 
-#: news/views.py:104 loco:66b48e385dddbc5de40cffe4
+#: news/views.py:104
 msgid "Noticia eliminada correctamente."
 msgstr "Albistea behar bezala ezabatu da."
 
-#: offers/models/offer.py:56 loco:66b48e385dddbc5de40cffe5
+#: offers/models/offer.py:56
 msgid "Título de la oferta"
 msgstr "Eskaintzaren izenburua"
 
 #: offers/models/offer.py:67 templates/offers/form.html:62
-#: loco:66b48e385dddbc5de40cffe6
 msgid "Porcentaje de descuento"
 msgstr "Deskontu-ehunekoa"
 
-#: offers/models/offer.py:68 loco:66b48e385dddbc5de40cffe7
+#: offers/models/offer.py:68
 msgid "Precio con descuento"
 msgstr "Prezioa deskontuarekin"
 
-#: offers/models/offer.py:70 loco:66b48e385dddbc5de40cffe8
+#: offers/models/offer.py:70
 msgid "Fecha de inicio"
 msgstr "Hasiera data"
 
-#: offers/models/offer.py:71 loco:66b48e385dddbc5de40cffe9
+#: offers/models/offer.py:71
 msgid "Fecha de fin"
 msgstr "Amaiera-data"
 
-#: offers/views.py:104 loco:66b48e385dddbc5de40cffea
+#: offers/views.py:105
 msgid "Fecha de publicación"
 msgstr "Argitalpen data"
 
-#: offers/views.py:134 loco:66b48e385dddbc5de40cffeb
+#: offers/views.py:135
 msgid "Oferta eliminada correctamente."
 msgstr "Eskaintza behar bezala ezabatu da."
 
-#: templates/403.html:15 loco:66b48e385dddbc5de40cffec
+#: templates/403.html:15
 msgid "No autorizada"
 msgstr "Baimendugabea"
 
-#: templates/404.html:9 loco:66b48e385dddbc5de40cffed
+#: templates/404.html:9
 msgid "Página no encontrada"
 msgstr "orrialdea ez da aurkitu"
 
-#: templates/500.html:9 loco:66b48e385dddbc5de40cffee
+#: templates/500.html:9
 msgid "Algo ha fallado"
 msgstr "Zerbait gaizki joan da"
 
-#: templates/500.html:10 loco:66b48e385dddbc5de40cffef
+#: templates/500.html:10
 msgid "Prueba a actualizar la página o contacta con el equipo técnico."
 msgstr "Saiatu orria freskatzen edo jarri harremanetan talde teknikoarekin."
 
-#: templates/500.html:12 loco:66b48e385dddbc5de40cfff0
+#: templates/500.html:12
 msgid "Actualizar página"
 msgstr "Freskatu orria"
 
 #: templates/500.html:13 templates/benefits/add.html:96
-#: loco:66b48e385dddbc5de40cfff1
 msgid "Volver"
 msgstr "Itzuli"
 
 #: templates/account/action_user.html:5 templates/account/add_user.html:41
 #: templates/user/add.html:41 templates/user/detail_card.html:8
-#: loco:66b48e385dddbc5de40cfff2
 msgid "Crear usuario"
 msgstr "Erabiltzailea sortu"
 
-#: templates/account/action_user.html:7 loco:66b48e385dddbc5de40cfff3
+#: templates/account/action_user.html:7
 msgid "Editar usuario"
 msgstr "Erabiltzailea editatu"
 
 #: templates/account/add_user.html:6 templates/account/add_user.html:14
 #: templates/user/add.html:6 templates/user/add.html:14
-#: templates/user/list.html:14 loco:66b48e385dddbc5de40cfff4
+#: templates/user/list.html:14
 msgid "Nuevo usuario"
 msgstr "Erabiltzaile berria"
 
 #: templates/account/add_user.html:26
-#: templates/account/preregister_switch.html:5 loco:66b48e385dddbc5de40cfff5
+#: templates/account/preregister_switch.html:5
 msgid ""
 "Se creará un usuario asociado a la cuenta con el mismo email, y se le "
 "enviará un correo electrónico de bienvenida con un enlace único para que "
@@ -695,15 +670,15 @@ msgstr ""
 "ongietorri mezu bat bidaliko da hasierako pasahitza ezartzeko esteka "
 "esklusibo batekin."
 
-#: templates/account/preregister_switch.html:6 loco:66b48e385dddbc5de40cfff6
+#: templates/account/preregister_switch.html:6
 msgid "Esta acción se puede realizar a posteriori."
 msgstr "Ekintza hau gero egin daiteke."
 
-#: templates/balance/detail.html:24 loco:66b48e385dddbc5de40cfff7
+#: templates/balance/detail.html:24
 msgid "Distintivo de calidad del MESM"
 msgstr "MESM kalitate bereizgarria"
 
-#: templates/balance/detail.html:26 loco:66b48e385dddbc5de40cfff8
+#: templates/balance/detail.html:26
 msgid ""
 "Al realizar el Balance Social, además de obtener el sello, infografía e "
 "informe personalizado, las entidades que lo soliciten, tendrán este "
@@ -715,7 +690,7 @@ msgstr ""
 "dute, zuen erakundeari ikusgarritasuna eta ospea emango dion tresna "
 "bereizgarri gisa."
 
-#: templates/balance/detail.html:28 loco:66b48e385dddbc5de40cfff9
+#: templates/balance/detail.html:28
 msgid ""
 "El distintivo contiene un QR que permite a las socias visitar un documento "
 "como el que se puede ver aquí."
@@ -723,119 +698,112 @@ msgstr ""
 "Bereizgarriak QR bat du, bazkideei hemen ikus daitekeen moduko dokumentu bat "
 "bisitatzeko aukera ematen diena."
 
-#: templates/base.html:10 loco:66b48e385dddbc5de40cfffa
+#: templates/base.html:10
 msgid "Mercado Social"
 msgstr "Merkatu Soziala"
 
 #: templates/benefits/add.html:7 templates/benefits/add.html:17
 #: templates/benefits/list.html:21 templates/provider/detail.html:69
-#: loco:66b48e385dddbc5de40cfffb
 msgid "Añadir ventaja"
 msgstr "Abantaila gehitu"
 
 #: templates/benefits/add.html:45 templates/benefits/add.html:75
-#: loco:66b48e385dddbc5de40cfffc
 msgid "Selecciona entidad"
 msgstr "Entitatea hautatu"
 
-#: templates/benefits/add.html:48 loco:66b48e385dddbc5de40cfffd
+#: templates/benefits/add.html:48
 msgid "Buscar"
 msgstr "Bilatu"
 
-#: templates/benefits/add.html:64 loco:66b48e385dddbc5de40cfffe
+#: templates/benefits/add.html:64
 msgid "Crear ventaja"
 msgstr "Abantaila sortu"
 
-#: templates/benefits/add.html:95 loco:66b48e385dddbc5de40cffff
+#: templates/benefits/add.html:95
 msgid "No tienes permisos para editar esta ventaja."
 msgstr "Ez duzu abantaila hau editatzeko baimenik."
 
-#: templates/benefits/detail.html:8 loco:66b48e385dddbc5de40d0000
+#: templates/benefits/detail.html:8
 #, python-format
 msgid " Ventajas de %(entidad)s "
 msgstr "%(entidad)s abantailak"
 
 #: templates/benefits/detail.html:29 templates/benefits/query.html:21
-#: loco:66b48e385dddbc5de40d0001
 msgid "Inactiva"
 msgstr "Inaktibo"
 
-#: templates/benefits/detail.html:36 loco:66b48e385dddbc5de40d0002
+#: templates/benefits/detail.html:36
 msgid "Sí acepta solicitud física"
 msgstr "Bai eskaera fisikoa onartzen du"
 
-#: templates/benefits/detail.html:38 loco:66b48e385dddbc5de40d0003
+#: templates/benefits/detail.html:38
 msgid "No acepta solicitud física"
 msgstr "Ez du eskaera fisikorik onartzen"
 
-#: templates/benefits/detail.html:45 loco:66b48e385dddbc5de40d0004
+#: templates/benefits/detail.html:45
 msgid "Sí acepta solicitud online"
 msgstr "Bai, lineako eskaera onartzen da"
 
-#: templates/benefits/detail.html:47 loco:66b48e385dddbc5de40d0005
+#: templates/benefits/detail.html:47
 msgid "No acepta solicitud online"
 msgstr "Ez du lineako aplikaziorik onartzen"
 
-#: templates/benefits/detail.html:64 loco:66b48e385dddbc5de40d0006
+#: templates/benefits/detail.html:64
 msgid "No hay ventajas para entidades."
 msgstr "Ez dago abantailarik entitateentzat."
 
 #: templates/benefits/detail.html:70 templates/benefits/detail.html:94
-#: loco:66b48e385dddbc5de40d0007
 msgid "Link de descuento"
 msgstr "Deskontu lotura"
 
-#: templates/benefits/detail.html:78 loco:66b48e385dddbc5de40d0008
+#: templates/benefits/detail.html:78
 msgid "Ventajas para consumidoras"
 msgstr "Abantailak kontsumitzaileentzat"
 
-#: templates/benefits/detail.html:86 loco:66b48e385dddbc5de40d0009
+#: templates/benefits/detail.html:86
 msgid "Incluye socias de intercooperación"
 msgstr "Elkarlanerako bazkideak barne hartzen ditu"
 
-#: templates/benefits/detail.html:88 loco:66b48e385dddbc5de40d000a
+#: templates/benefits/detail.html:88
 msgid "No incluye socias de intercooperación"
 msgstr "Elkarlanerako bazkideak ez daude barne"
 
-#: templates/benefits/detail.html:101 loco:66b48e385dddbc5de40d000b
+#: templates/benefits/detail.html:101
 msgid "No hay ventajas para socias."
 msgstr "ez dago abantailarik bazkideentzat."
 
-#: templates/benefits/detail.html:119 loco:66b48e385dddbc5de40d000c
+#: templates/benefits/detail.html:119
 msgid "Para modificar esta ventaja ponte en contacto con"
 msgstr "Abantaila hau aldatzeko, jarri harremanetan"
 
-#: templates/benefits/edit.html:8 loco:66b48e385dddbc5de40d000d
+#: templates/benefits/edit.html:8
 msgid "Editar ventaja"
 msgstr "Abantaila editatu"
 
 #: templates/benefits/edit.html:19 templates/navbar/market.html:43
 #: templates/offers/entity_list.html:20 templates/provider/create.html:18
 #: templates/provider/delete.html:18 templates/provider/edit.html:18
-#: templates/provider/list.html:18 loco:66b48e385dddbc5de40d000e
+#: templates/provider/list.html:18
 msgid "Proveedoras"
 msgstr "Hornitzaileak"
 
-#: templates/benefits/edit.html:23 loco:66b48e385dddbc5de40d000f
+#: templates/benefits/edit.html:23
 msgid "Editar ventajas"
 msgstr "Abantailak editatu"
 
 #: templates/benefits/edit.html:27 templates/provider/detail.html:67
-#: loco:66b48e385dddbc5de40d0010
 msgid "Ver ventajas"
 msgstr "Abantailak ikusi"
 
 #: templates/benefits/form.html:4 templates/benefits/query.html:7
-#: loco:66b48e385dddbc5de40d0011
 msgid "Ventaja para entidades"
 msgstr "Entitateentzako abantaila"
 
 #: templates/benefits/form.html:9 templates/benefits/query.html:8
-#: loco:66b48e385dddbc5de40d0012
 msgid "Ventaja para socias"
 msgstr "Bazkideentzako abantaila"
 
-#: templates/benefits/form.html:69 loco:66b48e385dddbc5de40d0013
+#: templates/benefits/form.html:69
 msgid ""
 "Las ventajas no activas no se mostrarán a los usuarios. Puedes crear una "
 "ventaja desactivada y publicarla finalmente cuando creas oportuno."
@@ -848,16 +816,15 @@ msgstr ""
 #: templates/dashboard/provider.html:53 templates/navbar/market.html:64
 #: templates/navbar/user_provider_menu.html:13
 #: templates/provider/detail.html:64 templates/provider/query.html:23
-#: templates/reports/benefits_card.html:8 loco:66b48e385dddbc5de40d0014
+#: templates/reports/benefits_card.html:8
 msgid "Ventajas"
 msgstr "Abantailak"
 
 #: templates/benefits/list.html:37 templates/benefits/query.html:26
-#: loco:66b48e385dddbc5de40d0015
 msgid "Eliminar ventaja"
 msgstr "Abantaila ezabatu"
 
-#: templates/benefits/list.html:43 loco:66b48e385dddbc5de40d0016
+#: templates/benefits/list.html:43
 msgid ""
 "¿Estás segura de que quieres eliminar esta ventaja? Esta acción no se puede "
 "deshacer."
@@ -867,142 +834,134 @@ msgstr ""
 #: templates/benefits/list.html:46 templates/category/delete.html:34
 #: templates/consumer/delete.html:35 templates/news/delete.html:34
 #: templates/offers/delete.html:37 templates/provider/delete.html:35
-#: templates/user/delete.html:36 loco:66b48e385dddbc5de40d0017
+#: templates/user/delete.html:36
 msgid "Cancelar"
 msgstr "Utzi"
 
 #: templates/benefits/list.html:47 templates/category/delete.html:33
 #: templates/consumer/delete.html:34 templates/news/delete.html:33
 #: templates/offers/delete.html:36 templates/provider/delete.html:34
-#: templates/user/delete.html:35 loco:66b48e385dddbc5de40d0018
+#: templates/user/delete.html:35
 msgid "Aceptar"
 msgstr "Onartu"
 
 #: templates/benefits/query.html:6 templates/provider/query.html:7
-#: loco:66b48e385dddbc5de40d0019
 msgid "Entidad"
 msgstr "Entitatea"
 
 #: templates/benefits/query.html:10 templates/consumer/query.html:9
 #: templates/news/query.html:10 templates/offers/query.html:12
-#: templates/provider/query.html:11 loco:66b48e385dddbc5de40d001a
+#: templates/provider/query.html:11
 msgid "Acciones"
 msgstr "Ekintzak"
 
 #: templates/benefits/query.html:25 templates/consumer/detail.html:55
 #: templates/consumer/query.html:31 templates/news/query.html:21
 #: templates/provider/header_detail.html:19 templates/user/query.html:34
-#: loco:66b48e385dddbc5de40d001b
 msgid "Editar"
 msgstr "Editatu"
 
 #: templates/category/create.html:6 templates/category/create.html:15
-#: templates/category/list.html:15 loco:66b48e385dddbc5de40d001c
+#: templates/category/list.html:15
 msgid "Nueva categoría"
 msgstr "Kategoria berria"
 
-#: templates/category/create.html:29 loco:66b48e385dddbc5de40d001d
+#: templates/category/create.html:29
 msgid "Crear categoría"
 msgstr "Kategoria sortu"
 
 #: templates/category/delete.html:18 templates/category/delete.html:30
-#: loco:66b48e385dddbc5de40d001e
 msgid "Eliminar categoría"
 msgstr "Kategoria ezabatu"
 
-#: templates/category/delete.html:32 loco:66b48e385dddbc5de40d001f
+#: templates/category/delete.html:32
 msgid "¿Estás segura de que quieres eliminar la categoría seleccionada?"
 msgstr "Ziur hautatutako kategoria ezabatu nahi duzula?"
 
-#: templates/category/query.html:8 loco:66b48e385dddbc5de40d0020
+#: templates/category/query.html:8
 msgid "Número de entidades"
 msgstr "Entitate kopurua"
 
 #: templates/category/query.html:18 templates/consumer/query.html:33
-#: templates/provider/query.html:32 loco:66b48e385dddbc5de40d0021
+#: templates/provider/query.html:32
 msgid "Eliminar"
 msgstr "Ezabatu"
 
-#: templates/category/query.html:19 loco:66b48e385dddbc5de40d0022
+#: templates/category/query.html:19
 msgid "Ver proveedoras"
 msgstr "Hornitzaileak ikusi"
 
-#: templates/common/forms/save_btn.html:3 loco:66b48e385dddbc5de40d0023
+#: templates/common/forms/save_btn.html:3
 msgid "Guardar cambios"
 msgstr "Aldaketak gorde"
 
-#: templates/common/list/base.html:28 loco:66b48e385dddbc5de40d0024
+#: templates/common/list/base.html:28
 msgid "No hay ningún elemento con los criterios de búsqueda actuales..."
 msgstr "Ez dago uneko bilaketa-irizpideak dituen elementurik..."
 
-#: templates/common/list/export_csv.html:4 loco:66b48e385dddbc5de40d0025
+#: templates/common/list/export_csv.html:4
 msgid "Exportar..."
 msgstr "Esportatu..."
 
-#: templates/common/list/export_csv.html:11 loco:66b48e385dddbc5de40d0026
+#: templates/common/list/export_csv.html:11
 msgid "Exportar listado"
 msgstr "Zerrenda esportatu"
 
-#: templates/common/list/export_csv.html:17 loco:66b48e385dddbc5de40d0027
+#: templates/common/list/export_csv.html:17
 #, python-format
 msgid " Se exportarán %(num)s elementos "
 msgstr "%(num)s elementuak esportatuko dira "
 
-#: templates/common/list/export_csv.html:18 loco:66b48e385dddbc5de40d0028
+#: templates/common/list/export_csv.html:18
 msgid "Elige los campos que quieres incluir en el fichero"
 msgstr "Aukeratu fitxategian sartu nahi dituzun eremuak"
 
-#: templates/common/list/export_csv.html:42 loco:66b48e385dddbc5de40d0029
+#: templates/common/list/export_csv.html:42
 msgid "Descargar fichero CSV"
 msgstr "CSV fitxategia deskargatu"
 
-#: templates/common/pagination.html:5 loco:66b48e385dddbc5de40d002a
+#: templates/common/pagination.html:5
 msgid "elementos"
 msgstr "elementuak"
 
 #: templates/consumer/create.html:6 templates/consumer/create.html:16
 #: templates/consumer/edit.html:6 templates/consumer/list.html:15
-#: loco:66b48e385dddbc5de40d002b
 msgid "Nueva consumidora"
 msgstr "Kontsumitzaile berria"
 
-#: templates/consumer/create.html:32 loco:66b48e385dddbc5de40d002c
+#: templates/consumer/create.html:32
 msgid "Añadir consumidora"
 msgstr "Kontsumitzailea gehitu"
 
 #: templates/consumer/delete.html:18 templates/consumer/delete.html:30
-#: loco:66b48e385dddbc5de40d002d
 msgid "Eliminar consumidora"
 msgstr "Kontsumitzailea ezabatu"
 
-#: templates/consumer/delete.html:32 loco:66b48e385dddbc5de40d002e
+#: templates/consumer/delete.html:32
 msgid "¿Estás segura de que quieres eliminar la consumidora seleccionada?"
 msgstr "Ziur zaude hautatutako kontsumitzailea ezabatu nahi duzula?"
 
 #: templates/consumer/detail.html:30 templates/provider/detail.html:37
-#: loco:66b48e385dddbc5de40d002f
 msgid "Ver carnet de socia"
 msgstr "Bazkide txartela ikusi"
 
-#: templates/consumer/detail.html:43 loco:66b48e385dddbc5de40d0030
+#: templates/consumer/detail.html:43
 msgid "Cuenta invitada"
 msgstr "Kontu gonbidatua"
 
-#: templates/consumer/detail.html:47 loco:66b48e385dddbc5de40d0031
+#: templates/consumer/detail.html:47
 msgid "Socia de intercooperación"
 msgstr "Interkooperazio bazkidea"
 
-#: templates/consumer/detail.html:72 loco:66b48e385dddbc5de40d0032
+#: templates/consumer/detail.html:72
 msgid "NIF/CIF"
 msgstr "IFZ/IFK"
 
 #: templates/consumer/detail.html:78 templates/user/query.html:6
-#: loco:66b48e385dddbc5de40d0033
 msgid "Email"
 msgstr "Posta elektronikoa"
 
 #: templates/consumer/form.html:31 templates/provider/form.html:33
-#: loco:66b48e385dddbc5de40d0034
 msgid ""
 "Este campo es <strong class=\"text-danger\">editable para admin</strong>, "
 "pero el valor debería venir de la H.Gestora"
@@ -1011,95 +970,89 @@ msgstr ""
 "da</strong>, baina balioa kudeatzailetik etorri beharko litzateke"
 
 #: templates/consumer/query.html:7 templates/provider/query.html:8
-#: loco:66b48e385dddbc5de40d0035
 msgid "CIF"
 msgstr "IFK"
 
 #: templates/consumer/query.html:19 templates/consumer/query.html:20
-#: templates/user/status_circle.html:7 loco:66b48e385dddbc5de40d0036
+#: templates/user/status_circle.html:7
 msgid "Pendiente registro"
 msgstr "Izena emateko zain"
 
-#: templates/consumer/query.html:26 loco:66b48e385dddbc5de40d0037
+#: templates/consumer/query.html:26
 msgid "INACTIVA"
 msgstr "EZAKTIBOA"
 
-#: templates/consumer/query.html:30 loco:66b48e385dddbc5de40d0038
+#: templates/consumer/query.html:30
 msgid "Ver detalle"
 msgstr "xehetasuna ikusi"
 
 #: templates/dashboard/admin.html:27 templates/dashboard/market.html:53
-#: loco:66b48e385dddbc5de40d0039
 msgid "consumidoras"
 msgstr "kontsumitzaileak"
 
 #: templates/dashboard/admin.html:28 templates/dashboard/market.html:26
-#: loco:66b48e385dddbc5de40d003a
 msgid "proveedoras"
 msgstr "hornitzaileak"
 
-#: templates/dashboard/admin.html:29 loco:66b48e385dddbc5de40d003b
+#: templates/dashboard/admin.html:29
 msgid "noticias"
 msgstr "berriak"
 
 #: templates/dashboard/consumer.html:5 templates/dashboard/provider.html:5
-#: loco:66b48e385dddbc5de40d003c
 msgid "Principal"
 msgstr "Nagusia"
 
 #: templates/dashboard/consumer.html:19
 #: templates/navbar/user_consumer_menu.html:6 templates/user/profile.html:4
-#: templates/user/profile.html:13 loco:66b48e385dddbc5de40d003d
+#: templates/user/profile.html:13
 msgid "Mi perfil"
 msgstr "Nire profila"
 
 #: templates/dashboard/consumer.html:27 templates/dashboard/provider.html:22
-#: loco:66b48e385dddbc5de40d003e
 msgid "Ver perfil"
 msgstr "Profila ikusi"
 
 #: templates/dashboard/consumer.html:28 templates/dashboard/provider.html:23
 #: templates/member/card.html:7 templates/member/card.html:24
 #: templates/member/check_form.html:6
-#: templates/navbar/user_consumer_menu.html:9 loco:66b48e385dddbc5de40d003f
+#: templates/navbar/user_consumer_menu.html:9
 msgid "Mi carnet de socia"
 msgstr "Nire bazkide txartela"
 
-#: templates/dashboard/consumer.html:45 loco:66b48e385dddbc5de40d0040
+#: templates/dashboard/consumer.html:45
 msgid "¿Tienes ya la app del Mercado Social?"
 msgstr "Baduzu Merkatu Sozialaren app-a?"
 
-#: templates/dashboard/last_news.html:4 loco:66b48e385dddbc5de40d0041
+#: templates/dashboard/last_news.html:4
 msgid "Últimas noticias"
 msgstr "Azken berriak"
 
-#: templates/dashboard/last_news.html:11 loco:66b48e385dddbc5de40d0042
+#: templates/dashboard/last_news.html:11
 msgid "No hay noticias publicadas en este mercado..."
 msgstr "Ez dago albisterik argitaratuta merkatu honetan..."
 
 #: templates/dashboard/market.html:27 templates/dashboard/market.html:54
-#: loco:66b48e385dddbc5de40d0043
 msgid "nuevas"
 msgstr "berriak"
 
-#: templates/dashboard/market.html:38 loco:66b48e385dddbc5de40d0044
+#: templates/dashboard/market.html:38
 msgid "Ver informe"
 msgstr "Txostena ikusi"
 
-#: templates/dashboard/market.html:39 loco:66b48e385dddbc5de40d0045
+#: templates/dashboard/market.html:39
 msgid "Ir a entidades"
 msgstr "Entitateetara joan"
 
-#: templates/dashboard/market.html:65 loco:66b48e385dddbc5de40d0046
+#: templates/dashboard/market.html:65
 msgid "Ir a consumidoras"
 msgstr "Kontsumitzaileengana joan"
 
 #: templates/dashboard/provider.html:14
-#: templates/navbar/user_provider_menu.html:6 loco:66b48e385dddbc5de40d0047
+#: templates/navbar/user_provider_menu.html:6
 msgid "Mi entidad"
 msgstr "Nire entitatea"
 
-#: templates/dashboard/provider.html:24 loco:66b48e385dddbc5de40d0048
+#: templates/dashboard/provider.html:24
 msgid "Ver balance social"
 msgstr "Auditoretza Soziala ikusi"
 
@@ -1109,43 +1062,39 @@ msgstr "Auditoretza Soziala ikusi"
 #: templates/offers/entity_list.html:23 templates/offers/list.html:5
 #: templates/offers/list.html:12 templates/reports/offers_card.html:8
 #: templates/reports/offers_card.html:11 templates/reports/offers_card.html:12
-#: loco:66b48e385dddbc5de40d0049
 msgid "Ofertas"
 msgstr "Eskaintzak"
 
-#: templates/dashboard/provider.html:45 loco:66b48e385dddbc5de40d004a
+#: templates/dashboard/provider.html:45
 msgid "Ver ofertas publicadas"
 msgstr "Argitaratutako eskaintzak ikusi"
 
-#: templates/dashboard/provider.html:46 loco:66b48e385dddbc5de40d004b
+#: templates/dashboard/provider.html:46
 msgid "Publicar nueva oferta"
 msgstr "Eskaintza berria argitaratu"
 
-#: templates/dashboard/provider.html:55 loco:66b48e385dddbc5de40d004c
+#: templates/dashboard/provider.html:55
 msgid "No ofreces ventajas"
 msgstr "Ez duzu abantailarik eskaintzen"
 
-#: templates/dashboard/provider.html:56 loco:66b48e385dddbc5de40d004d
+#: templates/dashboard/provider.html:56
 msgid "Para añadirlas ponte en contacto con"
 msgstr "Gehitzeko, jarri harremanetan"
 
-#: templates/dashboard/provider.html:58 loco:66b48e385dddbc5de40d004e
+#: templates/dashboard/provider.html:58
 msgid "Actualmente tienes publicadas ventajas para socias del mercado :)"
 msgstr "Gaur egun merkatuko kideentzako abantailak dituzu argitaratuta :)"
 
 #: templates/dashboard/provider.html:65 templates/dashboard/provider.html:67
-#: loco:66b48e385dddbc5de40d004f
 msgid "Ver ventajas publicadas"
 msgstr "Argitaratutako abantailak ikusi"
 
 #: templates/dashboard/provider.html:69 templates/member/check_form.html:23
-#: loco:66b48e385dddbc5de40d0050
 msgid "Comprobar estado de socia"
 msgstr "Egiaztatu bazkidearen egoera"
 
 #: templates/email/password_reset.html:14 templates/email/password_reset.txt:7
 #: templates/registration/password_reset_email.html:12
-#: loco:66b48e385dddbc5de40d0051
 #, python-format
 msgid ""
 "You're receiving this email because you requested a password reset for your "
@@ -1156,64 +1105,61 @@ msgstr ""
 
 #: templates/email/password_reset.html:17 templates/email/password_reset.txt:12
 #: templates/registration/password_reset_email.html:18
-#: loco:66b48e385dddbc5de40d0052
 msgid "Thanks for using our site!"
 msgstr "Eskerrik asko gure gunea erabiltzeagatik!"
 
 #: templates/email/password_reset.html:25
 #: templates/registration/password_base.html:4
 #: templates/registration/password_reset_email.html:26
-#: templates/registration/preregister.html:4 loco:66b48e385dddbc5de40d0053
+#: templates/registration/preregister.html:4
 msgid "Restaurar contraseña"
 msgstr "pasahitza berrezarri"
 
 #: templates/email/password_reset.txt:8
 #: templates/registration/password_reset_email.html:14
-#: loco:66b48e385dddbc5de40d0054
 msgid "Please go to the following page and choose a new password:"
 msgstr "Joan orrialde honetara eta aukeratu pasahitz berri bat:"
 
 #: templates/email/password_reset.txt:11
 #: templates/registration/password_reset_email.html:16
-#: loco:66b48e385dddbc5de40d0055
 msgid "Your username, in case you’ve forgotten:"
 msgstr "Zure erabiltzaile-izena, ahazten bazaizu:"
 
 #: templates/market/create.html:6 templates/market/create.html:15
-#: templates/market/list.html:15 loco:66b48e385dddbc5de40d0056
+#: templates/market/list.html:15
 msgid "Nuevo mercado"
 msgstr "Merkatu berria"
 
 #: templates/market/create.html:15 templates/market/edit.html:12
-#: templates/market/list.html:12 loco:66b48e385dddbc5de40d0057
+#: templates/market/list.html:12
 msgid "Mercados sociales"
 msgstr "Merkatu sozialak"
 
-#: templates/market/create.html:27 loco:66b48e385dddbc5de40d0058
+#: templates/market/create.html:27
 msgid "Añadir mercado"
 msgstr "Merkatua gehitu"
 
-#: templates/market/edit.html:15 loco:66b48e385dddbc5de40d0059
+#: templates/market/edit.html:15
 msgid "Explorar mercado"
 msgstr "Merkatua esploratu"
 
-#: templates/market/form.html:34 loco:66b48e385dddbc5de40d005a
+#: templates/market/form.html:34
 msgid "Multi-idioma"
 msgstr "Hizkuntza anitzekoa"
 
-#: templates/market/form.html:67 loco:66b48e385dddbc5de40d005b
+#: templates/market/form.html:67
 msgid "Datos públicos"
 msgstr "Datu publikoak"
 
-#: templates/market/form.html:74 loco:66b48e385dddbc5de40d005c
+#: templates/market/form.html:74
 msgid "Logo del mercado (preferiblemente PNG con transparencia)"
 msgstr "Merkatuaren logotipoa (ahal izanez gero PNG gardentasunarekin)"
 
-#: templates/market/form.html:95 loco:66b48e385dddbc5de40d005d
+#: templates/market/form.html:95
 msgid "Distintivo de balance social"
 msgstr "Auditoretza sozialaren bereizgarria"
 
-#: templates/market/form.html:96 loco:66b48e385dddbc5de40d005e
+#: templates/market/form.html:96
 msgid ""
 "Imagen (preferiblemente PNG con transparencia) para representar el "
 "distintivo de balance social de este mercado. "
@@ -1221,7 +1167,7 @@ msgstr ""
 "Irudia (ahal izanez gero PNG gardentasuna) merkatu honen auditoretza "
 "sozialaren bereizgarria irudikatzeko. "
 
-#: templates/market/form.html:97 loco:66b48e385dddbc5de40d005f
+#: templates/market/form.html:97
 msgid ""
 "Se utiliza desde la app para acceder al detalle de balance de cada proveedora"
 msgstr ""
@@ -1229,18 +1175,15 @@ msgstr ""
 "xehetasunak sartzeko"
 
 #: templates/market/form.html:132 templates/provider/form.html:94
-#: loco:66b48e385dddbc5de40d0060
 msgid "Geolocalización"
 msgstr "Geokokapena"
 
 #: templates/market/form.html:133 templates/provider/form.html:95
-#: loco:66b48e385dddbc5de40d0061
 msgid ""
 "Mueve el pin por el mapa hasta posicionarlo en la localización correcta."
 msgstr "Mugitu pina mapan toki egokian kokatu arte."
 
 #: templates/market/form.html:147 templates/provider/form.html:102
-#: loco:66b48e385dddbc5de40d0062
 msgid ""
 "Puedes hacer zoom en los controles del mapa para ajustar al máximo la "
 "posición, o entrar en la vista de pantalla completa."
@@ -1249,11 +1192,10 @@ msgstr ""
 "pantaila osoko ikuspegia sar dezakezu."
 
 #: templates/market/form.html:153 templates/provider/form.html:118
-#: loco:66b48e385dddbc5de40d0063
 msgid "Redes sociales"
 msgstr "Sare sozialak"
 
-#: templates/market/info/default.html:16 loco:66b48e385dddbc5de40d0064
+#: templates/market/info/default.html:16
 #, python-format
 msgctxt "info mercado"
 msgid ""
@@ -1267,97 +1209,103 @@ msgstr ""
 "ekonomiko berri bat eraikitzen ari diren pertsona eta entitateak aurkitzen "
 "ditugu.</ indartsu>"
 
-#: templates/market/info/default.html:25 loco:66b48e385dddbc5de40d0065
+#: templates/market/info/default.html:19
+msgctxt "info mercado"
+msgid ""
+"Todas las entidades cumplen las prácticas de los <em>6 principios de la "
+"Economía Solidaria</em>:"
+msgstr "Entitate guztiek <em>Ekonomia Solidarioaren 6 printzipioen</em> praktikak betetzen dituzte"
+
+#: templates/market/info/default.html:25
 msgctxt "info mercado"
 msgid "Equidad"
 msgstr "Ekitatea"
 
-#: templates/market/info/default.html:26 loco:66b48e385dddbc5de40d0066
+#: templates/market/info/default.html:26
 msgctxt "info mercado"
 msgid "Trabajo digno"
 msgstr "Lan duina"
 
-#: templates/market/info/default.html:27 loco:66b48e385dddbc5de40d0067
+#: templates/market/info/default.html:27
 msgctxt "info mercado"
 msgid "Cooperación"
 msgstr "Lankidetza"
 
-#: templates/market/info/default.html:28 loco:66b48e385dddbc5de40d0068
+#: templates/market/info/default.html:28
 msgctxt "info mercado"
 msgid "Sostenibilidad ecológica"
 msgstr "Iraunkortasun ekologikoa"
 
-#: templates/market/info/default.html:29 loco:66b48e385dddbc5de40d0069
+#: templates/market/info/default.html:29
 msgctxt "info mercado"
 msgid "Reparto justo de la riqueza"
 msgstr "Aberastasunaren bidezko banaketa"
 
-#: templates/market/info/default.html:30 loco:66b48e385dddbc5de40d006a
+#: templates/market/info/default.html:30
 msgctxt "info mercado"
 msgid "Compromiso con el entorno"
 msgstr "Ingurumenarekiko konpromisoa"
 
-#: templates/market/info/default.html:36 loco:66b48e385dddbc5de40d006b
+#: templates/market/info/default.html:36
 #, python-format
 msgctxt "info mercado"
 msgid ""
 "AL FORMAR PARTE Y CONSUMIR EN EL MERCADO SOCIAL ESTÁS TRANSFORMANDO EL "
 "CONSUMO EN %(mercado)s "
 msgstr ""
-"MERKATU SOZIALEAN PARTE IZATEN ETA BARRUAN KONTSUMITUZ, KONTSUMOA %(mercado)s "
-"ERALDATZEN ARI ZARA "
+"MERKATU SOZIALEAN PARTE IZATEN ETA BARRUAN KONTSUMITUZ, KONTSUMOA "
+"%(mercado)s ERALDATZEN ARI ZARA "
 
-#: templates/market/query.html:7 loco:66b48e385dddbc5de40d006c
+#: templates/market/query.html:7
 msgid "Identificador"
 msgstr "Identifikatzailea"
 
-#: templates/market/query.html:8 loco:66b48e385dddbc5de40d006d
+#: templates/market/query.html:8
 msgid "Visibilidad pública"
 msgstr "Ikusgarritasuna"
 
-#: templates/market/query.html:9 loco:66b48e385dddbc5de40d006e
+#: templates/market/query.html:9
 msgid "Carnet de socia"
 msgstr "Bazkide txartela"
 
-#: templates/market/query.html:10 loco:66b48e385dddbc5de40d006f
+#: templates/market/query.html:10
 msgid "Idiomas"
 msgstr "Hizkuntzak"
 
-#: templates/market/query.html:30 loco:66b48e385dddbc5de40d0070
+#: templates/market/query.html:30
 msgid "Editar mercado"
 msgstr "Merkatu aldatu"
 
-#: templates/market/query.html:31 loco:66b48e385dddbc5de40d0071
+#: templates/market/query.html:31
 msgid "Gestionar mercado"
 msgstr "Merkatua kudeatu"
 
-#: templates/member/card.html:27 loco:66b48e385dddbc5de40d0072
+#: templates/member/card.html:27
 msgid ""
 "Este carnet certifica tu pertenencia como socia/o al Mercado Social. Con él "
 "podrás acceder a las ventajas y descuentos por formar parte de la red. "
 "¡Muchas gracias por tu aportación a la Economía Solidaria!"
 msgstr "Txartel honek Merkatu Sozialeko kide zaren kide izatea ziurtatzen du. "
 
-#: templates/member/card.html:28 loco:66b48e385dddbc5de40d0073
+#: templates/member/card.html:28
 msgid ""
 "Puedes acceder a tu carnet a través de esta web o la app. Si lo prefieres "
 "tener físico, imprímelo pulsando este botón"
 msgstr "Zure txartela webgune honen edo aplikazioaren bidez sar dezakezu. "
 
 #: templates/member/card.html:33 templates/member/card.html:35
-#: loco:66b48e385dddbc5de40d0074
 msgid "Descargar PDF"
 msgstr "Deskargatu PDFa"
 
-#: templates/member/card_pdf.html:7 loco:66b48e385dddbc5de40d0075
+#: templates/member/card_pdf.html:7
 msgid "Carnet de socia MESM"
 msgstr "MESM bazkide txartela"
 
-#: templates/member/check_form.html:26 loco:66b48e385dddbc5de40d0076
+#: templates/member/check_form.html:26
 msgid "Hazlo de forma más fácil desde de la app del Mercado Social."
 msgstr "Egin errazago Social Market aplikaziotik."
 
-#: templates/member/check_form.html:27 loco:66b48e385dddbc5de40d0077
+#: templates/member/check_form.html:27
 msgid ""
 "Desde la aplicación móvil, puedes acceder a la pantalla de 'Carnet de soci@' "
 "y directamente escanear el código QR de otra socia."
@@ -1365,7 +1313,7 @@ msgstr ""
 "Mugikorretarako aplikaziotik, 'Kide txartela' pantailara sar zaitezke eta "
 "zuzenean beste kide baten QR kodea eskaneatu dezakezu."
 
-#: templates/member/check_form.html:29 loco:66b48e385dddbc5de40d0078
+#: templates/member/check_form.html:29
 msgid ""
 "También puedes hacerlo aquí, introduciendo manualmente el número de la socia "
 "según aparece en su carnet."
@@ -1373,11 +1321,11 @@ msgstr ""
 "Hemen ere egin dezakezu, bazkidearen zenbakia eskuz sartuz bere txartelan "
 "agertzen den moduan."
 
-#: templates/member/check_form.html:42 loco:66b48e385dddbc5de40d0079
+#: templates/member/check_form.html:42
 msgid "Comprobar"
 msgstr "Egiaztatu"
 
-#: templates/member/check_form.html:44 loco:66b48e385dddbc5de40d007a
+#: templates/member/check_form.html:44
 msgid ""
 "Añade los ceros al inicio según aparecen en el carnet. Si es una socia de "
 "interccoperación tienes que introducir también el prefijo ICOOP como aparece "
@@ -1388,184 +1336,178 @@ msgstr ""
 "bazkidea bazara, ICOOP aurrizkia ere sartu behar duzu, txartelean agertzen "
 "den bezala"
 
-#: templates/member/check_form.html:50 loco:66b48e385dddbc5de40d007b
+#: templates/member/check_form.html:50
 msgid "No se ha encontrado una socia con ese número."
 msgstr "Zenbaki hori duen bazkiderik ez da aurkitu."
 
-#: templates/member/check_form.html:60 loco:66b48e385dddbc5de40d007c
+#: templates/member/check_form.html:60
 msgid "Socia inactiva"
 msgstr "Bazkide inaktiboa"
 
-#: templates/member/check_form.html:77 loco:66b48e385dddbc5de40d007d
+#: templates/member/check_form.html:77
 msgid "Y si todavía no tienes descargada la app, puedes hacerlo desde aquí"
 msgstr "Eta oraindik aplikazioa deskargatu ez baduzu, hemendik egin dezakezu"
 
-#: templates/member/member_type.html:3 loco:66b48e385dddbc5de40d007e
+#: templates/member/member_type.html:3
 msgid "socia proveedora"
 msgstr "bazkide hornitzailea"
 
-#: templates/member/member_type.html:6 loco:66b48e385dddbc5de40d007f
+#: templates/member/member_type.html:6
 msgid "socia intercooperación"
 msgstr "interkooperazio-bazkidea"
 
-#: templates/member/member_type.html:8 loco:66b48e385dddbc5de40d0080
+#: templates/member/member_type.html:8
 msgid "socia consumidora"
 msgstr "bazkide kontsumitzailea"
 
-#: templates/navbar/admin.html:4 loco:66b48e385dddbc5de40d0081
+#: templates/navbar/admin.html:4
 msgid "Administración"
 msgstr "Administrazioa"
 
-#: templates/navbar/admin.html:37 loco:66b48e385dddbc5de40d0082
+#: templates/navbar/admin.html:37
 msgid "Editar mercados"
 msgstr "Merkatuak editatu"
 
-#: templates/navbar/drawer.html:21 loco:66b48e385dddbc5de40d0083
+#: templates/navbar/drawer.html:21
 msgid "Guía de administración"
 msgstr "Administraziorako Gida"
 
 #: templates/navbar/login.html:6 templates/registration/login.html:14
-#: templates/registration/login.html:57 loco:66b48e385dddbc5de40d0084
+#: templates/registration/login.html:57
 msgid "Entrar"
 msgstr "Sartu"
 
-#: templates/navbar/login.html:27 loco:66b48e385dddbc5de40d0085
+#: templates/navbar/login.html:27
 msgid "Idioma de la interfaz"
 msgstr "Interfaze hizkuntza"
 
-#: templates/navbar/login.html:33 loco:66b48e385dddbc5de40d0086
+#: templates/navbar/login.html:33
 msgid "Editar perfil"
 msgstr "Profila editatu"
 
-#: templates/navbar/login.html:38 loco:66b48e385dddbc5de40d0087
+#: templates/navbar/login.html:38
 msgid "Cerrar sesión"
 msgstr "Amaitu saioa"
 
-#: templates/navbar/login.html:43 loco:66b48e385dddbc5de40d0088
+#: templates/navbar/login.html:43
 msgid "Guía de usuario"
 msgstr "Erabiltzailearen Gida"
 
 #: templates/navbar/market.html:23 templates/news/add.html:19
 #: templates/news/detail.html:20 templates/news/edit.html:18
 #: templates/news/list.html:5 templates/news/list.html:12
-#: loco:66b48e385dddbc5de40d0089
 msgid "Noticias"
 msgstr "Albisteak"
 
 #: templates/navbar/user_consumer_menu.html:3
-#: templates/navbar/user_provider_menu.html:3 loco:66b48e385dddbc5de40d008a
+#: templates/navbar/user_provider_menu.html:3
 msgid "Inicio"
 msgstr "Hasiera"
 
-#: templates/news/add.html:31 loco:66b48e385dddbc5de40d008b
+#: templates/news/add.html:31
 msgid "Publicar"
 msgstr "Argitaratu"
 
 #: templates/news/card.html:18 templates/news/detail.html:47
-#: loco:66b48e385dddbc5de40d008c
 msgid "Saber más"
 msgstr "Informazio gehiago"
 
-#: templates/news/card.html:20 loco:66b48e385dddbc5de40d008d
+#: templates/news/card.html:20
 msgid "ver noticia"
 msgstr "Albistea ikusi"
 
 #: templates/news/delete.html:18 templates/news/delete.html:30
-#: templates/news/query.html:22 loco:66b48e385dddbc5de40d008e
+#: templates/news/query.html:22
 msgid "Eliminar noticia"
 msgstr "Berria ezabatu"
 
-#: templates/news/delete.html:32 loco:66b48e385dddbc5de40d008f
+#: templates/news/delete.html:32
 msgid "¿Estás segura de que quieres eliminar la noticia seleccionada?"
 msgstr "Ziur zaude hautatutako albisteak ezabatu nahi dituzula?"
 
 #: templates/news/detail.html:25 templates/news/edit.html:8
-#: templates/news/edit.html:18 loco:66b48e385dddbc5de40d0090
+#: templates/news/edit.html:18
 msgid "Editar noticia"
 msgstr "Albisteak editatu"
 
-#: templates/news/form.html:10 loco:66b48e385dddbc5de40d0091
+#: templates/news/form.html:10
 msgid "Imagen de la noticia"
 msgstr "Albistearen irudia"
 
-#: templates/news/form.html:16 loco:66b48e385dddbc5de40d0092
+#: templates/news/form.html:16
 msgid "Editar imagen"
 msgstr "Irudia editatu"
 
-#: templates/news/list.html:15 loco:66b48e385dddbc5de40d0093
+#: templates/news/list.html:15
 msgid "Publicar noticia"
 msgstr "Albisteak argitaratu"
 
-#: templates/news/query.html:7 loco:66b48e385dddbc5de40d0094
+#: templates/news/query.html:7
 msgid "Publicada por"
 msgstr "Argitaratzailea"
 
-#: templates/news/query.html:8 loco:66b48e385dddbc5de40d0095
+#: templates/news/query.html:8
 msgid "Fecha"
 msgstr "Data"
 
-#: templates/offers/create.html:34 loco:66b48e385dddbc5de40d0096
+#: templates/offers/create.html:34
 msgid "Publicar oferta"
 msgstr "Eskaintza argitaratu"
 
 #: templates/offers/delete.html:8 templates/offers/delete.html:18
 #: templates/offers/delete.html:30 templates/offers/edit.html:24
-#: loco:66b48e385dddbc5de40d0097
 msgid "Eliminar oferta"
 msgstr "Eskaintza ezabatu"
 
-#: templates/offers/delete.html:34 loco:66b48e385dddbc5de40d0098
+#: templates/offers/delete.html:34
 msgid "¿Estás segura de que quieres eliminar la oferta seleccionada?"
 msgstr "Ziur zaude aukeratutako eskaintza ezabatu nahi duzula?"
 
 #: templates/offers/entity_list.html:26 templates/offers/entity_list.html:33
-#: loco:66b48e385dddbc5de40d0099
 msgid "Añadir oferta"
 msgstr "Eskaintza gehitu"
 
 #: templates/offers/entity_list.html:40 templates/provider/detail.html:53
-#: loco:66b48e385dddbc5de40d009a
 msgid "Ofertas en curso"
 msgstr "Eskaintzak martxan"
 
 #: templates/offers/entity_list.html:42 templates/provider/detail.html:57
-#: loco:66b48e385dddbc5de40d009b
 msgid "No hay ninguna oferta activa actualmente."
 msgstr "Une honetan ez dago eskaintza aktiborik."
 
-#: templates/offers/entity_list.html:47 loco:66b48e385dddbc5de40d009c
+#: templates/offers/entity_list.html:47
 msgid "Ofertas pendientes"
 msgstr "Oraindik egiteko dauden eskaintzak"
 
-#: templates/offers/entity_list.html:50 loco:66b48e385dddbc5de40d009d
+#: templates/offers/entity_list.html:50
 msgid "No hay ofertas pendientes (futuras o no activas)."
 msgstr "Ez dago eskaintzarik egiteke (etorkizunekoa edo aktibo ez dagoena)."
 
-#: templates/offers/entity_list.html:55 loco:66b48e385dddbc5de40d009e
+#: templates/offers/entity_list.html:55
 msgid "Ofertas pasadas"
 msgstr "Iraganeko eskaintzak"
 
-#: templates/offers/entity_list.html:57 loco:66b48e385dddbc5de40d009f
+#: templates/offers/entity_list.html:57
 msgid "No hay ofertas anteriores a las actuales."
 msgstr "Ez dago oraingoen aurreko eskaintzarik."
 
-#: templates/offers/form.html:13 loco:66b48e385dddbc5de40d00a0
+#: templates/offers/form.html:13
 msgid "Periodo de validez"
 msgstr "Indarraldia"
 
-#: templates/offers/form.html:15 loco:66b48e385dddbc5de40d00a1
+#: templates/offers/form.html:15
 msgid "Desde - hasta..."
 msgstr "-tik..."
 
-#: templates/offers/form.html:43 loco:66b48e385dddbc5de40d00a2
+#: templates/offers/form.html:43
 msgid "Imagen de la oferta"
 msgstr "Eskaintzaren irudia"
 
-#: templates/offers/form.html:49 loco:66b48e385dddbc5de40d00a3
+#: templates/offers/form.html:49
 msgid "Editar oferta"
 msgstr "Eskaintza editatu"
 
-#: templates/offers/form.html:74 loco:66b48e385dddbc5de40d00a4
+#: templates/offers/form.html:74
 msgid ""
 "Las ofertas no activas no se mostrarán a los usuarios. Puedes crear una "
 "encuesta desactivada y publicarla finalmente cuando creas oportuno."
@@ -1573,89 +1515,83 @@ msgstr ""
 "Eskaintza ez-aktiboak ez zaizkie erabiltzaileei erakutsiko. Desaktibatutako "
 "inkesta bat sor dezakezu, eta nahi duzunean argitaratu."
 
-#: templates/offers/query.html:8 loco:66b48e385dddbc5de40d00a5
+#: templates/offers/query.html:8
 msgid "Estado"
 msgstr "egoera"
 
-#: templates/offers/query.html:9 loco:66b48e385dddbc5de40d00a6
+#: templates/offers/query.html:9
 msgid "Publicada"
 msgstr "Argitaratua"
 
-#: templates/offers/query.html:10 loco:66b48e385dddbc5de40d00a7
+#: templates/offers/query.html:10
 msgid "Fecha inicio"
 msgstr "Hasierako data"
 
-#: templates/offers/query.html:11 loco:66b48e385dddbc5de40d00a8
+#: templates/offers/query.html:11
 msgid "Fecha fin"
 msgstr "amaierako data"
 
 #: templates/provider/create.html:8 templates/provider/create.html:18
-#: loco:66b48e385dddbc5de40d00a9
 msgid "Nueva proveedora"
 msgstr "Hornitzaile berria"
 
-#: templates/provider/create.html:31 loco:66b48e385dddbc5de40d00aa
+#: templates/provider/create.html:31
 msgid "Crear entidad"
 msgstr "Entitatea sortu"
 
 #: templates/provider/create.html:47 templates/provider/edit.html:48
-#: loco:66b48e385dddbc5de40d00ab
 msgid "Eliminar foto"
 msgstr "argazkia ezabatu"
 
 #: templates/provider/delete.html:18 templates/provider/delete.html:30
-#: loco:66b48e385dddbc5de40d00ac
 msgid "Eliminar proveedora"
 msgstr "Hornitzailea ezabatu"
 
-#: templates/provider/delete.html:32 loco:66b48e385dddbc5de40d00ad
+#: templates/provider/delete.html:32
 msgid "¿Estás segura de que quieres eliminar la proveedora seleccionada?"
 msgstr "Ziur al zaude hautatutako hornitzailea ezabatu nahi duzula?"
 
-#: templates/provider/form.html:19 loco:66b48e385dddbc5de40d00ae
+#: templates/provider/form.html:19
 msgid "Actualizar imagen"
 msgstr "Irudia eguneratu"
 
 #: templates/provider/list.html:8 templates/reports/offers_card.html:13
-#: loco:66b48e385dddbc5de40d00af
 msgid "Entidades"
 msgstr "Entitateak"
 
-#: templates/provider/list.html:21 loco:66b48e385dddbc5de40d00b0
+#: templates/provider/list.html:21
 msgid "Añadir nueva"
 msgstr "Gehitu berria"
 
-#: templates/provider/query.html:10 loco:66b48e385dddbc5de40d00b1
+#: templates/provider/query.html:10
 msgid "Ventajas y <br> ofertas"
 msgstr "Abantailak eta <br>eskaintzak"
 
-#: templates/provider/query.html:22 loco:66b48e385dddbc5de40d00b2
+#: templates/provider/query.html:22
 msgid "oferta(s) publicada(s)"
 msgstr "argitaratutako eskaintza(k)"
 
-#: templates/provider/query.html:23 loco:66b48e385dddbc5de40d00b3
+#: templates/provider/query.html:23
 msgid "Sin ventajas"
 msgstr "Abantailarik ez"
 
 #: templates/registration/login.html:26 templates/registration/login.html:27
-#: loco:66b48e385dddbc5de40d00b4
 msgid "Correo electrónico"
 msgstr "Posta elektronikoa"
 
-#: templates/registration/login.html:58 loco:66b48e385dddbc5de40d00b5
+#: templates/registration/login.html:58
 msgid "¿Has olvidado tu contraseña?"
 msgstr "Pasahitza ahaztu al duzu?"
 
-#: templates/registration/password_base.html:11 loco:66b48e385dddbc5de40d00b6
+#: templates/registration/password_base.html:11
 msgid "Modificar contraseña"
 msgstr "Aldatu pasahitza"
 
-#: templates/registration/password_base.html:19 loco:66b48e385dddbc5de40d00b7
+#: templates/registration/password_base.html:19
 msgid "Nueva contraseña"
 msgstr "Pasahitz berria"
 
 #: templates/registration/password_reset_complete.html:7
-#: loco:66b48e385dddbc5de40d00b8
 msgid ""
 "La contraseña se ha modificado satisfactoriamente. Ya puedes acceder a la "
 "aplicación con tu nueva contraseña."
@@ -1665,19 +1601,17 @@ msgstr ""
 
 #: templates/registration/password_reset_confirm.html:14
 #: templates/registration/password_reset_confirm.html:31
-#: loco:66b48e385dddbc5de40d00b9
 msgid "Contraseña nueva"
 msgstr "Pasahitz berria"
 
 #: templates/registration/password_reset_confirm.html:43
 #: templates/registration/password_reset_form.html:32
 #: templates/user/edit.html:75 templates/user/password.html:21
-#: templates/user/profile.html:58 loco:66b48e385dddbc5de40d00ba
+#: templates/user/profile.html:58
 msgid "Actualizar contraseña"
 msgstr "Pasahitza eguneratu"
 
 #: templates/registration/password_reset_confirm.html:50
-#: loco:66b48e385dddbc5de40d00bb
 msgid ""
 "El enlace para restablecer la contraseña es inválido, probablemente porque "
 "ya ha sido utilizado."
@@ -1686,12 +1620,10 @@ msgstr ""
 "delako."
 
 #: templates/registration/password_reset_done.html:5
-#: loco:66b48e385dddbc5de40d00bc
 msgid "Restablecimiento de contraseña enviado"
 msgstr "Pasahitza berrezarri bidali da"
 
 #: templates/registration/password_reset_done.html:7
-#: loco:66b48e385dddbc5de40d00bd
 msgid ""
 "Le hemos enviado por email las instrucciones para restablecer la contraseña, "
 "si es que existe una cuenta con la dirección electrónica que indicó. Debería "
@@ -1702,7 +1634,6 @@ msgstr ""
 "duzu."
 
 #: templates/registration/password_reset_done.html:8
-#: loco:66b48e385dddbc5de40d00be
 msgid ""
 "Si no recibe un correo, por favor asegúrese de que ha introducido la "
 "dirección de correo con la que se registró y verifique su carpeta de spam."
@@ -1711,13 +1642,12 @@ msgstr ""
 "helbide elektronikoa sartu duzula eta egiaztatu zure spam karpeta."
 
 #: templates/registration/password_reset_form.html:6
-#: loco:66b48e385dddbc5de40d00bf
 msgid ""
 "\n"
 "    Introduce la dirección de correo electrónico a la que está asociada tu "
 "usuario y te enviaremos un\n"
-"    email con un enlace  de un solo uso para poder restablecer tu contraseña."
-"\n"
+"    email con un enlace  de un solo uso para poder restablecer tu "
+"contraseña.\n"
 "    "
 msgstr ""
 "\n"
@@ -1727,25 +1657,24 @@ msgstr ""
 "    "
 
 #: templates/registration/preregister.html:11 templates/user/query.html:7
-#: loco:66b48e385dddbc5de40d00c0
 msgid "Registro"
 msgstr "Izen-ematea"
 
-#: templates/registration/preregister.html:20 loco:66b48e385dddbc5de40d00c1
+#: templates/registration/preregister.html:20
 msgid "Ouch, enlace erróneo"
 msgstr "Ai, lotura txarra"
 
-#: templates/registration/preregister.html:22 loco:66b48e385dddbc5de40d00c2
+#: templates/registration/preregister.html:22
 msgid "El código de registro es incorrecto..."
 msgstr "Erregistro-kodea ez da zuzena..."
 
-#: templates/registration/preregister.html:34 loco:66b48e385dddbc5de40d00c3
+#: templates/registration/preregister.html:34
 msgid "Solo te falta este paso para empezar a usar la app del Mercado Social!"
 msgstr ""
 "Urrats hau besterik ez duzu behar Merkatu Sozialaren aplikazioa erabiltzen "
 "hasteko!"
 
-#: templates/registration/preregister.html:37 loco:66b48e385dddbc5de40d00c4
+#: templates/registration/preregister.html:37
 msgid ""
 "Introduce la contraseña que utilizarás a partir de ahora en la app y el "
 "panel web para gestionar la información de tu perfil y las ofertas."
@@ -1753,59 +1682,59 @@ msgstr ""
 "Sartu hemendik aurrera erabiliko duzun pasahitza aplikazioan eta web "
 "panelean zure profileko informazioa eta eskaintzak kudeatzeko."
 
-#: templates/registration/preregister.html:43 loco:66b48e385dddbc5de40d00c5
+#: templates/registration/preregister.html:43
 msgid "Finalizar registro"
 msgstr "Izen ematea amaitzea"
 
-#: templates/reports/benefits_card.html:12 loco:66b48e385dddbc5de40d00c6
+#: templates/reports/benefits_card.html:12
 msgid "nuevas publicadas"
 msgstr "argitaratu berria"
 
-#: templates/reports/benefits_card.html:13 loco:66b48e385dddbc5de40d00c7
+#: templates/reports/benefits_card.html:13
 msgid "total"
 msgstr "guztira"
 
-#: templates/reports/benefits_card.html:20 loco:66b48e385dddbc5de40d00c8
+#: templates/reports/benefits_card.html:20
 msgid "Ir a Ventajas"
 msgstr "Abantailetara joan"
 
-#: templates/reports/offers_card.html:11 loco:66b48e385dddbc5de40d00c9
+#: templates/reports/offers_card.html:11
 msgid "Activas"
 msgstr "Aktiboa"
 
-#: templates/reports/offers_card.html:12 loco:66b48e385dddbc5de40d00ca
+#: templates/reports/offers_card.html:12
 msgid "Publicadas"
 msgstr "Argitaratua"
 
-#: templates/reports/offers_card.html:13 loco:66b48e385dddbc5de40d00cb
+#: templates/reports/offers_card.html:13
 msgid "Por"
 msgstr "arabera"
 
-#: templates/reports/offers_card.html:24 loco:66b48e385dddbc5de40d00cc
+#: templates/reports/offers_card.html:24
 msgid "Ver detalles"
 msgstr "Xehetasunak ikusi"
 
-#: templates/reports/offers_card.html:25 loco:66b48e385dddbc5de40d00cd
+#: templates/reports/offers_card.html:25
 msgid "Ir a ofertas"
 msgstr "Eskaintzetara joan"
 
-#: templates/reports/ranges_filter.html:3 loco:66b48e385dddbc5de40d00ce
+#: templates/reports/ranges_filter.html:3
 msgid "Último año"
 msgstr "Iaz"
 
-#: templates/reports/ranges_filter.html:4 loco:66b48e385dddbc5de40d00cf
+#: templates/reports/ranges_filter.html:4
 msgid "Últimos 3 meses"
 msgstr "Azken 3 hilabeteak"
 
-#: templates/reports/ranges_filter.html:5 loco:66b48e385dddbc5de40d00d0
+#: templates/reports/ranges_filter.html:5
 msgid "Último mes"
 msgstr "Azken hilabetea"
 
-#: templates/reports/ranges_filter.html:6 loco:66b48e385dddbc5de40d00d1
+#: templates/reports/ranges_filter.html:6
 msgid "Última semana"
 msgstr "Azken astea"
 
-#: templates/user/add.html:35 loco:66b48e385dddbc5de40d00d2
+#: templates/user/add.html:35
 msgid ""
 "Al crear una nueva usuaria, se le enviará un correo electrónico de "
 "bienvenida con un enlace único para que establezca su contraseña inicial."
@@ -1815,47 +1744,43 @@ msgstr ""
 
 #: templates/user/delete.html:8 templates/user/delete.html:18
 #: templates/user/delete.html:30 templates/user/edit.html:76
-#: templates/user/query.html:35 loco:66b48e385dddbc5de40d00d3
+#: templates/user/query.html:35
 msgid "Eliminar usuario"
 msgstr "Erabiltzailea ezabatu"
 
-#: templates/user/delete.html:32 loco:66b48e385dddbc5de40d00d4
+#: templates/user/delete.html:32
 msgid "¿Estás segura de que quieres eliminar el usuario seleccionado?"
 msgstr "Ziur zaude hautatutako erabiltzailea ezabatu nahi duzula?"
 
-#: templates/user/detail_card.html:7 loco:66b48e385dddbc5de40d00d5
+#: templates/user/detail_card.html:7
 msgid "Aún no se ha creado usuario"
 msgstr "Oraindik ez da erabiltzailerik sortu"
 
 #: templates/user/detail_card.html:11 templates/user/edit.html:32
-#: loco:66b48e385dddbc5de40d00d6
 msgid "Fecha de registro"
 msgstr "Erregistro data"
 
 #: templates/user/detail_card.html:12 templates/user/edit.html:33
-#: loco:66b48e385dddbc5de40d00d7
 msgid "Último acceso"
 msgstr "Azken sarbidea"
 
-#: templates/user/detail_card.html:19 loco:66b48e385dddbc5de40d00d8
+#: templates/user/detail_card.html:19
 msgid "El usuario aún no hay completado el registro"
 msgstr "Erabiltzaileak ez du izen ematerik bukatu oraindik"
 
 #: templates/user/detail_card.html:23 templates/user/edit.html:51
-#: loco:66b48e385dddbc5de40d00d9
 msgid "Copiar enlace"
 msgstr "Kopiatu esteka"
 
 #: templates/user/detail_card.html:24 templates/user/edit.html:52
-#: loco:66b48e385dddbc5de40d00da
 msgid "Reenviar email"
 msgstr "Posta elektronikoa berriro bidali"
 
-#: templates/user/edit.html:26 loco:66b48e385dddbc5de40d00db
+#: templates/user/edit.html:26
 msgid "Cuenta que gestiona"
 msgstr "Kudeatzen duzun kontua"
 
-#: templates/user/edit.html:43 loco:66b48e385dddbc5de40d00dc
+#: templates/user/edit.html:43
 msgid ""
 "El usuario no ha completado aún el prerregistro para establecer su "
 "contraseña (debió recibir un email a su cuenta con un enlace de activación)"
@@ -1864,72 +1789,72 @@ msgstr ""
 "(posta elektroniko bat jaso beharko luke bere konturako aktibazio-esteka "
 "batekin)"
 
-#: templates/user/edit.html:74 loco:66b48e385dddbc5de40d00dd
+#: templates/user/edit.html:74
 msgid "Administrar"
 msgstr "Kudeatu"
 
-#: templates/user/last_login.html:2 loco:66b48e385dddbc5de40d00de
+#: templates/user/last_login.html:2
 msgid "Nunca"
 msgstr "Inoiz ez"
 
-#: templates/user/password.html:38 loco:66b48e385dddbc5de40d00df
+#: templates/user/password.html:38
 msgid "¡Cuidado! Vas a cambiar la contraseña de otro usuario"
 msgstr "Kontuz! Beste erabiltzaileen pasahitza aldatzen ari zara!"
 
-#: templates/user/password.html:39 loco:66b48e385dddbc5de40d00e0
+#: templates/user/password.html:39
 msgid ""
 "Esto puede ser disruptivo para la otra persona si seguía usando su "
 "contraseña. Asegúrate de tener su consentimiento y utiliza esta "
 "funcionalidad solo para situaciones de necesidad."
 msgstr ""
 "Hau beste pertsonarentzat kaltegarria izan daiteke bere pasahitza erabiltzen "
-"jarraitzen badu. Ziurtatu baimena duzula eta funtzionalitate hau"
-"premia-egoeretarako bakarrik erabiltzen duzula."
+"jarraitzen badu. Ziurtatu baimena duzula eta funtzionalitate haupremia-"
+"egoeretarako bakarrik erabiltzen duzula."
 
-#: templates/user/password.html:43 loco:66b48e385dddbc5de40d00e1
+#: templates/user/password.html:43
 msgid "Actualizar"
 msgstr "Eguneratu"
 
-#: templates/user/profile.html:23 loco:66b48e385dddbc5de40d00e2
+#: templates/user/profile.html:23
 msgid "Perfil"
 msgstr "Profila"
 
-#: templates/user/profile.html:37 loco:66b48e385dddbc5de40d00e3
+#: templates/user/profile.html:37
 msgid "Datos de perfil"
 msgstr "Profilaren datuak"
 
-#: templates/user/profile.html:75 loco:66b48e385dddbc5de40d00e4
+#: templates/user/profile.html:75
 msgid "Cambiar contraseña"
 msgstr "Aldatu pasahitza"
 
-#: templates/user/query.html:8 loco:66b48e385dddbc5de40d00e5
+#: templates/user/query.html:8
 msgid "Rol"
 msgstr "Rola"
 
-#: templates/user/query.html:9 loco:66b48e385dddbc5de40d00e6
+#: templates/user/query.html:9
 msgid "Última conexión"
 msgstr "Azken konexioa"
 
-#: templates/user/query.html:16 loco:66b48e385dddbc5de40d00e7
+#: templates/user/query.html:16
 msgid "Administrador"
 msgstr "Administratzailea"
 
-#: templates/user/query.html:19 loco:66b48e385dddbc5de40d00e8
+#: templates/user/query.html:19
 msgid "Editor"
 msgstr "Editorea"
 
-#: templates/user/query.html:22 loco:66b48e385dddbc5de40d00e9
+#: templates/user/query.html:22
 msgid "Normal"
 msgstr "Arrunta"
 
-#: templates/user/status_circle.html:4 loco:66b48e385dddbc5de40d00ea
+#: templates/user/status_circle.html:4
 msgid "Invitada"
 msgstr "Gonbidatua"
 
-#: templates/user/status_circle.html:9 loco:66b48e385dddbc5de40d00eb
+#: templates/user/status_circle.html:9
 msgid "Registrada"
 msgstr "Erregistratua"
 
-#: templates/user/status_circle.html:13 loco:66b48e385dddbc5de40d00ec
+#: templates/user/status_circle.html:13
 msgid "Sin usuario"
 msgstr "Erabiltzailerik ez"
