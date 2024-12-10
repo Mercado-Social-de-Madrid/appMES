@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
-from django_filters import FilterSet, BooleanFilter
+from django_filters import FilterSet, BooleanFilter, ModelChoiceFilter
 from django_filters.views import FilterView
 from django_filters.widgets import BooleanWidget
 
@@ -19,7 +19,7 @@ from market.models import Consumer
 
 
 class ConsumerFilterForm(BootstrapForm):
-    field_order = [ 'search', 'is_intercoop', 'o',]
+    field_order = [ 'search', 'is_intercoop', 'related_user', 'o',]
 
 
 class ConsumerFilter(FilterSet):
@@ -28,7 +28,7 @@ class ConsumerFilter(FilterSet):
     o = LabeledOrderingFilter(fields=['name', 'registration_date', 'last_updated'],
                               field_labels={'last_name':'Apellido', 'registration_date':'Fecha de alta', 'last_updated':'ÚLtima actualización'})
     is_intercoop = BooleanFilter(field_name='is_intercoop', widget=BooleanWidget(attrs={'class': 'threestate'}))
-
+    related_user = BooleanFilter(label=_('Tiene usuario asociado'), field_name='owner', lookup_expr='isnull', exclude = True, widget=BooleanWidget(attrs={'class': 'threestate'}))
 
     class Meta:
         model = Consumer

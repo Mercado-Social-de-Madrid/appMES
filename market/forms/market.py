@@ -25,6 +25,13 @@ class MarketForm(BootstrapForm, MultiLangForm, forms.ModelForm):
         }
         exclude = ["takahe_server", "takahe_invite_url"]
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance:
+            self.fields["register_consumer_url"].widget.attrs.update(
+                {'placeholder':  f'{settings.BASESITE_URL}/register/{self.instance.shortname}'}
+            )
+
 class MarketPublicForm(BootstrapForm, MultiLangForm, forms.ModelForm):
 
     class Meta:

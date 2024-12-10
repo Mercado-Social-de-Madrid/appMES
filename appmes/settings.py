@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'fcm_django',
     'django_unused_media',
     'modeltranslation',
+    'localflavor',
 
     # Django apps
     'django.contrib.admin',

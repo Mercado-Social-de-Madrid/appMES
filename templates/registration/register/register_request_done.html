@@ -1,0 +1,20 @@
+{% extends 'registration/register/register_base.html' %}
+{% load i18n %}
+
+{% block bodyattrs %} id="login-page"{% endblock%}
+
+{% block title%}{% translate "Solicitud realizada con éxito" %}{% endblock %}
+
+{% block cardcontent %}
+    <h5 class="text-primary">{% translate '¡Gracias por tu interés en hacerte consumidora!' %}</h5>
+    <p>
+        {% translate 'En los próximos días revisaremos tu solicitud y te escribiremos al correo indicado.' %}
+    </p>
+    {% if contact_mail %}
+        <p>
+            {% translate 'Si pasado un tiempo no recibes respuesta, contacta con nosotras aquí:' %}
+            <a href="mailto:{{contact_mail}}">{{ contact_mail }}</a>
+        </p>
+    {% endif %}
+
+{% endblock %}
