@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-07 09:54+0000\n"
+"POT-Creation-Date: 2025-02-12 15:04+0000\n"
 "PO-Revision-Date: 2024-03-19 11:59+0000\n"
 "Last-Translator:  None <jjoseba@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,19 +43,19 @@ msgstr "Ja existeix un usuari registrat amb aquest correu electrònic."
 msgid "No existe objeto entity o person en el cuerpo de la petición"
 msgstr "No hi ha objecte entity o person al cos de la petició"
 
-#: appmes/settings.py:187
+#: appmes/settings.py:188
 msgid "Castellano"
 msgstr "Castellà"
 
-#: appmes/settings.py:188
+#: appmes/settings.py:189
 msgid "Catalá"
 msgstr "Català"
 
-#: appmes/settings.py:189
+#: appmes/settings.py:190
 msgid "Euskara"
 msgstr ""
 
-#: appmes/settings.py:190
+#: appmes/settings.py:191
 msgid "Galego"
 msgstr ""
 
@@ -117,30 +117,30 @@ msgstr "Grup"
 msgid "Grupos"
 msgstr "Grups"
 
-#: authentication/models/preregister.py:23
+#: authentication/models/preregister.py:24
 msgid "Cuenta"
 msgstr "Compte"
 
-#: authentication/models/preregister.py:24
+#: authentication/models/preregister.py:25
 msgid "Email preregistro enviado"
 msgstr "Email preregistre enviat"
 
-#: authentication/models/preregister.py:27 templates/account/add_user.html:25
+#: authentication/models/preregister.py:28 templates/account/add_user.html:25
 #: templates/user/add.html:34 templates/user/detail_card.html:18
 #: templates/user/edit.html:42
 msgid "Prerregistro"
 msgstr "Preregistre"
 
-#: authentication/models/preregister.py:28
+#: authentication/models/preregister.py:29
 msgid "Prerregistros"
 msgstr "Preregistres"
 
-#: authentication/models/preregister.py:37
+#: authentication/models/preregister.py:38
 msgid "Todo listo para empezar a usar la aplicación móvil del Mercado Social"
 msgstr ""
 "Tot llest per començar a fer servir l'aplicació mòbil del Mercat Social"
 
-#: authentication/models/preregister.py:57
+#: authentication/models/preregister.py:67
 msgid "Nueva usuaria creada en la app"
 msgstr "Nova usuària creada a l'app"
 
@@ -199,7 +199,7 @@ msgstr "Podeu veure els detalls d'un usuari"
 msgid "Puede añadir usuarios"
 msgstr "Pot afegir usuaris"
 
-#: authentication/views/market.py:20 authentication/views/user.py:94
+#: authentication/views/market.py:27 authentication/views/user.py:88
 msgid "Usuario creado correctamente."
 msgstr "Usuari creat correctament."
 
@@ -211,13 +211,36 @@ msgstr "Contrasenya actualitzada correctament"
 msgid "Email de prerregistro reenviado"
 msgstr "Email de preregistre reenviat"
 
+#: authentication/views/register.py:34
+msgid "El registro interno no está disponible para este mercado."
+msgstr ""
+
+#: authentication/views/register.py:57 market/views/consumer.py:63
+msgid "Consumidora añadida correctamente."
+msgstr "Consumidora afegida correctament."
+
+#: authentication/views/register.py:67
+#, fuzzy
+#| msgid "Nueva consumidora"
+msgid "Nueva solicitud de socia consumidora"
+msgstr "Nova consumidora"
+
+#: authentication/views/register.py:79
+#, python-brace-format
+msgid "Solicitud de alta en el Mercado Social de {node}"
+msgstr ""
+
+#: authentication/views/register.py:92
+msgid "Registration email sent"
+msgstr ""
+
 #: authentication/views/user.py:24 benefits/views.py:25
 #: market/views/consumer.py:27 market/views/provider.py:35 news/views.py:24
 #: offers/views.py:86 public/views.py:31
 msgid "Buscar..."
 msgstr "Cerca..."
 
-#: authentication/views/user.py:103
+#: authentication/views/user.py:97
 msgid "Usuario eliminado correctamente."
 msgstr "Categoria afegida correctament."
 
@@ -270,13 +293,17 @@ msgstr "Sol·licitar descompte"
 msgid "Activa"
 msgstr ""
 
-#: core/admin.py:12 core/models/social_profile.py:18 market/admin.py:18
+#: core/admin.py:13 core/models/social_profile.py:18 market/admin.py:18
 msgid "Red Social"
 msgstr "Xarxa Social"
 
-#: core/admin.py:13 core/models/social_profile.py:19 market/admin.py:19
+#: core/admin.py:14 core/models/social_profile.py:19 market/admin.py:19
 msgid "Redes Sociales"
 msgstr "Xarxes Socials"
+
+#: core/admin.py:41
+msgid "Contexto de texto personalizable"
+msgstr ""
 
 #: core/forms/social_profiles.py:18
 #, fuzzy
@@ -288,10 +315,64 @@ msgstr "Enllaç a la xarxa social"
 msgid "Introduce una URL válida."
 msgstr "Introdueix una URL vàlida."
 
-#: core/models/gallery.py:10 core/models/gallery.py:21
-#: templates/news/query.html:6
+#: core/models/custom_text.py:12 core/models/custom_text.py:27
+#: templates/market/query.html:7
+msgid "Identificador"
+msgstr ""
+
+#: core/models/custom_text.py:12
+msgid "Identificador del texto"
+msgstr ""
+
+#: core/models/custom_text.py:13 core/models/gallery.py:10
+#: core/models/gallery.py:21 templates/news/query.html:6
 msgid "Título"
 msgstr "Títol"
+
+#: core/models/custom_text.py:14 market/models/category.py:11
+#: market/models/provider.py:14 news/models/news.py:18
+#: offers/models/offer.py:57 templates/category/query.html:7
+#: templates/news/query.html:9
+msgid "Descripción"
+msgstr "Descripció"
+
+#: core/models/custom_text.py:15
+#, fuzzy
+#| msgid "Geolocalización"
+msgid "Previsualización"
+msgstr "Geolocalització"
+
+#: core/models/custom_text.py:27
+msgid "Identificador único del texto"
+msgstr ""
+
+#: core/models/custom_text.py:28
+msgid "Contexto en el que aparece"
+msgstr ""
+
+#: core/models/custom_text.py:29
+msgid "Etiqueta"
+msgstr ""
+
+#: core/models/custom_text.py:29
+msgid "Cómo se muestra en los formularios"
+msgstr ""
+
+#: core/models/custom_text.py:30
+#, fuzzy
+#| msgid "Descripción corta"
+msgid "Descripción adicional"
+msgstr "Descripció curta"
+
+#: core/models/custom_text.py:42 core/models/node.py:50
+#: core/models/social_profile.py:35 market/views/provider.py:56
+#: templates/market/query.html:6
+msgid "Mercado"
+msgstr "Mercat"
+
+#: core/models/custom_text.py:44
+msgid "Texto"
+msgstr ""
 
 #: core/models/gallery.py:13 templates/provider/form.html:61
 msgid "Galería"
@@ -393,17 +474,17 @@ msgstr "Carnet de sòcia activa"
 msgid "Enlace a página con información básica del mercado"
 msgstr "Enllaç a pàgina amb informació bàsica del mercat"
 
-#: core/models/node.py:41 templates/market/form.html:43
+#: core/models/node.py:41 templates/market/form.html:48
 msgid "Idiomas habilitados"
 msgstr "Idiomes habilitats"
 
-#: core/models/node.py:48 core/models/social_profile.py:35
-#: market/views/provider.py:56 templates/market/query.html:6
-msgid "Mercado"
-msgstr "Mercat"
+#: core/models/node.py:43
+msgid "Enlace a la política de privacidad"
+msgstr ""
 
-#: core/models/node.py:49 templates/market/edit.html:5
-#: templates/market/list.html:4 templates/navbar/admin.html:27
+#: core/models/node.py:51 templates/market/edit.html:5
+#: templates/market/list.html:4 templates/market/public/edit.html:5
+#: templates/market/public/email_preview.html:6 templates/navbar/admin.html:27
 msgid "Mercados"
 msgstr "Mercats"
 
@@ -486,12 +567,6 @@ msgstr "Darrera actualització"
 msgid "Fecha de alta"
 msgstr "Data d'alta"
 
-#: market/models/category.py:11 market/models/provider.py:14
-#: news/models/news.py:18 offers/models/offer.py:57
-#: templates/category/query.html:7 templates/news/query.html:9
-msgid "Descripción"
-msgstr "Descripció"
-
 #: market/models/consumer.py:10
 msgid "Favoritos"
 msgstr "Favorits"
@@ -546,11 +621,14 @@ msgstr "Categoria afegida correctament."
 msgid "Categoría eliminada correctamente."
 msgstr "Categoria eliminada correctament."
 
-#: market/views/consumer.py:63
-msgid "Consumidora añadida correctamente."
-msgstr "Consumidora afegida correctament."
+#: market/views/consumer.py:31
+#, fuzzy
+#| msgid "Sin usuario"
+msgid "Tiene usuario asociado"
+msgstr "Sense usuari"
 
-#: market/views/consumer.py:88 market/views/market.py:71
+#: market/views/consumer.py:88 market/views/market.py:79
+#: market/views/market.py:140
 msgid "Datos actualizados correctamente."
 msgstr "Dades actualitzades correctament."
 
@@ -986,11 +1064,11 @@ msgstr ""
 msgid "Ver detalle"
 msgstr "Veure detall"
 
-#: templates/dashboard/admin.html:27 templates/dashboard/market.html:53
+#: templates/dashboard/admin.html:27 templates/dashboard/market.html:55
 msgid "consumidoras"
 msgstr "Consumidores"
 
-#: templates/dashboard/admin.html:28 templates/dashboard/market.html:26
+#: templates/dashboard/admin.html:28 templates/dashboard/market.html:28
 #: templates/public/provider/list.html:25
 msgid "proveedoras"
 msgstr "Proveïdores"
@@ -1032,19 +1110,23 @@ msgstr "Últimes notícies"
 msgid "No hay noticias publicadas en este mercado..."
 msgstr "No hi ha notícies publicades en aquest mercat..."
 
-#: templates/dashboard/market.html:27 templates/dashboard/market.html:54
+#: templates/dashboard/market.html:14 templates/market/query.html:30
+msgid "Editar mercado"
+msgstr "Editar mercat"
+
+#: templates/dashboard/market.html:29 templates/dashboard/market.html:56
 msgid "nuevas"
 msgstr ""
 
-#: templates/dashboard/market.html:38
+#: templates/dashboard/market.html:40
 msgid "Ver informe"
 msgstr ""
 
-#: templates/dashboard/market.html:39
+#: templates/dashboard/market.html:41
 msgid "Ir a entidades"
 msgstr ""
 
-#: templates/dashboard/market.html:65
+#: templates/dashboard/market.html:67
 msgid "Ir a consumidoras"
 msgstr ""
 
@@ -1094,7 +1176,13 @@ msgstr "Veure avantatges publicats"
 msgid "Comprobar estado de socia"
 msgstr "Comprovar estat de sòcia"
 
-#: templates/email/password_reset.html:14 templates/email/password_reset.txt:7
+#: templates/email/password_reset.html:13 templates/email/password_reset.txt:9
+#, fuzzy
+#| msgid "Restaurar contraseña"
+msgid "Recuperar contraseña"
+msgstr "Restaurar contrasenya"
+
+#: templates/email/password_reset.html:29 templates/email/password_reset.txt:18
 #: templates/registration/password_reset_email.html:12
 #, python-format
 msgid ""
@@ -1104,26 +1192,26 @@ msgstr ""
 "Iu receiving aquest correu electrònic because i hagueu requerit un password "
 "reset per a un usuari account al %(site_name)s."
 
-#: templates/email/password_reset.html:17 templates/email/password_reset.txt:12
+#: templates/email/password_reset.html:32 templates/email/password_reset.txt:21
 #: templates/registration/password_reset_email.html:18
 msgid "Thanks for using our site!"
 msgstr ""
 
-#: templates/email/password_reset.html:25
+#: templates/email/password_reset.html:41
 #: templates/registration/password_base.html:4
 #: templates/registration/password_reset_email.html:26
 #: templates/registration/preregister.html:4
 msgid "Restaurar contraseña"
 msgstr "Restaurar contrasenya"
 
-#: templates/email/password_reset.txt:8
-#: templates/registration/password_reset_email.html:14
-msgid "Please go to the following page and choose a new password:"
-msgstr ""
-
-#: templates/email/password_reset.txt:11
+#: templates/email/password_reset.txt:20
 #: templates/registration/password_reset_email.html:16
 msgid "Your username, in case you’ve forgotten:"
+msgstr ""
+
+#: templates/email/password_reset.txt:26
+#: templates/registration/password_reset_email.html:14
+msgid "Please go to the following page and choose a new password:"
 msgstr ""
 
 #: templates/market/create.html:6 templates/market/create.html:15
@@ -1132,7 +1220,10 @@ msgid "Nuevo mercado"
 msgstr "Nou mercat"
 
 #: templates/market/create.html:15 templates/market/edit.html:12
-#: templates/market/list.html:12
+#: templates/market/list.html:12 templates/market/public/edit.html:14
+#: templates/market/public/edit.html:16
+#: templates/market/public/email_preview.html:24
+#: templates/market/public/email_preview.html:26
 msgid "Mercados sociales"
 msgstr "Mercats socials"
 
@@ -1140,27 +1231,27 @@ msgstr "Mercats socials"
 msgid "Añadir mercado"
 msgstr "Afegir mercat"
 
-#: templates/market/edit.html:15
+#: templates/market/edit.html:15 templates/market/public/edit.html:24
 msgid "Explorar mercado"
 msgstr "Explorar mercat"
 
-#: templates/market/form.html:34
+#: templates/market/form.html:39
 msgid "Multi-idioma"
 msgstr ""
 
-#: templates/market/form.html:67
+#: templates/market/form.html:72 templates/market/public/form.html:13
 msgid "Datos públicos"
 msgstr "Dades públiques"
 
-#: templates/market/form.html:74
+#: templates/market/form.html:80
 msgid "Logo del mercado (preferiblemente PNG con transparencia)"
 msgstr "Logo del mercat (preferiblement PNG amb transparència)"
 
-#: templates/market/form.html:95
+#: templates/market/form.html:101 templates/market/public/form.html:17
 msgid "Distintivo de balance social"
 msgstr "Distintiu de balanç social"
 
-#: templates/market/form.html:96
+#: templates/market/form.html:102 templates/market/public/form.html:18
 msgid ""
 "Imagen (preferiblemente PNG con transparencia) para representar el "
 "distintivo de balance social de este mercado. "
@@ -1168,22 +1259,22 @@ msgstr ""
 "Imatge (preferiblement PNG amb transparència) per representar el distintiu "
 "de balanç social daquest mercat. "
 
-#: templates/market/form.html:97
+#: templates/market/form.html:103 templates/market/public/form.html:19
 msgid ""
 "Se utiliza desde la app para acceder al detalle de balance de cada proveedora"
 msgstr ""
 "S'utilitza des de l'app per accedir al detall del balanç de cada proveïdora"
 
-#: templates/market/form.html:132 templates/provider/form.html:94
+#: templates/market/form.html:138 templates/provider/form.html:94
 msgid "Geolocalización"
 msgstr "Geolocalització"
 
-#: templates/market/form.html:133 templates/provider/form.html:95
+#: templates/market/form.html:139 templates/provider/form.html:95
 msgid ""
 "Mueve el pin por el mapa hasta posicionarlo en la localización correcta."
 msgstr "Mou el pin pel mapa fins a posicionar-lo en la localització correcta."
 
-#: templates/market/form.html:147 templates/provider/form.html:102
+#: templates/market/form.html:153 templates/provider/form.html:102
 msgid ""
 "Puedes hacer zoom en los controles del mapa para ajustar al máximo la "
 "posición, o entrar en la vista de pantalla completa."
@@ -1191,7 +1282,8 @@ msgstr ""
 "Pots fer zoom als controls del mapa per ajustar al màxim la posició, o "
 "entrar a la vista de pantalla completa."
 
-#: templates/market/form.html:153 templates/provider/form.html:118
+#: templates/market/form.html:159 templates/market/public/form.html:102
+#: templates/provider/form.html:118
 msgid "Redes sociales"
 msgstr "Xarxes socials"
 
@@ -1250,9 +1342,24 @@ msgid ""
 "CONSUMO EN %(mercado)s "
 msgstr ""
 
-#: templates/market/query.html:7
-msgid "Identificador"
+#: templates/market/public/form.html:46
+#, fuzzy
+#| msgid "Datos de perfil"
+msgid "Textos de emails"
+msgstr "Dades de perfil"
+
+#: templates/market/public/form.html:47
+msgid ""
+"Desde aquí puedes modificar los textos de los emails que se envían desde la "
+"app en distintos momentos. Pulsando el botón de \"previsualizar\" puedes ver "
+"cómo quedaría el email definitivo."
 msgstr ""
+
+#: templates/market/public/form.html:67
+#, fuzzy
+#| msgid "Actualizar"
+msgid "Previsualizar"
+msgstr "Actualitzar"
 
 #: templates/market/query.html:8
 msgid "Visibilidad pública"
@@ -1265,10 +1372,6 @@ msgstr "Carnet de sòcia"
 #: templates/market/query.html:10
 msgid "Idiomas"
 msgstr "Idiomes"
-
-#: templates/market/query.html:30
-msgid "Editar mercado"
-msgstr "Editar mercat"
 
 #: templates/market/query.html:31
 msgid "Gestionar mercado"
@@ -1565,8 +1668,12 @@ msgstr ""
 msgid "Sin ventajas"
 msgstr "Sense avantatges"
 
-#: templates/public/index.html:4
+#: templates/public/credits.html:4 templates/public/index.html:4
 msgid "Descubre la app"
+msgstr ""
+
+#: templates/public/footer.html:12
+msgid "Créditos"
 msgstr ""
 
 #: templates/public/index.html:21
@@ -1805,6 +1912,49 @@ msgstr ""
 msgid "Finalizar registro"
 msgstr "Finalitzar registre"
 
+#: templates/registration/privacy_policy_check.html:6
+#, python-format
+msgid ""
+"He leído y acepto la <a href=\"%(privacy_policy_url)s\" target=\"_blank"
+"\">Política de privacidad</a> <span class=\"text-primary\">*</span>"
+msgstr ""
+
+#: templates/registration/register/consumer/form.html:5
+msgid ""
+"Los campos marcados con <span class=\"text-primary lead\">*</span> son "
+"obligatorios."
+msgstr ""
+
+#: templates/registration/register/consumer/register_consumer.html:4
+#, fuzzy
+#| msgid "Consumidoras"
+msgid "Hazte Consumidora"
+msgstr "Consumidores"
+
+#: templates/registration/register/consumer/register_consumer.html:13
+msgid "Enviar solicitud"
+msgstr ""
+
+#: templates/registration/register/register_request_done.html:6
+#, fuzzy
+#| msgid "Usuario eliminado con éxito."
+msgid "Solicitud realizada con éxito"
+msgstr "Usuari eliminat amb èxit."
+
+#: templates/registration/register/register_request_done.html:9
+msgid "¡Gracias por tu interés en hacerte consumidora!"
+msgstr ""
+
+#: templates/registration/register/register_request_done.html:11
+msgid ""
+"En los próximos días revisaremos tu solicitud y te escribiremos al correo "
+"indicado."
+msgstr ""
+
+#: templates/registration/register/register_request_done.html:15
+msgid "Si pasado un tiempo no recibes respuesta, contacta con nosotras aquí:"
+msgstr ""
+
 #: templates/reports/benefits_card.html:12
 msgid "nuevas publicadas"
 msgstr ""
@@ -1884,7 +2034,9 @@ msgid "Último acceso"
 msgstr "Darrer accés"
 
 #: templates/user/detail_card.html:19
-msgid "El usuario aún no hay completado el registro"
+#, fuzzy
+#| msgid "El usuario aún no hay completado el registro"
+msgid "El usuario aún no ha completado el registro"
 msgstr "L'usuari encara no ha completat el registre"
 
 #: templates/user/detail_card.html:23 templates/user/edit.html:51

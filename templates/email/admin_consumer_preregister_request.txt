@@ -1,0 +1,8 @@
+{% load settings_value %}
+
+Nueva solicitud de consumidora
+
+Se ha recibido una solicitud de {{consumer.first_name}} {{consumer.last_name}} para hacerse socia consumidora.
+Puedes revisar la solicitud pulsando el siguiente botón:
+
+{% settings_value 'BASESITE_URL' %}{% url 'market:detail_consumer' consumer.node.pk consumer.pk %}

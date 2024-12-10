@@ -40,6 +40,8 @@ class Node(models.Model):
     preferred_locale = models.CharField(max_length=10, default='es-ES', verbose_name=_('Idioma preferido de la interfaz'))
     enabled_langs = ArrayField(models.CharField(max_length=3, choices=settings.LANGUAGES), blank=True, default=[], verbose_name=_('Idiomas habilitados'))
 
+    privacy_policy_url = models.URLField(blank=True, null=True, verbose_name=_('Enlace a la política de privacidad'))
+
     @property
     def is_multilang_enabled(self):
         return len(self.enabled_langs) > 1

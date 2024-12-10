@@ -29,6 +29,8 @@ urlpatterns = [
     path('<int:market>/users/<pk>/delete', views.UserDelete.as_view(), name='user_delete'),
     path('<int:market>/users/<pk>/password', views.ChangeUserPassword.as_view(), name='user_password'),
 
+    path('register/<str:market>/', views.RegisterView.as_view(), name='register_request'),
+    path('register/<str:market>/done/', views.RegisterDoneView.as_view(), name='register_request_done'),
     path('register/<token>/', views.PreRegister.as_view(), name='preregister'),
     path('register/<token>/resend_email/', views.ResendPreregisterEmailAction.as_view(), name='preregister_send_email'),
 ]

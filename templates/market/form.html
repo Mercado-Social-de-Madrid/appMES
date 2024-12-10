@@ -12,19 +12,24 @@
 
         {% include "common/forms/field.html" with field=form.shortname %}
 
-          <div class="mt-4">
-              {% include "common/forms/switch.html" with field=form.visible %}
-              {% include "common/forms/switch.html" with field=form.self_register_allowed %}
-              {% include "common/forms/switch.html" with field=form.member_card_enabled %}
-          </div>
-          <div class="mt-3" data-visible-by="#id_self_register_allowed">
-              {% include "common/forms/field.html" with field=form.register_provider_url %}
-              {% include "common/forms/field.html" with field=form.register_consumer_url %}
-          </div>
+        <div class="mt-4">
+            {% include "common/forms/switch.html" with field=form.visible %}
+            {% include "common/forms/switch.html" with field=form.self_register_allowed %}
+
+            <div data-visible-by="#id_self_register_allowed">
+                {% include "common/forms/field.html" with field=form.register_provider_url %}
+                {% include "common/forms/field.html" with field=form.register_consumer_url hint=Hola %}
+            </div>
+        </div>
+        <div class="mt-4">
+            {% include "common/forms/switch.html" with field=form.member_card_enabled %}
+        </div>
+        <div class="mt-4">
             {% include "common/forms/switch.html" with field=form.has_linked_crm %}
-             <div class="mt-3" data-visible-by="#id_has_linked_crm">
-              {% include "common/forms/field.html" with field=form.linked_crm_url %}
-          </div>
+            <div data-visible-by="#id_has_linked_crm">
+                {% include "common/forms/field.html" with field=form.linked_crm_url %}
+            </div>
+        </div>
 
         </div>
     </div>
@@ -70,6 +75,7 @@
 
              {% include "common/forms/field.html" with field=form.contact_email %}
              {% include "common/forms/field.html" with field=form.admin_email %}
+             {% include "common/forms/field.html" with field=form.privacy_policy_url %}
 
             <label class="mt-3 mb-2">{% translate 'Logo del mercado (preferiblemente PNG con transparencia)' %}</label>
           <div class="card form-photo mb-3">

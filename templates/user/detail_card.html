@@ -16,7 +16,7 @@
 {% if user.is_preregistered %}
 <hr>
     <strong class="text-primary">{% translate "Prerregistro"  %}</strong><br>
-    {% translate "El usuario aún no hay completado el registro"  %}
+    {% translate "El usuario aún no ha completado el registro"  %}
     <form class="pt-3" method="post" action="{% url 'auth:preregister_send_email' user.preregister.first.id %}">
         {% csrf_token %}
         <input type="hidden" name="next" value="{% market_url 'auth:user_detail' user.pk %}">

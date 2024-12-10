@@ -1,0 +1,36 @@
+{% extends 'common/email/base.html' %}
+{% load settings_value %}
+{% load custom_text %}
+
+{% block title %}Solicitud de alta{% endblock %}
+
+{% block maintitle %}
+
+{% custom_text node 'consumer_preregister_request_title' as header_title %}
+{% if header_title %}
+    {{header_title}}
+{% else %}
+    Solicitud de alta recibida
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<h2 style="color: #f78154; line-height: 100%;">Hola, {{account.display_name}}!</h2>
+
+
+{% custom_text node 'consumer_preregister_request_body' as body_text %}
+{% if body_text %}
+    {% autoescape off %}
+        {{body_text}}
+    {% endautoescape %}
+{% else %}
+    <p>Muchas gracias por completar la solicitud de alta para hacerte socia consumidora del Mercado Social de {{node.name}}.</p>
+    <p>En los próximos días revisaremos tu solicitud y si todo está correcto te escribiremos a esta misma dirección
+        de correo para que puedas crear tu cuenta de usuaria, con la que podrás acceder a la app móvil y a tu panel
+        de consumidora en la web <a href="https://mercadosocial.app">mercadosocial.app</a>.</p>
+
+    <p>Si pasado un tiempo no recibes respuesta, contacta con nosotras respondiendo a este correo.</p>
+{% endif %}
+
+{% endblock%}

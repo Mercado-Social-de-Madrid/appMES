@@ -11,6 +11,11 @@ pantalla donde se muestran los detalles principales de la proveedora. Además de
 de la proveedora y añadir una ventaja.
 
 ## :fontawesome-solid-plus: Añadir proveedora
+/// admonition | registro
+    type: info
+Puedes ver todo el proceso de registro de socias proveedoras en la página [Registro de socias](../registro.md).
+///
+
 Haciendo click en el botón "Añadir nueva" accederás a la pantalla para añadir una nueva entidad proveedora. 
 En esta pantalla se te pedirán varios datos referentes a la proveedora divididas en las siguientes secciones:
 

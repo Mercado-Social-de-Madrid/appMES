@@ -1,0 +1,28 @@
+{% load settings_value %}
+{% load custom_text %}
+
+{% custom_text node 'consumer_preregister_request_title' as header_title %}
+{% if header_title %}
+    {{header_title}}
+{% else %}
+    Solicitud de alta recibida
+{% endif %}
+Hola, {{account.display_name}}!
+
+{% custom_text node 'consumer_preregister_request_body' as body_text %}
+{% if body_text %}
+{% autoescape off %}
+    {{body_text}}
+{% endautoescape %}
+{% else %}
+    Muchas gracias por completar la solicitud de alta para hacerte socia consumidora del Mercado Social de {{node.name}}.
+
+    En los próximos días revisaremos tu solicitud y si todo está correcto te escribiremos a esta misma dirección de correo para que puedas crear tu cuenta de usuaria, con la que podrás acceder a la app móvil y a tu panel de consumidora en la web https://mercadosocial.app.
+
+    Si pasado un tiempo no recibes respuesta, contacta con nosotras respondiendo a este correo.
+
+{% endif %}
+
+Aplicación móvil
+¿Sabías que hay una app desde la que acceder al Mercado Social de forma más cómoda? ¡Pruébala!
+Enlace a la app: https://play.google.com/store/apps/details?id=net.mercadosocial.moneda

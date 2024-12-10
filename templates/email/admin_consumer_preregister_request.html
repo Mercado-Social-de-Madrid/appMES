@@ -1,0 +1,7 @@
+<h2 style="color: #f78154; line-height: 100%;">Nueva solicitud de consumidora</h2>
+
+<p>Se ha recibido una solicitud de <b>{{consumer.first_name}} {{consumer.last_name}}</b> para hacerse socia consumidora.</p>
+<p>Puedes revisar la solicitud pulsando el siguiente botón:</p>
+
+{% url 'market:detail_consumer' consumer.node.pk consumer.pk as link %}
+{% include 'common/email/button.html' with link_text='Revisar solicitud' link_href=link %}

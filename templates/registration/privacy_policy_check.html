@@ -1,0 +1,10 @@
+{% load i18n %}
+<div class="custom-control custom-switch mt-3">
+{{form.check_privacy_policy}}
+  <span class="custom-control-track"></span>
+  <label class="custom-control-label" for="{{form.check_privacy_policy.id_for_label}}">
+      {% blocktrans %}He leído y acepto la <a href="{{privacy_policy_url}}" target="_blank">Política de privacidad</a> <span class="text-primary">*</span>{% endblocktrans %}
+  </label>
+
+{% if form.check_conditions.errors %} <div class="valid-feedback"> {{form.check_privacy_policy.errors}}</div> {% endif %}
+</div>
