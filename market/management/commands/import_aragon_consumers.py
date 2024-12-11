@@ -8,7 +8,7 @@ from django.db.models import Q
 
 
 class Command(BaseCommand):
-    help = 'Import all data of Madrid from old application'
+    help = 'Import all Aragon consumers data'
 
     def add_arguments(self, parser):
 
