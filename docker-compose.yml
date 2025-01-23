@@ -21,11 +21,11 @@ services:
       db:
         condition: service_healthy
   db:
-    image: postgres:13
+    image: postgres:17
     ports:
       - "${DB_PORT:-5432}:${DB_PORT:-5432}"
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data_17:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PWRD}
@@ -38,6 +38,6 @@ services:
       retries: 3
 
 volumes:
-  postgres_data:
+  postgres_data_17:
   gunicorn_logs:
   gunicorn_pid:
