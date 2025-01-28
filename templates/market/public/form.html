@@ -1,0 +1,132 @@
+{% load static %}
+{% load i18n %}
+{% load get_attr %}
+{% load market_url %}
+{% csrf_token %}
+
+<div class="row">
+
+  <div class="col-sm-9 col-md-7 ">
+
+      <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title"><i class="material-icons">edit_location</i> {% translate 'Datos públicos' %}</h4>
+
+            <div class="row mt-2">
+                <div class="col-sm-7 ">
+                    <h5 class="mb-0 text-primary">{% translate 'Distintivo de balance social' %} </h5>
+                    <p>{% translate 'Imagen (preferiblemente PNG con transparencia) para representar el distintivo de balance social de este mercado. ' %}</p>
+                    {% translate 'Se utiliza desde la app para acceder al detalle de balance de cada proveedora' %}
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="card form-photo mb-3">
+                        <div class="bg-checkers text-center">
+                             <img class="img-fluid" id="badge-thumb" src="{% if object.balance_badge %}{{ object.balance_badge.url }}{% else %}{% static 'imgs/sello_mes.png' %}{% endif %}" alt="{{object.title}}">
+                        </div>
+
+                        <div class=" action-btns outside">
+                            <a class="btn btn-primary text-light btn-float btn-lg btn-fab-photo" href="#" data-toggle="tooltip" data-placement="bottom" title="Editar imagen"><i class="material-icons">edit</i></a>
+                         </div>
+
+                        <div class="file-field" data-img-target="#badge-thumb">
+                        <div class="uploaded">
+                                {{ form.balance_badge }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title mb-3"><i class="material-icons">edit_location</i> {% translate 'Textos de emails' %}</h4>
+            {% translate 'Desde aquí puedes modificar los textos de los emails que se envían desde la app en distintos momentos. Pulsando el botón de "previsualizar" puedes ver cómo quedaría el email definitivo.' %}
+
+            {{ formsets.node_custom_texts.management_form }}
+
+            <div class="list-group" id="emails">
+
+              {% for ctx in text_contexts %}
+              <div class="expansion-panel list-group-item mt-4">
+                <a aria-controls="{{ctx.id}}" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#{{ctx.id}}" id="{{ctx.id}}-header">
+                  {{ctx.title}}
+                  <div class="expansion-panel-icon ml-3 text-black-secondary">
+                    <i class="collapsed-show material-icons">keyboard_arrow_down</i>
+                    <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+                  </div>
+                </a>
+                <div aria-labelledby="{{ctx.id}}-header" class="collapse" data-parent="#emails" id="{{ctx.id}}">
+                  <div class="expansion-panel-body">
+                      <div class="d-md-flex mb-3">
+                          <div class="flex-grow mb-3 mb-md-0"> {{ctx.description}}</div>
+                          {% if ctx.preview_type == "email" %}
+                            <div><a class="btn btn-action btn-brand bg-brand" href="{% market_url 'market:preview_email' ctx.id %}">{% translate 'Previsualizar' %}</a></div>
+                          {% endif %}
+                      </div>
+
+                      {% for customtext in ctx.formsets %}
+                            {{ customtext.form.media}}
+
+                            {{ customtext.form.node }}
+                            {{ customtext.form.text_id }}
+
+                            <label class="lead text-primary">{{customtext.instance.description}}</label>
+                             {% if customtext.instance.help_text %}
+                            <small class="text-muted d-block">{{customtext.instance.help_text}}</small>
+                            {% endif %}
+                            {% include "common/forms/multilang_field.html" with form=customtext.form fieldname='string' hide_label=True prefix=customtext.form.text_id.id_for_label %}
+                        {% endfor %}
+
+                   </div>
+                </div>
+              </div>
+                {% endfor %}
+
+            </div>
+
+
+
+
+        </div>
+      </div>
+  </div>
+
+  <div class="col-sm-12 col-md-5">
+
+    <div class="card mb-4 pb-4">
+        <div class="social-links card-body pr-5">
+            <div class="card-title"> {% translate 'Redes sociales' %}</div>
+
+            <div>
+                <div class="form-group">
+                    <div class="input-group">
+                      <i class="fa fa-globe fa-2xl social-network-logo" aria-hidden="true"></i></span>
+                      {{form.webpage_link}}
+                    </div>
+                </div>
+                {{ formsets.social_profiles.management_form }}
+                {% for social_profile_form in formsets.social_profiles %}
+                    <div class="form-group">
+                        <div class="input-group">
+                            {{ social_profile_form.id }}
+                            {{ social_profile_form.social_network }}
+                            {{ social_profile_form.url }}
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+</div>
+
+

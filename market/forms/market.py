@@ -24,3 +24,13 @@ class MarketForm(BootstrapForm, MultiLangForm, forms.ModelForm):
             'preferred_locale': forms.Select(choices=settings.LANGUAGES)
         }
         exclude = ["takahe_server", "takahe_invite_url"]
+
+class MarketPublicForm(BootstrapForm, MultiLangForm, forms.ModelForm):
+
+    class Meta:
+        model = Node
+        widgets = {
+
+        }
+
+        fields = ['banner_image', 'webpage_link']

@@ -3,7 +3,8 @@ from django.urls import reverse
 from django.views.generic import RedirectView
 
 from authentication.models.preregister import PreRegisteredUser
-from authentication.views import MarketCreateUser
+from authentication.views import MarketCreateUser, CreateUser
+from market.mixins.current_market import MarketMixin
 from market.models import Account
 
 
@@ -19,7 +20,7 @@ class UserAccountSocialBalance(RedirectView):
         return reverse('market:provider_balance', kwargs={'market':account.node.pk, 'pk': account.pk })
 
 
-class ManageAccountUser(MarketCreateUser):
+class ManageAccountUser(MarketMixin, CreateUser):
     template_name = 'account/add_user.html'
     account = None
 
@@ -29,6 +30,7 @@ class ManageAccountUser(MarketCreateUser):
 
     def get_initial(self):
         initial = super().get_initial()
+        initial.update({'node': self.node, 'preferred_locale': self.node.preferred_locale })
         initial['email'] = self.account.email
         initial['first_name'] = self.account.display_name
         return initial

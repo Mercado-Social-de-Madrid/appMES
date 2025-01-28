@@ -8,5 +8,5 @@ class NewsTranslationOptions(TranslationOptions):
     fields = ('name', 'description', )
 
 @register(Provider)
-class NewsTranslationOptions(TranslationOptions):
+class ProviderTranslationOptions(TranslationOptions):
     fields = ('name', 'description', 'short_description', 'legal_form')

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate 'Mercados' %} | {{object.name}}{% endblock %}
+
+{% block content %}
+    <div class="jumbotron text-light py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-7 col-md-8">
+                <h4 class="mb-0">
+                    {% if request.user.is_superadmin %}
+                        <a href="{% url 'market:market_list' %}">{% translate 'Mercados sociales' %}</a>
+                    {% else %}
+                        <span class="text-primary">{% translate 'Mercados sociales' %} </span>
+                    {% endif %}
+                    <i class="material-icons md-24">arrow_forward_ios</i>
+                    <a href="{% url 'market:market_dashboard' object.pk %}">{{object.name}}</a>
+                    <i class="material-icons md-24">arrow_forward_ios</i>
+                    Datos públicos</h4>
+            </div>
+                 <div class="col-sm-5 col-md-4 text-sm-right">
+                <a href="{% url 'market:market_dashboard' object.pk %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">manage_search</i> {% translate 'Explorar mercado' %}</a>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form method="post" class="post-form gallery-form mt-4" enctype="multipart/form-data">
+
+            {% include "market/public/form.html" %}
+            {% include "common/forms/save_btn.html" %}
+
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

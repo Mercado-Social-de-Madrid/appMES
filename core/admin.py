@@ -2,6 +2,7 @@ from django.contrib import admin
 from modeltranslation.admin import TabbedTranslationAdmin
 
 from core.models import Node, Gallery, GalleryPhoto
+from core.models.custom_text import CustomizableText, CustomizableTextContext, NodeCustomText
 from core.models.social_profile import SocialNetwork, NodeSocialProfile
 from django.utils.translation import gettext_lazy as _
 
@@ -32,3 +33,19 @@ class GalleryAdmin(admin.ModelAdmin):
 @admin.register(SocialNetwork)
 class SocialNetworkAdmin(admin.ModelAdmin):
     list_display = ["name", "logo"]
+
+@admin.register(CustomizableText)
+class CustomizableTextAdmin(TabbedTranslationAdmin):
+    list_display = ["id", "description", "context_title"]
+
+    @admin.display(description=_("Contexto de texto personalizable"))
+    def context_title(self, obj):
+        return obj.context.title
+
+@admin.register(CustomizableTextContext)
+class CustomizableTextContextAdmin(TabbedTranslationAdmin):
+    list_display = ["id", "title"]
+
+@admin.register(NodeCustomText)
+class NodeCustomTextAdmin(TabbedTranslationAdmin):
+    list_display = ["text_id", "node"]

@@ -84,12 +84,6 @@ class CreateUser(CreateView):
         initial.update({'is_staff': True})
         return initial
 
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        # Creating the preregistered user sends the welcome email
-        PreRegisteredUser.objects.create(user=self.object)
-        return response
-
     def get_success_url(self):
         messages.success(self.request, _('Usuario creado correctamente.'))
         return reverse('auth:user_list')
