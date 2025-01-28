@@ -36,6 +36,7 @@ class FormsetView(FormMixin):
             formset_instance = formset_class(self.request.POST, self.request.FILES, prefix=formset_name)
             if not formset_instance.is_valid():
                 errors = formset_instance.errors
+                form.errors += errors
                 return self.form_invalid(form)
 
         self.object = form.save()

@@ -9,6 +9,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
+from django.utils import translation
 
 from authentication.models import User
 from helpers import send_template_email
@@ -38,6 +39,11 @@ class PreRegisteredUser(models.Model):
 
         try:
             logger.info("Enviando email de bienvenida de pre-registro")
+
+            # Set the language for the email to the default one of the account
+            curr_language = translation.get_language()
+            translation.activate(self.user.preferred_locale)
+
             send_template_email(
                 title=title,
                 destination=self.user.email,
@@ -45,8 +51,12 @@ class PreRegisteredUser(models.Model):
                 template_params={
                     'token': self.id,
                     'user': self.user,
+                    'node': self.account.node,
                     'account': self.account }
             )
+
+            # Restore the original language
+            translation.activate(curr_language)
 
             self.email_sent = True
             self.save()

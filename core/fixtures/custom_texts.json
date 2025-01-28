@@ -1,0 +1,155 @@
+[
+{
+    "model": "core.customizabletextcontext",
+    "pk": "consumer_preregister",
+    "fields": {
+        "title": "Bienvenida Consumidoras",
+        "title_es": "Bienvenida Consumidoras",
+        "title_ca": "",
+        "title_eu": "",
+        "title_gl": "",
+        "description": "Se envía al crear una nueva cuenta de acceso en la app para una socia consumidora.",
+        "description_es": "Se envía al crear una nueva cuenta de acceso en la app para una socia consumidora.",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "preview_type": "email"
+    }
+},
+{
+    "model": "core.customizabletextcontext",
+    "pk": "password_reset",
+    "fields": {
+        "title": "Restablecer contraseña",
+        "title_es": "Restablecer contraseña",
+        "title_ca": "",
+        "title_eu": "",
+        "title_gl": "",
+        "description": "Email que se envía cuando la usuaria no recuerda la contraseña de su cuenta, para generar una nueva.",
+        "description_es": "Email que se envía cuando la usuaria no recuerda la contraseña de su cuenta, para generar una nueva.",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "preview_type": "email"
+    }
+},
+{
+    "model": "core.customizabletextcontext",
+    "pk": "provider_preregister",
+    "fields": {
+        "title": "Bienvenida Proveedoras",
+        "title_es": "Bienvenida Proveedoras",
+        "title_ca": "",
+        "title_eu": "",
+        "title_gl": "",
+        "description": "Se envía al crear una nueva cuenta de acceso en la app para una entidad proveedora.",
+        "description_es": "Se envía al crear una nueva cuenta de acceso en la app para una entidad proveedora.",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "preview_type": "email"
+    }
+},
+{
+    "model": "core.customizabletext",
+    "pk": "consumer_preregister_body",
+    "fields": {
+        "context": "consumer_preregister",
+        "description": "Cuerpo del mensaje",
+        "description_es": "Cuerpo del mensaje",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "help_text": "Texto principal que aparece en el correo",
+        "help_text_es": "Texto principal que aparece en el correo",
+        "help_text_ca": "",
+        "help_text_eu": "",
+        "help_text_gl": ""
+    }
+},
+{
+    "model": "core.customizabletext",
+    "pk": "consumer_preregister_title",
+    "fields": {
+        "context": "consumer_preregister",
+        "description": "Título",
+        "description_es": "Título",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "help_text": "Título que aparece en la cabecera del email",
+        "help_text_es": "Título que aparece en la cabecera del email",
+        "help_text_ca": "",
+        "help_text_eu": "",
+        "help_text_gl": ""
+    }
+},
+{
+    "model": "core.customizabletext",
+    "pk": "password_reset_body",
+    "fields": {
+        "context": "password_reset",
+        "description": "Cuerpo del mensaje",
+        "description_es": "Cuerpo del mensaje",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "help_text": "Texto describiendo que la usuaria ha solicitado restablecer su contraseña.",
+        "help_text_es": "Texto describiendo que la usuaria ha solicitado restablecer su contraseña.",
+        "help_text_ca": "",
+        "help_text_eu": "",
+        "help_text_gl": ""
+    }
+},
+{
+    "model": "core.customizabletext",
+    "pk": "password_reset_title",
+    "fields": {
+        "context": "password_reset",
+        "description": "Título",
+        "description_es": "Título",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "help_text": "",
+        "help_text_es": "",
+        "help_text_ca": "",
+        "help_text_eu": "",
+        "help_text_gl": ""
+    }
+},
+{
+    "model": "core.customizabletext",
+    "pk": "provider_preregister_body",
+    "fields": {
+        "context": "provider_preregister",
+        "description": "Cuerpo del mensaje",
+        "description_es": "Cuerpo del mensaje",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "help_text": "Texto principal que aparece en el correo",
+        "help_text_es": "Texto principal que aparece en el correo",
+        "help_text_ca": "",
+        "help_text_eu": "",
+        "help_text_gl": ""
+    }
+},
+{
+    "model": "core.customizabletext",
+    "pk": "provider_preregister_title",
+    "fields": {
+        "context": "provider_preregister",
+        "description": "Título",
+        "description_es": "Título",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "help_text": "Título que aparece en la cabecera del email",
+        "help_text_es": "Título que aparece en la cabecera del email",
+        "help_text_ca": "",
+        "help_text_eu": "",
+        "help_text_gl": ""
+    }
+}
+]

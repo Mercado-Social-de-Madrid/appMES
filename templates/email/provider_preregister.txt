@@ -1,13 +1,28 @@
 {% load settings_value %}
+{% load custom_text %}
 
-Bienvenid@ al Mercado Social!
+{% custom_text node 'provider_preregister_title' as header_title %}
+{% if header_title %}
+    {{header_title}}
+{% else %}
+    ¡Bienvenid@!
+{% endif %}
+
 Hola, {{account.display_name}}!
+
+{% custom_text node 'consumer_preregister_body' as body_text %}
+{% if body_text %}
+{% autoescape off %}
+    {{body_text}}
+{% endautoescape %}
+{% else %}
 Recibes este email porque has sido dada de alta recientemente para utilizar la app del Mercado Social de Madrid.
 Solo falta un último paso, que es que cuentes con una manera de acceder a tu área privada.
-Introduce la contraseña que utilizarás a partir de ahora en la app para gestionar la información de tu perfil en el siguiente enlace: {% settings_value 'BASESITE_URL' %}{% url 'auth:preregister' token %}
 
 Desde ese momento, podrás acceder a tu panel de usuario y configurar el perfil de tu entidad y tus ofertas, así como gestionar tu uso de la moneda social.
-
+Introduce la contraseña que utilizarás a partir de ahora en la app para gestionar la información de tu perfil en el siguiente enlace:
+{% endif %}
+{% settings_value 'BASESITE_URL' %}{% url 'auth:preregister' token %}
 
 Aplicación móvil
 ¿Sabías que hay una app desde la que acceder al Mercado Social de forma más cómoda? ¡Pruébala!

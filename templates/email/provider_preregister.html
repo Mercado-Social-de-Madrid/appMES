@@ -1,21 +1,35 @@
 {% extends 'common/email/base.html' %}
 {% load settings_value %}
+{% load custom_text %}
 
 {% block title %}Registro{% endblock %}
 
-{% block maintitle %}Bienvenid@!{% endblock %}
+{% block maintitle %}
+{% custom_text node 'provider_preregister_title' as header_title %}
+{% if header_title %}
+    {{header_title}}
+{% else %}
+    ¡Bienvenid@!
+{% endif %}
+{% endblock %}
 
 {% block content %}
 
 <h2 style="color: #f78154; line-height: 100%;">Hola, {{account.display_name}}!</h2>
 
-
+{% custom_text node 'provider_preregister_body' as body_text %}
+{% if body_text %}
+    {% autoescape off %}
+        {{body_text}}
+    {% endautoescape %}
+{% else %}
 <p>Recibes este email porque has sido dada de alta recientemente para utilizar la app del Mercado Social.</p>
 <p>Solo falta un último paso, que es que cuentes con una manera de acceder a tu área privada.</p>
-<p>Introduce la contraseña que utilizarás a partir de ahora en la app para gestionar la información de tu perfil en el siguiente enlace: {% settings_value 'BASESITE_URL' %}{% url 'auth:preregister' token %}</p>
 <p></p>
 <p>Desde ese momento, podrás acceder a tu panel de usuario y configurar el perfil de tu entidad y tus ofertas, así como ver las ventajas y validar carnets de socias.</p>
-<p></p>
+<p>Introduce la contraseña que utilizarás a partir de ahora en la app para gestionar la información de tu perfil en el siguiente enlace: </p>
+{% endif %}
+<p>{% settings_value 'BASESITE_URL' %}{% url 'auth:preregister' token %}</p>
 
 {% endblock%}
 
