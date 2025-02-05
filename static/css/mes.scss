@@ -63,6 +63,8 @@ html, body {
   min-height: 100%;
 }
 
+
+
 @import "./material/material";
 
 // Import extensions
@@ -72,6 +74,7 @@ html, body {
 @import './components/process_stepper';
 @import './components/toast';
 @import './components/profile';
+@import './components/typography';
 @import './components/map';
 @import './components/inputs';
 @import './components/select';

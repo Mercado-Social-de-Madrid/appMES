@@ -34,7 +34,7 @@
 
             <form method="post" action="{% url 'auth:logout' %}">
                 {% csrf_token %}
-                <input type="hidden" name="next" value="{% url 'market:index' %}">
+                <input type="hidden" name="next" value="{% url 'public:index' %}">
                 <button type="submit" class="dropdown-item"><i class="material-icons text-danger">exit_to_app</i> {% translate "Cerrar sesión" %}</button>
             </form>
             <div class="dropdown-divider"></div>

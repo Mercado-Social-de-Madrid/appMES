@@ -1,0 +1,52 @@
+{% extends "public/base.html" %}
+{% load static %}
+{% load market_url %}
+{% load settings_value %}
+{% load l10n %}
+{% load i18n %}
+
+{% block title %}{% translate "Entidades" %}{% endblock%}
+
+{% block bodyattrs %}class="entity"{% endblock%}
+
+{% block content %}
+
+{% if not 'from_app' in request.GET and not hide_navbar and not 'hide_toolbar' in request.GET %}
+<div class="jumbotron bg-primary text-light py-5 px-2">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row">
+                 <div class="d-none d-md-flex rounded-circle bg-light p-3 mr-md-4" style="width:150px; height:150px;">
+                    <img class="img-fluid align-self-center"  src="{% if node.banner_image %}{{ node.banner_image.url }}{% else %}{% static 'imgs/brand.png' %}{% endif %}" alt="{{node.name}}">
+                </div>
+                <div class="align-self-center flex-grow-1 mr-3">
+                    <h1 class="mb-0">
+                    {{node.name}}
+                        </h1>
+                    <span class="lead">{{page_obj.paginator.count|default:0}} {% translate 'proveedoras' %}</span>
+                </div>
+
+                <div class="align-self-center">
+                    {% include 'common/social_links.html' with obj=node btn_class='bg-brand text-light' %}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endif %}
+
+<div class="container">
+    {% include 'common/list/filter_form.html' %}
+    {% include 'common/list/ajax_wrapper.html' with query_template='public/provider/query.html' %}
+</div>
+
+{% endblock%}
+
+{% block scripts %}
+<script type="text/javascript">
+    $('.table-action').on('click', function(e){
+        e.preventDefault();
+        return false;
+    });
+</script>
+{% endblock scripts %}

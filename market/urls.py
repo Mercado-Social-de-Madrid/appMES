@@ -4,7 +4,7 @@ from market import views
 
 app_name = 'market'
 urlpatterns = [
-    path('', views.HomeView.as_view(), name='index'),
+    path('home/', views.HomeView.as_view(), name='index'),
     path('admin_dashboard/', views.AdminDashboard.as_view(), name='admin_dashboard'),
 
     # Superadmin market management

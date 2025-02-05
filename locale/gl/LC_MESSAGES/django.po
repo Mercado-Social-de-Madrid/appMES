@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 08:28+0000\n"
+"POT-Creation-Date: 2025-02-07 09:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,19 +42,19 @@ msgstr ""
 msgid "No existe objeto entity o person en el cuerpo de la petición"
 msgstr ""
 
-#: appmes/settings.py:186
+#: appmes/settings.py:187
 msgid "Castellano"
 msgstr ""
 
-#: appmes/settings.py:187
+#: appmes/settings.py:188
 msgid "Catalá"
 msgstr ""
 
-#: appmes/settings.py:188
+#: appmes/settings.py:189
 msgid "Euskara"
 msgstr ""
 
-#: appmes/settings.py:189
+#: appmes/settings.py:190
 msgid "Galego"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgstr ""
 
 #: authentication/views/user.py:24 benefits/views.py:25
 #: market/views/consumer.py:27 market/views/provider.py:35 news/views.py:24
-#: offers/views.py:86
+#: offers/views.py:86 public/views.py:31
 msgid "Buscar..."
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Usuario eliminado correctamente."
 msgstr ""
 
-#: benefits/models/benefit.py:10 templates/benefits/detail.html:58
+#: benefits/models/benefit.py:10 templates/benefits/card.html:8
 msgid "Ventajas para entidades"
 msgstr ""
 
@@ -239,7 +239,7 @@ msgstr ""
 msgid "Solicitud online"
 msgstr ""
 
-#: benefits/models/benefit.py:15 templates/benefits/detail.html:110
+#: benefits/models/benefit.py:15 templates/benefits/card.html:60
 msgid "Código de descuento"
 msgstr ""
 
@@ -708,6 +708,30 @@ msgstr ""
 msgid "No tienes permisos para editar esta ventaja."
 msgstr ""
 
+#: templates/benefits/card.html:14
+msgid "No hay ventajas para entidades."
+msgstr ""
+
+#: templates/benefits/card.html:20 templates/benefits/card.html:44
+msgid "Link de descuento"
+msgstr ""
+
+#: templates/benefits/card.html:28
+msgid "Ventajas para consumidoras"
+msgstr ""
+
+#: templates/benefits/card.html:36
+msgid "Incluye socias de intercooperación"
+msgstr ""
+
+#: templates/benefits/card.html:38
+msgid "No incluye socias de intercooperación"
+msgstr ""
+
+#: templates/benefits/card.html:51
+msgid "No hay ventajas para socias."
+msgstr ""
+
 #: templates/benefits/detail.html:8
 #, python-format
 msgid " Ventajas de %(entidad)s "
@@ -733,31 +757,7 @@ msgstr ""
 msgid "No acepta solicitud online"
 msgstr ""
 
-#: templates/benefits/detail.html:64
-msgid "No hay ventajas para entidades."
-msgstr ""
-
-#: templates/benefits/detail.html:70 templates/benefits/detail.html:94
-msgid "Link de descuento"
-msgstr ""
-
-#: templates/benefits/detail.html:78
-msgid "Ventajas para consumidoras"
-msgstr ""
-
-#: templates/benefits/detail.html:86
-msgid "Incluye socias de intercooperación"
-msgstr ""
-
-#: templates/benefits/detail.html:88
-msgid "No incluye socias de intercooperación"
-msgstr ""
-
-#: templates/benefits/detail.html:101
-msgid "No hay ventajas para socias."
-msgstr ""
-
-#: templates/benefits/detail.html:119
+#: templates/benefits/detail.html:61
 msgid "Para modificar esta ventaja ponte en contacto con"
 msgstr ""
 
@@ -777,6 +777,7 @@ msgid "Editar ventajas"
 msgstr ""
 
 #: templates/benefits/edit.html:27 templates/provider/detail.html:67
+#: templates/public/provider/query.html:54
 msgid "Ver ventajas"
 msgstr ""
 
@@ -798,6 +799,7 @@ msgstr ""
 #: templates/dashboard/provider.html:53 templates/navbar/market.html:64
 #: templates/navbar/user_provider_menu.html:13
 #: templates/provider/detail.html:64 templates/provider/query.html:23
+#: templates/public/provider/query.html:72
 #: templates/reports/benefits_card.html:8
 msgid "Ventajas"
 msgstr ""
@@ -970,6 +972,7 @@ msgid "consumidoras"
 msgstr ""
 
 #: templates/dashboard/admin.html:28 templates/dashboard/market.html:26
+#: templates/public/provider/list.html:25
 msgid "proveedoras"
 msgstr ""
 
@@ -1329,24 +1332,24 @@ msgstr ""
 msgid "Guía de administración"
 msgstr ""
 
-#: templates/navbar/login.html:6 templates/registration/login.html:14
-#: templates/registration/login.html:57
+#: templates/navbar/login.html:6 templates/public/navbar.html:16
+#: templates/registration/login.html:14 templates/registration/login.html:57
 msgid "Entrar"
 msgstr ""
 
-#: templates/navbar/login.html:27
+#: templates/navbar/login.html:27 templates/public/navbar.html:27
 msgid "Idioma de la interfaz"
 msgstr ""
 
-#: templates/navbar/login.html:33
+#: templates/navbar/login.html:33 templates/public/navbar.html:33
 msgid "Editar perfil"
 msgstr ""
 
-#: templates/navbar/login.html:38
+#: templates/navbar/login.html:38 templates/public/navbar.html:38
 msgid "Cerrar sesión"
 msgstr ""
 
-#: templates/navbar/login.html:43
+#: templates/navbar/login.html:43 templates/public/navbar.html:43
 msgid "Guía de usuario"
 msgstr ""
 
@@ -1510,7 +1513,8 @@ msgstr ""
 msgid "Actualizar imagen"
 msgstr ""
 
-#: templates/provider/list.html:8 templates/reports/offers_card.html:13
+#: templates/provider/list.html:8 templates/public/provider/list.html:8
+#: templates/reports/offers_card.html:13
 msgid "Entidades"
 msgstr ""
 
@@ -1528,6 +1532,129 @@ msgstr ""
 
 #: templates/provider/query.html:23
 msgid "Sin ventajas"
+msgstr ""
+
+#: templates/public/index.html:4
+msgid "Descubre la app"
+msgstr ""
+
+#: templates/public/index.html:21
+msgid ""
+"Sé parte de la Economía Social y Solidaria, desata todo el potencial del "
+"consumo consciente a través de la app del Mercado Social"
+msgstr ""
+
+#: templates/public/index.html:25
+msgid "Descarga en Google Play"
+msgstr ""
+
+#: templates/public/index.html:26
+msgid "Descarga en App Store"
+msgstr ""
+
+#: templates/public/index.html:27
+msgid "Accede a tu cuenta"
+msgstr ""
+
+#: templates/public/index.html:37 templates/public/index.html:44
+msgid "Catálogo de entidades y servicios"
+msgstr ""
+
+#: templates/public/index.html:45
+msgid ""
+"Explora el listado de entidades que forman parte del Mercado Social, "
+"filtrando por categorías y búsquedas inteligentes. Podrás consultar toda la "
+"información de cada entidad"
+msgstr ""
+
+#: templates/public/index.html:46
+msgid ""
+"Como entidad proveedora, desde el panel web podrás editar tu perfil público "
+"en el Mercado Social de forma sencilla, así como publicar nuevas ofertas o "
+"generar un QR para la consulta de tu balance/auditoría social."
+msgstr ""
+
+#: templates/public/index.html:47
+msgid "Consulta los mercados territoriales presentes en la aplicación"
+msgstr ""
+
+#: templates/public/index.html:69
+msgid "Carnet digital"
+msgstr ""
+
+#: templates/public/index.html:70
+msgid ""
+"Como socia consumidora, si tu mercado incluye esta función, podrás acceder a "
+"las ventajas y descuentos que se ofrecen dentro de la red de la economía "
+"social y solidaria a través de tu carnet digital."
+msgstr ""
+
+#: templates/public/index.html:76
+msgid "Mantente informada"
+msgstr ""
+
+#: templates/public/index.html:77
+msgid ""
+"Recibe avisos de noticias y ofertas para que estés al día de todo lo que te "
+"interesa. Recibirás directamente en la aplicación ofertas de las entidades "
+"que más te interesan, así como las últimas noticias de la ESS"
+msgstr ""
+
+#: templates/public/index.html:94
+msgid "Garantía ética"
+msgstr ""
+
+#: templates/public/index.html:95
+msgid ""
+"El balance/auditoría social es la herramienta que permite dar cuenta de cómo "
+"las entidades del Mercado Social desarrollan su actividad basándose en los "
+"principios fundamentales de la ESS: trabajo, equidad, cooperación, "
+"compromiso con el entorno, ausencia de ánimo de lucro y sostenibilidad "
+"medioambiental. Desde la aplicación puedes acceder a la infografía de "
+"Balance/Auditoría social de cada entidad, visibilizando el compromiso de "
+"estas con la sostenibilidad y la justicia social."
+msgstr ""
+
+#: templates/public/index.html:98
+msgid "Descubre más sobre el Balance Social"
+msgstr ""
+
+#: templates/public/index.html:109
+msgid "Software libre"
+msgstr ""
+
+#: templates/public/index.html:111
+msgid ""
+"Todo el trabajo desarrollado para esta página web y las aplicaciones móviles "
+"de Mercado Social está liberado bajo licencias de software libre. El "
+"movimiento de software libre busca la libertad de las personas para usar, "
+"estudiar, distribuir y mejorar los programas libremente mediante la "
+"liberación del código fuente de los mismos, fomentando la cooperación y los "
+"bienes comunes."
+msgstr ""
+
+#: templates/public/index.html:114
+msgid "Ver repositorios en Github"
+msgstr ""
+
+#: templates/public/market/card.html:13
+msgid "Ver entidades"
+msgstr ""
+
+#: templates/public/navbar.html:12
+msgid "Mi cuenta"
+msgstr ""
+
+#: templates/public/provider/query.html:40
+msgid "Balance social"
+msgstr ""
+
+#: templates/public/provider/query.html:49
+msgid "No disponible"
+msgstr ""
+
+#: templates/public/provider/query.html:56
+msgid "No ofrece ventajas"
 msgstr ""
 
 #: templates/registration/login.html:26 templates/registration/login.html:27
