@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'authentication',
     'benefits',
     'offers',
+    'public',
     'news',
     'market',
     'core',
@@ -211,6 +212,7 @@ STATIC_URL = '/static/'
 BASESITE_URL = env('BASESITE_URL')
 LOGIN_URL = reverse_lazy('auth:login')
 LOGIN_REDIRECT_URL = reverse_lazy('market:index')
+LOGOUT_REDIRECT_URL = reverse_lazy('public:index')
 SITE_ID = 1
 
 # Default primary key field type

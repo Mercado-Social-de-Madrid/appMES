@@ -1,0 +1,13 @@
+.expandable-description{
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size:1rem;
+}
+
+.text-brand{
+    font-family: $mes-font-emphasis;
+}

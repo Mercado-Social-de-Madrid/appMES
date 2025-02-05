@@ -1,0 +1,118 @@
+{% extends "public/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate 'Descubre la app' %}{% endblock %}
+{% block extra_styles %}
+
+<style>
+    h1, h2, h3{ line-height:0.9; }
+</style>
+{% endblock %}
+{% block content %}
+
+<section class="bg-primary-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 order-2 order-md-1">
+                <img src="{% static '/imgs/public/intro-app.png' %}" style="max-width:550px;" class="img-fluid" alt="App del mercado social">
+            </div>
+            <div class="col-md-6 align-self-center order-1 order-md-2">
+                <p class="lead h3 text-light text-brand my-5 my-md-3" style="line-height:1.1;">
+                    {% translate 'Sé parte de la Economía Social y Solidaria, desata todo el potencial del consumo consciente a través de la app del Mercado Social' %}
+                </p>
+
+                <div class="text-center text-md-left" style="margin-bottom:-1.5rem;z-index:100;">
+                    <a class="btn btn-action d-block d-md-inline-block bg-brand btn-lg mt-3 mx-4 ml-md-0 mr-md-2" href="https://play.google.com/store/apps/details?id=net.mercadosocial.moneda" target="_blank">{% translate 'Descarga en Google Play' %}</a><br class="d-md-none">
+                    <a class="btn btn-action d-block d-md-inline-block bg-brand btn-lg mt-0 mx-4 mx-md-0 mt-md-3" href="https://apps.apple.com/es/app/mercado-social/id1458549528?itsct=apps_box_badge&amp;itscg=30200" target="_blank">{% translate 'Descarga en App Store' %}</a><br>
+                    <a class="btn btn-action d-block d-md-inline-block btn-secondary btn-lg mx-4 mx-md-0 mt-0 mt-md-3 mb-0 mb-md-5" href="{% url 'market:index' %}">{% translate 'Accede a tu cuenta' %}</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 main-bg">
+    <div class="container lead">
+        <h2 class="text-primary d-lg-none">{% translate 'Catálogo de entidades y servicios' %}</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="{% static '/imgs/public/app-screens.jpg' %}" class="img-fluid px-3 mb-4 rounded" style="border-radius:25px;" alt="Pantallas">
+            </div>
+
+            <div class="col-lg-6">
+                <h2 class="text-primary d-none d-lg-block">{% translate 'Catálogo de entidades y servicios' %}</h2>
+                <p>{% translate 'Explora el listado de entidades que forman parte del Mercado Social, filtrando por categorías y búsquedas inteligentes. Podrás consultar toda la información de cada entidad' %}</p>
+                <p>{% translate 'Como entidad proveedora, desde el panel web podrás editar tu perfil público en el Mercado Social de forma sencilla, así como publicar nuevas ofertas o generar un QR para la consulta de tu balance/auditoría social.' %}</p>
+                <p><strong>{% translate 'Consulta los mercados territoriales presentes en la aplicación' %}:</strong></p>
+            </div>
+
+            {% for market in markets %}
+            <div class="col-md-6 col-lg-4 mt-3">
+                {% include 'public/market/card.html' with market=market %}
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+    </div>
+</section>
+
+<section class="py-5 bg-brand">
+    <div class="container lead">
+        <div class="d-flex flex-column flex-md-row">
+            <div class="px-2 mr-md-5 order-2 order-md-1 mt-3">
+                <img src="{% static '/imgs/public/app-socia.png' %}" class="img-fluid px-4 px-md-5" alt="Carnet digital">
+
+                <div class="card p-3 mb-2 bg-primary text-light">
+                    <h2 class="text-brand">{% translate 'Carnet digital' %}</h2>
+                    <p>{% translate 'Como socia consumidora, si tu mercado incluye esta función, podrás acceder a las ventajas y descuentos que se ofrecen dentro de la red de la economía social y solidaria a través de tu carnet digital.' %}</p>
+                </div>
+            </div>
+
+            <div class="px-2 order-1 order-md-2 mt-2">
+                <div class="card p-3 mt-2 bg-secondary">
+                    <h2 class="text-light">{% translate 'Mantente informada' %}</h2>
+                    <p>{% translate 'Recibe avisos de noticias y ofertas para que estés al día de todo lo que te interesa. Recibirás directamente en la aplicación ofertas de las entidades que más te interesan, así como las últimas noticias de la ESS' %}</p>
+                </div>
+                <img src="{% static '/imgs/public/app-noticias.png' %}" class="img-fluid mb-5 px-4 px-md-5" alt="Noticias">
+            </div>
+        </div>
+
+         </div>
+</section>
+
+<section class="bg-secondary pb-5">
+    <div class="container lead">
+        <div class="row">
+            <div class="col-md-5">
+                <img src="{% static '/imgs/public/app-balance.png' %}" class="img-fluid px-5 mb-5 mr-md-5 " alt="Garantía ética">
+            </div>
+
+            <div class="align-self-center col-md-7">
+                <h2 class="text-primary">{% translate 'Garantía ética' %}</h2>
+                <p> {% translate 'El balance/auditoría social es la herramienta que permite dar cuenta de cómo las entidades del Mercado Social desarrollan su actividad basándose en los principios fundamentales de la ESS: trabajo, equidad, cooperación, compromiso con el entorno, ausencia de ánimo de lucro y sostenibilidad medioambiental. Desde la aplicación puedes acceder a la infografía de Balance/Auditoría social de cada entidad, visibilizando el compromiso de estas con la sostenibilidad y la justicia social.' %}
+                </p>
+                <div class="mb-5 mb-lg-0 text-center text-md-left">
+                    <a class="btn btn-action bg-brand mt-3 mr-2" href="https://mercadosocial.net/balance-social/" target="_blank">{% translate 'Descubre más sobre el Balance Social' %}</a><br class="d-md-none">
+
+                </div>
+          </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="main-bg py-4">
+    <div class="container lead px-md-5 py-5 text-center" style="max-width:800px;">
+        <h2>{% translate 'Software libre' %}</h2>
+        <p class="px-md-5">
+            {% translate 'Todo el trabajo desarrollado para esta página web y las aplicaciones móviles de Mercado Social está liberado bajo licencias de software libre. El movimiento de software libre busca la libertad de las personas para usar, estudiar, distribuir y mejorar los programas libremente mediante la liberación del código fuente de los mismos, fomentando la cooperación y los bienes comunes.' %}
+
+        </p>
+        <a class="btn btn-action btn-primary mt-3 mr-2" href="https://github.com/Mercado-Social-de-Madrid" target="_blank">{% translate 'Ver repositorios en Github' %}</a><br class="d-md-none">
+    </div>
+</section>
+
+{% endblock content %}

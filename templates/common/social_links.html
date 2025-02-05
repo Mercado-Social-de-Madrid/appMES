@@ -1,10 +1,15 @@
 {% load addschema %}
 
 <div>
-    {% for social_profile in obj.social_profiles.all %}
-        <a class="btn btn-float btn-primary btn-lg mr-2 my-2" href="{{social_profile.url}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="{{social_profile.social_network.name}}">
-            <img class="social-network-logo" style="filter: invert(1);" src="{{social_profile.social_network.logo.url}}" alt="{{social_profile.social_network.name}}" title="{{social_profile.social_network.name}}">
-        </a>
+    {% if obj.webpage_link %}
+    <a class="btn btn-float {% if btn_class %} {{btn_class}} {% else %} btn-primary {% endif %} btn-lg mr-2" href="{{social_profile.url}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="{{social_profile.social_network.name}}">
+     <i class="fa fa-globe fa-2xl social-network-logo mt-2 pt-1" aria-hidden="true"></i></span>
+    </a>
+    {% endif %}
 
+    {% for social_profile in obj.social_profiles.all %}
+        <a class="btn btn-float {% if btn_class %} {{btn_class}} {% else %} btn-primary {% endif %} btn-lg mr-2 my-2" href="{{social_profile.url}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="{{social_profile.social_network.name}}">
+            <img class="social-network-logo" style="filter:invert(1);" src="{{social_profile.social_network.logo.url}}" alt="{{social_profile.social_network.name}}" title="{{social_profile.social_network.name}}">
+        </a>
     {% endfor %}
 </div>

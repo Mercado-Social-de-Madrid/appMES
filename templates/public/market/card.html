@@ -1,0 +1,16 @@
+{% load static %}
+{% load i18n %}
+
+<div class="card">
+    <div class="card-img-top bg-light py-3 px-5">
+        <img class="img-fluid" src="{% if market.banner_image %}{{ imarket.banner_image.url }}{% else %}{% static 'imgs/brand.png' %}{% endif %}" alt="{{market.name}}">
+    </div>
+     <div class="card-header text-center pb-2">
+        <h4 class="display-2 mb-0">{{market.name}} </h4>
+     </div>
+    <div class="card-body">
+         <div class="text-center">
+             <a class="btn btn-action bg-brand btn-lg" href="{% url 'public:provider_list' market.shortname %}"><i class="material-icons mr-2">search</i> {% translate 'Ver entidades' %}</a><br class="d-md-none">
+         </div>
+      </div>
+</div>

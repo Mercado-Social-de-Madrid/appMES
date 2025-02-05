@@ -44,6 +44,8 @@ def get_node_data(node, since):
         Consumer.objects.filter(node=node, registration_date__gte=since),
         1, elems_perpage=DASHBOARD_LIST_PAGECOUNT)
     return info_dict
+
+
 class AdminDashboard(TemplateView):
     template_name = 'dashboard/admin.html'
 

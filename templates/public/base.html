@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Principal{% endblock %}
+
+{% block navbar %}
+{% if not 'from_app' in request.GET and not hide_navbar and not 'hide_toolbar' in request.GET %}
+{% include 'public/navbar.html' %}
+{% endif %}
+{% endblock navbar %}
+
+{% block content %}
+
+{% endblock content %}
+
+{% block footer %}
+
+{% if not 'from_app' in request.GET and not hide_navbar and not 'hide_toolbar' in request.GET %}
+{% include 'public/footer.html' %}
+{% endif %}
+
+{% endblock footer %}

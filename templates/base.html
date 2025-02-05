@@ -38,9 +38,8 @@
 
 <div id="main-content" class="mb-4">
 {% block content %}{% endblock content %}
-
 </div>
-
+{% block footer %}{% endblock footer %}
    <div class="toast-messages" id="main-toasts">
        {% for message in messages %}
         <div class="toast {% if message.tags %}{{ message.tags }}{% endif %}">

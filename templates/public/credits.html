@@ -1,0 +1,69 @@
+{% extends "public/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate 'Descubre la app' %}{% endblock %}
+{% block extra_styles %}
+
+<style>
+    h1, h2, h3{ line-height:0.9; }
+</style>
+{% endblock %}
+{% block content %}
+
+<section class="bg-primary-light text-light py-5">
+    <div class="container my-3">
+        <h1>Créditos</h1>
+    </div>
+</section>
+
+<section class="main-bg py-5">
+    <div class="container">
+        <div class="card">
+            <div class="card-body py-5 px-4 px-md-5">
+        <p class="lead">Todo el trabajo desarrollado para esta página web y las aplicaciones móviles de Mercado Social está liberado bajo licencias de software libre.</p>
+                <p>Parte del compromiso con el software libre y la cultura del procomún es atribuir adecuadamente la parte del trabajo que se apoya en el trabajo previo de la comunidad. Aquí todo lo relativo a esta aplicación: </p>
+<ul dir="auto">
+    <li><strong>Django framework</strong> como base para el desarrollo (<a href="https://www.djangoproject.com" rel="nofollow">https://www.djangoproject.com</a>) - (c) Django Software Foundation</li>
+    <li><strong>Django REST Framework</strong> (<a href="https://github.com/encode/django-rest-framework">https://github.com/encode/django-rest-framework</a>) - BSD License (c) Encode OSS Ltd</li>
+    <li><strong>Daemonite's Material UI</strong> como framework para el frontend (<a href="http://daemonite.github.io/material/" rel="nofollow">http://daemonite.github.io/material/</a>) - MIT License (c) 2015 Daemon Internet Consultants</li>
+    <li><strong>django-sass-processor</strong> (<a href="https://github.com/jrief/django-sass-processor">https://github.com/jrief/django-sass-processor</a>) - MIT License (c) Jacob Rief</li>
+    <li><strong>django-modeltranslation</strong> (<a href="https://django-modeltranslation.readthedocs.io/">https://django-modeltranslation.readthedocs.io/</a> - BSD-3-Clause license (c) Peter Eschler, Dirk Eschler </li>
+    <li><strong>django-polymorphic</strong> (<a href="https://github.com/django-polymorphic/django-polymorphic">https://github.com/django-polymorphic/django-polymorphic</a>) - BSD License</li>
+    <li><strong>Date Range Picker</strong> (<a href="https://www.daterangepicker.com/" rel="nofollow">https://www.daterangepicker.com/</a>) - MIT License (c) 2012 Dan Grossman</li>
+    <li><strong>Font Awesome Icon Picker</strong> (<a href="https://farbelous.github.io/fontawesome-iconpicker/" rel="nofollow">https://farbelous.github.io/fontawesome-iconpicker/</a>) - MIT License (c) 2016 Javi Aguilar</li>
+    <li><strong>Spectrum Colorpicker</strong> (<a href="https://github.com/bgrins/spectrum">https://github.com/bgrins/spectrum</a>) - MIT License (c) Brian Grinstead</li>
+    <li><strong>Gunicorn</strong> (<a href="https://github.com/benoitc/gunicorn">https://github.com/benoitc/gunicorn</a>) - MIT License (c) Benoît Chesneau </li>
+    <li><strong>MkDocs Material</strong> (<a href="https://github.com/squidfunk/mkdocs-material">https://github.com/squidfunk/mkdocs-material</a>) -  MIT License (c) Martin Donath</li>
+</ul>
+        <div class="text-center my-4">
+            desarrollado por <br>
+            <a href="https://simbiotica.coop" target="_blank">
+                <object fetchpriority="high" decoding="async" class="img-fluid mt-2" width="250" height="32" data="{% static 'imgs/public/simbiotica-logo.svg' %}" alt="Simbiótica"></object>
+            </a>
+        </div>
+
+                <p class="lead mt-5">
+                    La aplicación está licenciada bajo la <strong>GNU General Public License v3.0</strong>.
+                    Cuando un programa está licenciado bajo esta licencia, se obtienen los siguientes derechos (libertades):
+                    <ul>
+                        <li>Derecho a usar el programa para cualquier propósito.</li>
+                        <li>Derecho a modificar el programa y tener acceso al código fuente.</li>
+                        <li>Derecho a copiar y distribuir el programa.</li>
+                        <li>Derecho a mejorar el programa, y liberar versiones propias.</li>
+                    </ul>
+                </p>
+
+            <div class="code bg-light p-3 m-3"><code>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.
+            </code></div>
+    </div>
+
+
+</div>
+    </div>
+</section>
+
+{% endblock content %}
