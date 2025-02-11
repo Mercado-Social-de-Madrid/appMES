@@ -25,13 +25,17 @@
     {% endif %}
 
     <div class="row">
+
         <div class="col-md-7 p-4">
             {% autoescape off %}
-            {{object.description}}
+            <h4>Descripción corta:</h4>
+            {{object.short_description}}
             {% endautoescape %}
         </div>
 
+
         <div class="col-md-5 p-4">
+
             <div class="mb-3 d-flex align-items-start">
                 {% if request.user.is_staff %}
                 <a href="{% market_url 'market:member_card' object.pk %}" class="btn bg-brand btn-primary btn-action mr-3 px-3">{% translate "Ver carnet de socia" %}</a>
@@ -47,6 +51,21 @@
             {% include 'common/gallery.html' with gallery=object.gallery %}
             <hr>
             {% include 'common/social_links.html' with obj=object %}
+        </div>
+
+        <div class="col-md-7 p-4">
+            {% autoescape off %}
+            <h4>Descripción completa:</h4>
+            {{object.description}}
+            {% endautoescape %}
+        </div>
+
+
+        <div class="col-md-7 p-4">
+            {% autoescape off %}
+            <h4>Productos y servicios:</h4>
+            {{object.services}}
+            {% endautoescape %}
         </div>
 
         <div class="col-md-12 mb-4">

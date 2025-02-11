@@ -13,6 +13,7 @@ class Provider(Account):
     name = models.CharField(null=True, blank=True, verbose_name=_('Nombre'), max_length=250)
     description = models.TextField(null=True, blank=True, verbose_name=_('Descripción'))
     short_description = models.TextField(null=True, blank=True, verbose_name=_('Descripción corta'))
+    services = models.TextField(null=True, blank=True, verbose_name=_('Productos y servicios'))
 
     not_listed = models.BooleanField(default=False, verbose_name=_('Oculta en listado público'))
     latitude = models.FloatField(null=False, verbose_name=_('Latitud'), default=0)
