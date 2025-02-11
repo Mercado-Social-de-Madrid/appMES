@@ -4,9 +4,9 @@ from market.models import Category, Provider
 
 
 @register(Category)
-class NewsTranslationOptions(TranslationOptions):
+class CategoryTranslationOptions(TranslationOptions):
     fields = ('name', 'description', )
 
 @register(Provider)
 class ProviderTranslationOptions(TranslationOptions):
-    fields = ('name', 'description', 'short_description', 'legal_form')
+    fields = ('name', 'description', 'short_description', 'services', 'legal_form')

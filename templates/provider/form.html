@@ -45,8 +45,17 @@
                         </div>
 
                         <div class="mt-2">
+                            {% include "common/forms/multilang_field.html" with form=form fieldname='short_description' %}
+                        </div>
+
+                        <div class="mt-2">
                             {% include "common/forms/label.html" with field=form.description%}
                             {% include "common/forms/multilang_field.html" with form=form fieldname='description' hide_label=True %}
+                        </div>
+
+                        <div class="mt-2">
+                            {% include "common/forms/label.html" with field=form.services%}
+                            {% include "common/forms/multilang_field.html" with form=form fieldname='services' hide_label=True %}
                         </div>
 
                         {% include "common/forms/multiselect.html" with field=form.categories tags=categories %}
