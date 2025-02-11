@@ -12,6 +12,7 @@ class ProviderForm(MultiLangForm, AccountForm):
         model = Provider
         widgets = AccountForm.Meta.widgets | {
             'description': CKEditorWidget(attrs={'cols': 190, 'rows': 30}),
+            'services': CKEditorWidget(attrs={'cols': 190, 'rows': 30}),
         }
 
 class CreateProviderForm(CreateAccountFormMixin, ProviderForm):
