@@ -171,9 +171,9 @@
 },
 {
     "model": "core.customizabletext",
-    "pk": "provider_preregister_request_body",
+    "pk": "consumer_preregister_request_body",
     "fields": {
-        "context": "provider_preregister_request",
+        "context": "consumer_preregister_request",
         "description": "Cuerpo del mensaje",
         "description_es": "Cuerpo del mensaje",
         "description_ca": "",
@@ -188,9 +188,9 @@
 },
 {
     "model": "core.customizabletext",
-    "pk": "provider_preregister_request_title",
+    "pk": "consumer_preregister_request_title",
     "fields": {
-        "context": "provider_preregister_request",
+        "context": "consumer_preregister_request",
         "description": "Título",
         "description_es": "Título",
         "description_ca": "",
