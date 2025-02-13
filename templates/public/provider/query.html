@@ -26,11 +26,15 @@
 
          <h3>{{item.name}}</h3>
           <div class="expandable-description mb-2">
-            {% autoescape off %}
-            {{item.description}}
-            {% endautoescape %}
+          {% if item.short_description %}
+                  {{ item.short_description }}
+          {% else %}
+                {% autoescape off %}
+                {{item.description}}
+                {% endautoescape %}
+          {% endif %}
           </div>
-          {% include 'category/tag_list_detail.html' with tags=item.categories.all %}
+          <div class="text-light">{% include 'category/tag_list_detail.html' with tags=item.categories.all %}</div> 
 
         <div class="social-links mt-3">
         {% include 'common/social_links.html' with obj=item %}
