@@ -16,8 +16,8 @@
     {% if item.owner %}
         {% include 'user/row_display.html' with user=item.owner %}
     {% else %}
-        <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Pendiente registro' %}">schedule</i>
-        <span class="text-muted" >{% translate "Pendiente registro" %}</span>
+        <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="{% translate "Sin usuario" %}">dangerous</i>
+        <span class="text-muted">{% translate "Pendiente registro" %}</span>
     {% endif %}
 </td>
 <td>{{item.registration_date|date:'d/m/Y'}}</td>
