@@ -55,6 +55,13 @@ class ProviderList(FilterMixin, MarketMixin,  ExportAsCSVMixin, FilterView, List
 
     field_labels = {'node': _('Mercado'),}
 
+    # Filter categories filterset by the categories of the current node
+    def get_filterset(self, filterset_class):
+        filterset = super().get_filterset(filterset_class)
+        cats_filter = filterset.filters['categories']
+        cats_filter.queryset = cats_filter.queryset.filter(node=self.node)
+        return filterset
+
     def get_queryset(self):
         return super().get_queryset().filter(node=self.node)
 
