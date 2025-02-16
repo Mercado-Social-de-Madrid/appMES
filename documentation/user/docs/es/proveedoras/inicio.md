@@ -19,7 +19,7 @@ Además de esta información, tienes varias acciones para interactuar:
 
 - **Ver perfil**: Te lleva a la pantalla de ["Mi entidad"](mi_entidad.md).
 - **Mi carnet de socia**: Muestra tu carnet de socia.
-- **Ver balance social**: Te redirige a la sección de balance social.
+- **Ver balance/auditoría social**: Te redirige a la sección de Balance/Auditoría social.
 - **Ver estadísticas de favoritos**: Para consultar las estadísticas de tus elementos favoritos.
 
 

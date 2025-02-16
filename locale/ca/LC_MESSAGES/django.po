@@ -760,7 +760,7 @@ msgstr "Distintiu de qualitat del MESM"
 
 #: templates/balance/detail.html:26
 msgid ""
-"Al realizar el Balance Social, además de obtener el sello, infografía e "
+"Al realizar el Balance/Auditoría Social, además de obtener el sello, infografía e "
 "informe personalizado, las entidades que lo soliciten, tendrán este "
 "Distintivo de calidad, como herramienta diferenciadora que dará visibilidad "
 "y prestigio a vuestra entidad."
@@ -1136,7 +1136,7 @@ msgid "Mi entidad"
 msgstr "La meva entitat"
 
 #: templates/dashboard/provider.html:24
-msgid "Ver balance social"
+msgid "Ver balance/auditoría social"
 msgstr "Veure balanç social"
 
 #: templates/dashboard/provider.html:37 templates/navbar/market.html:57
@@ -1248,13 +1248,13 @@ msgid "Logo del mercado (preferiblemente PNG con transparencia)"
 msgstr "Logo del mercat (preferiblement PNG amb transparència)"
 
 #: templates/market/form.html:101 templates/market/public/form.html:17
-msgid "Distintivo de balance social"
+msgid "Distintivo de balance/auditoría social"
 msgstr "Distintiu de balanç social"
 
 #: templates/market/form.html:102 templates/market/public/form.html:18
 msgid ""
 "Imagen (preferiblemente PNG con transparencia) para representar el "
-"distintivo de balance social de este mercado. "
+"distintivo de balance/auditoría social de este mercado. "
 msgstr ""
 "Imatge (preferiblement PNG amb transparència) per representar el distintiu "
 "de balanç social daquest mercat. "
@@ -1751,12 +1751,12 @@ msgid ""
 "principios fundamentales de la ESS: trabajo, equidad, cooperación, "
 "compromiso con el entorno, ausencia de ánimo de lucro y sostenibilidad "
 "medioambiental. Desde la aplicación puedes acceder a la infografía de "
-"Balance/Auditoría social de cada entidad, visibilizando el compromiso de "
+"cada entidad, visibilizando el compromiso de "
 "estas con la sostenibilidad y la justicia social."
 msgstr ""
 
 #: templates/public/index.html:98
-msgid "Descubre más sobre el Balance Social"
+msgid "Descubre más sobre el Balance/Auditoría Social"
 msgstr ""
 
 #: templates/public/index.html:109
@@ -1791,8 +1791,8 @@ msgstr "Compte"
 
 #: templates/public/provider/query.html:40
 #, fuzzy
-#| msgid "Ver balance social"
-msgid "Balance social"
+#| msgid "Ver balance/auditoría social"
+msgid "Balance/Auditoría social"
 msgstr "Veure balanç social"
 
 #: templates/public/provider/query.html:49
