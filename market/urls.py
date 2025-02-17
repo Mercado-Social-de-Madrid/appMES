@@ -19,8 +19,9 @@ urlpatterns = [
     #### Market management #####
     path('<int:market>/dashboard/', views.MarketDashboard.as_view(), name='market_dashboard'),
     path('<int:market>/public/', views.EditPublicMarket.as_view(), name='edit_public_market'),
-    path('<int:market>/public/email_preview/<template_name>/', views.MarketPreviewEmail.as_view(), name='preview_email'),
     path('<int:market>/public/email_preview/<template_name>/render/', views.MarketPreviewEmailRender.as_view(), name='preview_email_render'),
+    path('<int:market>/public/email_preview/<path:template_name>/', views.MarketPreviewEmail.as_view(), name='preview_email'),
+    path('<int:market>/public/template_preview/<path:template_name>/', views.MarketPreviewTemplate.as_view(), name='preview_template'),
 
     # Category
     path('<int:market>/categories/', views.CategoryList.as_view(), name='category_list'),

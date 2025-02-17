@@ -40,7 +40,7 @@ class CustomizableTextAdmin(TabbedTranslationAdmin):
 
     @admin.display(description=_("Contexto de texto personalizable"))
     def context_title(self, obj):
-        return obj.context.title
+        return obj.context.title if obj.context else ''
 
 @admin.register(CustomizableTextContext)
 class CustomizableTextContextAdmin(TabbedTranslationAdmin):

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load custom_text %}
 
 {% block bodyattrs %}
     {% if not 'from_app' in request.GET and not 'hide_toolbar' in request.GET %}
@@ -13,7 +14,12 @@
             <div class="jumbotron">
                 <div class="container text-center">
                     <h2 class="text-light">
-                        {% translate "Hazte Consumidora" %}
+                        {% custom_text node 'consumer_form_title' as header_title %}
+                        {% if header_title %}
+                            {{header_title}}
+                        {% else %}
+                             {% translate "Hazte Consumidora" %}
+                        {% endif %}
                     </h2>
                 </div>
             </div>
@@ -33,6 +39,9 @@
 
 {{form.from_app}}
 {{form.node}}
+
+{% include 'common/custom_text/content.html' with text_id='consumer_form_intro' %}
+
 {% blocktrans %}Los campos marcados con <span class="text-primary lead">*</span> son obligatorios.{% endblocktrans %}
 
 <div class="row ">
@@ -69,11 +78,13 @@
         {% include "common/forms/field.html" with field=form.city %}
     </div>
 
-    <div class="col-md-12 col-lg-12 mt-3">
+    <div class="col-md-12 col-lg-12 my-3">
         {% include 'registration/privacy_policy_check.html' %}
     </div>
 
 </div>
+
+{% include 'common/custom_text/content.html' with text_id='consumer_form_bottom' %}
 
                     <div class="text-center mt-3 mb-5">
                         <button type="submit" class="btn btn-primary btn-action btn-lg">{% translate "Enviar solicitud" %}</button>

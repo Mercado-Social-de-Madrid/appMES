@@ -4,6 +4,7 @@ from ckeditor.widgets import CKEditorWidget
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import URLValidator
+from django.db.models import Case, When
 from django.forms import formset_factory
 from django.utils.translation import gettext_lazy as _
 from modeltranslation.fields import TranslationField
@@ -43,7 +44,7 @@ class NodeCustomTextForm(BootstrapForm, MultiLangForm, forms.ModelForm):
         
     @staticmethod
     def get_initial(node, initial_texts=None):
-        customizable_texts = CustomizableText.objects.all()
+        customizable_texts = CustomizableText.objects.order_by(Case(When(id__contains="title", then=0), default=1))
         texts_data = []
         for text in customizable_texts:
             string = None

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load market_url %}
+
+{% block bodyattrs %} class="main-bg" {% endblock%}
+{% block title %}{% translate 'Mercados' %} | {{object.name}}{% endblock %}
+
+{% block extra_styles %}
+<style>
+#email-content{
+    width:100%;
+    height:90vh;
+}
+#email-content.phone{
+    max-width:450px;
+    border:6px solid #555;
+    border-radius:6px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron text-light py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-7 col-md-8">
+                <h4 class="mb-0">
+                    {% if request.user.is_superadmin %}
+                        <a href="{% url 'market:market_list' %}">{% translate 'Mercados sociales' %}</a>
+                    {% else %}
+                        <span class="text-primary">{% translate 'Mercados sociales' %} </span>
+                    {% endif %}
+                    <i class="material-icons md-24">arrow_forward_ios</i>
+                    <a href="{% market_url 'market:edit_public_market' %}">{{object.name}}</a>
+                    <i class="material-icons md-24">arrow_forward_ios</i>
+                    {% translate 'Previsualizar sección' %}</h4>
+            </div>
+                 <div class="col-sm-5 col-md-4 text-sm-right">
+          </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card mb-4 mt-5">
+                 <div class="card-body p-5">
+                     <div class="row mb-4 align-items-center">
+                         <div class="col-md-8">
+                             <p class="lead mb-1"> Aquí puedes previsualizar el contenido de este formulario para comprobar tus textos personalizados</p>
+                            Por defecto los campos están deshabilitados, pero no intentes en cualquier caso completar y enviar el formulario.
+                         </div>
+
+                         <div class="col-md-4">
+                             <div class="d-none d-md-block">
+                                 <div class="custom-control custom-switch">
+                                  <input class="custom-control-input" id="switch-phone" type="checkbox">
+                                  <span class="custom-control-track"></span>
+                                  <label class="custom-control-label lead" for="switch-phone">Ver tamaño móvil</label>
+                                </div>
+                             </div>
+                         </div>
+                     </div>
+
+                     <iframe id="email-content" class="m-auto d-block" src="{% market_url 'market:'|add:view.kwargs.template_name %}?from_app=true&preview=true"></iframe>
+
+                 </div>
+          </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+    $(function(){
+        var iframes = $('iframe');
+        iframes.each(function(index, iframe) {
+            var iframe_content =  $(iframe.contentDocument);
+            iframe_content.find('input[type=text],textarea,button').attr({disabled:'disabled'});
+        });
+
+
+        $('#switch-phone').on('change', function(){
+            iframes.toggleClass('phone');
+        });
+    });
+</script>
+
+{% endblock scripts %}
