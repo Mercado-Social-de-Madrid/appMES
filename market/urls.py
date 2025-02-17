@@ -7,6 +7,10 @@ urlpatterns = [
     path('home/', views.HomeView.as_view(), name='index'),
     path('admin_dashboard/', views.AdminDashboard.as_view(), name='admin_dashboard'),
 
+    # Public register form
+    path('consumer_register/<str:market>/', views.RegisterView.as_view(), name='consumer_register'),
+    path('consumer_register/<str:market>/done/', views.RegisterDoneView.as_view(), name='consumer_register_success'),
+
     # Superadmin market management
     path('m/', views.MarketList.as_view(), name='market_list'),
     path('m/add/', views.AddMarket.as_view(), name='add_market'),

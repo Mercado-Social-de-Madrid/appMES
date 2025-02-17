@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block bodyattrs %}
+    {% if not 'from_app' in request.GET and not 'hide_toolbar' in request.GET %}
+        class="main-bg"
+    {% endif %}
+{% endblock%}
+
+{% block content %}
+    {% if not 'hide_toolbar' in request.GET %}
+        <div class="jumbo-header minimal" >
+            <div class="jumbotron">
+                <div class="container text-center">
+                    <h2 class="text-light">
+                        {% translate "Hazte Consumidora" %}
+                    </h2>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="container justify-content-center">
+        {% if not 'from_app' in request.GET and not 'hide_toolbar' in request.GET %}
+        <div class="card px-4" style="max-width:1000px;margin:auto;margin-top:-20px;">
+            <div class="card-body">
+        {% else %}
+        <div class="px-2"></div>
+        {% endif %}
+
+                <form method="post" class="mt-3 p-4">
+                    {% csrf_token %}
+
+{{form.from_app}}
+{{form.node}}
+{% blocktrans %}Los campos marcados con <span class="text-primary lead">*</span> son obligatorios.{% endblocktrans %}
+
+<div class="row ">
+
+    <div class="col-md-5">
+        {% include "common/forms/field.html" with field=form.first_name %}
+    </div>
+
+    <div class="col-md-7">
+        {% include "common/forms/field.html" with field=form.last_name %}
+    </div>
+
+    <div class="col-md-5">
+        {% include "common/forms/field.html" with field=form.cif %}
+    </div>
+
+    <div class="col-md-7"></div>
+
+
+    <div class="col-md-7">
+        {% include "common/forms/field.html" with field=form.email %}
+    </div>
+
+    <div class="col-md-5">
+        {% include "common/forms/field.html" with field=form.phone_number %}
+    </div>
+
+
+    <div class="col-lg-12 mt-md-4">
+        {% include "common/forms/field.html" with field=form.address not_floating=True %}
+    </div>
+
+    <div class="col-md-4">
+        {% include "common/forms/field.html" with field=form.city %}
+    </div>
+
+    <div class="col-md-12 col-lg-12 mt-3">
+        {% include 'registration/privacy_policy_check.html' %}
+    </div>
+
+</div>
+
+                    <div class="text-center mt-3 mb-5">
+                        <button type="submit" class="btn btn-primary btn-action btn-lg">{% translate "Enviar solicitud" %}</button>
+                    </div>
+
+                </form>
+                {% block cardcontent%} {% endblock %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
