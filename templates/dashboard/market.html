@@ -11,7 +11,7 @@
     <div class="container-fluid">
         {% include 'reports/ranges_filter.html' %}
 
-        {% if request.user.is_staff %}<a href="{% market_url 'market:edit_public_market' %}" class="btn btn-action btn-primary float-right"><i class="material-icons mr-2">edit</i> {% translate "Editar mercado" %}</a> {% endif %}
+        {% if request.user.is_staff %}<a href="{% market_url 'market:edit_public_market' %}" class="btn btn-action btn-primary float-right"><i class="material-icons mr-2">settings</i> {% translate "Personalizar mercado" %}</a> {% endif %}
     </div>
 </div>
 
