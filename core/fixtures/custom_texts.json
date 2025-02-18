@@ -18,6 +18,40 @@
 },
 {
     "model": "core.customizabletextcontext",
+    "pk": "consumer_preregister_request",
+    "fields": {
+        "title": "Solicitud de alta de consumidora",
+        "title_es": "Solicitud de alta de consumidora",
+        "title_ca": "",
+        "title_eu": "",
+        "title_gl": "",
+        "description": "Se envía cuando alguien completa el formulario de solicitud de alta como socia consumidora.",
+        "description_es": "Se envía cuando alguien completa el formulario de solicitud de alta como socia consumidora.",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "preview_type": "email"
+    }
+},
+{
+    "model": "core.customizabletextcontext",
+    "pk": "consumer_register",
+    "fields": {
+        "title": "Formulario público de registro para consumidoras",
+        "title_es": "Formulario público de registro para consumidoras",
+        "title_ca": "",
+        "title_eu": "",
+        "title_gl": "",
+        "description": "Formulario para incrustar en la app o en web externas para registro de consumidoras (no aplica a todos los mercados)",
+        "description_es": "Formulario para incrustar en la app o en web externas para registro de consumidoras (no aplica a todos los mercados)",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "preview_type": "form"
+    }
+},
+{
+    "model": "core.customizabletextcontext",
     "pk": "password_reset",
     "fields": {
         "title": "Restablecer contraseña",
@@ -51,20 +85,54 @@
     }
 },
 {
-    "model": "core.customizabletextcontext",
-    "pk": "consumer_preregister_request",
+    "model": "core.customizabletext",
+    "pk": "consumer_form_bottom",
     "fields": {
-        "title": "Solicitud de alta de consumidora",
-        "title_es": "Solicitud de alta de consumidora",
-        "title_ca": "",
-        "title_eu": "",
-        "title_gl": "",
-        "description": "Se envía cuando alguien completa el formulario de solicitud de alta como socia consumidora.",
-        "description_es": "Se envía cuando alguien completa el formulario de solicitud de alta como socia consumidora.",
+        "context": "consumer_register",
+        "description": "Información final",
+        "description_es": "Información final",
         "description_ca": "",
         "description_eu": "",
         "description_gl": "",
-        "preview_type": "email"
+        "help_text": "Texto que aparece en la parte inferior del formulario, por ejemplo para informar de siguientes pasos del proceso.",
+        "help_text_es": "Texto que aparece en la parte inferior del formulario, por ejemplo para informar de siguientes pasos del proceso.",
+        "help_text_ca": "",
+        "help_text_eu": "",
+        "help_text_gl": ""
+    }
+},
+{
+    "model": "core.customizabletext",
+    "pk": "consumer_form_intro",
+    "fields": {
+        "context": "consumer_register",
+        "description": "Introducción",
+        "description_es": "Introducción",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "help_text": "Texto que aparece antes de los campos del formulario ofreciendo una breve explicación sobre darse de alta en el mercado social.",
+        "help_text_es": "Texto que aparece antes de los campos del formulario ofreciendo una breve explicación sobre darse de alta en el mercado social.",
+        "help_text_ca": "",
+        "help_text_eu": "",
+        "help_text_gl": ""
+    }
+},
+{
+    "model": "core.customizabletext",
+    "pk": "consumer_form_title",
+    "fields": {
+        "context": "consumer_register",
+        "description": "Título",
+        "description_es": "Título",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "help_text": "Texto que aparece en la cabecera del formulario",
+        "help_text_es": "Texto que aparece en la cabecera del formulario",
+        "help_text_ca": "",
+        "help_text_eu": "",
+        "help_text_gl": ""
     }
 },
 {
@@ -79,6 +147,40 @@
         "description_gl": "",
         "help_text": "Texto principal que aparece en el correo",
         "help_text_es": "Texto principal que aparece en el correo",
+        "help_text_ca": "",
+        "help_text_eu": "",
+        "help_text_gl": ""
+    }
+},
+{
+    "model": "core.customizabletext",
+    "pk": "consumer_preregister_request_body",
+    "fields": {
+        "context": "consumer_preregister_request",
+        "description": "Cuerpo del mensaje",
+        "description_es": "Cuerpo del mensaje",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "help_text": "Texto principal que aparece en el correo",
+        "help_text_es": "Texto principal que aparece en el correo",
+        "help_text_ca": "",
+        "help_text_eu": "",
+        "help_text_gl": ""
+    }
+},
+{
+    "model": "core.customizabletext",
+    "pk": "consumer_preregister_request_title",
+    "fields": {
+        "context": "consumer_preregister_request",
+        "description": "Título",
+        "description_es": "Título",
+        "description_ca": "",
+        "description_eu": "",
+        "description_gl": "",
+        "help_text": "Título que aparece en la cabecera del email",
+        "help_text_es": "Título que aparece en la cabecera del email",
         "help_text_ca": "",
         "help_text_eu": "",
         "help_text_gl": ""
@@ -157,40 +259,6 @@
     "pk": "provider_preregister_title",
     "fields": {
         "context": "provider_preregister",
-        "description": "Título",
-        "description_es": "Título",
-        "description_ca": "",
-        "description_eu": "",
-        "description_gl": "",
-        "help_text": "Título que aparece en la cabecera del email",
-        "help_text_es": "Título que aparece en la cabecera del email",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
-    }
-},
-{
-    "model": "core.customizabletext",
-    "pk": "consumer_preregister_request_body",
-    "fields": {
-        "context": "consumer_preregister_request",
-        "description": "Cuerpo del mensaje",
-        "description_es": "Cuerpo del mensaje",
-        "description_ca": "",
-        "description_eu": "",
-        "description_gl": "",
-        "help_text": "Texto principal que aparece en el correo",
-        "help_text_es": "Texto principal que aparece en el correo",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
-    }
-},
-{
-    "model": "core.customizabletext",
-    "pk": "consumer_preregister_request_title",
-    "fields": {
-        "context": "consumer_preregister_request",
         "description": "Título",
         "description_es": "Título",
         "description_ca": "",

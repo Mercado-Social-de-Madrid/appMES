@@ -1,9 +1,11 @@
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import RedirectView
 
 from authentication.models.preregister import PreRegisteredUser
-from authentication.views import MarketCreateUser, CreateUser
+from authentication.views import CreateUser
 from market.mixins.current_market import MarketMixin
 from market.models import Account
 
@@ -52,6 +54,9 @@ class ManageAccountUser(MarketMixin, CreateUser):
 
         return response
 
+    def get_success_url(self):
+        messages.success(self.request, _('Usuario creado correctamente.'))
+        return self.reverse('auth:user_list')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

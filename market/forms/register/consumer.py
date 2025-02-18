@@ -1,5 +1,5 @@
 
-from authentication.forms.register.signup import BaseSignupForm
+from market.forms.register.signup import BaseSignupForm
 from market.forms.consumer import ConsumerForm
 
 

@@ -1,0 +1,16 @@
+{% load custom_text %}
+
+{% custom_text node text_id as text_content %}
+{% if text_content %}
+    {% autoescape off %}
+    <div class="{{ class|default:'lead' }}">{{text_content}}</div>
+    {% endautoescape  %}
+{% else %}
+ {% if 'preview' in request.GET %}
+    <div class="alert alert-warning mt-4" role="alert">
+        {% custom_text_description text_id as text_description %}
+        <p class="lead mb-0">Aquí iría el texto de "{{text_description}}"</p>
+
+    </div>
+{% endif %}
+{% endif %}

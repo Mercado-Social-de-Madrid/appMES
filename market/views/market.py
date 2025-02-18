@@ -147,6 +147,16 @@ class MarketPreviewEmail(MarketMixin, DetailView):
     pk_url_kwarg = 'market'
     template_name = 'market/public/email_preview.html'
 
+@method_decorator(staff_member_required, name='dispatch')
+class MarketPreviewTemplate(MarketMixin, DetailView):
+    model = Node
+    pk_url_kwarg = 'market'
+    template_name = 'market/public/template_preview.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
 
 @method_decorator(staff_member_required, name='dispatch')
 class MarketPreviewEmailRender(MarketMixin, DetailView):

@@ -5,3 +5,4 @@ from market.views.provider import *
 from market.views.consumer import *
 from market.views.member import *
 from market.views.account import *
+from market.views.register import *

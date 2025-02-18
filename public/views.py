@@ -23,17 +23,17 @@ class IndexView(TemplateView):
 
 
 class ProviderFilterForm(BootstrapForm):
-    field_order = [ 'search', 'categories', 'o',]
+    field_order = [ 'search', 'categories',]
 
 
 class ProviderFilter(FilterSet):
-
     search = SearchFilter(names=['address', 'cif', 'name', 'email', 'member_id'], lookup_expr='in', label=_('Buscar...'))
 
     class Meta:
         model = Provider
         form = ProviderFilterForm
         fields = { 'categories' }
+
 
 class CatalogView(FilterMixin, FilterView, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
     template_name = 'public/provider/list.html'
@@ -49,6 +49,13 @@ class CatalogView(FilterMixin, FilterView, ListItemUrlMixin, AjaxTemplateRespons
 
     def get_node(self):
         return get_object_or_404(Node, shortname=self.kwargs.get('market_slug'))
+
+    # Filter categories filterset by the categories of the current node
+    def get_filterset(self, filterset_class):
+        filterset = super().get_filterset(filterset_class)
+        cats_filter = filterset.filters['categories']
+        cats_filter.queryset = cats_filter.queryset.filter(node=self.get_node())
+        return filterset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -7,6 +7,10 @@ urlpatterns = [
     path('home/', views.HomeView.as_view(), name='index'),
     path('admin_dashboard/', views.AdminDashboard.as_view(), name='admin_dashboard'),
 
+    # Public register form
+    path('consumer_register/<str:market>/', views.RegisterView.as_view(), name='consumer_register'),
+    path('consumer_register/<str:market>/done/', views.RegisterDoneView.as_view(), name='consumer_register_success'),
+
     # Superadmin market management
     path('m/', views.MarketList.as_view(), name='market_list'),
     path('m/add/', views.AddMarket.as_view(), name='add_market'),
@@ -15,8 +19,9 @@ urlpatterns = [
     #### Market management #####
     path('<int:market>/dashboard/', views.MarketDashboard.as_view(), name='market_dashboard'),
     path('<int:market>/public/', views.EditPublicMarket.as_view(), name='edit_public_market'),
-    path('<int:market>/public/email_preview/<template_name>/', views.MarketPreviewEmail.as_view(), name='preview_email'),
     path('<int:market>/public/email_preview/<template_name>/render/', views.MarketPreviewEmailRender.as_view(), name='preview_email_render'),
+    path('<int:market>/public/email_preview/<path:template_name>/', views.MarketPreviewEmail.as_view(), name='preview_email'),
+    path('<int:market>/public/template_preview/<path:template_name>/', views.MarketPreviewTemplate.as_view(), name='preview_template'),
 
     # Category
     path('<int:market>/categories/', views.CategoryList.as_view(), name='category_list'),

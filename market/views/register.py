@@ -7,18 +7,18 @@ from django.contrib import messages
 from django.urls import reverse
 from django.views.generic import TemplateView, CreateView
 
-from authentication.forms.register.consumer import ConsumerSignupForm
 from core.mixins.XFrameExemptMixin import XFrameOptionsExemptMixin
 from core.models import Node
 
 from django.utils.translation import gettext_lazy as _, activate
 
 from helpers import send_template_email
+from market.forms.register.consumer import ConsumerSignupForm
 
 logger = logging.getLogger(__name__)
 
 class RegisterView(XFrameOptionsExemptMixin, CreateView):
-    template_name = 'registration/register/consumer/register_consumer.html'
+    template_name = 'consumer/register/form.html'
     form_class = ConsumerSignupForm
 
     node = None
@@ -26,7 +26,11 @@ class RegisterView(XFrameOptionsExemptMixin, CreateView):
     def setup(self, *args, **kwargs):
         super().setup(*args, **kwargs)
         if 'market' in self.kwargs:
-            self.node = Node.objects.filter(shortname=self.kwargs['market']).first()
+            market = self.kwargs['market']
+            try:
+                self.node = Node.objects.filter(pk=int(market)).first()
+            except ValueError:
+                self.node = Node.objects.filter(shortname=market).first()
             activate(self.node.preferred_locale)
 
     def dispatch(self, *args, **kwargs):
@@ -41,6 +45,7 @@ class RegisterView(XFrameOptionsExemptMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['node'] = self.node
         context["privacy_policy_url"] = self.node.privacy_policy_url
         return context
 
@@ -58,7 +63,7 @@ class RegisterView(XFrameOptionsExemptMixin, CreateView):
         return response
 
     def get_success_url(self):
-        return reverse('auth:register_request_done', kwargs=self.kwargs)
+        return reverse('market:consumer_register_success', kwargs=self.kwargs)
 
     def send_email_to_admins(self, consumer):
         try:
@@ -88,9 +93,7 @@ class RegisterView(XFrameOptionsExemptMixin, CreateView):
             logger.error(e)
 
 class RegisterDoneView(XFrameOptionsExemptMixin, TemplateView):
-    template_name = "registration/register/register_request_done.html"
-    title = _("Registration email sent")
-
+    template_name = "consumer/register/success.html"
     node = None
 
     def setup(self, *args, **kwargs):
@@ -101,5 +104,6 @@ class RegisterDoneView(XFrameOptionsExemptMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['node'] = self.node
         context['contact_mail'] = self.node.contact_email
         return context
