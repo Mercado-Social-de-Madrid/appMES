@@ -11,6 +11,7 @@ class ProviderForm(MultiLangForm, AccountForm):
     class Meta(AccountForm.Meta):
         model = Provider
         widgets = AccountForm.Meta.widgets | {
+            'short_description': forms.widgets.Textarea(attrs={'cols': 190, 'rows': 2, 'maxlength': '320'}),
             'description': CKEditorWidget(attrs={'cols': 190, 'rows': 30}),
             'services': CKEditorWidget(attrs={'cols': 190, 'rows': 30}),
         }
