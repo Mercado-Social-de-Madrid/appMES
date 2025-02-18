@@ -2,25 +2,19 @@ import logging
 
 from ckeditor.widgets import CKEditorWidget
 from django import forms
-from django.core.exceptions import ValidationError
-from django.core.validators import URLValidator
 from django.db.models import Case, When
 from django.forms import formset_factory
-from django.utils.translation import gettext_lazy as _
 from modeltranslation.fields import TranslationField
 
-from core.models import Node
-from core.models.custom_text import CustomizableText, NodeCustomText, CustomizableTextContext
-from core.models.social_profile import SocialNetwork, ProviderSocialProfile, SocialProfile, NodeSocialProfile
+from core.models.custom_text import CustomizableText, NodeCustomText
 from helpers.forms.BootstrapForm import BootstrapForm
 from helpers.forms.MultiLangForm import MultiLangForm
-from helpers.widgets.SocialNetworkWidget import SocialNetworkWidget
 
 logger = logging.getLogger(__name__)
 
 
 class NodeCustomTextForm(BootstrapForm, MultiLangForm, forms.ModelForm):
-    string = forms.CharField(required=False)
+    string = forms.CharField(required=False, widget=forms.widgets.TextInput(attrs={'placeholder': ''}))
 
     class Meta:
         model = NodeCustomText
