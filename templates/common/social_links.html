@@ -2,7 +2,7 @@
 
 <div>
     {% if obj.webpage_link %}
-    <a class="btn btn-float {% if btn_class %} {{btn_class}} {% else %} btn-primary {% endif %} btn-lg mr-2" href="{{social_profile.url}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="{{social_profile.social_network.name}}">
+    <a class="btn btn-float {% if btn_class %} {{btn_class}} {% else %} btn-primary {% endif %} btn-lg mr-2" href="{{ obj.webpage_link }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="{{social_profile.social_network.name}}">
      <i class="fa fa-globe fa-2xl social-network-logo mt-2 pt-1" aria-hidden="true"></i></span>
     </a>
     {% endif %}
