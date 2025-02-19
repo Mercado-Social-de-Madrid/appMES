@@ -1,6 +1,8 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
+from helpers import RandomFileName
 from market.models import Account
 
 
@@ -9,6 +11,7 @@ class Consumer(Account):
     last_name = models.CharField(null=True, blank=True, max_length=250, verbose_name=_('Apellidos'))
     favorites = models.ManyToManyField("Provider", blank=True, verbose_name=_("Favoritos"))
     is_intercoop = models.BooleanField(default=False, verbose_name=_('Es socia de intercooperación'))
+    idcard_file = models.FileField(null=True, blank=True, verbose_name=_('Documento identificativo (DNI/NIE/Pasaporte...)'), upload_to=RandomFileName('dnis/'))
 
     class Meta:
         verbose_name = _('Consumidora')

@@ -14,5 +14,5 @@ class ConsumerSerializer(AccountSerializer):
 
     class Meta:
         model = Consumer
-        exclude = ["polymorphic_ctype"]
+        exclude = ["polymorphic_ctype", "idcard_file"]
 

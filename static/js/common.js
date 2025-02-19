@@ -176,12 +176,15 @@ $(function(){
 
     });
 
+    $('.custom-file').on('change', 'input[type="file"]', function(){
+        var filename = $(this).val().split('\\').pop();
+        $(this).siblings('.custom-file-label').text(filename);
+    });
+
     $('.form-photo').on('change', 'input[type="file"]', function(){
         var input = this;
-        console.log(input);
         var imgTarget = $(input).parents('.file-field').attr('data-img-target');
         var target = $(imgTarget);
-        console.log(target);
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -364,7 +367,6 @@ function initElems(container){
         var elem = $(this);
         var ratio = parseFloat(elem.attr('data-aspect-ratio'));
         elem.css('height', parseInt(elem.width()) * ratio + 'px');
-        console.log(ratio);
     });
 
     container.find('.special-select').select2({ 'theme': 'default custom-select' });

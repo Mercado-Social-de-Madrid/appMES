@@ -4,7 +4,8 @@ from django.utils.safestring import mark_safe
 
 register = template.Library()
 
-ALLOWABLE_VALUES = ("GMAPS_APIKEY", "MAIN_PAGE_TITLE", "INITIAL_LATITUDE", "INITIAL_LONGITUDE", "BASESITE_URL", "INLINE_INPUT_SEPARATOR")
+ALLOWABLE_VALUES = ("GMAPS_APIKEY", "MAIN_PAGE_TITLE", "INITIAL_LATITUDE", "INITIAL_LONGITUDE",
+                    "BASESITE_URL", "INLINE_INPUT_SEPARATOR", "FILE_UPLOAD_MAX_MEMORY_SIZE")
 
 # settings value (based on https://stackoverflow.com/a/21593607)
 @register.simple_tag

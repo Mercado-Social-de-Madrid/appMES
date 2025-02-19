@@ -72,7 +72,7 @@ class RegisterView(XFrameOptionsExemptMixin, CreateView):
                 title=_('Nueva solicitud de socia consumidora'),
                 destination=consumer.node.admin_email,
                 template_name='admin_consumer_preregister_request',
-                template_params={'consumer': consumer}
+                template_params={ 'consumer': consumer, 'node':consumer.node }
             )
         except Exception as e:
             logger.error(e)
