@@ -34,9 +34,10 @@ class RegisterView(XFrameOptionsExemptMixin, CreateView):
             activate(self.node.preferred_locale)
 
     def dispatch(self, *args, **kwargs):
-        if self.node.self_register_allowed and self.node.register_consumer_url:
+        if self.node.self_register_allowed and not self.node.register_consumer_url:
+            return super().dispatch(*args, **kwargs)
+        else:
             return HttpResponse(_("El registro interno no está disponible para este mercado."), status=HTTPStatus.FORBIDDEN)
-        return super().dispatch(*args, **kwargs)
 
     def get_initial(self):
         initial = super().get_initial() or {}

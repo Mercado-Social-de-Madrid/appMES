@@ -21,6 +21,6 @@ class NodeSerializer(serializers.ModelSerializer):
         if not data['info_page_url']:
             data['info_page_url'] = os.path.join(settings.BASESITE_URL, str(instance.id), "info")
         if not data['register_consumer_url']:
-            data['register_consumer_url'] = f"{settings.BASESITE_URL}/register/{instance.shortname}"
+            data['register_consumer_url'] = f"{settings.BASESITE_URL}/consumer_register/{instance.shortname}"
 
         return data
