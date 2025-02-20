@@ -92,7 +92,7 @@
 <body style="background: #fdfdfd;">
     <div class="mj-container" style="background-color:#fdfdfd;">
         <!--[if mso | IE]>      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">        <tr>          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">      <![endif]-->
-        <table role="presentation" cellpadding="0" cellspacing="0" style="background:url({% static 'imgs/email/email_header.jpg' %}) top center / auto repeat;font-size:0px;width:100%;" border="0" background="https://topolio.s3-eu-west-1.amazonaws.com/uploads/5ab135c7c6089/1521563478.jpg">
+        <table role="presentation" cellpadding="0" cellspacing="0" style="background:url('{% settings_value 'BASESITE_URL' %}{% static 'imgs/email/email_header.jpg' %}') top center / auto repeat;font-size:0px;width:100%;" border="0" background="https://topolio.s3-eu-west-1.amazonaws.com/uploads/5ab135c7c6089/1521563478.jpg">
             <tbody>
                 <tr>
                     <td>
@@ -212,7 +212,7 @@
                                                                 <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px;" align="center" border="0">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td style="width:218px;"><img alt="" title="" height="auto" src="{% static 'imgs/email/mes-app.png' %}" style="border:none;border-radius:0px;display:block;font-size:13px;outline:none;text-decoration:none;width:100%;height:auto;" width="218"></td>
+                                                                            <td style="width:218px;"><img alt="" title="" height="auto" src="{% settings_value 'BASESITE_URL' %}{% static 'imgs/email/mes-app.png' %}" style="border:none;border-radius:0px;display:block;font-size:13px;outline:none;text-decoration:none;width:100%;height:auto;" width="218"></td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>

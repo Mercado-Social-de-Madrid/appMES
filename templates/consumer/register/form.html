@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load custom_text %}
+{% load settings_value %}
 
 {% block bodyattrs %}
     {% if not 'from_app' in request.GET and not 'hide_toolbar' in request.GET %}
@@ -34,7 +35,7 @@
         <div class="px-2"></div>
         {% endif %}
 
-                <form method="post" class="mt-3 p-4">
+                <form method="post" class="mt-3 p-4" enctype="multipart/form-data">
                     {% csrf_token %}
 
 {{form.from_app}}
@@ -56,16 +57,19 @@
 
     <div class="col-md-5">
         {% include "common/forms/field.html" with field=form.cif %}
+
+        {% include "common/forms/file_field.html" with field=form.idcard_file %}
+        <small class="  d-block">
+            {% translate "Sube un archivo (imagen o PDF) de tu documento de identidad." %}<br>
+            <strong>{% translate 'Máximo tamaño de archivo: ' %}</strong>
+            {% settings_value 'FILE_UPLOAD_MAX_MEMORY_SIZE' as max_upload_size %}
+            {{ max_upload_size|filesizeformat }}
+
+        </small>
     </div>
-
-    <div class="col-md-7"></div>
-
 
     <div class="col-md-7">
         {% include "common/forms/field.html" with field=form.email %}
-    </div>
-
-    <div class="col-md-5">
         {% include "common/forms/field.html" with field=form.phone_number %}
     </div>
 
@@ -78,8 +82,14 @@
         {% include "common/forms/field.html" with field=form.city %}
     </div>
 
-    <div class="col-md-12 col-lg-12 my-3">
+
+    <div class="col-md-12 col-lg-12 mt-3">
         {% include 'registration/privacy_policy_check.html' %}
+    </div>
+
+    <div class="col-md-12 col-lg-12 mb-3">
+        {% include "common/forms/switch.html" with field=form.newsletter_check %}
+        
     </div>
 
 </div>

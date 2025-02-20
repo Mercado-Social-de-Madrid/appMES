@@ -9,7 +9,7 @@ urlpatterns = [
 
     # Public register form
     path('consumer_register/<str:market>/', views.RegisterView.as_view(), name='consumer_register'),
-    path('consumer_register/<str:market>/done/', views.RegisterDoneView.as_view(), name='consumer_register_success'),
+    path('consumer_register/<str:market>/success/', views.RegisterDoneView.as_view(), name='consumer_register_success'),
 
     # Superadmin market management
     path('m/', views.MarketList.as_view(), name='market_list'),
