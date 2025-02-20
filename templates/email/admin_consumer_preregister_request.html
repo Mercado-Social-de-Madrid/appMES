@@ -6,13 +6,14 @@
 <p>Se ha recibido una solicitud de <b>{{consumer.first_name}} {{consumer.last_name}}</b> para hacerse socia consumidora.</p>
 
 <p>
-    A continuación puedes ver los datos de alta de la consumidora:
+    A continuación puedes ver los datos de alta de la consumidora:<br><br>
     <label><strong>Nombre:</strong></label> {{consumer.first_name}} <br>
     <label><strong>Apellidos:</strong></label> {{consumer.last_name}} <br>
     <label><strong>Email:</strong></label> {{consumer.email}} <br>
     <label><strong>DNI:</strong></label> {{consumer.cif}} <br>
     <label><strong>Teléfono:</strong></label> {{consumer.phone_number|default_if_none:'-'}} <br>
     <label><strong>Dirección:</strong></label> {{consumer.address|default_if_none:'-'}} <br>
+    <label><strong>Alta en boletín de difusión:</strong></label> {% if consumer.newsletter_check %} Sí {% else %} No {% endif %} <br>
     {% if consumer.idcard_file %}
         <label><strong>Documento identificativo:</strong></label>
         <a href="{% settings_value 'BASESITE_URL' %}{{consumer.idcard_file.url}}" target="_blank">{% settings_value 'BASESITE_URL' %}{{consumer.idcard_file.url}} </a> <br>

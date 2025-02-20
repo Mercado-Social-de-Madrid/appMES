@@ -11,7 +11,9 @@ class Consumer(Account):
     last_name = models.CharField(null=True, blank=True, max_length=250, verbose_name=_('Apellidos'))
     favorites = models.ManyToManyField("Provider", blank=True, verbose_name=_("Favoritos"))
     is_intercoop = models.BooleanField(default=False, verbose_name=_('Es socia de intercooperación'))
+
     idcard_file = models.FileField(null=True, blank=True, verbose_name=_('Documento identificativo (DNI/NIE/Pasaporte...)'), upload_to=RandomFileName('dnis/'))
+    newsletter_check = models.BooleanField(default=False, verbose_name=_('Boletín de difusión'), help_text=_('Aceptas recibir el boletín informativo cono noticias y ventajas/ofertas para socias en formato electrónico'))
 
     class Meta:
         verbose_name = _('Consumidora')
