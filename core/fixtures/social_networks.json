@@ -78,5 +78,21 @@
         "logo": "logos_redes_sociales/youtube.svg",
         "logo_png": "logos_redes_sociales/youtube.png"
     }
+},
+{
+    "model": "core.socialnetwork",
+    "pk": "Bluesky",
+    "fields": {
+        "logo": "logos_redes_sociales/bluesky.svg",
+        "logo_png": "logos_redes_sociales/bluesky.png"
+    }
+},
+{
+    "model": "core.socialnetwork",
+    "pk": "Threads",
+    "fields": {
+        "logo": "logos_redes_sociales/threads.svg",
+        "logo_png": "logos_redes_sociales/threads.png"
+    }
 }
 ]
