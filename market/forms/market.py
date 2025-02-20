@@ -29,7 +29,7 @@ class MarketForm(BootstrapForm, MultiLangForm, forms.ModelForm):
         super().__init__(*args, **kwargs)
         if self.instance:
             self.fields["register_consumer_url"].widget.attrs.update(
-                {'placeholder':  f'{settings.BASESITE_URL}/register/{self.instance.shortname}'}
+                {'placeholder':  f'{settings.BASESITE_URL}/consumer_register/{self.instance.shortname}'}
             )
 
 class MarketPublicForm(BootstrapForm, MultiLangForm, forms.ModelForm):
