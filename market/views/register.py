@@ -64,7 +64,17 @@ class RegisterView(XFrameOptionsExemptMixin, CreateView):
         return response
 
     def get_success_url(self):
-        return reverse('market:consumer_register_success', kwargs=self.kwargs)
+        success_url = reverse('market:consumer_register_success', kwargs=self.kwargs)
+
+        from_app = self.request.GET.__contains__("from_app")
+        if from_app:
+            return success_url + "?from_app"
+
+        hide_toolbar = self.request.GET.__contains__("hide_toolbar")
+        if hide_toolbar:
+            return success_url + "?hide_toolbar"
+
+        return success_url
 
     def send_email_to_admins(self, consumer):
         try:
