@@ -82,6 +82,7 @@
         {% include "common/forms/field.html" with field=form.city %}
     </div>
 
+    {% include 'common/custom_text/content.html' with text_id='consumer_form_bottom' %}
 
     <div class="col-md-12 col-lg-12 mt-3">
         {% include 'registration/privacy_policy_check.html' %}
@@ -94,7 +95,6 @@
 
 </div>
 
-{% include 'common/custom_text/content.html' with text_id='consumer_form_bottom' %}
 
                     <div class="text-center mt-3 mb-5">
                         <button type="submit" class="btn btn-primary btn-action btn-lg">{% translate "Enviar solicitud" %}</button>
