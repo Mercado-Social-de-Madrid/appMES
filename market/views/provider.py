@@ -110,15 +110,17 @@ class ProviderFormSet(FormsetView):
     def formset_social_profiles_valid(self, social_profiles, provider):
         for social_profile_form in social_profiles:
             url = social_profile_form.cleaned_data.get("url")
+            try:
+                social_profile = provider.social_profiles.get(social_network=social_profile_form.cleaned_data.get("social_network"))
+                if not url:
+                    social_profile.delete()
+            except ObjectDoesNotExist:
+                social_profile = social_profile_form.save(commit=False)
+
             if url:
-                try:
-                    social_profile = provider.social_profiles.get(social_network=social_profile_form.cleaned_data.get("social_network"))
-                except ObjectDoesNotExist:
-                    social_profile = social_profile_form.save(commit=False)
-                if social_profile:
-                    social_profile.provider = provider
-                    social_profile.url = url
-                    social_profile.save()
+                social_profile.provider = provider
+                social_profile.url = url
+                social_profile.save()
 
 
 class CreateProvider(MarketMixin, ProviderFormSet, CreateView):
