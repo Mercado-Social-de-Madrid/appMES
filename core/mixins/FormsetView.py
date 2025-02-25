@@ -1,6 +1,8 @@
 from django.urls import resolve
 from django.views.generic.edit import FormMixin
+import logging
 
+logger = logging.getLogger(__name__)
 
 class FormsetView(FormMixin):
     """
@@ -36,7 +38,7 @@ class FormsetView(FormMixin):
             formset_instance = formset_class(self.request.POST, self.request.FILES, prefix=formset_name)
             if not formset_instance.is_valid():
                 errors = formset_instance.errors
-                form.errors += errors
+                logger.error(errors)
                 return self.form_invalid(form)
 
         self.object = form.save()
