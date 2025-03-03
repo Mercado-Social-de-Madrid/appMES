@@ -5,6 +5,7 @@ from django_filters.views import FilterView
 
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
+from core.mixins.XFrameExemptMixin import XFrameOptionsExemptMixin
 from core.models import Node
 from helpers.filters.SearchFilter import SearchFilter
 from helpers.filters.filtermixin import FilterMixin
@@ -35,7 +36,7 @@ class ProviderFilter(FilterSet):
         fields = { 'categories' }
 
 
-class CatalogView(FilterMixin, FilterView, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
+class CatalogView(XFrameOptionsExemptMixin, FilterMixin, FilterView, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
     template_name = 'public/provider/list.html'
     model = Provider
     filterset_class = ProviderFilter
