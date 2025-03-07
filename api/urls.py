@@ -10,7 +10,7 @@ from api.views.consumer import ConsumerViewSet
 from api.views.member_status import MemberStatusViewSet
 from api.views.news import NewsViewSet
 from api.views.offers import OffersViewSet
-from api.views.provider import EntitiesView, ProviderAuthViewSet
+from api.views.provider import EntitiesView, ProviderAuthViewSet, ProviderGeoJsonViewSet
 from api.views.user import FetchUserView, PreRegisterUserView
 
 router = DefaultRouter()
@@ -21,6 +21,7 @@ router.register(r"nodes/(?P<node>\d+)/categories", CategoryViewSet)
 router.register(r"nodes/(?P<node>\d+)/news", NewsViewSet)
 router.register(r"nodes/(?P<node>\d+)/offers", OffersViewSet)
 router.register(r"nodes/(?P<node>\d+)/benefits", BenefitsViewSet)
+router.register(r"nodes/(?P<node>\d+)/providers_geojson", ProviderGeoJsonViewSet)
 
 urlpatterns = [
     path("v2/", include(router.urls)),

@@ -24,3 +24,29 @@ class ProviderSerializer(serializers.ModelSerializer):
         if representation['profile_image'] is None:
             representation['profile_image'] = ''
         return representation
+
+
+
+class ProviderGeoJsonSerializer(serializers.Serializer):
+    type = serializers.CharField(default="Feature")
+    geometry = serializers.SerializerMethodField()
+    properties = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Provider
+        fields = ("type", "geometry", "properties")
+
+    def get_geometry(self, obj):
+        return {
+            "type": "Point",
+            "coordinates": [obj.longitude, obj.latitude]
+        }
+
+    def get_properties(self, obj):
+        return {
+            "name": obj.name,
+            "short_description": obj.short_description if obj.short_description else '',
+            "address": obj.address if obj.address else '',
+            "webpage_link": obj.webpage_link if obj.webpage_link else '',
+            "logo": obj.profile_image.name,
+        }

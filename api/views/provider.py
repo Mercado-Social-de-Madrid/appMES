@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 
 from api.filters.provider import ProviderFilter
 from api.mixins.FilterByNodeMixin import FilterByNodeMixin
-from api.serializers.provider import ProviderSerializer
+from api.serializers.provider import ProviderSerializer, ProviderGeoJsonSerializer
 from market.models import Provider
 from rest_framework import authentication, status
 from rest_framework.permissions import IsAuthenticated
@@ -38,3 +38,14 @@ class EntitiesView(APIView):
     def get(self, request, format=None):
         return HttpResponseGone('{"message":"Es necesario actualizar la aplicación"}')
 
+
+
+
+class ProviderGeoJsonViewSet(FilterByNodeMixin, viewsets.ReadOnlyModelViewSet):
+    queryset = Provider.objects.all()
+    serializer_class = ProviderGeoJsonSerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response({"type": "FeatureCollection", "features": serializer.data})
