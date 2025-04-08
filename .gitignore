@@ -164,3 +164,6 @@ documentation/*/site
 
 appMes
 /data/
+
+# Ignore docker-compose files for development
+docker-compose.*.yml

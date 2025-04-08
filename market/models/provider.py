@@ -6,6 +6,7 @@ from market.models import Account
 from django.utils.translation import gettext_lazy as _
 from core.models import Gallery
 from market.models import Category
+from pgvector.django import VectorField
 
 
 class Provider(Account):
@@ -14,6 +15,7 @@ class Provider(Account):
     description = models.TextField(null=True, blank=True, verbose_name=_('Descripción'))
     short_description = models.TextField(null=True, blank=True, verbose_name=_('Descripción corta'))
     services = models.TextField(null=True, blank=True, verbose_name=_('Productos y servicios'))
+    embedding_description = VectorField(dimensions=384, verbose_name=_('Descripción y productos vectorizados'), null=True, blank=True)
 
     not_listed = models.BooleanField(default=False, verbose_name=_('Oculta en listado público'))
     latitude = models.FloatField(null=False, verbose_name=_('Latitud'), default=0)
@@ -29,6 +31,7 @@ class Provider(Account):
     balance_detail = models.CharField(null=True, blank=True, verbose_name=_('Informe balance'), max_length=250)
 
     webpage_link = models.CharField(null=True, blank=True, verbose_name=_('Página web'), max_length=250)
+
 
     class Meta:
         verbose_name = 'Proveedora'

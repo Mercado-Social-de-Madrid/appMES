@@ -2,6 +2,7 @@ from django.http import HttpResponseGone
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
+#from rest_framework.filters import SemanticSearchFilter
 from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.views import APIView
 
@@ -18,7 +19,7 @@ class ProviderViewSet(FilterByNodeMixin, viewsets.ReadOnlyModelViewSet):
     queryset = Provider.objects.all()
     serializer_class = ProviderSerializer
     search_fields = ['name', 'description', 'short_description', 'email']
-    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filter_backends = [DjangoFilterBackend, SearchFilter]#, SemanticSearchFilter]
     filterset_class = ProviderFilter
 
 
