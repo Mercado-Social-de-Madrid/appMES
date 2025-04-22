@@ -13,7 +13,7 @@ class SemanticSearchFilter(django_filters.Filter):
     def __init__(self, vector_field, *args, **kwargs):
         """
         Filtro para búsqueda semántica reutilizable en cualquier modelo Django con pgvector.
-        :param vector_field: Nombre del campo vectorial en la base de datos (ej. 'embedding_desc').
+        :param vector_field: Nombre del campo vectorial en la base de datos (ej. 'embedding_description').
         """
         self.vector_field = vector_field
         self.token_reducer = kwargs.pop('token_reducer', operator.and_)  # Permite combinar términos en búsqueda
