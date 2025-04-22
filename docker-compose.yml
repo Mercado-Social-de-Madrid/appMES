@@ -22,6 +22,8 @@ services:
         condition: service_healthy
   db:
     image: postgres:17
+    build:
+      dockerfile: Dockerfile.postgres
     ports:
       - "${DB_PORT:-5432}:${DB_PORT:-5432}"
     volumes:

@@ -18,4 +18,4 @@ def update_embedding(sender, instance, **kwargs):
     Signal that is automatically executed when a record is inserted or updated in Provider.
     """
     logging.info(f"🔄 Vectorizing Provider ID {instance.pk}...")
-    vectorize_records("Provider", ["short_description", "description", "services"], "embedding_desc", instance)
+    vectorize_records("market", "Provider", ["short_description", "description", "services"], "embedding_desc", instance)
