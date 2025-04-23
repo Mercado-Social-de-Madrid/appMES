@@ -15,6 +15,7 @@ class ProviderForm(MultiLangForm, AccountForm):
             'description': CKEditorWidget(attrs={'cols': 190, 'rows': 30}),
             'services': CKEditorWidget(attrs={'cols': 190, 'rows': 30}),
         }
+        exclude = ['embedding_description']
 
 class CreateProviderForm(CreateAccountFormMixin, ProviderForm):
     pass
