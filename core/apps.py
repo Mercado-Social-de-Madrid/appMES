@@ -20,7 +20,7 @@ class CoreConfig(AppConfig):
             os.getenv('ST_MODEL', 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'),
             device='cpu'
         )
-        logging.info("✅ Embedding model loaded.")
+        logging.info(f"✅ Embedding model loaded. {self.embedding_model}")
         
         # Import signals when the app starts
         import core.signals
