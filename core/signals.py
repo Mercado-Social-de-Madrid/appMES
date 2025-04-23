@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from sentence_transformers import SentenceTransformer
 from core.vectorize import vectorize_records
+from market.models import Provider
 
 # Logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -12,7 +13,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 # Get the embedding model from the app configuration
 model = apps.get_app_config("core").embedding_model
 
-@receiver(post_save)
+@receiver(post_save, sender=Provider)
 def update_embedding(sender, instance, **kwargs):
     """
     Signal that is automatically executed when a record is inserted or updated in Provider.
