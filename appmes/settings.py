@@ -186,12 +186,12 @@ DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
 LANGUAGES = (
     ('es', _('Castellano')),
-    ('ca', _('Catalá')),
     ('eu', _('Euskara')),
-    ('gl', _('Galego')),
+    # ('ca', _('Catalá')),
+    # ('gl', _('Galego')),
 )
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'es'
-MODELTRANSLATION_FALLBACK_LANGUAGES = ('es', 'eu', 'ca', 'gl')
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('es', 'eu', )
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
