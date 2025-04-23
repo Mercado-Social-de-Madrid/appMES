@@ -51,29 +51,31 @@ plugins:
       languages:
         - locale: eu
           name: Euskera
-          build: true
+          build: false
         - locale: es
           name: Castellano
           default: true
           build: true
         - locale: ca
           name: Català
-          build: true
+          build: false
         - locale: gl
           name: Galego
-          build: true
+          build: false
 
 nav:
+  - vista_general.md
   - perfil.md
+  - idiomas.md
+  - personalizacion.md
   - Menú lateral:
       - menu_lateral/index.md
       - menu_lateral/usuarias.md
-      - menu_lateral/noticias.md
+      - menu_lateral/consumidoras.md
       - menu_lateral/categorias.md
       - menu_lateral/proveedoras.md
-      - menu_lateral/consumidoras.md
       - menu_lateral/ofertas.md
       - menu_lateral/ventajas.md
+      - menu_lateral/noticias.md
   - registro.md
-  - guia_de_usuario.md
   - versiones.md

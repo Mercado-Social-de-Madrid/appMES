@@ -52,17 +52,17 @@ plugins:
       languages:
         - locale: eu
           name: Euskera
-          build: true
+          build: false
         - locale: es
           name: Castellano
           default: true
           build: true
         - locale: ca
           name: Català
-          build: true
+          build: false
         - locale: gl
           name: Galego
-          build: true
+          build: false
 
 nav:
   - Proveedoras:

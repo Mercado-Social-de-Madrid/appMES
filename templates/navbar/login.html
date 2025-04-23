@@ -21,7 +21,6 @@
 
             {% if request.user.is_authenticated %}
                 <div class="primary-title">{{request.user.get_username}}</div>
-                <small class="text-muted">{{request.user.email}}</small><br>
                 <hr>
             {% endif %}
                 <div class="mb-2">{% translate "Idioma de la interfaz" %}:<br>
