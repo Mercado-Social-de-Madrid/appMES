@@ -6,4 +6,4 @@ En esta guía se describen las funciones de administración de la app del Mercad
 
 Para encontrar contenidos directamente, utilizar la barra de búsqueda ↗️
 
-VISTA GENERAL
+![Logo MES](../assets/logo-mes.png){ loading=lazy }

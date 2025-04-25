@@ -17,7 +17,7 @@
         {% include 'user/row_display.html' with user=item.owner %}
     {% else %}
         <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="{% translate "Sin usuario" %}">dangerous</i>
-        <span class="text-muted">{% translate "Pendiente registro" %}</span>
+        <span class="text-muted">{{ item.email }}</span>
     {% endif %}
 </td>
 <td>{{item.registration_date|date:'d/m/Y'}}</td>

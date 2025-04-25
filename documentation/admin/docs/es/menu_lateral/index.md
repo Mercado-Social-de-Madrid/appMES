@@ -12,8 +12,8 @@ Si estás en un dispositivo móvil, deberás pulsar el icono :material-menu: par
 
 
 ## Cabecera
-En la parte superior del menú, se muestra el nombre de tu territorio y un icono :fontawesome-solid-pen: para configurar 
-y personalizar algunos elementos de tu Mercado. Más información en la sección [Personalización del Mercado](../personalizacion.md)
+En la parte superior del menú, se muestra el nombre de tu territorio y un icono :material-pencil: para configurar 
+y personalizar algunos elementos de tu Mercado. Más información en la sección [Personalización del Mercado](personalizacion.md)
 
 ## :material-face-man: [Usuarios](usuarias.md)
 Esta sección facilita la gestión de los usuarios que tienen acceso a la aplicación, permitiéndote realizar acciones 

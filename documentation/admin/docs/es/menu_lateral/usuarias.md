@@ -35,7 +35,7 @@ pero todavía no se ha establecido una contraseña mediante el enlace único que
 - :material-check-all: Registro completado. El usuario ha establecido su contraseña y ya puede acceder a la app.
 
 
-## :fontawesome-solid-plus: Añadir usuario administrador
+## :material-plus: Añadir usuario administrador
 Haciendo click en el botón "Nuevo usuario" accederás a la pantalla para añadir una nueva cuenta de **usuario administrador**.
 
 /// admonition | 
@@ -54,7 +54,7 @@ Al crear una nueva usuaria, se le enviará un correo electrónico de bienvenida 
 su contraseña inicial. 
 
 
-## :fontawesome-solid-pen: Editar usuario
+## :material-pencil: Editar usuario
 
 Para editar una usuaria puedes hacer click en la fila correspondiente a la usuaria que se quiera editar, o haciendo 
 click en el icono :material-pencil:.
@@ -71,7 +71,7 @@ Si un usuario todavía no se ha registrado en la app, le aparece este recuadro q
 puede reenviar el email con las instrucciones de registro en la app o copiar el enlace para enviarlo manualmente.
 
 
-## :fontawesome-solid-trash: Eliminar usuario
+## :material-delete: Eliminar usuario
 Para eliminar un usuario, puedes hacerlo de dos maneras: 
 
 - En el listado de usuarios, pulsando el icono :material-delete: de la fila que quieras eliminar. 
