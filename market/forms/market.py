@@ -5,6 +5,7 @@ from django.conf import settings
 from core.models import Node
 from helpers.forms.BootstrapForm import BootstrapForm
 from helpers.forms.MultiLangForm import MultiLangForm
+from django.utils.translation import gettext_lazy as _
 
 
 class MarketForm(BootstrapForm, MultiLangForm, forms.ModelForm):
@@ -37,7 +38,11 @@ class MarketPublicForm(BootstrapForm, MultiLangForm, forms.ModelForm):
     class Meta:
         model = Node
         widgets = {
-
+            'info_page_url': forms.TextInput(),
+            'balance_badge': forms.FileInput(),
+        }
+        help_texts = {
+            'info_page_url': _('Dejar en blanco para usar la página por defecto de la app'),
         }
 
-        fields = ['banner_image', 'webpage_link']
+        fields = ['info_page_url', 'contact_email', 'admin_email', 'privacy_policy_url', 'balance_badge', 'webpage_link']
