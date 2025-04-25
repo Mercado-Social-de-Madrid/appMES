@@ -26,15 +26,8 @@
             <div class="row">
             <div class="col-sm-7 col-md-8">
                 <h4 class="mb-0">
-                    {% if request.user.is_superadmin %}
-                        <a href="{% url 'market:market_list' %}">{% translate 'Mercados sociales' %}</a>
-                    {% else %}
-                        <span class="text-primary">{% translate 'Mercados sociales' %} </span>
-                    {% endif %}
-                    <i class="material-icons md-24">arrow_forward_ios</i>
-                    <a href="{% market_url 'market:edit_public_market' %}">{{object.name}}</a>
-                    <i class="material-icons md-24">arrow_forward_ios</i>
-                    {% translate 'Previsualizar sección' %}</h4>
+                    {% translate 'Previsualizar sección' %}
+                </h4>
             </div>
                  <div class="col-sm-5 col-md-4 text-sm-right">
           </div>

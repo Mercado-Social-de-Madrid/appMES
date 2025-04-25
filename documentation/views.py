@@ -34,10 +34,6 @@ class DocsView(View):
             login_url = reverse('auth:login') + f'?next={request.path}'
             return HttpResponseRedirect(login_url)
 
+
     def can_access_docs(self, user, docs_type):
-        permissions = user.is_authenticated
-
-        if docs_type == 'admin':
-            permissions = permissions and (user.is_staff or user.is_superuser)
-
-        return permissions
+        return docs_type == 'user' or (user.is_authenticated and (user.is_staff or user.is_superuser))
