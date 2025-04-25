@@ -28,7 +28,7 @@ from offers.models import Offer
 
 
 class ProviderFilterForm(BootstrapForm):
-    field_order = [ 'search', 'categories', 'o',]
+    field_order = [ 'search', 'categories', 'o', 'semantic_search']
 
 
 class ProviderFilter(FilterSet):
