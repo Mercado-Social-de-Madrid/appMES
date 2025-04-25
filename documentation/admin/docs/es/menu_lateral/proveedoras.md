@@ -10,7 +10,7 @@ Para ver en detalle una proveedora, haz click en la fila de la proveedora que qu
 pantalla donde se muestran los detalles principales de la proveedora. Además desde esta pantalla podrás editar los datos
 de la proveedora y añadir una ventaja.
 
-## :fontawesome-solid-plus: Añadir proveedora
+## :material-plus: Añadir proveedora
 /// admonition | registro
     type: info
 Puedes ver todo el proceso de registro de socias proveedoras en la página [Registro de socias](../registro.md).
@@ -61,7 +61,7 @@ Si no seleccionamos la opción podremos enviar el mail de prerregistro más adel
   
 Una vez rellenados los campos obligatorios, pulsa el botón "Crear entidad" para crear la entidad proveedoras.
 
-## :fontawesome-solid-pen: Editar proveedora
+## :material-pencil: Editar proveedora
 Para editar una proveedora puedes hacer click en la fila correspondiente a la usuaria que se quiera editar, o haciendo 
 click en el icono :material-pencil:.
 En esta pantalla podrás modificar la información de la proveedora y pulsar el botón "Guardar cambios" cuando estés satisfecha. 
@@ -70,5 +70,5 @@ En esta pantalla podrás modificar la información de la proveedora y pulsar el 
 Para consultar las ofertas de una provedora puedes hacer click en el icono :material-basket: que se encuentra en la fila 
 de la provedora de la que quieres consultar las ofertas.
 
-## :fontawesome-solid-trash: Eliminar proveedora
+## :material-delete: Eliminar proveedora
 Para eliminar una proveedora ponte en contacto con el equipo de administración.

@@ -7,7 +7,7 @@ extra_css:
 
 theme:
   name: material
-  logo: assets/brand.png
+  logo: assets/logo-mes-blanco.png
   language: es
   features:
     - navigation.instant
@@ -65,11 +65,12 @@ plugins:
 
 nav:
   - vista_general.md
+  - acceso.md
   - perfil.md
   - idiomas.md
-  - personalizacion.md
   - Menú lateral:
       - menu_lateral/index.md
+      - menu_lateral/personalizacion.md
       - menu_lateral/usuarias.md
       - menu_lateral/consumidoras.md
       - menu_lateral/categorias.md
