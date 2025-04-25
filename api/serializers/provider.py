@@ -17,7 +17,7 @@ class ProviderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Provider
-        exclude = []
+        exclude = ['embedding_description']
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
