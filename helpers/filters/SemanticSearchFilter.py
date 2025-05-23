@@ -5,6 +5,9 @@ from django.db.models import Q
 from pgvector.django import CosineDistance
 from core.vectorize import clean_text
 from django.apps import apps  # Para obtener el modelo de embeddings cargado en apps.py
+import logging
+
+logger = logging.getLogger(__name__)
 
 # Obtener el modelo de embeddings cargado en apps.py (evita recargas innecesarias)
 embedding_model = apps.get_app_config("core").embedding_model
@@ -35,4 +38,8 @@ class SemanticSearchFilter(django_filters.Filter):
                 **{f"{self.vector_field}__isnull": False}  # Excluir registros sin embeddings
             ).order_by("similarity")  # Ordenar por similitud
 
-        return qs
+            # logger.info(qs.query)
+            entities = qs.all()
+            logger.info([f'{entity.name} - {entity.similarity}' for entity in entities])
+
+        return qs.filter(similarity__lt=0.5)
