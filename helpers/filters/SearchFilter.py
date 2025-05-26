@@ -9,7 +9,7 @@ from django.db.models import Q
 
 
 class SearchFilter(django_filters.Filter):
-    def __init__(self,names,*args,**kwargs):
+    def __init__(self,names=[],*args,**kwargs):
         if len(args) == 0:
             kwargs['field_name'] = names[0]
         self.token_prefix = kwargs.pop('token_prefix','')
@@ -20,7 +20,7 @@ class SearchFilter(django_filters.Filter):
 
 
     def get_subquery_list(self, search_value):
-        return [Q(**{'%s__icontains'%name:
+        return [Q(**{'%s__isnull'%name:False}) & Q(**{'%s__icontains'%name:
                     (self.token_prefix+search_value+self.token_suffix)})
                         for name in self.names]
 

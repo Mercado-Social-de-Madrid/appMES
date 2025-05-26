@@ -37,9 +37,6 @@ class ProviderFilter(FilterSet):
         names=['address', 'cif', 'name', 'email', 'member_id'], 
         lookup_expr='in', 
         label=_('Buscar...'))
-    semantic_search = SemanticSearchFilter(
-        vector_field='embedding_description',
-        label=_('Búsqueda semántica...'))
     o = LabeledOrderingFilter(
         fields=['name', 'registration_date', 'last_updated'],
         field_labels={'last_name':'Apellido', 'registration_date':'Fecha de alta', 'last_updated':'Última actualización'})

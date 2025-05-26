@@ -1,7 +1,7 @@
 import operator
 from functools import reduce
 import django_filters
-from django.db.models import Q
+from django.db.models import Q, ExpressionWrapper, BooleanField
 from pgvector.django import CosineDistance
 from core.vectorize import clean_text
 from django.apps import apps  # Para obtener el modelo de embeddings cargado en apps.py
@@ -9,18 +9,19 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+from helpers.filters.SearchFilter import SearchFilter
+
 # Obtener el modelo de embeddings cargado en apps.py (evita recargas innecesarias)
 embedding_model = apps.get_app_config("core").embedding_model
 
-class SemanticSearchFilter(django_filters.Filter):
-    def __init__(self, vector_field, *args, **kwargs):
+class SemanticSearchFilter(SearchFilter):
+    def __init__(self, vector_field=None, names=[], *args, **kwargs):
         """
         Filtro para búsqueda semántica reutilizable en cualquier modelo Django con pgvector.
         :param vector_field: Nombre del campo vectorial en la base de datos (ej. 'embedding_description').
         """
         self.vector_field = vector_field
-        self.token_reducer = kwargs.pop('token_reducer', operator.and_)  # Permite combinar términos en búsqueda
-        super().__init__(*args, **kwargs)
+        super().__init__(names=names, *args, **kwargs)
 
     def filter(self, qs, value):
         """
@@ -33,13 +34,10 @@ class SemanticSearchFilter(django_filters.Filter):
 
             # Aplicar búsqueda semántica con CosineDistance
             qs = qs.annotate(
-                similarity=CosineDistance(self.vector_field, query_embedding)
+                similarity=CosineDistance(self.vector_field, query_embedding),
+                exact_match=ExpressionWrapper(reduce(operator.or_, self.get_subquery_list(query_text)), output_field=BooleanField())
             ).filter(
                 **{f"{self.vector_field}__isnull": False}  # Excluir registros sin embeddings
-            ).order_by("similarity")  # Ordenar por similitud
+            ).order_by('-exact_match', 'similarity')  # Ordenar por similitud
 
-            # logger.info(qs.query)
-            entities = qs.all()
-            logger.info([f'{entity.name} - {entity.similarity}' for entity in entities])
-
-        return qs.filter(similarity__lt=0.5)
+        return qs

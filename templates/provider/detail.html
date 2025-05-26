@@ -55,7 +55,7 @@
             <hr>
             {% include 'common/social_links.html' with obj=object %}
 
-             <h4 class="mb-3"><i class="material-icons-outlined text-primary">eco</i> {% translate "Ventajas" %}</h4>
+             <h4 class="my-3"><i class="material-icons-outlined text-primary">eco</i> {% translate "Ventajas" %}</h4>
 
             {% if object.benefit %}
             <a class="btn btn-secondary btn-action text-light mr-4" href="{% market_url 'benefits:detail' object.benefit.pk %}">{% translate "Ver ventajas" %}</a>
