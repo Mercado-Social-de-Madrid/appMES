@@ -2,7 +2,7 @@
 icon: material/label
 ---
 
-# Gestionar categorías
+# Categorías
 Desde esta pantalla podrás gestionar las categorías relacionadas con el Mercado que gestionas.
 
 

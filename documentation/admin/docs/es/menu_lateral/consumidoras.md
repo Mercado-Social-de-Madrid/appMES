@@ -2,7 +2,7 @@
 icon: material/walk
 ---
 
-# Gestionar consumidoras
+# Consumidoras
 
 Hay algunos mercados territoriales que además de hacer socias a las entidades proveedoras, permiten que personas particulares
 se puedan hacer socias consumidoras del mercado para acceder a ciertas ventajas y crear un vínculo con la red.

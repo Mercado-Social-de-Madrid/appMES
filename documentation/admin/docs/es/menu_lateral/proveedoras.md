@@ -2,7 +2,7 @@
 icon: material/store
 ---
 
-# Gestionar proveedoras
+# Proveedoras
 Desde esta pantalla podrás gestionar las entidades proveedoras relacionadas con el Mercado que gestionas.
 
 ## Ver detalles de la proveedora

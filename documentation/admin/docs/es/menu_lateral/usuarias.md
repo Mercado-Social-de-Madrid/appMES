@@ -38,8 +38,8 @@ pero todavía no se ha establecido una contraseña mediante el enlace único que
 ## :material-plus: Añadir usuario administrador
 Haciendo click en el botón "Nuevo usuario" accederás a la pantalla para añadir una nueva cuenta de **usuario administrador**.
 
-/// admonition | 
-    type: info
+/// admonition | Usuarios de socias
+    type: success
 Los usuarios de consumidoras y proveedoras se crean automáticamente a través de las secciones correspondientes del menú
 ///
 

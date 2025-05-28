@@ -9,12 +9,13 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-7 col-md-8">
-                <h4 class="mb-0">
+                <h3 class="mb-0">
                     {% translate 'Personalizar' %}
-                    <a href="/docs/admin/menu_lateral/personalizacion" target="_blank">
+                    <a href="/docs/admin/menu_lateral/personalizacion" target="_blank"
+                        data-toggle="tooltip" data-placement="bottom" title="{% translate 'Ayuda' %}">
                         <i class="material-icons md-36">help</i>
                     </a>
-                </h4>
+                </h3>
             </div>
                  <div class="col-sm-5 col-md-4 text-sm-right">
                 <a href="{% url 'market:market_dashboard' object.pk %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">manage_search</i> {% translate 'Explorar mercado' %}</a>

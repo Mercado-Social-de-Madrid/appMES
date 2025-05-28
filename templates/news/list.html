@@ -9,7 +9,13 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-sm-7 col-md-8">
-                <h3 class="mb-0">{% translate 'Noticias' %}</h3>
+                <h3 class="mb-0">
+                    {% translate 'Noticias' %}
+                    <a href="/docs/admin/menu_lateral/noticias" target="_blank"
+                        data-toggle="tooltip" data-placement="bottom" title="{% translate 'Ayuda' %}">
+                        <i class="material-icons md-36">help</i>
+                    </a>
+                </h3>
             </div>
             <div class="col-sm-5 col-md-4 text-sm-right">
                 <a href="{% market_url 'news:add' %}" class="btn btn-primary btn-action"><i class="material-icons mr-2">add</i> {% translate 'Publicar noticia' %}</a>

@@ -2,7 +2,7 @@
 icon: material/newspaper
 ---
 
-# Gestionar noticias
+# Noticias
 Desde esta pantalla podrás gestionar las noticias relacionadas con el Mercado que gestionas.
 
 

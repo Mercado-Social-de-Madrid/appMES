@@ -42,7 +42,7 @@ que se desarrollan de forma independiente:
 a la web pública y paneles de gestión privados (administración, entidades y consumidoras). Además, proporciona la interfaz
 de comunicación necesaria para las aplicaciones móviles (técnicamente conocida como API)
 - Aplicación Android: permite acceder a la información del mercado de forma rápida, integra notificaciones instantáneas
-(como cuando llego un mensaje de Telegram o Whatsapp) para noticias del Mercado y ofertas de entidades y permite el acceso
+(como cuando llega un mensaje de Telegram o Whatsapp) para noticias del Mercado y ofertas de entidades y permite el acceso
 de socias mediante usuario y contraseña para mostar su carné digital y ver sus ventajas. Esto último es configurable según 
 el Mercado.
 - Aplicación iOS: para iPhone y iPad, con las mismas funciones que la de Android pero con algunos cambios de elementos visuales
