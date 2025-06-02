@@ -2,7 +2,7 @@
 icon: material/ticket
 ---
 
-# Ventajas
+# :material-ticket: Ventajas
 
 Son los beneficios que ofrece tu entidad a las socias del mercado social. Es opcional pero se anima a las entidades a ofrecer
 algún beneficio a socias para incentivar el consumo dentro de la red de economía solidaria.

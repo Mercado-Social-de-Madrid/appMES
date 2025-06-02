@@ -4,7 +4,7 @@ icon: material/home-outline
 
 #
 
-![Inicio](../../assets/inicio.png){ loading=lazy }
+![Inicio](../../../assets/inicio.png){ loading=lazy }
 
 La pantalla de Inicio es donde puedes encontrar toda la información clave sobre tu entidad y acceder a varias funciones importantes.
 

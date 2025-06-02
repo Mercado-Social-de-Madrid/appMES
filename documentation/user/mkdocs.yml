@@ -65,10 +65,19 @@ plugins:
           build: false
 
 nav:
-  - Proveedoras:
-    - proveedoras/index.md
-    - proveedoras/inicio.md
-    - proveedoras/mi_entidad.md
-    - proveedoras/ofertas.md
-    - proveedoras/ventajas.md
-  - Consumidoras: consumidoras/index.md
+  - Aplicación movil:
+      - aplicacion_movil/index.md
+      - aplicacion_movil/carnet.md
+      - aplicacion_movil/entidades.md
+      - aplicacion_movil/destacados.md
+  - Panel de gestión:
+    - panel_gestion/index.md
+    - Proveedoras:
+      - panel_gestion/proveedoras/index.md
+      - panel_gestion/proveedoras/inicio.md
+      - panel_gestion/proveedoras/mi_entidad.md
+      - panel_gestion/proveedoras/ofertas.md
+      - panel_gestion/proveedoras/ventajas.md
+    - Consumidoras:
+      - panel_gestion/consumidoras/index.md
+  - Problemas comunes: problemas_comunes.md
