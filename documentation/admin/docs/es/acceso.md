@@ -19,7 +19,7 @@ También tenemos algunos botones de atajo a las diferentes secciones.
 
 ---
 
-En la esquina superior izquierda encontramos el botón `PERSONALIZAR MERCADO` que nos lleva a la pantalla de configuración
+En la esquina superior derecha encontramos el botón `PERSONALIZAR MERCADO` que nos lleva a la pantalla de configuración
 de algunos elementos de nuestro mercado como se describe en la sección [Personalizar Mercado](menu_lateral/personalizacion.md)
 
 

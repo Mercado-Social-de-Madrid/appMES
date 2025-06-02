@@ -3,7 +3,8 @@ icon: material/store
 ---
 
 # Proveedoras
-Desde esta pantalla podrás gestionar las entidades proveedoras relacionadas con el Mercado que gestionas.
+Desde esta pantalla podrás gestionar las entidades proveedoras relacionadas con tu Mercado. Éstas se muestran en
+la ápp móvil TODO-LINK-USER-GUIDE y la web TODO-LINK-INTEGRACIONES.
 
 ## Ver detalles de la proveedora
 Para ver en detalle una proveedora, haz click en la fila de la proveedora que quieres consultar. Esto te llevará a otra 
@@ -20,18 +21,20 @@ Haciendo click en el botón "Añadir nueva" accederás a la pantalla para añadi
 En esta pantalla se te pedirán varios datos referentes a la proveedora divididas en las siguientes secciones:
 
 ### Información de la entidad
-  - Foto de perfil
-  - Nombre
+  - Foto de perfil / logo (tamaño recomendado: máximo 600px de ancho, formato cuadrado)
+  - Nombre (campo multidioma)
   - Email
   - NIF/CIF/Pasaporte
   - Número de socia
   - Dirección postal
-  - Descripción
+  - Descripción corta o slogan (campo multidioma)
+  - Descripción (campo multidioma)
+  - Productos y servicios (campo multidioma)
   - Categorías a las que pertenece. [Ver cómo gestionar categorías](categorias.md)
   - Número de personas trabajadoras
 
 ### Galería
-  - Fotografías de la proveedora
+  - Fotografías de la proveedora (tamaño recomendado: máximo 1000px de ancho, formato horizontal)
 
 ### Geolocalización
   - Usa el mapa interactivo para colocar el pin en la localización donde se encuentra la proveedora. 

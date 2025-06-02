@@ -36,23 +36,22 @@
           </div>
           <div class="text-light">{% include 'category/tag_list_detail.html' with tags=item.categories.all %}</div>
 
-          <button type="button" class="btn btn-secondary btn-action text-light" data-toggle="modal" data-target="#info-{{item.pk}}">  <i class="material-icons-outlined">info</i> {% translate "Más información de la entidad" %}</button>
-
+          <div>
+            <button type="button" class="btn btn-secondary btn-action text-light" style="margin-top: 10px" data-toggle="modal" data-target="#info-{{item.pk}}">  <i class="material-icons-outlined">info</i> {% translate "Más información de la entidad" %}</button>
+          </div>
         <div class="social-links mt-3">
         {% include 'common/social_links.html' with obj=item %}
         </div>
       </div>
       <div class="col-md-3">
-         <h4 class="text-primary text-center">{% translate 'Balance/Auditoría social' %}</h4>
          <div class="text-center">
             <div style="max-width:250px;" class="text-center m-auto link-explanation">
             {% if item.balance_detail %}
+                <h4 class="text-primary text-center">{% translate 'Balance/Auditoría social' %}</h4>
                 <a href="{{item.balance_detail}}" target="_blank">
                     <img class="img-fluid balance-badge mb-4 " src="{% if node.balance_badge %}{{ node.balance_badge.url }}{% else %}{% static 'imgs/sello_mes.png' %}{% endif %}" alt="{{node.title}}">
                 </a>
 
-                {% else %}
-                <p class="mb-2"> {% translate 'No disponible' %} </p>
                 {% endif %}
                 <br>
 
@@ -102,12 +101,21 @@
 
         {% autoescape off %}
 
+        {% if item.description %}
           {{ item.description }}
+        {% endif %}
 
         {% if item.services %}
           <h3 class="modal-title text-primary text-brand" id="info-{{item.pk}}-services"><i class="material-icons-outlined">storefront</i> {% translate "Productos y servicios" %}</h3>
           <p>
             {{ item.services }}
+          </p>
+        {% endif %}
+
+        {% if item.address %}
+          <h3 class="modal-title text-primary text-brand" id="info-{{item.pk}}-address"><i class="material-icons-outlined">map</i> {% translate "Dirección" %}</h3>
+          <p>
+            {{ item.address }}
           </p>
         {% endif %}
 

@@ -68,14 +68,23 @@ nav:
   - acceso.md
   - perfil.md
   - idiomas.md
+  - busqueda_semantica.md
   - Menú lateral:
       - menu_lateral/index.md
       - menu_lateral/personalizacion.md
       - menu_lateral/usuarias.md
-      - menu_lateral/consumidoras.md
+      - menu_lateral/noticias.md
       - menu_lateral/categorias.md
       - menu_lateral/proveedoras.md
+      - menu_lateral/consumidoras.md
       - menu_lateral/ofertas.md
       - menu_lateral/ventajas.md
-      - menu_lateral/noticias.md
+  - Integraciones:
+      - integraciones/index.md
+      - integraciones/web.md
+      - integraciones/api.md
+      - integraciones/mapa.md
+      - integraciones/herramienta_gestora.md
+      - integraciones/exportar.md
+      - integraciones/importar.md
   - versiones.md

@@ -34,17 +34,18 @@ motivo, mejor desmarcar esa opción. Más adelante se puede volver a crear el us
 Los territorios en los que exista un registro público de socias consumidoras tendrán disponible un formulario vinculado
 a esta app:
 ``` 
-https://mercadosocial.app/consumer_register/<codigo_de_mercado>
+https://mercadosocial.app/consumer_register/{codigo_de_mercado}
 ```
 /// admonition | Código de mercado
     type: info
-El código de mercado es la abreviatura del nombre del mercado. Por ejemplo: mad para Madrid, nav para Navarra, ara para Aragón, etc.
+El código de mercado es la abreviatura del nombre del mercado. Se puede consultar en la sección Personalizar Mercado TODO-LINK
 ///
 
 /// admonition | Integración en web propia del Mercado
     type: info
-Esta dirección se puede incrustar en un elemento `<iframe>` para poder enviar la solicitud desde otros sitios web. 
-Para ello habría que hablar con la persona administradora del sitio web del Mercado correspondiente.
+
+Este formulario se puede incrustar en un elemento `<iframe>`. Más detalles en la sección 
+[Integraciones -> Web](../../integraciones/web/#2-formulario-de-alta-de-consumidoras) 
 ///
 
 En este proceso hay 2 pasos:

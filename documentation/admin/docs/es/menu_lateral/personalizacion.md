@@ -25,7 +25,8 @@ cómoda un email a esta dirección de contacto del mercado.
 - Enlace a la política de privacidad. Necesario solo para mercados que tengan habilitado el formulario público de registro.
 Este enlace se mostrará en dicho formulario. Es obligatorio por la Ley de Protección de Datos.
 - Distintivo del balance/auditoría social. Es la imagen que se mostrará en la ficha de entidades (tanto en la app como en el listado 
-público de la web) que tengan hecho y visible su balance/auditoría social.
+público de la web) que tengan hecho y visible su balance/auditoría social. *(tamaño recomendado 600px, formato cuadrado 
+con fondo transparente)*
 
 - Enlace a la página de información básica de mercado: Esta página se muestra en la app móvil. Como se puede ver en esta imagen, 
 se trata de mostrar al usuario el objetivo y los valores del Mercado Social de un vistazo.
@@ -34,7 +35,7 @@ se trata de mostrar al usuario el objetivo y los valores del Mercado Social de u
 
 /// admonition | Recomendación
     type: tip
-Este campo no es obligatorio, si se deja en blanco aparece el diseño de la imagen de la derecha, cambiando el nombre del mercado
+Este campo no es obligatorio, si se deja en blanco aparece el diseño de la imagen anterior, cambiando el nombre del mercado
 en la frase del final, pero si se quiere poner una web personalizada, se puede rellenar este campo.
 ///
 
