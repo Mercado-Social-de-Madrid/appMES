@@ -18,7 +18,7 @@ def update_embedding(sender, instance, **kwargs):
     logging.info(f"🔄 Vectorizing Provider ID {instance.pk}...")
     vectorize_records("market",
                       "Provider",
-                      ["name", "services"],
+                      ["services"],
                       "embedding_description",
                       instance,
                       False)

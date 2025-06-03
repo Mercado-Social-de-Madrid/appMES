@@ -37,6 +37,7 @@ class SemanticSearchFilter(SearchFilter):
                 similarity=CosineDistance(self.vector_field, query_embedding),
                 exact_match=ExpressionWrapper(reduce(operator.or_, self.get_subquery_list(query_text)), output_field=BooleanField())
             ).filter(
+                similarity__lt=0.8,
                 **{f"{self.vector_field}__isnull": False}  # Excluir registros sin embeddings
             ).order_by('-exact_match', 'similarity')  # Ordenar por similitud
 
