@@ -38,7 +38,8 @@ https://mercadosocial.app/consumer_register/{codigo_de_mercado}
 ```
 /// admonition | Código de mercado
     type: info
-El código de mercado es la abreviatura del nombre del mercado. Se puede consultar en la sección Personalizar Mercado TODO-LINK
+El código de mercado es la abreviatura del nombre del mercado. Se muestra junto al nombre del territorio en la parte
+superior izquierda.
 ///
 
 /// admonition | Integración en web propia del Mercado

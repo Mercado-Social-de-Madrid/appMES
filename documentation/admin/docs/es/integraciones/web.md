@@ -24,7 +24,7 @@ Se muestra el listado de nuestras entidades activas. Al pulsar el botón "Más i
 con la descripción, productos/servicios y dirección.
 
 Si la entidad tiene añadido un link a su infografía de balance/auditoría social, se muestra el sello configurado en la pantalla 
-Personalizar mercado TODO-LINK . Al pulsar dicha imagen se abre en otra pestaña su infografía.
+[Personalizar mercado](../../menu_lateral/personalizacion/#1-datos-basicos). Al pulsar dicha imagen se abre en otra pestaña su infografía.
 
 De la misma manera, si hay información de :material-leaf: ventajas, aparece un botón que muestra su información.
 

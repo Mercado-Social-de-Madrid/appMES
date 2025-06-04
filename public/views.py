@@ -8,6 +8,7 @@ from core.mixins.ListItemUrlMixin import ListItemUrlMixin
 from core.mixins.XFrameExemptMixin import XFrameOptionsExemptMixin
 from core.models import Node
 from helpers.filters.SearchFilter import SearchFilter
+from helpers.filters.SemanticSearchFilter import SemanticSearchFilter
 from helpers.filters.filtermixin import FilterMixin
 from helpers.forms.BootstrapForm import BootstrapForm
 from market.mixins.current_market import MarketMixin
@@ -28,7 +29,10 @@ class ProviderFilterForm(BootstrapForm):
 
 
 class ProviderFilter(FilterSet):
-    search = SearchFilter(names=['address', 'cif', 'name', 'email', 'member_id'], lookup_expr='in', label=_('Buscar...'))
+    search = SemanticSearchFilter(
+        names=['name', 'description', 'short_description', 'services'],
+        vector_field='embedding_description',
+        label=_('Búsqueda semántica...'))
 
     class Meta:
         model = Provider

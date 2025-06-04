@@ -11,7 +11,8 @@ al móvil y pueden acceder de forma más directa a los mensajes que se quieran m
 En la aplicación móvil se ven a través de la sección "Destacados". Esta sección incluye las ofertas que lanzan las entidades, 
 junto con las noticias del MES, se ordenan de forma cronológica.
 
-Pulsa aquí TODO-LINK para ver cómo se muestran las noticias en la app móvil.
+Para ver cómo se muestran las noticias en la app móvil, navega hasta la sección 
+[Destacados de la guía de usuario](/docs/user/aplicacion_movil/destacados/)
 
 Acciones de administración:
 

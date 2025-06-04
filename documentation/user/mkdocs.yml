@@ -80,4 +80,6 @@ nav:
       - panel_gestion/proveedoras/ventajas.md
     - Consumidoras:
       - panel_gestion/consumidoras/index.md
+  - Accesibilidad: accesibilidad.md
   - Problemas comunes: problemas_comunes.md
+  - Software libre: software_libre.md

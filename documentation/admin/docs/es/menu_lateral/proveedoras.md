@@ -4,7 +4,7 @@ icon: material/store
 
 # Proveedoras
 Desde esta pantalla podrás gestionar las entidades proveedoras relacionadas con tu Mercado. Éstas se muestran en
-la ápp móvil TODO-LINK-USER-GUIDE y la web TODO-LINK-INTEGRACIONES.
+la [app móvil](/docs/user/aplicacion_movil/entidades/) y [la web](../../integraciones/web/#1-listado-de-entidades).
 
 ## Ver detalles de la proveedora
 Para ver en detalle una proveedora, haz click en la fila de la proveedora que quieres consultar. Esto te llevará a otra 

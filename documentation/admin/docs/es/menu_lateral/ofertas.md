@@ -21,4 +21,5 @@ Estos son los campos que se permiten configurar en Ofertas:
 - Precio con descuento
 - Activa o inactiva (por si se quiere dejar "en borrador" hasta que se decida activar)
 
-Para ver cómo se muestran las ofertas en la app móvil, navega hasta la sección Ofertas TODO-LINK de la guía de usuario
+Para ver cómo se muestran las ofertas en la app móvil, navega hasta la sección 
+[Destacados de la guía de usuario](/docs/user/aplicacion_movil/destacados/)

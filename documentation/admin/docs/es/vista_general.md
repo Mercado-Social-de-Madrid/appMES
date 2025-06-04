@@ -28,7 +28,7 @@ Desde entonces seguimos mejorando este sistema digital y también la coordinaci�
 
 ## :material-flag-checkered: Objetivo 
 
-El objetivo es facilitar las tareas de gestión de un Mercado, ayudar a las entidades de la ESS a promocionar sus servicios
+El objetivo es facilitar las tareas de gestión de entidades de un Mercado, ayudar a las entidades de la ESS a promocionar sus servicios
 y crear intercooperación, y ofrecer a las consumidoras una red que garantiza un consumo ético, fortaleciendo el vínculo 
 al Mercado de estos tres perfiles mediante herramientas tecnológicas modernas y accesibles.
 
@@ -41,11 +41,13 @@ que se desarrollan de forma independiente:
 - Aplicación web + Backend: Es la parte que funciona dentro de un servidor, gestiona la base de datos y permite acceder
 a la web pública y paneles de gestión privados (administración, entidades y consumidoras). Además, proporciona la interfaz
 de comunicación necesaria para las aplicaciones móviles (técnicamente conocida como API)
-- Aplicación Android: permite acceder a la información del mercado de forma rápida, integra notificaciones instantáneas
+- [Aplicación Android](https://play.google.com/store/apps/details?id=net.mercadosocial.moneda){ target=blank }: 
+permite acceder a la información del mercado de forma rápida, integra notificaciones instantáneas
 (como cuando llega un mensaje de Telegram o Whatsapp) para noticias del Mercado y ofertas de entidades y permite el acceso
 de socias mediante usuario y contraseña para mostar su carné digital y ver sus ventajas. Esto último es configurable según 
 el Mercado.
-- Aplicación iOS: para iPhone y iPad, con las mismas funciones que la de Android pero con algunos cambios de elementos visuales
+- [Aplicación iOS](https://apps.apple.com/es/app/mercado-social/id1458549528?itsct=apps_box_badge&itscg=30200){ target=blank }: 
+para iPhone y iPad, con las mismas funciones que la de Android pero con algunos cambios de elementos visuales
 para adaptarlos a los sistemas de iOS.
 
 En este diagrama se muestra la infraestructura general
@@ -55,14 +57,15 @@ En este diagrama se muestra la infraestructura general
 
 Aunque se detalla su funcionamiento en las siguientes secciones, este es un resumen de las características del sistema:
 
-- Entidades proveedoras: Información pública en la web y las apps móviles
-- Carné digital: Las socias pueden acceder a él con su usuario y contraseña a través de web y apps móviles. Las entidades
+- **Entidades proveedoras**: Listado de todas las entidades del mercado con su ficha de información y funciones de búsqueda 
+en la web y las apps móviles
+- **Carné digital**: Las socias pueden acceder a él con su usuario y contraseña a través de web y apps móviles. Las entidades
 proveedoras, además pueden escanear el carné de una socia para comprobar su validez.
-- Noticias y ofertas: para promoción de eventos del mercado y entidades. Se consultan desde la app y llegan con notificación de aviso.
-- Paneles de gestión web según el perfil:
-  - Administración: Para personas encargadas de la gestión de un mercado territorial. Permiten la gestión de socias
+- **Noticias y ofertas**: para promoción de eventos del mercado y entidades. Se consultan desde la app y llegan con notificación de aviso.
+- **Paneles de gestión** web según el perfil:
+    - **Administración**: Para personas encargadas de la gestión de un mercado territorial. Permiten la gestión de socias
     (proveedoras y consumidoras) y toda la información pública que se ve en la web y apps móviles.
-  - Proveedoras: pueden gestionar su información pública (descripción, servicios, rrss, imágenes...), publicar ofertas y 
-  ver su carné digital
-  - Consumidoras: pueden ver y descargar su carné digital, acceder a su información de socia, y ver las últimas noticias.
+    - **Proveedoras**: pueden gestionar su información pública (descripción, servicios, rrss, imágenes...), publicar ofertas y 
+    ver su carné digital
+    - **Consumidoras**: pueden ver y descargar su carné digital, acceder a su información de socia, y ver las últimas noticias.
 
