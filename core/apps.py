@@ -5,34 +5,40 @@ from django.apps import AppConfig
 import os
 import logging
 from sentence_transformers import SentenceTransformer
-
-global embedding_model
+import threading
 
 class CoreConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'core'
 
+    _model_lock = threading.Lock()
     _embedding_model = None
+    _model_loaded = False
 
     def ready(self):
 
-        # Solo inicializar en el servidor web, no en comandos
+        # Solo cargar en el proceso principal del servidor
         import sys
-        if 'runserver' in sys.argv or 'gunicorn' in sys.argv[0]:
-            pass  # No cargar aquí, usar lazy loading
+        if any(cmd in sys.argv for cmd in ['runserver', 'gunicorn']):
+            self._load_model_if_needed()
 
-    @classmethod
-    def get_embedding_model(cls):
-        if cls._embedding_model is None:
+    def _load_model_if_needed(self):
+        logging.info(f">> checking model loaded flag: {self._model_loaded}")
+        if not self._model_loaded:  # Verificación rápida sin lock
+            with self._model_lock:
+                logging.info(f">> checking model loaded: {self._embedding_model}")
+                if not self._embedding_model:
+                    # Cargar el modelo solo cuando se necesite
+                    logging.info("🔄 Loading embedding model into memory...")
+                    # Load embedding model for use in CPU
+                    self._embedding_model = SentenceTransformer(
+                        os.getenv('ST_MODEL', 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'),
+                        device='cpu'
+                    )
+                    logging.info(f"✅ Embedding model loaded. {self._embedding_model}")
+                    self._model_loaded = True
 
-            # Cargar el modelo solo cuando se necesite
-            logging.info("🔄 Loading embedding model into memory...")
-            # Load embedding model for use in CPU
-            cls._embedding_model = SentenceTransformer(
-                os.getenv('ST_MODEL', 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'),
-                device='cpu'
-            )
-            logging.info(f"✅ Embedding model loaded. {cls._embedding_model}")
-
-        return cls._embedding_model
+    def get_embedding_model(self):
+        self._load_model_if_needed()
+        return self._embedding_model
 
