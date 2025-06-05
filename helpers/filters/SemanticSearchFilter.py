@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 from helpers.filters.SearchFilter import SearchFilter
 
 # Obtener el modelo de embeddings cargado en apps.py (evita recargas innecesarias)
-embedding_model = apps.get_app_config("core").embedding_model
+embedding_model = apps.get_app_config("core").get_embedding_model()
 
 class SemanticSearchFilter(SearchFilter):
     def __init__(self, vector_field='embedding_description', names=[], *args, **kwargs):

@@ -14,7 +14,7 @@ nltk.download("stopwords")
 STOPWORDS_ES = set(stopwords.words("spanish"))
 
 # Get the embedding model loaded in `apps.py`
-embedding_model = apps.get_app_config("core").embedding_model
+embedding_model = apps.get_app_config("core").get_embedding_model()
 
 def clean_text(text):
     """Cleans text by removing HTML, URLs, special characters, and normalizing spaces."""
