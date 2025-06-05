@@ -1,0 +1,18 @@
+from django.template import Library
+from django.urls import reverse
+
+register = Library()
+UNSET = object()
+
+HIGH_SIMILARITY_THRESHOLD = 0.45
+LOW_SIMILAIRITY_THRESHOLD = 0.6
+
+@register.simple_tag(takes_context=True)
+def similarity_check(context, similarity, *args, **kwargs):
+
+    if similarity < HIGH_SIMILARITY_THRESHOLD:
+        return 'high', 'similarity-high text-black-50'
+    elif similarity > LOW_SIMILAIRITY_THRESHOLD:
+        return 'low', 'similarity-low text-black-50'
+    else:
+        return 'medium', 'similarity-medium text-black-50'

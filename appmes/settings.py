@@ -328,3 +328,6 @@ FCM_DJANGO_SETTINGS = {
 
 # ======= APP Links Configuration ======
 ASSETLINKS_FILE = os.path.join(ROOT_DIR, env('ASSETLINKS_FILE'))
+
+# ======= Semantic search Config =======
+SEMANTIC_SIMILARITY_THRESHOLD = env('SEMANTIC_SIMILARITY_THRESHOLD', float, 0.7)

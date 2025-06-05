@@ -1,6 +1,7 @@
 import operator
 from functools import reduce
 import django_filters
+from django.conf import settings
 from django.db.models import Q, ExpressionWrapper, BooleanField
 from pgvector.django import CosineDistance
 from core.vectorize import clean_text
@@ -15,7 +16,7 @@ from helpers.filters.SearchFilter import SearchFilter
 embedding_model = apps.get_app_config("core").embedding_model
 
 class SemanticSearchFilter(SearchFilter):
-    def __init__(self, vector_field=None, names=[], *args, **kwargs):
+    def __init__(self, vector_field='embedding_description', names=[], *args, **kwargs):
         """
         Filtro para búsqueda semántica reutilizable en cualquier modelo Django con pgvector.
         :param vector_field: Nombre del campo vectorial en la base de datos (ej. 'embedding_description').
@@ -37,7 +38,7 @@ class SemanticSearchFilter(SearchFilter):
                 similarity=CosineDistance(self.vector_field, query_embedding),
                 exact_match=ExpressionWrapper(reduce(operator.or_, self.get_subquery_list(query_text)), output_field=BooleanField())
             ).filter(
-                similarity__lt=0.8,
+                similarity__lt=settings.SEMANTIC_SIMILARITY_THRESHOLD,
                 **{f"{self.vector_field}__isnull": False}  # Excluir registros sin embeddings
             ).order_by('-exact_match', 'similarity')  # Ordenar por similitud
 

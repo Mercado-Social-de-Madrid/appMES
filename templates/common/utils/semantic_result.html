@@ -1,0 +1,25 @@
+{% load similarity_check %}
+{% load i18n %}
+
+<div class="semantic-result">
+{% if item.exact_match %}
+    <i class="material-icons-outlined" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Resultado exacto' %}">check</i>
+{% else %}
+    {% similarity_check item.similarity as similarity %}
+    <i class="material-icons-outlined"
+       {% if similarity.0 == 'low' %}
+            title="{% translate 'Búsqueda semántica: Similitud baja' %}"
+        {% endif %}
+
+        {% if similarity.0 == 'medium' %}
+            title="{% translate 'Búsqueda semántica: Similitud media' %}"
+        {% endif %}
+
+        {% if similarity.0 == 'high' %}
+            title="{% translate 'Búsqueda semántica: Similitud alta' %}"
+        {% endif %}
+    data-toggle="tooltip" data-placement="bottom" >
+        api
+    </i>
+{% endif %}
+</div>

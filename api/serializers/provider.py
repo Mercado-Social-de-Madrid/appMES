@@ -3,11 +3,12 @@ from rest_framework import serializers
 from api.serializers.benefits import BenefitsSerializer
 from api.serializers.gallery import GallerySerializer
 from api.serializers.offers import OffersSerializer
+from api.serializers.semantic import SemanticSearchSerializerMixin
 from api.serializers.social_profile import SocialProfileSerializer
 from market.models import Provider
 
 
-class ProviderSerializer(serializers.ModelSerializer):
+class ProviderSerializer(SemanticSearchSerializerMixin, serializers.ModelSerializer):
     profile_image = serializers.StringRelatedField(source="profile_image.name")
     social_profiles = SocialProfileSerializer(many=True, read_only=True)
     gallery = GallerySerializer(many=False, read_only=True)
@@ -17,12 +18,13 @@ class ProviderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Provider
-        exclude = ['embedding_description']
+        exclude = ['embedding_description', 'not_listed']
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         if representation['profile_image'] is None:
             representation['profile_image'] = ''
+
         return representation
 
 

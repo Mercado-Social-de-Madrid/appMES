@@ -9,6 +9,7 @@ from rest_framework.views import APIView
 from api.filters.provider import ProviderFilter
 from api.mixins.FilterByNodeMixin import FilterByNodeMixin
 from api.serializers.provider import ProviderSerializer, ProviderGeoJsonSerializer
+from helpers.filters.SemanticSearchFilter import SemanticSearchFilter
 from market.models import Provider
 from rest_framework import authentication, status
 from rest_framework.permissions import IsAuthenticated
@@ -16,10 +17,9 @@ from rest_framework.response import Response
 
 
 class ProviderViewSet(FilterByNodeMixin, viewsets.ReadOnlyModelViewSet):
-    queryset = Provider.objects.all()
+    queryset = Provider.objects.filter(not_listed=False)
     serializer_class = ProviderSerializer
-    search_fields = ['name', 'description', 'short_description', 'email']
-    filter_backends = [DjangoFilterBackend, SearchFilter]#, SemanticSearchFilter]
+    filter_backends = [DjangoFilterBackend]#, SemanticSearchFilter]
     filterset_class = ProviderFilter
 
 
