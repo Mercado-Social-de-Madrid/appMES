@@ -9,7 +9,8 @@ LOW_SIMILAIRITY_THRESHOLD = 0.6
 
 @register.simple_tag(takes_context=True)
 def similarity_check(context, similarity, *args, **kwargs):
-
+    if not similarity:
+        return '',''
     if similarity < HIGH_SIMILARITY_THRESHOLD:
         return 'high', 'similarity-high text-black-50'
     elif similarity > LOW_SIMILAIRITY_THRESHOLD:

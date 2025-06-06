@@ -63,12 +63,11 @@
          </div>
       </div>
    </div>
-            {% if 'search' in request.GET %}
-            {% include 'common/utils/semantic_result.html' with item=item %}
-            {% endif %}
-
-        </div>
+        {% if 'search' in request.GET and request.GET.search %}
+        {% include 'common/utils/semantic_result.html' with item=item %}
+        {% endif %}
     </div>
+</div>
 </td>
 
 
