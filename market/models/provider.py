@@ -7,7 +7,10 @@ from django.utils.translation import gettext_lazy as _
 from core.models import Gallery
 from market.models import Category
 from pgvector.django import VectorField
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
+from core.vectorize import vectorize_records
 
 class Provider(Account):
 
@@ -65,3 +68,17 @@ class Provider(Account):
     @property
     def qr_code(self):
         return settings.BASESITE_URL + reverse('entity_qr_detail',  kwargs={'pk': self.pk} )
+
+
+@receiver(pre_save, sender=Provider)
+def update_embedding(sender, instance, **kwargs):
+    """
+    Signal that is automatically executed when a record is inserted or updated in Provider.
+    """
+    vectorize_field = "services" if instance.services else "description"
+    vectorize_records("market",
+                      "Provider",
+                      [vectorize_field],
+                      "embedding_description",
+                      instance=instance,
+                      save=False)

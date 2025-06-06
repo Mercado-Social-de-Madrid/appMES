@@ -36,12 +36,13 @@ def clean_text(text):
     tokens = [word for word in tokens if word not in STOPWORDS_ES]
     return " ".join(tokens)
 
-def vectorize_records(app_name, model_name, text_fields, vector_field, instance=None, save=True):
+def vectorize_records(app_name, model_name, text_fields, vector_field, node=None, instance=None, save=True):
     """
     Vectorizes records from any model.
     :param model_name: Name of the Django model.
     :param text_fields: List of text fields to use.
     :param vector_field: Name of the field to save the embedding.
+    :param node: Only vectorize records of specific node. Optional
     :param instance: Specific instance if you want to update only one record.
     :param save: Save the object after vectorization.
     """
@@ -56,7 +57,11 @@ def vectorize_records(app_name, model_name, text_fields, vector_field, instance=
     if instance:
         instances = [instance]  # If an instance is provided, only process that one
     else:
-        instances = model_class.objects.all()  # Bulk processing
+        # Bulk processing
+        if node:
+            instances = model_class.objects.filter(node=node)
+        else:
+            instances = model_class.objects.all()
 
     for obj in instances:
         # Concatenate and clean the texts
