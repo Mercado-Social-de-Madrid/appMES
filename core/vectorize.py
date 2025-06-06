@@ -3,6 +3,8 @@
 
 import logging
 import re
+
+from django.conf import settings
 from sentence_transformers import SentenceTransformer
 from bs4 import BeautifulSoup
 import nltk
@@ -43,6 +45,9 @@ def vectorize_records(app_name, model_name, text_fields, vector_field, instance=
     :param instance: Specific instance if you want to update only one record.
     :param save: Save the object after vectorization.
     """
+
+    if not settings.ENABLE_VECTOR_EMBEDDING:
+        return
 
     model_class = apps.get_model(app_name, model_name)  # Get model dynamically
 

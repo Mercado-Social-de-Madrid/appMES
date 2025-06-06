@@ -5,6 +5,7 @@
 {% if item.exact_match %}
     <i class="material-icons-outlined" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Resultado exacto' %}">check</i>
 {% else %}
+    {% if item.similarity %}
     {% similarity_check item.similarity as similarity %}
     <i class="material-icons-outlined"
        {% if similarity.0 == 'low' %}
@@ -21,5 +22,6 @@
     data-toggle="tooltip" data-placement="bottom" >
         api
     </i>
+    {% endif %}
 {% endif %}
 </div>

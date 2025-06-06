@@ -4,6 +4,8 @@
 from django.apps import AppConfig
 import os
 import logging
+
+from django.conf import settings
 from sentence_transformers import SentenceTransformer
 import threading
 
@@ -23,6 +25,10 @@ class CoreConfig(AppConfig):
             self._load_model_if_needed()
 
     def _load_model_if_needed(self):
+
+        if not settings.ENABLE_VECTOR_EMBEDDING:
+            return
+
         logging.info(f">> checking model loaded flag: {self._model_loaded}")
         if not self._model_loaded:  # Verificación rápida sin lock
             with self._model_lock:
