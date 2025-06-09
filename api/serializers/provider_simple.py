@@ -8,4 +8,4 @@ class ProviderSimpleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Provider
-        fields = ['name', 'profile_image', 'webpage_link']
+        fields = ['id', 'name', 'profile_image', 'webpage_link']
