@@ -1,0 +1,15 @@
+meta {
+  name: List Providers Filter Text
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{URL}}/api/v2/nodes/{{node_id}}/providers/?search=musica
+  body: none
+  auth: none
+}
+
+params:query {
+  search: musica
+}
