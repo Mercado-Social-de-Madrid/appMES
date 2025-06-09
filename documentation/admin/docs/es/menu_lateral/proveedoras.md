@@ -33,6 +33,23 @@ En esta pantalla se te pedirán varios datos referentes a la proveedora dividida
   - Categorías a las que pertenece. [Ver cómo gestionar categorías](categorias.md)
   - Número de personas trabajadoras
 
+[](){ #productos-servicios }
+/// admonition | Productos y servicios
+    type: tip
+Este campo es el más importante para la [búsqueda semántica](../busqueda_semantica.md), la forma óptima de completarlo 
+para optimizar las búsquedas es enumerar en diferentes líneas los productos y servicios principales, ordenados por 
+importancia y lo más escueto posible.
+
+Por ejemplo para una entidad de diseño gráfico, se podría rellenar así:
+
+Diseño gráfico<br>
+Ilustración<br>
+Diseño web<br>
+Identidad corporativa<br>
+Diseño editorial<br>
+
+///
+
 ### Galería
   - Fotografías de la proveedora (tamaño recomendado: máximo 1000px de ancho, formato horizontal)
 

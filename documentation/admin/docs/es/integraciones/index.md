@@ -1,7 +1,11 @@
+---
+icon: material/application-brackets-outline
+---
+
 # Integraciones
 
-Existen varias maneras de vincular los datos que se administran en esta aplicación con otros sistemas.
-Lo más habitual es integrar estos datos en las webs oficiales de cada Mercado.
+Existen varias maneras de vincular los datos que se administran en esta aplicación con otros sistemas como 
+las webs oficiales de cada Mercado, importar y exportar para tratar datos en programas como Excell, etc.
 
-A continuación se describen las diferentes formas de crear integraciones:
+↙️ En las siguientes secciones se describen las diferentes formas de crear integraciones.
 

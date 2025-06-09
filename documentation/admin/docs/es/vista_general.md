@@ -40,7 +40,9 @@ que se desarrollan de forma independiente:
 
 - Aplicación web + Backend: Es la parte que funciona dentro de un servidor, gestiona la base de datos y permite acceder
 a la web pública y paneles de gestión privados (administración, entidades y consumidoras). Además, proporciona la interfaz
-de comunicación necesaria para las aplicaciones móviles (técnicamente conocida como API)
+de comunicación necesaria para las aplicaciones móviles (técnicamente conocida como [API](integraciones/api.md)).
+La aplicación web se puede ver a través de la siguiente dirección: [mercadosocial.app](https://mercadosocial.app){ target=blank }.
+Aqui se muestra una página de presentación y **enlaces a los listados de entidades de los diferentes territorios** incluidos en esta app.
 - [Aplicación Android](https://play.google.com/store/apps/details?id=net.mercadosocial.moneda){ target=blank }: 
 permite acceder a la información del mercado de forma rápida, integra notificaciones instantáneas
 (como cuando llega un mensaje de Telegram o Whatsapp) para noticias del Mercado y ofertas de entidades y permite el acceso

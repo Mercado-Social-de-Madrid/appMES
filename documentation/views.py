@@ -36,4 +36,4 @@ class DocsView(View):
 
 
     def can_access_docs(self, user, docs_type):
-        return docs_type == 'user' or (user.is_authenticated and (user.is_staff or user.is_superuser))
+        return True # Docs public for everyone

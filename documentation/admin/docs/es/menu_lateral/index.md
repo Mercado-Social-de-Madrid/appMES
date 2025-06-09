@@ -1,3 +1,6 @@
+---
+icon: material/menu
+---
 
 # Menú lateral
 
@@ -7,7 +10,7 @@ El Menú Lateral de la aplicación proporciona acceso rápido y sencillo a las d
     
 /// admonition | Versión móvil 
     type: info
-Si estás en un dispositivo móvil, deberás pulsar el icono :material-menu: para abrir el menú lateral.
+Si estás viendo esta web de administración desde un dispositivo móvil, deberás pulsar el icono :material-menu: para abrir el menú lateral.
 ///
 
 
