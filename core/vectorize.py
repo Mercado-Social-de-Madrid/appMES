@@ -3,6 +3,8 @@
 
 import logging
 import re
+import unicodedata
+from html import unescape
 
 from django.conf import settings
 from sentence_transformers import SentenceTransformer
@@ -27,11 +29,14 @@ def clean_text(text):
     if not text:
         return ""
 
-    text = BeautifulSoup(text, "html.parser").get_text(separator=" ")
-    text = re.sub(r"http\S+|www\S+|https\S+", "", text, flags=re.MULTILINE)
-    text = re.sub(r"[^a-zA-Z0-9áéíóúüñÁÉÍÓÚÜÑ.,;!?()'\"\s]", "", text)
-    text = re.sub(r"\s+", " ", text).strip()
+    text = unescape(text) # Decodificar entidades HTML
+    text = re.sub(r'<[^>]+>', '', text) # Eliminar etiquetas HTML
+    text = unicodedata.normalize('NFD', text) # Eliminar acentos y diacríticos
+    text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
+    text = re.sub(r'[^a-zA-Z0-9\s]', '', text) # Eliminar caracteres especiales, mantener solo letras, números y espacios
+    text = re.sub(r'\s+', ' ', text).strip() # Normalizar espacios (eliminar múltiples spaces y strip)
     text = text.lower()
+
     tokens = text.split()
     tokens = [word for word in tokens if word not in STOPWORDS_ES]
     return " ".join(tokens)
