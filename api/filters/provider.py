@@ -19,4 +19,4 @@ class ProviderFilter(FilterSet):
     search = SemanticSearchFilter(
         names=['name', 'address', 'description', 'short_description', 'services'],
         vector_field='embedding_description',
-        label=_('Búsqueda semántica...'))
+        label=_('Búsqueda...'))
