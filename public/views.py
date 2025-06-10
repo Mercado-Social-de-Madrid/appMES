@@ -30,9 +30,9 @@ class ProviderFilterForm(BootstrapForm):
 
 class ProviderFilter(FilterSet):
     search = SemanticSearchFilter(
-        names=['name', 'address', 'description', 'short_description', 'services'],
+        names=['name', 'description', 'short_description', 'services'],
         vector_field='embedding_description',
-        label=_('Búsqueda semántica...'))
+        label=_('Buscar...'))
 
     class Meta:
         model = Provider
