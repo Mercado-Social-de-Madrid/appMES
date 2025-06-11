@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MES web app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-04 11:24+0000\n"
+"POT-Creation-Date: 2025-06-09 08:53+0000\n"
 "PO-Revision-Date: 2024-08-16 17:44+0100\n"
 "Last-Translator: Julio\n"
 "Language-Team: Basque (Spain)\n"
@@ -16,13 +16,19 @@ msgstr ""
 "X-Loco-Project-Id: 161257\n"
 "X-Loco-Api-Version: 1.0.28 20240827-1\n"
 
+#: api/filters/provider.py:22 public/views.py:35
+msgid "Búsqueda semántica..."
+msgstr ""
+
 #: api/views/auth.py:68
 msgid "Usuario no encontrado."
 msgstr "Erabiltzailea ez da aurkitu."
 
 #: api/views/auth.py:73
 msgid "Tu cuenta no está activa, revisa tu bandeja de entrada de correo."
-msgstr "Zure kontua ez dago aktibo, egiaztatu zure posta elektronikoko sarrera-ontzia."
+msgstr ""
+"Zure kontua ez dago aktibo, egiaztatu zure posta elektronikoko sarrera-"
+"ontzia."
 
 #: api/views/auth.py:137
 msgid "Usuario eliminado con éxito."
@@ -40,21 +46,13 @@ msgstr "Badago posta elektroniko honekin erregistratutako erabiltzaile bat."
 msgid "No existe objeto entity o person en el cuerpo de la petición"
 msgstr "Ez dago entitate edo pertsona objekturik eskaeraren gorputzean"
 
-#: appmes/settings.py:188
+#: appmes/settings.py:189
 msgid "Castellano"
 msgstr "gaztelania"
-
-#: appmes/settings.py:189
-msgid "Catalá"
-msgstr "Katalana"
 
 #: appmes/settings.py:190
 msgid "Euskara"
 msgstr "euskara"
-
-#: appmes/settings.py:191
-msgid "Galego"
-msgstr "Galiziera"
 
 #: authentication/admin.py:34 authentication/admin.py:67
 #: templates/registration/login.html:36 templates/user/profile.html:26
@@ -66,7 +64,9 @@ msgid "Repetir contraseña"
 msgstr "Pasahitza errepikatu "
 
 #: authentication/admin.py:68
-msgid "Puedes cambiar la contraseña haciendo click en <a href=\"../password/\">este enlace</a>."
+msgid ""
+"Puedes cambiar la contraseña haciendo click en <a href=\"../password/\">este "
+"enlace</a>."
 msgstr "Pasahitza alda dezakezu <a href=\"../password/\">esteka honetan."
 
 #: authentication/admin.py:95
@@ -88,7 +88,7 @@ msgstr "Zuk kudeatzen duzun merkatua"
 #: authentication/forms/user.py:20 authentication/models/user.py:54
 #: core/models/node.py:12 core/models/social_profile.py:10 market/admin.py:36
 #: market/models/category.py:10 market/models/consumer.py:10
-#: market/models/provider.py:13 templates/category/query.html:6
+#: market/models/provider.py:17 templates/category/query.html:6
 #: templates/consumer/detail.html:61 templates/consumer/query.html:8
 #: templates/offers/query.html:7
 msgid "Nombre"
@@ -159,10 +159,10 @@ msgid "Usuario"
 msgstr "Erabiltzailea"
 
 #: authentication/models/user.py:67 templates/navbar/admin.html:19
-#: templates/navbar/market.html:20 templates/user/add.html:14
+#: templates/navbar/market.html:23 templates/user/add.html:14
 #: templates/user/delete.html:18 templates/user/edit.html:7
 #: templates/user/edit.html:15 templates/user/list.html:4
-#: templates/user/list.html:11 templates/user/password.html:7
+#: templates/user/list.html:12 templates/user/password.html:7
 #: templates/user/password.html:17
 msgid "Usuarios"
 msgstr "Erabiltzaileak"
@@ -205,8 +205,8 @@ msgid "Email de prerregistro reenviado"
 msgstr "Aurrez izena emateko mezu elektronikoa birbidali da"
 
 #: authentication/views/user.py:24 benefits/views.py:25
-#: market/views/consumer.py:27 market/views/provider.py:35 news/views.py:24
-#: offers/views.py:86 public/views.py:30
+#: market/views/consumer.py:27 market/views/provider.py:39 news/views.py:24
+#: offers/views.py:86
 msgid "Buscar..."
 msgstr "Bilatu..."
 
@@ -298,9 +298,9 @@ msgid "Título"
 msgstr "Izenburua"
 
 #: core/models/custom_text.py:14 market/models/category.py:11
-#: market/models/provider.py:14 news/models/news.py:18
+#: market/models/provider.py:18 news/models/news.py:18
 #: offers/models/offer.py:57 templates/category/query.html:7
-#: templates/news/query.html:9
+#: templates/news/query.html:9 templates/public/provider/query.html:97
 msgid "Descripción"
 msgstr "Deskribapena"
 
@@ -329,7 +329,7 @@ msgid "Descripción adicional"
 msgstr "Deskribapen gehigarria"
 
 #: core/models/custom_text.py:42 core/models/node.py:50
-#: core/models/social_profile.py:35 market/views/provider.py:56
+#: core/models/social_profile.py:35 market/views/provider.py:61
 #: templates/market/query.html:6
 msgid "Mercado"
 msgstr "Merkatua"
@@ -363,14 +363,18 @@ msgid "Visible en listado público"
 msgstr "Zerrenda publikoan ikusgai"
 
 #: core/models/node.py:14
-msgid "Por defecto, un nuevo mercado empieza oculto hasta que esté listo para incluir en la aplicación"
-msgstr "Lehenespenez, merkatu berri bat ezkutatzen hasten da aplikazioan sartzeko prest dagoen arte"
+msgid ""
+"Por defecto, un nuevo mercado empieza oculto hasta que esté listo para "
+"incluir en la aplicación"
+msgstr ""
+"Lehenespenez, merkatu berri bat ezkutatzen hasten da aplikazioan sartzeko "
+"prest dagoen arte"
 
-#: core/models/node.py:15 market/models/provider.py:19
+#: core/models/node.py:15 market/models/provider.py:24
 msgid "Latitud"
 msgstr "Latitudea"
 
-#: core/models/node.py:16 market/models/provider.py:20
+#: core/models/node.py:16 market/models/provider.py:25
 msgid "Longitud"
 msgstr "Luzera"
 
@@ -406,7 +410,7 @@ msgstr "Irudi nagusia"
 msgid "Imagen del distintivo de balance"
 msgstr "Auditoretza sozialaren bereizgarriaren irudia"
 
-#: core/models/node.py:31 market/models/provider.py:31
+#: core/models/node.py:31 market/models/provider.py:36
 msgid "Página web"
 msgstr "Web orria"
 
@@ -489,11 +493,17 @@ msgstr "antolatu..."
 
 #: market/forms/account.py:23
 msgid "Crear usuaria y mandar email de prerregistro"
-msgstr "Sortu erabiltzailea eta bidali aurre-erregistratzeko posta elektronikoa"
+msgstr ""
+"Sortu erabiltzailea eta bidali aurre-erregistratzeko posta elektronikoa"
 
 #: market/forms/account.py:33
 msgid "Ya existe un usuario registrado con este email."
-msgstr "Dagoeneko erregistratutako erabiltzaile bat dago posta elektroniko honekin."
+msgstr ""
+"Dagoeneko erregistratutako erabiltzaile bat dago posta elektroniko honekin."
+
+#: market/forms/market.py:45
+msgid "Dejar en blanco para usar la página por defecto de la app"
+msgstr ""
 
 #: market/models/account.py:17 templates/provider/query.html:9
 msgid "Gestionado por"
@@ -513,6 +523,7 @@ msgid "Número de socia"
 msgstr "Bazkide zenbakia"
 
 #: market/models/account.py:23 templates/consumer/detail.html:88
+#: templates/public/provider/query.html:118
 msgid "Dirección"
 msgstr "Helbidea"
 
@@ -546,8 +557,12 @@ msgid "Boletín de difusión"
 msgstr "Buletina"
 
 #: market/models/consumer.py:16
-msgid "Aceptas recibir el boletín informativo cono noticias y ventajas/ofertas para socias en formato electrónico"
-msgstr "Albisteekin eta abantailak/eskaintzak dituen buletina jasotzea onartzen duzubazkideak formatu elektronikoan"
+msgid ""
+"Aceptas recibir el boletín informativo cono noticias y ventajas/ofertas para "
+"socias en formato electrónico"
+msgstr ""
+"Albisteekin eta abantailak/eskaintzak dituen buletina jasotzea onartzen "
+"duzubazkideak formatu elektronikoan"
 
 #: market/models/consumer.py:19
 msgid "Consumidora"
@@ -556,38 +571,44 @@ msgstr "Kontsumitzailea"
 #: market/models/consumer.py:20 templates/consumer/create.html:15
 #: templates/consumer/delete.html:18 templates/consumer/detail.html:16
 #: templates/consumer/edit.html:14 templates/consumer/list.html:5
-#: templates/consumer/list.html:12 templates/navbar/market.html:54
+#: templates/consumer/list.html:13 templates/navbar/market.html:57
 msgid "Consumidoras"
 msgstr "Kontsumitzaileak"
 
-#: market/models/provider.py:15 news/models/news.py:17
+#: market/models/provider.py:19 news/models/news.py:17
 msgid "Descripción corta"
 msgstr "Deskribapen laburra"
 
-#: market/models/provider.py:16
+#: market/models/provider.py:20 templates/public/provider/query.html:111
 msgid "Productos y servicios"
 msgstr "Produktuak eta zerbitzuak"
 
-#: market/models/provider.py:18
+#: market/models/provider.py:21
+#, fuzzy
+#| msgid "Descripción corta"
+msgid "Descripción y productos vectorizados"
+msgstr "Deskribapen laburra"
+
+#: market/models/provider.py:23
 msgid "Oculta en listado público"
 msgstr "Zerrenda publikoan ezkutatuta"
 
-#: market/models/provider.py:22 templates/category/delete.html:18
+#: market/models/provider.py:27 templates/category/delete.html:18
 #: templates/category/detail.html:5 templates/category/detail.html:13
-#: templates/category/list.html:5 templates/category/list.html:12
-#: templates/navbar/market.html:39
+#: templates/category/list.html:5 templates/category/list.html:13
+#: templates/navbar/market.html:42
 msgid "Categorías"
 msgstr "Kategoriak"
 
-#: market/models/provider.py:24
+#: market/models/provider.py:29
 msgid "Número de trabajadores"
 msgstr "Langile kopurua"
 
-#: market/models/provider.py:25
+#: market/models/provider.py:30
 msgid "Forma legal"
 msgstr "Forma juridikoa"
 
-#: market/models/provider.py:29
+#: market/models/provider.py:34
 msgid "Informe balance"
 msgstr "Auditoretza sozialaren txostena"
 
@@ -616,15 +637,15 @@ msgstr "Datuak behar bezala eguneratu dira."
 msgid "Consumidora eliminada correctamente."
 msgstr "Kontsumitzailea behar bezala ezabatu da."
 
-#: market/views/provider.py:151
+#: market/views/provider.py:154
 msgid "Proveedora añadida correctamente."
 msgstr "Hornitzailea ondo gehitu da."
 
-#: market/views/provider.py:177
+#: market/views/provider.py:180
 msgid "Proveedora actualizada correctamente."
 msgstr "Hornitzailea behar bezala eguneratu da."
 
-#: market/views/provider.py:225
+#: market/views/provider.py:228
 msgid "Proveedora eliminada correctamente."
 msgstr "Hornitzailea behar bezala ezabatu da."
 
@@ -632,11 +653,11 @@ msgstr "Hornitzailea behar bezala ezabatu da."
 msgid "El registro interno no está disponible para este mercado."
 msgstr "Barne erregistroa ez dago eskuragarri merkatu honetarako."
 
-#: market/views/register.py:73
+#: market/views/register.py:83
 msgid "Nueva solicitud de socia consumidora"
 msgstr "Kontsumitzaileen bazkideen aplikazio berria"
 
-#: market/views/register.py:85
+#: market/views/register.py:95
 #, python-brace-format
 msgid "Solicitud de alta en el Mercado Social de {node}"
 msgstr "{node} Merkatu Sozialean izena emateko eskaera"
@@ -728,14 +749,20 @@ msgstr "Erabiltzailea editatu"
 
 #: templates/account/add_user.html:6 templates/account/add_user.html:14
 #: templates/user/add.html:6 templates/user/add.html:14
-#: templates/user/list.html:14
+#: templates/user/list.html:20
 msgid "Nuevo usuario"
 msgstr "Erabiltzaile berria"
 
 #: templates/account/add_user.html:26
 #: templates/account/preregister_switch.html:5
-msgid "Se creará un usuario asociado a la cuenta con el mismo email, y se le enviará un correo electrónico de bienvenida con un enlace único para que establezca su contraseña inicial."
-msgstr "Kontuarekin lotutako erabiltzaile bat sortuko da e-posta berdinarekin, eta ongietorri mezu bat bidaliko da hasierako pasahitza ezartzeko esteka esklusibo batekin."
+msgid ""
+"Se creará un usuario asociado a la cuenta con el mismo email, y se le "
+"enviará un correo electrónico de bienvenida con un enlace único para que "
+"establezca su contraseña inicial."
+msgstr ""
+"Kontuarekin lotutako erabiltzaile bat sortuko da e-posta berdinarekin, eta "
+"ongietorri mezu bat bidaliko da hasierako pasahitza ezartzeko esteka "
+"esklusibo batekin."
 
 #: templates/account/preregister_switch.html:6
 msgid "Esta acción se puede realizar a posteriori."
@@ -746,19 +773,31 @@ msgid "Distintivo de calidad del MESM"
 msgstr "MESM kalitate bereizgarria"
 
 #: templates/balance/detail.html:26
-msgid "Al realizar el Balance/Auditoría Social, además de obtener el sello, infografía e informe personalizado, las entidades que lo soliciten, tendrán este Distintivo de calidad, como herramienta diferenciadora que dará visibilidad y prestigio a vuestra entidad."
-msgstr "Auditoretza Soziala egitean, zigilua, infografia eta txosten pertsonalizatua lortzeaz gain, eskatzen duten erakundeek kalitate-bereizgarri hori izango dute, zuen erakundeari ikusgarritasuna eta ospea emango dion tresna bereizgarri gisa."
+msgid ""
+"Al realizar el Balance/Auditoría Social, además de obtener el sello, "
+"infografía e informe personalizado, las entidades que lo soliciten, tendrán "
+"este Distintivo de calidad, como herramienta diferenciadora que dará "
+"visibilidad y prestigio a vuestra entidad."
+msgstr ""
+"Auditoretza Soziala egitean, zigilua, infografia eta txosten pertsonalizatua "
+"lortzeaz gain, eskatzen duten erakundeek kalitate-bereizgarri hori izango "
+"dute, zuen erakundeari ikusgarritasuna eta ospea emango dion tresna "
+"bereizgarri gisa."
 
 #: templates/balance/detail.html:28
-msgid "El distintivo contiene un QR que permite a las socias visitar un documento como el que se puede ver aquí."
-msgstr "Bereizgarriak QR bat du, bazkideei hemen ikus daitekeen moduko dokumentu bat bisitatzeko aukera ematen diena."
+msgid ""
+"El distintivo contiene un QR que permite a las socias visitar un documento "
+"como el que se puede ver aquí."
+msgstr ""
+"Bereizgarriak QR bat du, bazkideei hemen ikus daitekeen moduko dokumentu bat "
+"bisitatzeko aukera ematen diena."
 
 #: templates/base.html:10
 msgid "Mercado Social"
 msgstr "Merkatu Soziala"
 
 #: templates/benefits/add.html:7 templates/benefits/add.html:17
-#: templates/benefits/list.html:21 templates/provider/detail.html:63
+#: templates/benefits/list.html:27 templates/provider/detail.html:63
 msgid "Añadir ventaja"
 msgstr "Abantaila gehitu"
 
@@ -835,10 +874,10 @@ msgstr "Abantaila hau aldatzeko, jarri harremanetan"
 msgid "Editar ventaja"
 msgstr "Abantaila editatu"
 
-#: templates/benefits/edit.html:19 templates/navbar/market.html:47
+#: templates/benefits/edit.html:19 templates/navbar/market.html:50
 #: templates/offers/entity_list.html:20 templates/provider/create.html:18
 #: templates/provider/delete.html:18 templates/provider/edit.html:18
-#: templates/provider/list.html:18
+#: templates/provider/list.html:19
 msgid "Proveedoras"
 msgstr "Hornitzaileak"
 
@@ -860,34 +899,49 @@ msgid "Ventaja para socias"
 msgstr "Bazkideentzako abantaila"
 
 #: templates/benefits/form.html:69
-msgid "Las ventajas no activas no se mostrarán a los usuarios. Puedes crear una ventaja desactivada y publicarla finalmente cuando creas oportuno."
-msgstr "Ez-aktiboak  bezala duden abantailak ez zaizkie erabiltzaileei erakutsiko. Desaktibatutako abantaila bat sor dezakezu, eta azkenean argitaratu, egoki deritzozunean."
+msgid ""
+"Las ventajas no activas no se mostrarán a los usuarios. Puedes crear una "
+"ventaja desactivada y publicarla finalmente cuando creas oportuno."
+msgstr ""
+"Ez-aktiboak  bezala duden abantailak ez zaizkie erabiltzaileei erakutsiko. "
+"Desaktibatutako abantaila bat sor dezakezu, eta azkenean argitaratu, egoki "
+"deritzozunean."
 
-#: templates/benefits/list.html:8 templates/benefits/list.html:18
-#: templates/dashboard/provider.html:53 templates/navbar/market.html:68
+#: templates/benefits/list.html:8 templates/benefits/list.html:19
+#: templates/dashboard/provider.html:53 templates/navbar/market.html:71
 #: templates/navbar/user_provider_menu.html:13
 #: templates/provider/detail.html:58 templates/provider/query.html:23
-#: templates/public/provider/query.html:76
+#: templates/public/provider/query.html:79
 #: templates/reports/benefits_card.html:8
 msgid "Ventajas"
 msgstr "Abantailak"
 
-#: templates/benefits/list.html:37 templates/benefits/query.html:26
+#: templates/benefits/list.html:21 templates/category/list.html:15
+#: templates/consumer/list.html:15 templates/market/public/edit.html:15
+#: templates/news/list.html:15 templates/offers/list.html:15
+#: templates/provider/list.html:21 templates/user/list.html:14
+msgid "Ayuda"
+msgstr ""
+
+#: templates/benefits/list.html:43 templates/benefits/query.html:26
 msgid "Eliminar ventaja"
 msgstr "Abantaila ezabatu"
 
-#: templates/benefits/list.html:43
-msgid "¿Estás segura de que quieres eliminar esta ventaja? Esta acción no se puede deshacer."
-msgstr "Ziur zaude abantaila hori ezabatu nahi duzula? Ekintza hori ezin da desegin."
+#: templates/benefits/list.html:49
+msgid ""
+"¿Estás segura de que quieres eliminar esta ventaja? Esta acción no se puede "
+"deshacer."
+msgstr ""
+"Ziur zaude abantaila hori ezabatu nahi duzula? Ekintza hori ezin da desegin."
 
-#: templates/benefits/list.html:46 templates/category/delete.html:34
+#: templates/benefits/list.html:52 templates/category/delete.html:34
 #: templates/consumer/delete.html:35 templates/news/delete.html:34
 #: templates/offers/delete.html:37 templates/provider/delete.html:35
 #: templates/user/delete.html:36
 msgid "Cancelar"
 msgstr "Utzi"
 
-#: templates/benefits/list.html:47 templates/category/delete.html:33
+#: templates/benefits/list.html:53 templates/category/delete.html:33
 #: templates/consumer/delete.html:34 templates/news/delete.html:33
 #: templates/offers/delete.html:36 templates/provider/delete.html:34
 #: templates/user/delete.html:35
@@ -911,7 +965,7 @@ msgid "Editar"
 msgstr "Editatu"
 
 #: templates/category/create.html:6 templates/category/create.html:15
-#: templates/category/list.html:15
+#: templates/category/list.html:21
 msgid "Nueva categoría"
 msgstr "Kategoria berria"
 
@@ -977,8 +1031,24 @@ msgstr "CSV fitxategia deskargatu"
 msgid "elementos"
 msgstr "elementuak"
 
+#: templates/common/utils/semantic_result.html:6
+msgid "Resultado exacto"
+msgstr ""
+
+#: templates/common/utils/semantic_result.html:12
+msgid "Búsqueda semántica: Similitud baja"
+msgstr ""
+
+#: templates/common/utils/semantic_result.html:16
+msgid "Búsqueda semántica: Similitud media"
+msgstr ""
+
+#: templates/common/utils/semantic_result.html:20
+msgid "Búsqueda semántica: Similitud alta"
+msgstr ""
+
 #: templates/consumer/create.html:6 templates/consumer/create.html:16
-#: templates/consumer/edit.html:6 templates/consumer/list.html:15
+#: templates/consumer/edit.html:6 templates/consumer/list.html:21
 msgid "Nueva consumidora"
 msgstr "Kontsumitzaile berria"
 
@@ -1019,8 +1089,12 @@ msgid "Ver archivo"
 msgstr "Fitxategia ikusi"
 
 #: templates/consumer/form.html:31 templates/provider/form.html:33
-msgid "Este campo es <strong class=\"text-danger\">editable para admin</strong>, pero el valor debería venir de la H.Gestora"
-msgstr "Eremu hau <strong class=\"text-danger\">administratzailearentzat editagarria da</strong>, baina balioa kudeatzailetik etorri beharko litzateke"
+msgid ""
+"Este campo es <strong class=\"text-danger\">editable para admin</strong>, "
+"pero el valor debería venir de la H.Gestora"
+msgstr ""
+"Eremu hau <strong class=\"text-danger\">administratzailearentzat editagarria "
+"da</strong>, baina balioa kudeatzailetik etorri beharko litzateke"
 
 #: templates/consumer/query.html:7 templates/provider/query.html:8
 msgid "CIF"
@@ -1029,10 +1103,6 @@ msgstr "IFK"
 #: templates/consumer/query.html:19 templates/user/status_circle.html:13
 msgid "Sin usuario"
 msgstr "Erabiltzailerik ez"
-
-#: templates/consumer/query.html:20 templates/user/status_circle.html:7
-msgid "Pendiente registro"
-msgstr "Izena emateko zain"
 
 #: templates/consumer/query.html:26
 msgid "INACTIVA"
@@ -1048,8 +1118,12 @@ msgid "Hazte Consumidora"
 msgstr "Egin zaitez Kontsumitzaile"
 
 #: templates/consumer/register/form.html:46
-msgid "Los campos marcados con <span class=\"text-primary lead\">*</span> son obligatorios."
-msgstr "<span class=\"text-primary lead\">*</span>-rekin markatutako eremuak beharrezkoak dira."
+msgid ""
+"Los campos marcados con <span class=\"text-primary lead\">*</span> son "
+"obligatorios."
+msgstr ""
+"<span class=\"text-primary lead\">*</span>-rekin markatutako eremuak "
+"beharrezkoak dira."
 
 #: templates/consumer/register/form.html:63
 msgid "Sube un archivo (imagen o PDF) de tu documento de identidad."
@@ -1063,17 +1137,22 @@ msgstr "Fitxategiaren gehienezko tamaina:"
 msgid "Enviar solicitud"
 msgstr "Eskaera bidali"
 
-#: templates/consumer/register/success.html:27
+#: templates/consumer/register/success.html:31
 msgid "¡Gracias por tu interés en hacerte consumidora!"
 msgstr "Eskerrik asko kontsumitzaile izateko interesagatik!"
 
-#: templates/consumer/register/success.html:29
-msgid "En los próximos días revisaremos tu solicitud y te escribiremos al correo indicado."
-msgstr "Datozen egunetan zure eskaera aztertuko dugu eta helbide elektronikora idatziko dizuguadierazita."
-
 #: templates/consumer/register/success.html:33
+msgid ""
+"En los próximos días revisaremos tu solicitud y te escribiremos al correo "
+"indicado."
+msgstr ""
+"Datozen egunetan zure eskaera aztertuko dugu eta helbide elektronikora "
+"idatziko dizuguadierazita."
+
+#: templates/consumer/register/success.html:37
 msgid "Si pasado un tiempo no recibes respuesta, contacta con nosotras aquí:"
-msgstr "Denbora bat igarotzen bada erantzunik gabe, jarri gurekin harremanetan hemen"
+msgstr ""
+"Denbora bat igarotzen bada erantzunik gabe, jarri gurekin harremanetan hemen"
 
 #: templates/dashboard/admin.html:27 templates/dashboard/market.html:55
 msgid "consumidoras"
@@ -1150,11 +1229,11 @@ msgstr "Nire entitatea"
 msgid "Ver balance/auditoría social"
 msgstr "Auditoretza Soziala ikusi"
 
-#: templates/dashboard/provider.html:37 templates/navbar/market.html:61
+#: templates/dashboard/provider.html:37 templates/navbar/market.html:64
 #: templates/navbar/user_provider_menu.html:9 templates/offers/create.html:20
 #: templates/offers/delete.html:18 templates/offers/edit.html:21
 #: templates/offers/entity_list.html:23 templates/offers/list.html:5
-#: templates/offers/list.html:12 templates/reports/offers_card.html:8
+#: templates/offers/list.html:13 templates/reports/offers_card.html:8
 #: templates/reports/offers_card.html:11 templates/reports/offers_card.html:12
 msgid "Ofertas"
 msgstr "Eskaintzak"
@@ -1187,34 +1266,38 @@ msgstr "Argitaratutako abantailak ikusi"
 msgid "Comprobar estado de socia"
 msgstr "Egiaztatu bazkidearen egoera"
 
-#: templates/email/password_reset.html:13 templates/email/password_reset.txt:9
+#: templates/email/password_reset.html:9 templates/email/password_reset.txt:5
 msgid "Recuperar contraseña"
 msgstr "Berreskuratu pasahitza"
 
-#: templates/email/password_reset.html:29 templates/email/password_reset.txt:18
+#: templates/email/password_reset.html:18 templates/email/password_reset.txt:9
 #: templates/registration/password_reset_email.html:12
 #, python-format
-msgid "You're receiving this email because you requested a password reset for your user account at %(site_name)s."
-msgstr "Mezu hau jasotzen ari zara %(site_name)s zure erabiltzaile-kontuaren pasahitza berrezartzeko eskatu duzulako."
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Mezu hau jasotzen ari zara %(site_name)s zure erabiltzaile-kontuaren "
+"pasahitza berrezartzeko eskatu duzulako."
 
-#: templates/email/password_reset.html:32 templates/email/password_reset.txt:21
+#: templates/email/password_reset.html:21 templates/email/password_reset.txt:12
 #: templates/registration/password_reset_email.html:18
 msgid "Thanks for using our site!"
 msgstr "Eskerrik asko gure gunea erabiltzeagatik!"
 
-#: templates/email/password_reset.html:41
+#: templates/email/password_reset.html:29
 #: templates/registration/password_base.html:4
 #: templates/registration/password_reset_email.html:26
 #: templates/registration/preregister.html:4
 msgid "Restaurar contraseña"
 msgstr "pasahitza berrezarri"
 
-#: templates/email/password_reset.txt:20
+#: templates/email/password_reset.txt:11
 #: templates/registration/password_reset_email.html:16
 msgid "Your username, in case you’ve forgotten:"
 msgstr "Zure erabiltzaile-izena, ahazten bazaizu:"
 
-#: templates/email/password_reset.txt:26
+#: templates/email/password_reset.txt:16
 #: templates/registration/password_reset_email.html:14
 msgid "Please go to the following page and choose a new password:"
 msgstr "Joan orrialde honetara eta aukeratu pasahitz berri bat:"
@@ -1225,12 +1308,7 @@ msgid "Nuevo mercado"
 msgstr "Merkatu berria"
 
 #: templates/market/create.html:15 templates/market/edit.html:12
-#: templates/market/list.html:12 templates/market/public/edit.html:14
-#: templates/market/public/edit.html:16
-#: templates/market/public/email_preview.html:24
-#: templates/market/public/email_preview.html:26
-#: templates/market/public/template_preview.html:30
-#: templates/market/public/template_preview.html:32
+#: templates/market/list.html:12
 msgid "Mercados sociales"
 msgstr "Merkatu sozialak"
 
@@ -1238,7 +1316,7 @@ msgstr "Merkatu sozialak"
 msgid "Añadir mercado"
 msgstr "Merkatua gehitu"
 
-#: templates/market/edit.html:15 templates/market/public/edit.html:24
+#: templates/market/edit.html:15 templates/market/public/edit.html:21
 msgid "Explorar mercado"
 msgstr "Merkatua esploratu"
 
@@ -1247,38 +1325,52 @@ msgid "Multi-idioma"
 msgstr "Hizkuntza anitzekoa"
 
 #: templates/market/form.html:72 templates/market/public/form.html:13
-msgid "Datos públicos"
+#, fuzzy
+#| msgid "Datos públicos"
+msgid "Datos básicos"
 msgstr "Datu publikoak"
 
 #: templates/market/form.html:80
 msgid "Logo del mercado (preferiblemente PNG con transparencia)"
 msgstr "Merkatuaren logotipoa (ahal izanez gero PNG gardentasunarekin)"
 
-#: templates/market/form.html:101 templates/market/public/form.html:17
+#: templates/market/form.html:101 templates/market/public/form.html:23
 msgid "Distintivo de balance/auditoría social"
 msgstr "Auditoretza sozialaren bereizgarria"
 
-#: templates/market/form.html:102 templates/market/public/form.html:18
-msgid "Imagen (preferiblemente PNG con transparencia) para representar el distintivo de balance/auditoría social de este mercado. "
-msgstr "Irudia (ahal izanez gero PNG gardentasuna) merkatu honen auditoretza sozialaren bereizgarria irudikatzeko. "
+#: templates/market/form.html:102 templates/market/public/form.html:24
+msgid ""
+"Imagen (preferiblemente PNG con transparencia) para representar el "
+"distintivo de balance/auditoría social de este mercado. "
+msgstr ""
+"Irudia (ahal izanez gero PNG gardentasuna) merkatu honen auditoretza "
+"sozialaren bereizgarria irudikatzeko. "
 
-#: templates/market/form.html:103 templates/market/public/form.html:19
-msgid "Se utiliza desde la app para acceder al detalle de balance de cada proveedora"
-msgstr "aplikaziotik erabiltzen da hornitzaile bakoitzaren auditoretzaren xehetasunak sartzeko"
+#: templates/market/form.html:103 templates/market/public/form.html:25
+msgid ""
+"Se utiliza desde la app para acceder al detalle de balance de cada proveedora"
+msgstr ""
+"aplikaziotik erabiltzen da hornitzaile bakoitzaren auditoretzaren "
+"xehetasunak sartzeko"
 
 #: templates/market/form.html:138 templates/provider/form.html:103
 msgid "Geolocalización"
 msgstr "Geokokapena"
 
 #: templates/market/form.html:139 templates/provider/form.html:104
-msgid "Mueve el pin por el mapa hasta posicionarlo en la localización correcta."
+msgid ""
+"Mueve el pin por el mapa hasta posicionarlo en la localización correcta."
 msgstr "Mugitu pina mapan toki egokian kokatu arte."
 
 #: templates/market/form.html:153 templates/provider/form.html:111
-msgid "Puedes hacer zoom en los controles del mapa para ajustar al máximo la posición, o entrar en la vista de pantalla completa."
-msgstr "mapen kontrolak handitu ditzakezu posizioa ahalik eta gehien doitzeko, edo pantaila osoko ikuspegia sar dezakezu."
+msgid ""
+"Puedes hacer zoom en los controles del mapa para ajustar al máximo la "
+"posición, o entrar en la vista de pantalla completa."
+msgstr ""
+"mapen kontrolak handitu ditzakezu posizioa ahalik eta gehien doitzeko, edo "
+"pantaila osoko ikuspegia sar dezakezu."
 
-#: templates/market/form.html:159 templates/market/public/form.html:106
+#: templates/market/form.html:159 templates/market/public/form.html:112
 #: templates/provider/form.html:127
 msgid "Redes sociales"
 msgstr "Sare sozialak"
@@ -1286,13 +1378,25 @@ msgstr "Sare sozialak"
 #: templates/market/info/default.html:16
 #, python-format
 msgctxt "info mercado"
-msgid "En el Mercado Social de %(mercado)s nos encontramos las personas y entidades que, ante los grandes retos de nuestro tiempo, estamos construyendo un <strong>nuevo modelo económico que sea respetuoso con las personas, los animales, el planeta y la sociedad.</strong>"
-msgstr "%(mercado)s-en Merkatu Sozialean, gure garaiko erronka handiei aurre eginez, pertsonak, animaliak, planeta eta gizartea errespetatuko dituen eredu ekonomiko berri bat eraikitzen ari diren pertsona eta entitateak aurkitzen ditugu.</ indartsu>"
+msgid ""
+"En el Mercado Social de %(mercado)s nos encontramos las personas y entidades "
+"que, ante los grandes retos de nuestro tiempo, estamos construyendo un "
+"<strong>nuevo modelo económico que sea respetuoso con las personas, los "
+"animales, el planeta y la sociedad.</strong>"
+msgstr ""
+"%(mercado)s-en Merkatu Sozialean, gure garaiko erronka handiei aurre eginez, "
+"pertsonak, animaliak, planeta eta gizartea errespetatuko dituen eredu "
+"ekonomiko berri bat eraikitzen ari diren pertsona eta entitateak aurkitzen "
+"ditugu.</ indartsu>"
 
 #: templates/market/info/default.html:19
 msgctxt "info mercado"
-msgid "Todas las entidades cumplen las prácticas de los <em>6 principios de la Economía Solidaria</em>:"
-msgstr "Entitate guztiek <em>Ekonomia Solidarioaren 6 printzipioen</em> praktikak betetzen dituzte"
+msgid ""
+"Todas las entidades cumplen las prácticas de los <em>6 principios de la "
+"Economía Solidaria</em>:"
+msgstr ""
+"Entitate guztiek <em>Ekonomia Solidarioaren 6 printzipioen</em> praktikak "
+"betetzen dituzte"
 
 #: templates/market/info/default.html:25
 msgctxt "info mercado"
@@ -1327,22 +1431,56 @@ msgstr "Ingurumenarekiko konpromisoa"
 #: templates/market/info/default.html:36
 #, python-format
 msgctxt "info mercado"
-msgid "AL FORMAR PARTE Y CONSUMIR EN EL MERCADO SOCIAL ESTÁS TRANSFORMANDO EL CONSUMO EN %(mercado)s "
-msgstr "MERKATU SOZIALEAN PARTE IZATEN ETA BARRUAN KONTSUMITUZ, KONTSUMOA %(mercado)s ERALDATZEN ARI ZARA "
+msgid ""
+"AL FORMAR PARTE Y CONSUMIR EN EL MERCADO SOCIAL ESTÁS TRANSFORMANDO EL "
+"CONSUMO EN %(mercado)s "
+msgstr ""
+"MERKATU SOZIALEAN PARTE IZATEN ETA BARRUAN KONTSUMITUZ, KONTSUMOA "
+"%(mercado)s ERALDATZEN ARI ZARA "
 
-#: templates/market/public/form.html:46
+#: templates/market/public/edit.html:13
+#, fuzzy
+#| msgid "Personalizar mercado"
+msgid "Personalizar"
+msgstr "Pertsonalizatu merkatua"
+
+#: templates/market/public/email_preview.html:23
+#, fuzzy
+#| msgid "Previsualizar"
+msgid "Previsualizar email"
+msgstr "Aurrebista"
+
+#: templates/market/public/form.html:52
 msgid "Textos personalizados en emails y formularios"
 msgstr "Mezu elektronikoetan eta inprimakietan testu pertsonalizatuak"
 
-#: templates/market/public/form.html:47
-msgid "Desde aquí puedes modificar los textos de los emails que se envían desde la app en distintos momentos, o algunos textos informativos que aparecen en los formularios de la aplicación. Pulsando el botón de \"previsualizar\" puedes ver el contenido actual en su contexto. Si dejas un campo vacío, se mostrará el valor predefinido de la herramienta."
-msgstr "Hemendik hemendik bidaltzen diren mezu elektronikoen testuak alda ditzakezuaplikazioa une desberdinetan, edo informazio-testu batzukeskaera-inprimakiak. \"aurrebista\" botoian klik eginez, ikusi uneko edukia testuinguruan. Eremu bat hutsik uzten baduzu, bistaratuko da tresnaren balio lehenetsia."
+#: templates/market/public/form.html:53
+#, fuzzy
+#| msgid ""
+#| "Desde aquí puedes modificar los textos de los emails que se envían desde "
+#| "la app en distintos momentos, o algunos textos informativos que aparecen "
+#| "en los formularios de la aplicación. Pulsando el botón de \"previsualizar"
+#| "\" puedes ver el contenido actual en su contexto. Si dejas un campo "
+#| "vacío, se mostrará el valor predefinido de la herramienta."
+msgid ""
+"Desde aquí puedes modificar los textos de los emails que se envían desde la "
+"app en distintos momentos, o algunos textos informativos que aparecen en los "
+"formularios de la aplicación. Pulsando el botón de \"previsualizar\" puedes "
+"ver el contenido actual en su contexto (recuerda pulsar GUARDAR CAMBIOS "
+"primero). Si dejas un campo vacío, se mostrará el valor predefinido de la "
+"herramienta."
+msgstr ""
+"Hemendik hemendik bidaltzen diren mezu elektronikoen testuak alda "
+"ditzakezuaplikazioa une desberdinetan, edo informazio-testu batzukeskaera-"
+"inprimakiak. \"aurrebista\" botoian klik eginez, ikusi uneko edukia "
+"testuinguruan. Eremu bat hutsik uzten baduzu, bistaratuko da tresnaren balio "
+"lehenetsia."
 
-#: templates/market/public/form.html:67 templates/market/public/form.html:70
+#: templates/market/public/form.html:73 templates/market/public/form.html:76
 msgid "Previsualizar"
 msgstr "Aurrebista"
 
-#: templates/market/public/template_preview.html:37
+#: templates/market/public/template_preview.html:29
 msgid "Previsualizar sección"
 msgstr "Aurrebista atala"
 
@@ -1367,11 +1505,16 @@ msgid "Gestionar mercado"
 msgstr "Merkatua kudeatu"
 
 #: templates/member/card.html:27
-msgid "Este carnet certifica tu pertenencia como socia/o al Mercado Social. Con él podrás acceder a las ventajas y descuentos por formar parte de la red. ¡Muchas gracias por tu aportación a la Economía Solidaria!"
+msgid ""
+"Este carnet certifica tu pertenencia como socia/o al Mercado Social. Con él "
+"podrás acceder a las ventajas y descuentos por formar parte de la red. "
+"¡Muchas gracias por tu aportación a la Economía Solidaria!"
 msgstr "Txartel honek Merkatu Sozialeko kide zaren kide izatea ziurtatzen du. "
 
 #: templates/member/card.html:28
-msgid "Puedes acceder a tu carnet a través de esta web o la app. Si lo prefieres tener físico, imprímelo pulsando este botón"
+msgid ""
+"Puedes acceder a tu carnet a través de esta web o la app. Si lo prefieres "
+"tener físico, imprímelo pulsando este botón"
 msgstr "Zure txartela webgune honen edo aplikazioaren bidez sar dezakezu. "
 
 #: templates/member/card.html:33 templates/member/card.html:35
@@ -1387,22 +1530,35 @@ msgid "Hazlo de forma más fácil desde de la app del Mercado Social."
 msgstr "Egin errazago Social Market aplikaziotik."
 
 #: templates/member/check_form.html:27
-msgid "Desde la aplicación móvil, puedes acceder a la pantalla de 'Carnet de soci@' y directamente escanear el código QR de otra socia."
-msgstr "Mugikorretarako aplikaziotik, 'Kide txartela' pantailara sar zaitezke eta zuzenean beste kide baten QR kodea eskaneatu dezakezu."
+msgid ""
+"Desde la aplicación móvil, puedes acceder a la pantalla de 'Carnet de soci@' "
+"y directamente escanear el código QR de otra socia."
+msgstr ""
+"Mugikorretarako aplikaziotik, 'Kide txartela' pantailara sar zaitezke eta "
+"zuzenean beste kide baten QR kodea eskaneatu dezakezu."
 
 #: templates/member/check_form.html:29
-msgid "También puedes hacerlo aquí, introduciendo manualmente el número de la socia según aparece en su carnet."
-msgstr "Hemen ere egin dezakezu, bazkidearen zenbakia eskuz sartuz bere txartelan agertzen den moduan."
+msgid ""
+"También puedes hacerlo aquí, introduciendo manualmente el número de la socia "
+"según aparece en su carnet."
+msgstr ""
+"Hemen ere egin dezakezu, bazkidearen zenbakia eskuz sartuz bere txartelan "
+"agertzen den moduan."
 
 #: templates/member/check_form.html:42
 msgid "Comprobar"
 msgstr "Egiaztatu"
 
 #: templates/member/check_form.html:44
-msgid "Añade los ceros al inicio según aparecen en el carnet. Si es una socia de interccoperación tienes que introducir también el prefijo ICOOP como aparece en el carnet"
+msgid ""
+"Añade los ceros al inicio según aparecen en el carnet. Si es una socia de "
+"interccoperación tienes que introducir también el prefijo ICOOP como aparece "
+"en el carnet"
 msgstr ""
 "Gehitu zeroak hasieran txartelan agertzen diren bezala. \n"
-"Gehitu zeroak hasieran, txartelan agertzen den bezala. Interccoperazioko bazkidea bazara, ICOOP aurrizkia ere sartu behar duzu, txartelean agertzen den bezala"
+"Gehitu zeroak hasieran, txartelan agertzen den bezala. Interccoperazioko "
+"bazkidea bazara, ICOOP aurrizkia ere sartu behar duzu, txartelean agertzen "
+"den bezala"
 
 #: templates/member/check_form.html:50
 msgid "No se ha encontrado una socia con ese número."
@@ -1445,25 +1601,25 @@ msgstr "Administraziorako Gida"
 msgid "Entrar"
 msgstr "Sartu"
 
-#: templates/navbar/login.html:27 templates/public/navbar.html:27
+#: templates/navbar/login.html:26 templates/public/navbar.html:27
 msgid "Idioma de la interfaz"
 msgstr "Interfaze hizkuntza"
 
-#: templates/navbar/login.html:33 templates/public/navbar.html:33
+#: templates/navbar/login.html:32 templates/public/navbar.html:33
 msgid "Editar perfil"
 msgstr "Profila editatu"
 
-#: templates/navbar/login.html:38 templates/public/navbar.html:38
+#: templates/navbar/login.html:37 templates/public/navbar.html:38
 msgid "Cerrar sesión"
 msgstr "Amaitu saioa"
 
-#: templates/navbar/login.html:43 templates/public/navbar.html:43
+#: templates/navbar/login.html:42 templates/public/navbar.html:43
 msgid "Guía de usuario"
 msgstr "Erabiltzailearen Gida"
 
-#: templates/navbar/market.html:27 templates/news/add.html:19
+#: templates/navbar/market.html:30 templates/news/add.html:19
 #: templates/news/detail.html:20 templates/news/edit.html:18
-#: templates/news/list.html:5 templates/news/list.html:12
+#: templates/news/list.html:5 templates/news/list.html:13
 msgid "Noticias"
 msgstr "Albisteak"
 
@@ -1506,7 +1662,7 @@ msgstr "Albistearen irudia"
 msgid "Editar imagen"
 msgstr "Irudia editatu"
 
-#: templates/news/list.html:15
+#: templates/news/list.html:21
 msgid "Publicar noticia"
 msgstr "Albisteak argitaratu"
 
@@ -1576,8 +1732,12 @@ msgid "Editar oferta"
 msgstr "Eskaintza editatu"
 
 #: templates/offers/form.html:74
-msgid "Las ofertas no activas no se mostrarán a los usuarios. Puedes crear una encuesta desactivada y publicarla finalmente cuando creas oportuno."
-msgstr "Eskaintza ez-aktiboak ez zaizkie erabiltzaileei erakutsiko. Desaktibatutako inkesta bat sor dezakezu, eta nahi duzunean argitaratu."
+msgid ""
+"Las ofertas no activas no se mostrarán a los usuarios. Puedes crear una "
+"encuesta desactivada y publicarla finalmente cuando creas oportuno."
+msgstr ""
+"Eskaintza ez-aktiboak ez zaizkie erabiltzaileei erakutsiko. Desaktibatutako "
+"inkesta bat sor dezakezu, eta nahi duzunean argitaratu."
 
 #: templates/offers/query.html:8
 msgid "Estado"
@@ -1624,7 +1784,7 @@ msgstr "Irudia eguneratu"
 msgid "Entidades"
 msgstr "Entitateak"
 
-#: templates/provider/list.html:21
+#: templates/provider/list.html:27
 msgid "Añadir nueva"
 msgstr "Gehitu berria"
 
@@ -1649,8 +1809,12 @@ msgid "Créditos"
 msgstr "Kredituak"
 
 #: templates/public/index.html:21
-msgid "Sé parte de la Economía Social y Solidaria, desata todo el potencial del consumo consciente a través de la app del Mercado Social"
-msgstr "Ekonomia Sozial eta Solidarioaren parte izan, ahalmen osoa askatukontsumo kontzientea Social Market aplikazioaren bidez"
+msgid ""
+"Sé parte de la Economía Social y Solidaria, desata todo el potencial del "
+"consumo consciente a través de la app del Mercado Social"
+msgstr ""
+"Ekonomia Sozial eta Solidarioaren parte izan, ahalmen osoa askatukontsumo "
+"kontzientea Social Market aplikazioaren bidez"
 
 #: templates/public/index.html:25
 msgid "Descarga en Google Play"
@@ -1669,12 +1833,24 @@ msgid "Catálogo de entidades y servicios"
 msgstr "Entitate eta zerbitzuen katalogoa"
 
 #: templates/public/index.html:45
-msgid "Explora el listado de entidades que forman parte del Mercado Social, filtrando por categorías y búsquedas inteligentes. Podrás consultar toda la información de cada entidad"
-msgstr "Aztertu Merkatu Sozialaren parte diren entitateen zerrenda, kategorien eta bilaketa adimentsuen arabera iragaztea. Guztiak kontsultatu ahal izango dituzu entitate bakoitzaren informazioa"
+msgid ""
+"Explora el listado de entidades que forman parte del Mercado Social, "
+"filtrando por categorías y búsquedas inteligentes. Podrás consultar toda la "
+"información de cada entidad"
+msgstr ""
+"Aztertu Merkatu Sozialaren parte diren entitateen zerrenda, kategorien eta "
+"bilaketa adimentsuen arabera iragaztea. Guztiak kontsultatu ahal izango "
+"dituzu entitate bakoitzaren informazioa"
 
 #: templates/public/index.html:46
-msgid "Como entidad proveedora, desde el panel web podrás editar tu perfil público en el Mercado Social de forma sencilla, así como publicar nuevas ofertas o generar un QR para la consulta de tu balance/auditoría social."
-msgstr "Entitate hornitzaile gisa, zure profil publikoa edita dezakezu web paneletikMerkatu Sozialean modu errazean, baita eskaintza berriak argitaratu edo sortu QR kode bat zure balantzea/ikuskaritza soziala egiaztatzeko."
+msgid ""
+"Como entidad proveedora, desde el panel web podrás editar tu perfil público "
+"en el Mercado Social de forma sencilla, así como publicar nuevas ofertas o "
+"generar un QR para la consulta de tu balance/auditoría social."
+msgstr ""
+"Entitate hornitzaile gisa, zure profil publikoa edita dezakezu web "
+"paneletikMerkatu Sozialean modu errazean, baita eskaintza berriak argitaratu "
+"edo sortu QR kode bat zure balantzea/ikuskaritza soziala egiaztatzeko."
 
 #: templates/public/index.html:47
 msgid "Consulta los mercados territoriales presentes en la aplicación"
@@ -1685,24 +1861,51 @@ msgid "Carnet digital"
 msgstr "Txartel digitala"
 
 #: templates/public/index.html:70
-msgid "Como socia consumidora, si tu mercado incluye esta función, podrás acceder a las ventajas y descuentos que se ofrecen dentro de la red de la economía social y solidaria a través de tu carnet digital."
-msgstr "Kontsumitzaileen bazkide gisa, zure merkatuak eginbide hau barne hartzen badu, atzitu ahal izango duzuekonomiaren sarearen barruan eskaintzen diren abantailak eta deskontuaksoziala eta solidarioa zure txartel digitalaren bidez."
+msgid ""
+"Como socia consumidora, si tu mercado incluye esta función, podrás acceder a "
+"las ventajas y descuentos que se ofrecen dentro de la red de la economía "
+"social y solidaria a través de tu carnet digital."
+msgstr ""
+"Kontsumitzaileen bazkide gisa, zure merkatuak eginbide hau barne hartzen "
+"badu, atzitu ahal izango duzuekonomiaren sarearen barruan eskaintzen diren "
+"abantailak eta deskontuaksoziala eta solidarioa zure txartel digitalaren "
+"bidez."
 
 #: templates/public/index.html:76
 msgid "Mantente informada"
 msgstr "Egon informatuta"
 
 #: templates/public/index.html:77
-msgid "Recibe avisos de noticias y ofertas para que estés al día de todo lo que te interesa. Recibirás directamente en la aplicación ofertas de las entidades que más te interesan, así como las últimas noticias de la ESS"
-msgstr "Jaso albisteak eta eskaintzen alertak, interesatzen zaizun guztiaren berri izatekoInteresgarria da. Entitateen eskaintzak zuzenean jasoko dituzu aplikazioangehien interesatzen zaizuna, baita ESSko azken berriak ere"
+msgid ""
+"Recibe avisos de noticias y ofertas para que estés al día de todo lo que te "
+"interesa. Recibirás directamente en la aplicación ofertas de las entidades "
+"que más te interesan, así como las últimas noticias de la ESS"
+msgstr ""
+"Jaso albisteak eta eskaintzen alertak, interesatzen zaizun guztiaren berri "
+"izatekoInteresgarria da. Entitateen eskaintzak zuzenean jasoko dituzu "
+"aplikazioangehien interesatzen zaizuna, baita ESSko azken berriak ere"
 
 #: templates/public/index.html:94
 msgid "Garantía ética"
 msgstr "Berme etikoa"
 
 #: templates/public/index.html:95
-msgid "El <strong>balance/auditoría social</strong> es la herramienta que permite dar cuenta de cómo las entidades del Mercado Social desarrollan su actividad basándose en los principios fundamentales de la ESS: trabajo, equidad, cooperación, compromiso con el entorno, ausencia de ánimo de lucro y sostenibilidad medioambiental. Desde la aplicación puedes acceder a la infografía de cada entidad, visibilizando el compromiso de estas con la sostenibilidad y la justicia social."
-msgstr "<strong>Gizarte auditoretza</strong> nola kontuak ematea ahalbidetzen duen tresna daMerkatu Sozialeko entitateek beren jardueran oinarrituta garatzen duteSSEren oinarrizko printzipioak: lana, ekitatea, lankidetza,ingurugiroarekiko, irabazi-asmorik gabeko eta iraunkortasunarekiko konpromisoaingurumena. Aplikaziotik bakoitzaren infografiara sar zaitezke entitateak, jasangarritasunaren aldeko apustua eta ikusgarri eginezjustizia soziala."
+msgid ""
+"El <strong>balance/auditoría social</strong> es la herramienta que permite "
+"dar cuenta de cómo las entidades del Mercado Social desarrollan su actividad "
+"basándose en los principios fundamentales de la ESS: trabajo, equidad, "
+"cooperación, compromiso con el entorno, ausencia de ánimo de lucro y "
+"sostenibilidad medioambiental. Desde la aplicación puedes acceder a la "
+"infografía de cada entidad, visibilizando el compromiso de estas con la "
+"sostenibilidad y la justicia social."
+msgstr ""
+"<strong>Gizarte auditoretza</strong> nola kontuak ematea ahalbidetzen duen "
+"tresna daMerkatu Sozialeko entitateek beren jardueran oinarrituta garatzen "
+"duteSSEren oinarrizko printzipioak: lana, ekitatea, lankidetza,"
+"ingurugiroarekiko, irabazi-asmorik gabeko eta iraunkortasunarekiko "
+"konpromisoaingurumena. Aplikaziotik bakoitzaren infografiara sar zaitezke "
+"entitateak, jasangarritasunaren aldeko apustua eta ikusgarri eginezjustizia "
+"soziala."
 
 #: templates/public/index.html:98
 msgid "Descubre más"
@@ -1713,8 +1916,19 @@ msgid "Software libre"
 msgstr "Software librea"
 
 #: templates/public/index.html:111
-msgid "Todo el trabajo desarrollado para esta página web y las aplicaciones móviles de Mercado Social está liberado bajo licencias de software libre. El movimiento de software libre busca la libertad de las personas para usar, estudiar, distribuir y mejorar los programas libremente mediante la liberación del código fuente de los mismos, fomentando la cooperación y los bienes comunes."
-msgstr "Webgune honetarako eta mugikorretarako aplikazioetarako garatutako lan guztiaSocial Market software libreko lizentziekin kaleratzen da. software librearen mugimenduak pertsonen erabilera askatasuna bilatzen du.programak libreki aztertu, banatu eta hobetuBeraren iturburu-kodea kaleratzea, lankidetza sustatuz etaondasun komunak."
+msgid ""
+"Todo el trabajo desarrollado para esta página web y las aplicaciones móviles "
+"de Mercado Social está liberado bajo licencias de software libre. El "
+"movimiento de software libre busca la libertad de las personas para usar, "
+"estudiar, distribuir y mejorar los programas libremente mediante la "
+"liberación del código fuente de los mismos, fomentando la cooperación y los "
+"bienes comunes."
+msgstr ""
+"Webgune honetarako eta mugikorretarako aplikazioetarako garatutako lan "
+"guztiaSocial Market software libreko lizentziekin kaleratzen da. software "
+"librearen mugimenduak pertsonen erabilera askatasuna bilatzen du.programak "
+"libreki aztertu, banatu eta hobetuBeraren iturburu-kodea kaleratzea, "
+"lankidetza sustatuz etaondasun komunak."
 
 #: templates/public/index.html:114
 msgid "Ver repositorios en Github"
@@ -1728,13 +1942,13 @@ msgstr "Ikusi entitateak"
 msgid "Mi cuenta"
 msgstr "Nire kontua"
 
-#: templates/public/provider/query.html:44
+#: templates/public/provider/query.html:39
+msgid "Más información de la entidad"
+msgstr ""
+
+#: templates/public/provider/query.html:49
 msgid "Balance/Auditoría social"
 msgstr "Auditoretza Soziala"
-
-#: templates/public/provider/query.html:53
-msgid "No disponible"
-msgstr "Ez dago erabilgarri"
 
 #: templates/public/provider/query.html:60
 msgid "No ofrece ventajas"
@@ -1757,8 +1971,12 @@ msgid "Nueva contraseña"
 msgstr "Pasahitz berria"
 
 #: templates/registration/password_reset_complete.html:7
-msgid "La contraseña se ha modificado satisfactoriamente. Ya puedes acceder a la aplicación con tu nueva contraseña."
-msgstr "Pasahitza behar bezala aldatu da. Aplikaziora sar zaitezke pasahitz berriarekin."
+msgid ""
+"La contraseña se ha modificado satisfactoriamente. Ya puedes acceder a la "
+"aplicación con tu nueva contraseña."
+msgstr ""
+"Pasahitza behar bezala aldatu da. Aplikaziora sar zaitezke pasahitz "
+"berriarekin."
 
 #: templates/registration/password_reset_confirm.html:14
 #: templates/registration/password_reset_confirm.html:31
@@ -1773,31 +1991,48 @@ msgid "Actualizar contraseña"
 msgstr "Pasahitza eguneratu"
 
 #: templates/registration/password_reset_confirm.html:50
-msgid "El enlace para restablecer la contraseña es inválido, probablemente porque ya ha sido utilizado."
-msgstr "Pasahitza berrezartzeko esteka baliogabea da, seguruenik dagoeneko erabili delako."
+msgid ""
+"El enlace para restablecer la contraseña es inválido, probablemente porque "
+"ya ha sido utilizado."
+msgstr ""
+"Pasahitza berrezartzeko esteka baliogabea da, seguruenik dagoeneko erabili "
+"delako."
 
 #: templates/registration/password_reset_done.html:5
 msgid "Restablecimiento de contraseña enviado"
 msgstr "Pasahitza berrezarri bidali da"
 
 #: templates/registration/password_reset_done.html:7
-msgid "Le hemos enviado por email las instrucciones para restablecer la contraseña, si es que existe una cuenta con la dirección electrónica que indicó. Debería recibirlas en breve."
-msgstr "Posta elektronikoz bidali dizkizugu pasahitza berrezartzeko argibideak, adierazi duzun helbide elektronikoa duen konturik badago. Laister jasoko duzu."
+msgid ""
+"Le hemos enviado por email las instrucciones para restablecer la contraseña, "
+"si es que existe una cuenta con la dirección electrónica que indicó. Debería "
+"recibirlas en breve."
+msgstr ""
+"Posta elektronikoz bidali dizkizugu pasahitza berrezartzeko argibideak, "
+"adierazi duzun helbide elektronikoa duen konturik badago. Laister jasoko "
+"duzu."
 
 #: templates/registration/password_reset_done.html:8
-msgid "Si no recibe un correo, por favor asegúrese de que ha introducido la dirección de correo con la que se registró y verifique su carpeta de spam."
-msgstr "Ez baduzu mezu elektronikorik jasotzen, mesedez, ziurtatu erregistratu zaren helbide elektronikoa sartu duzula eta egiaztatu zure spam karpeta."
+msgid ""
+"Si no recibe un correo, por favor asegúrese de que ha introducido la "
+"dirección de correo con la que se registró y verifique su carpeta de spam."
+msgstr ""
+"Ez baduzu mezu elektronikorik jasotzen, mesedez, ziurtatu erregistratu zaren "
+"helbide elektronikoa sartu duzula eta egiaztatu zure spam karpeta."
 
 #: templates/registration/password_reset_form.html:6
 msgid ""
 "\n"
-"    Introduce la dirección de correo electrónico a la que está asociada tu usuario y te enviaremos un\n"
-"    email con un enlace  de un solo uso para poder restablecer tu contraseña.\n"
+"    Introduce la dirección de correo electrónico a la que está asociada tu "
+"usuario y te enviaremos un\n"
+"    email con un enlace  de un solo uso para poder restablecer tu "
+"contraseña.\n"
 "    "
 msgstr ""
 "\n"
 "Idatzi zure erabiltzaile-izena erlazionatutako helbide elektronikoa eta\n"
-" mezu elektroniko bat bidaliko dizugu zure pasahitza berrezartzeko behin-behineko esteka batekin.\n"
+" mezu elektroniko bat bidaliko dizugu zure pasahitza berrezartzeko behin-"
+"behineko esteka batekin.\n"
 "    "
 
 #: templates/registration/preregister.html:11 templates/user/query.html:7
@@ -1814,11 +2049,17 @@ msgstr "Erregistro-kodea ez da zuzena..."
 
 #: templates/registration/preregister.html:34
 msgid "Solo te falta este paso para empezar a usar la app del Mercado Social!"
-msgstr "Urrats hau besterik ez duzu behar Merkatu Sozialaren aplikazioa erabiltzen hasteko!"
+msgstr ""
+"Urrats hau besterik ez duzu behar Merkatu Sozialaren aplikazioa erabiltzen "
+"hasteko!"
 
 #: templates/registration/preregister.html:37
-msgid "Introduce la contraseña que utilizarás a partir de ahora en la app y el panel web para gestionar la información de tu perfil y las ofertas."
-msgstr "Sartu hemendik aurrera erabiliko duzun pasahitza aplikazioan eta web panelean zure profileko informazioa eta eskaintzak kudeatzeko."
+msgid ""
+"Introduce la contraseña que utilizarás a partir de ahora en la app y el "
+"panel web para gestionar la información de tu perfil y las ofertas."
+msgstr ""
+"Sartu hemendik aurrera erabiliko duzun pasahitza aplikazioan eta web "
+"panelean zure profileko informazioa eta eskaintzak kudeatzeko."
 
 #: templates/registration/preregister.html:43
 msgid "Finalizar registro"
@@ -1826,8 +2067,12 @@ msgstr "Izen ematea amaitzea"
 
 #: templates/registration/privacy_policy_check.html:6
 #, python-format
-msgid "He leído y acepto la <a href=\"%(privacy_policy_url)s\" target=\"_blank\">Política de privacidad</a> <span class=\"text-primary\">*</span>"
-msgstr "<a href=\"%(privacy_policy_url)s\" target=\"_blank\">Pribatutasun-politika</a> irakurri eta onartzen dut <span class=\"text-primary\">*</span>"
+msgid ""
+"He leído y acepto la <a href=\"%(privacy_policy_url)s\" target=\"_blank"
+"\">Política de privacidad</a> <span class=\"text-primary\">*</span>"
+msgstr ""
+"<a href=\"%(privacy_policy_url)s\" target=\"_blank\">Pribatutasun-politika</"
+"a> irakurri eta onartzen dut <span class=\"text-primary\">*</span>"
 
 #: templates/reports/benefits_card.html:12
 msgid "nuevas publicadas"
@@ -1878,8 +2123,12 @@ msgid "Última semana"
 msgstr "Azken astea"
 
 #: templates/user/add.html:35
-msgid "Al crear una nueva usuaria, se le enviará un correo electrónico de bienvenida con un enlace único para que establezca su contraseña inicial."
-msgstr "Erabiltzaile berri bat sortzean, ongietorri mezu bat bidaliko zaizu hasierako pasahitza ezartzeko esteka esklusibo batekin."
+msgid ""
+"Al crear una nueva usuaria, se le enviará un correo electrónico de "
+"bienvenida con un enlace único para que establezca su contraseña inicial."
+msgstr ""
+"Erabiltzaile berri bat sortzean, ongietorri mezu bat bidaliko zaizu "
+"hasierako pasahitza ezartzeko esteka esklusibo batekin."
 
 #: templates/user/delete.html:8 templates/user/delete.html:18
 #: templates/user/delete.html:30 templates/user/edit.html:76
@@ -1920,8 +2169,13 @@ msgid "Cuenta que gestiona"
 msgstr "Kudeatzen duzun kontua"
 
 #: templates/user/edit.html:43
-msgid "El usuario no ha completado aún el prerregistro para establecer su contraseña (debió recibir un email a su cuenta con un enlace de activación)"
-msgstr "Erabiltzaileak ez du oraindik pasahitza ezartzeko aurre-erregistroa osatu (posta elektroniko bat jaso beharko luke bere konturako aktibazio-esteka batekin)"
+msgid ""
+"El usuario no ha completado aún el prerregistro para establecer su "
+"contraseña (debió recibir un email a su cuenta con un enlace de activación)"
+msgstr ""
+"Erabiltzaileak ez du oraindik pasahitza ezartzeko aurre-erregistroa osatu "
+"(posta elektroniko bat jaso beharko luke bere konturako aktibazio-esteka "
+"batekin)"
 
 #: templates/user/edit.html:74
 msgid "Administrar"
@@ -1936,8 +2190,14 @@ msgid "¡Cuidado! Vas a cambiar la contraseña de otro usuario"
 msgstr "Kontuz! Beste erabiltzaileen pasahitza aldatzen ari zara!"
 
 #: templates/user/password.html:39
-msgid "Esto puede ser disruptivo para la otra persona si seguía usando su contraseña. Asegúrate de tener su consentimiento y utiliza esta funcionalidad solo para situaciones de necesidad."
-msgstr "Hau beste pertsonarentzat kaltegarria izan daiteke bere pasahitza erabiltzen jarraitzen badu. Ziurtatu baimena duzula eta funtzionalitate haupremia-egoeretarako bakarrik erabiltzen duzula."
+msgid ""
+"Esto puede ser disruptivo para la otra persona si seguía usando su "
+"contraseña. Asegúrate de tener su consentimiento y utiliza esta "
+"funcionalidad solo para situaciones de necesidad."
+msgstr ""
+"Hau beste pertsonarentzat kaltegarria izan daiteke bere pasahitza erabiltzen "
+"jarraitzen badu. Ziurtatu baimena duzula eta funtzionalitate haupremia-"
+"egoeretarako bakarrik erabiltzen duzula."
 
 #: templates/user/password.html:43
 msgid "Actualizar"
@@ -1979,9 +2239,22 @@ msgstr "Arrunta"
 msgid "Invitada"
 msgstr "Gonbidatua"
 
+#: templates/user/status_circle.html:7
+msgid "Pendiente registro"
+msgstr "Izena emateko zain"
+
 #: templates/user/status_circle.html:9
 msgid "Registrada"
 msgstr "Erregistratua"
+
+#~ msgid "Catalá"
+#~ msgstr "Katalana"
+
+#~ msgid "Galego"
+#~ msgstr "Galiziera"
+
+#~ msgid "No disponible"
+#~ msgstr "Ez dago erabilgarri"
 
 #~ msgid "Descubre más sobre el Balance/Auditoría Social"
 #~ msgstr "Lortu informazio gehiago Balantze Soziala/Audikaritzari buruz"

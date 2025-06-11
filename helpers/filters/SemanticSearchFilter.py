@@ -4,9 +4,10 @@ import django_filters
 from django.conf import settings
 from django.db.models import Q, ExpressionWrapper, BooleanField
 from pgvector.django import CosineDistance
-from core.vectorize import clean_text
 from django.apps import apps  # Para obtener el modelo de embeddings cargado en apps.py
 import logging
+
+from helpers.filters.search_text_processing import clean_text
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +38,7 @@ class SemanticSearchFilter(SearchFilter):
                 # Aplicar búsqueda semántica con CosineDistance
                 qs = qs.annotate(
                     similarity=CosineDistance(self.vector_field, query_embedding),
-                    exact_match=ExpressionWrapper(reduce(operator.or_, self.get_subquery_list(query_text)), output_field=BooleanField())
+                    exact_match=ExpressionWrapper(reduce(operator.or_, self.get_subquery_list(value)), output_field=BooleanField())
                 ).filter(Q(exact_match=True) | Q(similarity__lt=settings.SEMANTIC_SIMILARITY_THRESHOLD) | Q(similarity__isnull=True)
                 ).order_by('-exact_match', 'similarity')  # Ordenar por similitud
 

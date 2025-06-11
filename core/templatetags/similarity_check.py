@@ -1,10 +1,9 @@
 from django.template import Library
-from django.urls import reverse
 
 register = Library()
 UNSET = object()
 
-HIGH_SIMILARITY_THRESHOLD = 0.45
+HIGH_SIMILARITY_THRESHOLD = 0.5
 LOW_SIMILARITY_THRESHOLD = 0.65
 
 def similarity_level(similarity):

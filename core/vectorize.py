@@ -2,44 +2,20 @@
 # Contains reusable methods for cleaning up text and generating embeddings.
 
 import logging
-import re
-import unicodedata
-from html import unescape
 
 from django.conf import settings
 from sentence_transformers import SentenceTransformer
 from bs4 import BeautifulSoup
-import nltk
-from nltk.corpus import stopwords
 
 from django.apps import apps
+
+from helpers.filters.search_text_processing import clean_text
 
 # Logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-# Download stopwords if not available
-nltk.download("stopwords")
-STOPWORDS_ES = set(stopwords.words("spanish"))
-
 # Get the embedding model from the app configuration
 embedding_model = apps.get_app_config("core").get_embedding_model()
-
-def clean_text(text):
-    """Cleans text by removing HTML, URLs, special characters, and normalizing spaces."""
-    if not text:
-        return ""
-
-    text = unescape(text) # Decodificar entidades HTML
-    text = re.sub(r'<[^>]+>', '', text) # Eliminar etiquetas HTML
-    text = unicodedata.normalize('NFD', text) # Eliminar acentos y diacríticos
-    text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
-    text = re.sub(r'[^a-zA-Z0-9\s]', '', text) # Eliminar caracteres especiales, mantener solo letras, números y espacios
-    text = re.sub(r'\s+', ' ', text).strip() # Normalizar espacios (eliminar múltiples spaces y strip)
-    text = text.lower()
-
-    tokens = text.split()
-    tokens = [word for word in tokens if word not in STOPWORDS_ES]
-    return " ".join(tokens)
 
 def vectorize_records(app_name, model_name, text_fields, vector_field, node=None, instance=None, save=True):
     """

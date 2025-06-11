@@ -17,6 +17,6 @@ class ProviderFilter(FilterSet):
     categories__in = CommaSeparatedFilter(field_name="categories", lookup_expr="in")
 
     search = SemanticSearchFilter(
-        names=['name', 'address', 'description', 'short_description', 'services'],
+        names=['name', 'description', 'short_description', 'services'],
         vector_field='embedding_description',
         label=_('Buscar...'))
