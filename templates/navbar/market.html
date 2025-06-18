@@ -36,14 +36,6 @@
 <div class="navdrawer-divider"></div>
 
 <ul class="navdrawer-nav">
-    <li class="nav-item {% if url_name == 'category_list' %}active{% endif %}">
-        <a class="nav-link" href="{% market_url 'market:category_list' %}">
-          <i class="material-icons mr-3">label</i>
-          {% translate 'Categorías' %}
-        </a>
-    </li>
-
-
     <li class="nav-item {% if url_name == 'provider_list' %}active{% endif %}">
         <a class="nav-link" href="{% market_url 'market:provider_list' %}">
           <i class="material-icons mr-3">store</i>
@@ -55,6 +47,17 @@
         <a class="nav-link" href="{% market_url 'market:consumer_list' %}">
           <i class="material-icons mr-3">directions_walk</i>
           {% translate 'Consumidoras' %}
+        </a>
+    </li>
+</ul>
+
+<div class="navdrawer-divider"></div>
+
+<ul class="navdrawer-nav">
+    <li class="nav-item {% if url_name == 'category_list' %}active{% endif %}">
+        <a class="nav-link" href="{% market_url 'market:category_list' %}">
+          <i class="material-icons mr-3">label</i>
+          {% translate 'Categorías' %}
         </a>
     </li>
 
@@ -71,6 +74,15 @@
           {% translate 'Ventajas' %}
         </a>
     </li>
+
+    {% if market.intercoop_enabled %}
+    <li class="nav-item {% if namespace == 'market' and url_name == 'intercoop_list' %}active{% endif %}">
+        <a class="nav-link" href="{% market_url 'market:intercoop_list' %}">
+          <i class="material-icons mr-3">extension</i>
+          {% translate 'Intercooperación' %}
+        </a>
+    </li>
+    {% endif %}
 
 </ul>
 {% endwith %}

@@ -4,7 +4,7 @@ django-ckeditor==6.7.0
 django-csp==3.7
 django-environ==0.11.2
 django-filter==23.5
-django-imagekit==4.1.0
+django-imagekit==5.0.0
 django-polymorphic==3.1
 django-qr-code==3.1.1
 
@@ -13,7 +13,7 @@ django-localflavor==4.0
 django-modeltranslation==0.18.12
 
 # DRF
-djangorestframework==3.15.2
+djangorestframework==3.14.0
 drf-extra-fields==3.7.0
 
 # Admin/management packages
@@ -21,9 +21,9 @@ django-admin-interface==0.24.2
 django-cleanup==8.1.0
 django-log-viewer==1.1.7
 django-unused-media==0.2.2
-django-sass-processor==1.4
+django-sass-processor==1.4.1
 libsass==0.23.0
-rcssmin==1.1.0
+rcssmin==1.2.1
 
 fcm-django==1.0.12
 gunicorn==22.0.0

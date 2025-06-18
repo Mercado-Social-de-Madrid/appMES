@@ -41,6 +41,7 @@ class Node(models.Model):
     enabled_langs = ArrayField(models.CharField(max_length=3, choices=settings.LANGUAGES), blank=True, default=[], verbose_name=_('Idiomas habilitados'))
 
     privacy_policy_url = models.URLField(blank=True, null=True, verbose_name=_('Enlace a la política de privacidad'))
+    intercoop_enabled = models.BooleanField(default=False, verbose_name=_('Habilitar funcionalidad de intercooperación'))
 
     @property
     def is_multilang_enabled(self):

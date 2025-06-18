@@ -35,8 +35,10 @@
                 {% if object %}
                     {% include "common/forms/field.html" with field=form.owner %}
                 {% endif %}
-                {% include "common/forms/checkbox.html" with field=form.is_intercoop %}
+
                 {% include "common/forms/checkbox.html" with field=form.is_active %}
+                {% include "common/forms/checkbox.html" with field=form.is_intercoop %}
+
             </div>
         </div>
 

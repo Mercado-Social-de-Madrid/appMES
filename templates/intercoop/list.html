@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load market_url %}
+{% load i18n %}
+
+{% block title %}{% translate 'Intercooperación' %}{% endblock %}
+
+{% block content %}
+    <div class="jumbotron text-light py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-7 col-md-8">
+                <h3 class="mb-0">
+                    {% translate 'Intercooperación' %}
+                    <a href="/docs/admin/menu_lateral/categorias" target="_blank"
+                        data-toggle="tooltip" data-placement="bottom" title="{% translate 'Ayuda' %}">
+                        <i class="material-icons md-36">help</i>
+                    </a>
+                </h3>
+            </div>
+            <div class="col-sm-5 col-md-4 text-sm-right">
+                <a href="{% market_url 'market:add_intercoop' %}" class="btn btn-action btn-primary"><i class="material-icons mr-2">add</i> {% translate 'Nueva intercooperación' %}</a>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-3">
+        {% include 'common/list/ajax_wrapper.html' with query_template='intercoop/query.html' %}
+    </div>
+{% endblock %}

@@ -44,6 +44,12 @@ urlpatterns = [
     path('<int:market>/consumers/<pk>/edit/', views.ConsumerEdit.as_view(), name='edit_consumer'),
     path('<int:market>/consumers/<pk>/delete/', views.DeleteConsumer.as_view(), name='delete_consumer'),
 
+    # Intercoop
+    path('<int:market>/intercoop/', views.IntercoopList.as_view(), name='intercoop_list'),
+    path('<int:market>/intercoop/add/', views.IntercoopCreate.as_view(), name='add_intercoop'),
+    path('<int:market>/intercoop/<pk>/', views.IntercoopDetail.as_view(), name='intercoop_detail'),
+    path('<int:market>/intercoop/<pk>/delete', views.IntercoopDelete.as_view(), name='delete_intercoop'),
+
     # Single registration account views
     path('dashboard/', views.UserDashboard.as_view(), name='user_dashboard'),
 

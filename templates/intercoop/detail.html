@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate 'Categorías' %} | {{object.name}}{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron text-light py-4 px-2">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-12">
+                <h4 class="mb-0"><a href="{% url 'market:intercoop_list' current_market.pk %}">{% translate 'Intercooperación' %}</a><i class="material-icons md-18 ">arrow_forward_ios</i> {{object.display_name}}</h4>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form method="post" class="mt-3 p-4">
+            {% csrf_token %}
+            {% include "intercoop/form.html" %}
+
+            {% include "common/forms/save_btn.html" %}
+
+        </form>
+    </div>
+
+{% endblock %}
