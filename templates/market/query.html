@@ -7,6 +7,7 @@
     <th scope="col">{% translate 'Identificador' %}</th>
     <th scope="col">{% translate 'Visibilidad pública' %}</th>
     <th scope="col">{% translate 'Carnet de socia' %}</th>
+    <th scope="col">{% translate 'Intercoop.' %}</th>
     <th scope="col">{% translate 'Idiomas' %}</th>
 {% endblock %}
 
@@ -19,6 +20,7 @@
     {% if item.visible %} <i class="material-icons text-dark">visibility</i> Visible {% else %} <i class="material-icons text-muted">visibility_off</i> oculta {% endif %}
 </td>
 <td> {% if item.member_card_enabled %} <i class="material-icons ">check_circle</i>{% endif %} </td>
+<td> {% if item.intercoop_enabled %} <i class="material-icons ">check_circle</i>{% endif %} </td>
 <td>
 {% for lang in LANGUAGES %}
    {% if lang.0 in item.enabled_langs %}

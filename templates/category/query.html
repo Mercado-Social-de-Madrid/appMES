@@ -14,9 +14,9 @@
 <td class="entity-td"> {% include 'category/tag.html' with tag=item big=True %} {{item.name}}</td>
 <td>{{item.description}}</td>
 <td>{{item.provider_set.count}}</td>
-<td>
-    <a class="btn btn-outline-primary action-delete" href="{% market_url 'market:delete_category' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Eliminar' %}"><i class="material-icons">delete</i></a>
-    <a class="btn btn-outline-primary action-delete" href="{% market_url 'market:provider_list' %}?categories={{item.pk}}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Ver proveedoras' %}"><i class="material-icons">store</i></a>
+<td class="table-actions">
+    <a class="btn btn-outline-primary" href="{% market_url 'market:delete_category' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Eliminar' %}"><i class="material-icons">delete</i></a>
+    <a class="btn btn-outline-primary" href="{% market_url 'market:provider_list' %}?categories={{item.pk}}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Ver proveedoras' %}"><i class="material-icons">store</i></a>
 </td>
 
 

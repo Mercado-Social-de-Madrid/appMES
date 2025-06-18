@@ -1,0 +1,23 @@
+{% extends 'common/list/base.html' %}
+{% load i18n %}
+{% load market_url %}
+
+ {% block table_head %}
+    <th scope="col">{% translate 'Nombre' %}</th>
+    <th scope="col">{% translate 'Id. para validación' %}</th>
+    <th scope="col">{% translate 'Consumidoras' %}</th>
+{% endblock %}
+
+
+{% block item_row %}
+
+{% include 'provider/row_display.html' with item=item.provider %}
+<td> {% if item.external_id_needed %} <i class="material-icons ">check_circle</i>{% endif %} </td>
+<td>{{item.consumer_set.count}}</td>
+<td class="table-actions">
+    <a class="btn btn-outline-primary" href="{% market_url 'market:delete_intercoop' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Eliminar' %}"><i class="material-icons">delete</i></a>
+    <a class="btn btn-outline-primary" href="{% market_url 'market:provider_list' %}?categories={{item.pk}}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Ver consumidoras' %}"><i class="material-icons">directions_walk</i></a>
+</td>
+
+
+{% endblock %}
