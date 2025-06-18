@@ -1,26 +1,33 @@
-django==5.0.0
-django-admin-interface==0.24.2
+django==5.1.11
+
 django-ckeditor==6.7.0
-django-cleanup==8.1.0
 django-csp==3.7
 django-environ==0.11.2
 django-filter==23.5
 django-imagekit==4.1.0
-django-localflavor==4.0
-django-log-viewer==1.1.7
-django-modeltranslation==0.18.12
 django-polymorphic==3.1
 django-qr-code==3.1.1
-djangorestframework==3.14.0
-django-sass-processor==1.4
-django-unused-media==0.2.2
+
+# Multilang
+django-localflavor==4.0
+django-modeltranslation==0.18.12
+
+# DRF
+djangorestframework==3.15.2
 drf-extra-fields==3.7.0
 
-fcm-django==1.0.12
-gunicorn==21.2.0
+# Admin/management packages
+django-admin-interface==0.24.2
+django-cleanup==8.1.0
+django-log-viewer==1.1.7
+django-unused-media==0.2.2
+django-sass-processor==1.4
 libsass==0.23.0
-psycopg2==2.9.10
 rcssmin==1.1.0
+
+fcm-django==1.0.12
+gunicorn==22.0.0
+psycopg2==2.9.10
 sentry-sdk[django]==1.39.2
 WeasyPrint==52.4
 
@@ -28,12 +35,6 @@ geopy==2.4.1
 
 # Semantic search
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.6.0+cpu
-torchaudio==2.6.0+cpu
-torchvision==0.21.0+cpu
 sentence-transformers==3.4.1
-python-dotenv==1.0.1
-beautifulsoup4==4.13.3
-bs4==0.0.2
 nltk==3.9.1
 pgvector==0.3.6

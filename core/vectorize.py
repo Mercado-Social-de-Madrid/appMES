@@ -5,7 +5,6 @@ import logging
 
 from django.conf import settings
 from sentence_transformers import SentenceTransformer
-from bs4 import BeautifulSoup
 
 from django.apps import apps
 
