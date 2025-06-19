@@ -30,10 +30,11 @@ class ConsumerFilter(FilterSet):
     is_intercoop = BooleanFilter(field_name='is_intercoop', widget=BooleanWidget(attrs={'class': 'threestate'}))
     related_user = BooleanFilter(label=_('Tiene usuario asociado'), field_name='owner', lookup_expr='isnull', exclude = True, widget=BooleanWidget(attrs={'class': 'threestate'}))
 
+
     class Meta:
         model = Consumer
         form = ConsumerFilterForm
-        fields = {  }
+        fields = { 'intercoop' }
 
 
 class ConsumerList(FilterMixin, MarketMixin, ExportAsCSVMixin, FilterView, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
@@ -46,6 +47,13 @@ class ConsumerList(FilterMixin, MarketMixin, ExportAsCSVMixin, FilterView, ListI
 
     csv_filename = 'consumidoras'
     available_fields = ['cif', 'first_name', 'last_name', 'address', 'email', 'phone_numer', 'node', 'registration_date']
+
+    # Filter categories filterset by the categories of the current node
+    def get_filterset(self, filterset_class):
+        filterset = super().get_filterset(filterset_class)
+        if not self.node.intercoop_enabled:
+            filterset.filters.pop('intercoop')
+        return filterset
 
     def get_queryset(self):
         return super().get_queryset().filter(node=self.node)

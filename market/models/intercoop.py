@@ -30,3 +30,5 @@ class Intercoop(models.Model):
     def display_name(self):
         return self.provider.name if self.provider else self.name
 
+    def __str__(self):
+        return self.display_name

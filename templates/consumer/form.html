@@ -39,6 +39,15 @@
                 {% include "common/forms/checkbox.html" with field=form.is_active %}
                 {% include "common/forms/checkbox.html" with field=form.is_intercoop %}
 
+                <div class="mt-4" data-visible-by="#{{form.is_intercoop.id_for_label}}">
+                    {% include "common/forms/field.html" with field=form.intercoop not_floating=True %}
+                    <div class="d-none">{{form.intercoop_external_id}}</div>
+                    {% if object.intercoop.external_id_needed %}
+                        {% include "common/forms/display_value.html" with field=form.intercoop_external_id %}
+                    {% endif %}
+
+                </div>
+
             </div>
         </div>
 

@@ -8,7 +8,6 @@
     <th scope="col">{% translate 'Consumidoras' %}</th>
 {% endblock %}
 
-
 {% block item_row %}
 
 {% include 'provider/row_display.html' with item=item.provider %}
@@ -16,8 +15,7 @@
 <td>{{item.consumer_set.count}}</td>
 <td class="table-actions">
     <a class="btn btn-outline-primary" href="{% market_url 'market:delete_intercoop' item.pk %}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Eliminar' %}"><i class="material-icons">delete</i></a>
-    <a class="btn btn-outline-primary" href="{% market_url 'market:provider_list' %}?categories={{item.pk}}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Ver consumidoras' %}"><i class="material-icons">directions_walk</i></a>
+    <a class="btn btn-outline-primary" href="{% market_url 'market:consumer_list' %}?intercoop={{item.pk}}"  data-toggle="tooltip" data-placement="bottom" title="{% translate 'Ver consumidoras' %}"><i class="material-icons">directions_walk</i></a>
 </td>
-
 
 {% endblock %}

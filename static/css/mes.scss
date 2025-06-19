@@ -58,6 +58,7 @@ $navdrawer-nav-link-color-active: $mes-highlight;
     background-image: url('../imgs/mes.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 html, body {
   min-height: 100%;
