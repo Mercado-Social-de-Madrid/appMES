@@ -1,7 +1,7 @@
 import logging
 from http import HTTPStatus
 
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 
 from django.contrib import messages
 from django.urls import reverse
@@ -14,6 +14,7 @@ from django.utils.translation import gettext_lazy as _, activate
 
 from helpers import send_template_email
 from market.forms.register.consumer import ConsumerSignupForm
+from market.models import Intercoop
 
 logger = logging.getLogger(__name__)
 
@@ -31,6 +32,8 @@ class RegisterView(XFrameOptionsExemptMixin, CreateView):
                 self.node = Node.objects.filter(pk=int(market)).first()
             except ValueError:
                 self.node = Node.objects.filter(shortname=market).first()
+            if not self.node:
+                raise Http404("")
             activate(self.node.preferred_locale)
 
     def dispatch(self, *args, **kwargs):
@@ -48,14 +51,16 @@ class RegisterView(XFrameOptionsExemptMixin, CreateView):
         context = super().get_context_data(**kwargs)
         context['node'] = self.node
         context["privacy_policy_url"] = self.node.privacy_policy_url
+        if self.node.intercoop_enabled:
+            context['intercoop_entities'] = Intercoop.objects.filter(node=self.node)
         return context
 
     def form_invalid(self, form):
         logger.error(form.errors)
-        return super(RegisterView,self).form_invalid(form)
+        return super().form_invalid(form)
 
     def form_valid(self, form):
-        response = super(RegisterView, self).form_valid(form)
+        response = super().form_valid(form)
 
         self.send_email_to_admins(self.object)
         self.send_email_to_consumer(self.object)

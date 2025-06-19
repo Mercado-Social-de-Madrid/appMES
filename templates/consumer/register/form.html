@@ -64,15 +64,17 @@
             <strong>{% translate 'Máximo tamaño de archivo: ' %}</strong>
             {% settings_value 'FILE_UPLOAD_MAX_MEMORY_SIZE' as max_upload_size %}
             {{ max_upload_size|filesizeformat }}
-
         </small>
+
+        <div class="mt-4" data-visible-by="#{{form.idcard_file.id_for_label}}">
+            {% include "common/forms/file_field.html" with field=form.idcard_file2 %}
+        </div>
     </div>
 
     <div class="col-md-7">
         {% include "common/forms/field.html" with field=form.email %}
         {% include "common/forms/field.html" with field=form.phone_number %}
     </div>
-
 
     <div class="col-lg-12 mt-md-4">
         {% include "common/forms/field.html" with field=form.address not_floating=True %}
@@ -82,10 +84,36 @@
         {% include "common/forms/field.html" with field=form.city %}
     </div>
 
+    <div class="col-md-12">
+    {% if node.intercoop_enabled %}
+        {% include "common/forms/switch.html" with field=form.is_intercoop %}
+        {% include "common/forms/field.html" with field=form.intercoop %}
+        <div class="my-4" data-visible-by="#{{form.is_intercoop.id_for_label}}">
+            Elige la entidad de intercooperación con la que te registras:
+            <div class="row">
+            {% for entity in intercoop_entities %}
+                <div class="col-md-6 col-lg-4 mt-3">
+                    <div class="intercoop-provider card pt-2" {% if entity.external_id_needed %} data-external-label="{{entity.external_id_label}}" {% endif %}>
+                        <label class="text-dark">
+                            {% include "provider/row_display.html" with item=entity.provider hide_address=True show_inline=True %}
+                    <input type="radio" class="invisible" name="{{form.intercoop.name}}" value="{{entity.pk}}" >
+                        </label>
 
-</div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+            <div style="display:none;" id="intercoop_external_id_container">
+                {% include "common/forms/field.html" with field=form.intercoop_external_id %}
+            </div>
 
-    {% include 'common/custom_text/content.html' with text_id='consumer_form_bottom' %}
+        </div>
+    {% endif %}
+    </div>
+
+    <div class="col-lg-12">
+        {% include 'common/custom_text/content.html' with text_id='consumer_form_bottom' %}
+    </div>
 
     <div class="col-md-12 col-lg-12 mt-3">
         {% include 'registration/privacy_policy_check.html' %}
@@ -93,17 +121,54 @@
 
     <div class="col-md-12 col-lg-12 mb-3">
         {% include "common/forms/switch.html" with field=form.newsletter_check %}
-
     </div>
+</div>
 
-                    <div class="text-center mt-3 mb-5">
-                        <button type="submit" class="btn btn-primary btn-action btn-lg">{% translate "Enviar solicitud" %}</button>
-                    </div>
-
-                </form>
-                {% block cardcontent%} {% endblock %}
+            <div class="text-center mt-3 mb-5">
+                <button type="submit" class="btn btn-primary btn-action btn-lg">{% translate "Enviar solicitud" %}</button>
             </div>
+
+            </form>
+            {% block cardcontent%} {% endblock %}
         </div>
     </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+	$(function() {
+	    var externalIdInput = $('#{{ form.intercoop_external_id.id_for_label }}');
+	    var externalIdLabel = $('label[for="{{ form.intercoop_external_id.id_for_label }}"]');
+        var externalIdContainer = $('#intercoop_external_id_container');
+
+		$('.intercoop-provider').click(function(){
+			$('.intercoop-provider').removeClass('border-secondary');
+			var intercoop = $(this).addClass('border-secondary');
+			var externalLabel = intercoop.attr('data-external-label');
+			if (externalLabel){
+                externalIdInput.attr('placeholder', externalLabel);
+                externalIdLabel.text(externalLabel);
+                externalIdContainer.show();
+			}
+			else{
+			    externalIdContainer.hide();
+			}
+		});
+
+		$("form").submit(function() {
+
+			var errorMsg = "";
+			if ($('input.ss-q-short').val() == "")
+				errorMsg += "No has introducido tu email.<br/>";
+			var selected = Number($('form input[name=entry.95654287]:checked').val());
+			if (!((selected > 0) && (selected < 10)))
+				errorMsg += "No has seleccionado ninguna opción.<br/>";
+
+		});
+
+	});
+</script>
 
 {% endblock %}

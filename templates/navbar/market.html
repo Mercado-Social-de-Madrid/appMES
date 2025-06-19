@@ -49,6 +49,16 @@
           {% translate 'Consumidoras' %}
         </a>
     </li>
+
+    {% if market.intercoop_enabled %}
+    <li class="nav-item {% if namespace == 'market' and url_name == 'intercoop_list' %}active{% endif %}">
+        <a class="nav-link" href="{% market_url 'market:intercoop_list' %}">
+          <i class="material-icons mr-3">extension</i>
+          {% translate 'Intercooperación' %}
+        </a>
+    </li>
+    {% endif %}
+
 </ul>
 
 <div class="navdrawer-divider"></div>
@@ -74,15 +84,6 @@
           {% translate 'Ventajas' %}
         </a>
     </li>
-
-    {% if market.intercoop_enabled %}
-    <li class="nav-item {% if namespace == 'market' and url_name == 'intercoop_list' %}active{% endif %}">
-        <a class="nav-link" href="{% market_url 'market:intercoop_list' %}">
-          <i class="material-icons mr-3">extension</i>
-          {% translate 'Intercooperación' %}
-        </a>
-    </li>
-    {% endif %}
 
 </ul>
 {% endwith %}
