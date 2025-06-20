@@ -87,7 +87,6 @@
     <div class="col-md-12">
     {% if node.intercoop_enabled %}
         {% include "common/forms/switch.html" with field=form.is_intercoop %}
-        {% include "common/forms/field.html" with field=form.intercoop %}
         <div class="my-4" data-visible-by="#{{form.is_intercoop.id_for_label}}">
             Elige la entidad de intercooperación con la que te registras:
             <div class="row">

@@ -28,6 +28,8 @@ class IntercoopCreate(MarketMixin, CreateView):
 
     def get_initial(self):
         return { 'node': self.node }
+    def get_form_kwargs(self):
+        return super().get_form_kwargs() | { 'node': self.node }
 
     def form_valid(self, form):
         response = super().form_valid(form)
