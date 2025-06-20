@@ -22,8 +22,8 @@ django-cleanup==8.1.0
 django-log-viewer==1.1.7
 django-unused-media==0.2.2
 django-sass-processor==1.4.1
+django-compressor==4.5
 libsass==0.23.0
-rcssmin==1.2.1
 
 fcm-django==1.0.12
 gunicorn==22.0.0

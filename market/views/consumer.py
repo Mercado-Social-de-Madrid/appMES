@@ -15,7 +15,7 @@ from helpers.filters.filtermixin import FilterMixin
 from helpers.forms.BootstrapForm import BootstrapForm
 from market.forms.consumer import ConsumerForm, CreateConsumerForm
 from market.mixins.current_market import MarketMixin, AccountAccessMixin
-from market.models import Consumer
+from market.models import Consumer, Intercoop
 
 
 class ConsumerFilterForm(BootstrapForm):
@@ -53,6 +53,8 @@ class ConsumerList(FilterMixin, MarketMixin, ExportAsCSVMixin, FilterView, ListI
         filterset = super().get_filterset(filterset_class)
         if not self.node.intercoop_enabled:
             filterset.filters.pop('intercoop')
+        else:
+            filterset.filters['intercoop'].queryset = Intercoop.objects.filter(node=self.node)
         return filterset
 
     def get_queryset(self):
