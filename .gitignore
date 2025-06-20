@@ -167,3 +167,5 @@ appMes
 
 # Ignore docker-compose files for development
 docker-compose.*.yml
+
+static/css/mes.css

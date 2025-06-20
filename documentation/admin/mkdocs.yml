@@ -37,6 +37,7 @@ markdown_extensions:
   - attr_list
   - pymdownx.blocks.admonition
   - pymdownx.blocks.details
+  - pymdownx.blocks.caption
   - pymdownx.blocks.tab:
       alternate_style: True
   - pymdownx.emoji:
@@ -68,6 +69,7 @@ nav:
   - acceso.md
   - perfil.md
   - idiomas.md
+  - intercooperacion.md
   - busqueda_semantica.md
   - Menú lateral:
       - menu_lateral/index.md
