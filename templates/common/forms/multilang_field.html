@@ -40,6 +40,9 @@
 {% if base_field.help_text%}
   <small class="text-muted mt-2 d-block">{{ base_field.help_text|safe }}</small>
 {% endif %}
+
+{% include "common/forms/errors.html" with field=base_field %}
+
 </div>
 
 {% endwith %}

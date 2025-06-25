@@ -5,6 +5,8 @@ from market.forms.register.signup import BaseSignupForm
 from market.forms.consumer import ConsumerForm
 from django.utils.translation import gettext_lazy as _
 
+from market.models import Intercoop
+
 
 class ConsumerSignupForm(BaseSignupForm, ConsumerForm):
     required_fields = ['first_name', 'last_name', 'idcard_file']
@@ -25,4 +27,8 @@ class ConsumerSignupForm(BaseSignupForm, ConsumerForm):
             intercoop = cleaned_data.get('intercoop')
             if not intercoop:
                 self.add_error("is_intercoop", _('Tienes que seleccionar una entidad de intercooperación concreta'))
+                return
 
+            intercoop_external_id = cleaned_data.get('intercoop_external_id')
+            if intercoop.external_id_needed and intercoop_external_id in ("", None):
+                self.add_error("intercoop_external_id", _('Este campo no puede estar vacío.'))

@@ -8,6 +8,5 @@
             {% endif %}
     </label>
 
-    {% if field.errors %} <div class="invalid-feedback form-errors"> {{field.errors}}</div> {% endif %}
-    </div>
-
+</div>
+{% include "common/forms/errors.html" %}

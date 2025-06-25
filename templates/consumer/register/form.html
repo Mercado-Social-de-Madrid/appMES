@@ -95,14 +95,14 @@
                     <div class="intercoop-provider card pt-2" {% if entity.external_id_needed %} data-external-label="{{entity.external_id_label}}" {% endif %}>
                         <label class="text-dark">
                             {% include "provider/row_display.html" with item=entity.provider hide_address=True show_inline=True %}
-                    <input type="radio" class="invisible" name="{{form.intercoop.name}}" value="{{entity.pk}}" >
+                    <input type="radio" class="invisible" name="{{form.intercoop.name}}" value="{{entity.pk}}" {% if form.intercoop.value == entity.pk %} checked="true" {% endif %} >
                         </label>
-
                     </div>
                 </div>
             {% endfor %}
             </div>
-            <div style="display:none;" id="intercoop_external_id_container">
+            {% include "common/forms/errors.html" with field=form.intercoop %}
+            <div {% if not form.intercoop_external_id.errors %} style="display:none;" {% endif %} id="intercoop_external_id_container">
                 {% include "common/forms/field.html" with field=form.intercoop_external_id %}
             </div>
 
@@ -154,17 +154,6 @@
 			else{
 			    externalIdContainer.hide();
 			}
-		});
-
-		$("form").submit(function() {
-
-			var errorMsg = "";
-			if ($('input.ss-q-short').val() == "")
-				errorMsg += "No has introducido tu email.<br/>";
-			var selected = Number($('form input[name=entry.95654287]:checked').val());
-			if (!((selected > 0) && (selected < 10)))
-				errorMsg += "No has seleccionado ninguna opción.<br/>";
-
 		});
 
 	});

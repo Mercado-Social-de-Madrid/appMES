@@ -44,10 +44,13 @@
             {% endif %}
 
             {% if object.is_intercoop %}
-              <h5 class="text-primary">{% translate "Socia de intercooperación" %}</h5>
+              <h5 class="text-primary mb-0">{% translate "Socia de intercooperación" %}</h5>
+                {% if object.intercoop %}
+                    {{ object.intercoop.display_name }}
+                {% endif %}
           {% endif %}
 
-            <div class="form-group">
+            <div class="form-group mt-2">
               <label>{% translate "Número de socia" %}</label><br>
               {{object.member_id|default_if_none:'-'}}
             </div>
@@ -95,12 +98,22 @@
 
                   </div>
 
+              {% if request.user.is_staff %}
                   {% if object.idcard_file %}
                   <div class="form-group">
                       <label>{% translate 'Documento identificativo (DNI/NIE/Pasaporte...)' %}</label><br>
                       <a class="btn btn-sm btn-secondary" href="{{object.idcard_file.url}}" target="_blank">{% translate 'Ver archivo' %} <i class="material-icons ">open_in_new</i></a>
                   </div>
                   {% endif %}
+
+                    {% if object.idcard_file2 %}
+                  <div class="form-group">
+                      <label>{% translate 'Documento identificativo (reverso)' %}</label><br>
+                      <a class="btn btn-sm btn-secondary" href="{{object.idcard_file2.url}}" target="_blank">{% translate 'Ver archivo' %} <i class="material-icons ">open_in_new</i></a>
+                  </div>
+                  {% endif %}
+
+              {% endif %}
 
 
 

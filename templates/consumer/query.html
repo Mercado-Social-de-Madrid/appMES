@@ -3,9 +3,9 @@
 {% load i18n %}
  {% block table_head %}
     <th scope="col">{% translate "Usuario" %}</th>
-    <th scope="col">{% translate "Fecha de alta" %}</th>
-    <th scope="col">{% translate "CIF" %}</th>
     <th scope="col">{% translate "Nombre" %}</th>
+    <th scope="col">{% translate "CIF" %}</th>
+<th scope="col">{% translate "Fecha de alta" %}</th>
     <th scope="col">{% translate "Acciones" %}</th>
 {% endblock %}
 
@@ -20,11 +20,12 @@
         <span class="text-muted">{{ item.email }}</span>
     {% endif %}
 </td>
-<td>{{item.registration_date|date:'d/m/Y'}}</td>
-<td>{{item.cif}}</td>
+
+
 
 <td>{{item.display_name}} {% if item.inactive %} ({% translate 'INACTIVA' %}) {% endif %}</td>
-
+<td>{{item.cif}}</td>
+<td>{{item.registration_date|date:'d/m/Y'}}</td>
 
 <td class="table-actions">
     <a class="btn btn-outline-primary" href="{% market_url 'market:detail_consumer' item.pk %}" style="min-width:0;" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Ver detalle' %}"><i class="material-icons">visibility</i></a>
