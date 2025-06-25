@@ -1,3 +1,4 @@
+import json
 import operator
 from functools import reduce
 import django_filters
@@ -41,6 +42,15 @@ class SemanticSearchFilter(SearchFilter):
                     exact_match=ExpressionWrapper(reduce(operator.or_, self.get_subquery_list(value)), output_field=BooleanField())
                 ).filter(Q(exact_match=True) | Q(similarity__lt=settings.SEMANTIC_SIMILARITY_THRESHOLD) | Q(similarity__isnull=True)
                 ).order_by('-exact_match', 'similarity')  # Ordenar por similitud
+
+                entities = qs.all()
+                data = {
+                    "original": value,
+                    "procesado": query_text,
+                    "resultados": [{"id": str(entity.id), "nombre": entity.name, "similitud": entity.similarity} for entity in entities]
+                }
+                logger.debug(f'[BUSQUEDA] - {json.dumps(data)}')
+
 
             else:
                 qs = super().filter(qs, value)
