@@ -4,7 +4,7 @@ register = Library()
 UNSET = object()
 
 HIGH_SIMILARITY_THRESHOLD = 0.5
-LOW_SIMILARITY_THRESHOLD = 0.65
+LOW_SIMILARITY_THRESHOLD = 0.6
 
 def similarity_level(similarity):
     if similarity < HIGH_SIMILARITY_THRESHOLD:

@@ -30,7 +30,6 @@ class Command(BaseCommand):
 
         for item in providers:
             provider_created = Provider.objects.create(
-                id=item['id'],
                 node=node,
                 cif=item['cif'],
                 name=item['name'],
