@@ -4,7 +4,7 @@
         {% if field %} {{ field.label }} {% else %} {{ label }} {% endif %}</label>
 
         {% if field %}
-            <input type="text" value="{{ field.value }}" readonly="" class="form-control disabled">
+            <input type="text" value="{{ field.value|default:' ' }}" readonly="" class="form-control disabled">
         {% else %}
             <input type="text" value="{{ value|default:'' }}" readonly="" class="form-control disabled">
         {% endif %}

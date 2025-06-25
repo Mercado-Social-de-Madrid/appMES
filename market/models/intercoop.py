@@ -19,7 +19,7 @@ class Intercoop(models.Model):
     name = models.CharField(null=True, blank=True, verbose_name=_('Nombre'), max_length=250)
     description = models.TextField(null=True, blank=True, verbose_name=_('Condiciones de intercooperación'))
     external_id_needed = models.BooleanField(default=True, verbose_name=_('Incluir identificador de socia externa para validación'))
-    external_id_label = models.CharField(null=True, blank=True, max_length=200, verbose_name=_('Etiqueta del identificador en el formulario'))
+    external_id_label = models.CharField(null=True, blank=True, max_length=200, verbose_name=_('Etiqueta del identificador en el formulario'), help_text=_('Por ejemplo, "Número de socia"'))
 
     class Meta:
         verbose_name = _('Proveedora de intercooperación')

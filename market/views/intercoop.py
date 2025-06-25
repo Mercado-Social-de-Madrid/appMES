@@ -28,15 +28,12 @@ class IntercoopCreate(MarketMixin, CreateView):
 
     def get_initial(self):
         return { 'node': self.node }
+
     def get_form_kwargs(self):
         return super().get_form_kwargs() | { 'node': self.node }
 
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        messages.success(self.request, _('Intercooperación añadida correctamente.'))
-        return response
-
     def get_success_url(self):
+        messages.success(self.request, _('Intercooperación añadida correctamente.'))
         return self.reverse('market:intercoop_list', )
 
 
@@ -45,8 +42,16 @@ class IntercoopDetail(MarketMixin, UpdateView):
     form_class = IntercoopForm
     model = Intercoop
 
+    def get_form_kwargs(self):
+        return super().get_form_kwargs() | {'node': self.node}
+
+    def form_invalid(self, form):
+        print(form.errors)
+        return super().form_invalid(form)
+
     def get_success_url(self):
-        return self.reverse('market:intercoop_detail', kwargs={'pk': self.object.pk})
+        messages.success(self.request, _('Cambios en intercooperación actualizados correctamente.'))
+        return self.reverse('market:intercoop_list', )
 
 
 class IntercoopDelete(MarketMixin, DeleteView):
