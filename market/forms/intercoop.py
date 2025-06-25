@@ -27,13 +27,18 @@ class IntercoopForm(MultiLangForm, BootstrapForm):
         external_id_needed = cleaned_data.get('external_id_needed', False)
         if external_id_needed:
             label_filled = False
-            if self.node.is_multilang_enabled:
-                for lang in self.node.enabled_langs:
-                    label_filled = label_filled or cleaned_data.get('external_id_label_'+lang) not in ("", None)
-            else:
-                label_filled = cleaned_data.get('external_id_label') not in ("", None)
+            for lang in self.node.enabled_langs:
+                label_filled = label_filled or cleaned_data.get('external_id_label_'+lang) not in ("", None)
 
             if not label_filled:
                 self.add_error("external_id_label", _('Si se marca la opción para validar la socia externa, hay que introducir un valor para la etiqueta'))
 
         return cleaned_data
+
+    def save(self, commit=True):
+        obj = super().save(commit)
+        if commit:
+            obj.name = obj.provider.display_name
+            obj.save()
+
+        return obj

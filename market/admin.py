@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from modeltranslation.admin import TabbedTranslationAdmin
 
 from core.models.social_profile import ProviderSocialProfile
-from market.models import Provider, Category, Consumer
+from market.models import Provider, Category, Consumer, Intercoop
 
 
 @admin.register(Category)
@@ -35,4 +35,14 @@ class ConsumerAdmin(admin.ModelAdmin):
 
     @admin.display(description=_("Nombre"))
     def name(self, obj):
+        return obj.display_name
+
+
+@admin.register(Intercoop)
+class IntercoopAdmin(admin.ModelAdmin):
+    list_display = ["name", "node", "provider", "external_id_needed",  ]
+    list_filter = ["node", "external_id_needed"]
+
+    @admin.display(description=_("Nombreaa"))
+    def namesa(self, obj):
         return obj.display_name

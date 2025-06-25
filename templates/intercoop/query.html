@@ -10,7 +10,11 @@
 
 {% block item_row %}
 
-{% include 'provider/row_display.html' with item=item.provider %}
+{% if item.provider %}
+    {% include 'provider/row_display.html' with item=item.provider %}
+{% else %}
+    <td>{{item.display_name}}</td>
+{% endif %}
 <td> {% if item.external_id_needed %} <i class="material-icons ">check_circle</i>{% endif %} </td>
 <td>{{item.consumer_set.count}}</td>
 <td class="table-actions">
