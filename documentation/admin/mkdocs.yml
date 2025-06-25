@@ -69,7 +69,6 @@ nav:
   - acceso.md
   - perfil.md
   - idiomas.md
-  - intercooperacion.md
   - busqueda_semantica.md
   - Menú lateral:
       - menu_lateral/index.md
@@ -79,6 +78,7 @@ nav:
       - menu_lateral/categorias.md
       - menu_lateral/proveedoras.md
       - menu_lateral/consumidoras.md
+      - menu_lateral/intercooperacion.md
       - menu_lateral/ofertas.md
       - menu_lateral/ventajas.md
   - Integraciones:
