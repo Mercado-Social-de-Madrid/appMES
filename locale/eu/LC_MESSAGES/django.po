@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MES web app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-09 08:53+0000\n"
+"POT-Creation-Date: 2025-06-27 11:28+0000\n"
 "PO-Revision-Date: 2024-08-16 17:44+0100\n"
 "Last-Translator: Julio\n"
 "Language-Team: Basque (Spain)\n"
@@ -16,9 +16,11 @@ msgstr ""
 "X-Loco-Project-Id: 161257\n"
 "X-Loco-Api-Version: 1.0.28 20240827-1\n"
 
-#: api/filters/provider.py:22 public/views.py:35
-msgid "Búsqueda semántica..."
-msgstr ""
+#: api/filters/provider.py:22 authentication/views/user.py:24
+#: benefits/views.py:25 market/views/consumer.py:27 market/views/provider.py:39
+#: news/views.py:24 offers/views.py:86 public/views.py:35
+msgid "Buscar..."
+msgstr "Bilatu..."
 
 #: api/views/auth.py:68
 msgid "Usuario no encontrado."
@@ -87,9 +89,10 @@ msgstr "Zuk kudeatzen duzun merkatua"
 
 #: authentication/forms/user.py:20 authentication/models/user.py:54
 #: core/models/node.py:12 core/models/social_profile.py:10 market/admin.py:36
-#: market/models/category.py:10 market/models/consumer.py:10
-#: market/models/provider.py:17 templates/category/query.html:6
-#: templates/consumer/detail.html:61 templates/consumer/query.html:8
+#: market/admin.py:46 market/models/category.py:10 market/models/consumer.py:10
+#: market/models/intercoop.py:19 market/models/provider.py:17
+#: templates/category/query.html:6 templates/consumer/detail.html:64
+#: templates/consumer/query.html:6 templates/intercoop/query.html:6
 #: templates/offers/query.html:7
 msgid "Nombre"
 msgstr "Izena"
@@ -141,7 +144,7 @@ msgid "Correo Electrónico"
 msgstr "Posta elektronikoa"
 
 #: authentication/models/user.py:55 market/models/consumer.py:11
-#: templates/consumer/detail.html:66
+#: templates/consumer/detail.html:69
 msgid "Apellidos"
 msgstr "Abizenak"
 
@@ -203,12 +206,6 @@ msgstr "Pasahitza behar bezala eguneratu da"
 #: authentication/views/preregister.py:50
 msgid "Email de prerregistro reenviado"
 msgstr "Aurrez izena emateko mezu elektronikoa birbidali da"
-
-#: authentication/views/user.py:24 benefits/views.py:25
-#: market/views/consumer.py:27 market/views/provider.py:39 news/views.py:24
-#: offers/views.py:86
-msgid "Buscar..."
-msgstr "Bilatu..."
 
 #: authentication/views/user.py:97
 msgid "Usuario eliminado correctamente."
@@ -328,7 +325,7 @@ msgstr "Nola bistaratzen den inprimakietan"
 msgid "Descripción adicional"
 msgstr "Deskribapen gehigarria"
 
-#: core/models/custom_text.py:42 core/models/node.py:50
+#: core/models/custom_text.py:42 core/models/node.py:51
 #: core/models/social_profile.py:35 market/views/provider.py:61
 #: templates/market/query.html:6
 msgid "Mercado"
@@ -438,7 +435,7 @@ msgstr "Bazkide txartela aktiboa"
 msgid "Enlace a página con información básica del mercado"
 msgstr "Merkatuaren oinarrizko informazioa duen orrialderako esteka."
 
-#: core/models/node.py:41 templates/market/form.html:48
+#: core/models/node.py:41 templates/market/form.html:49
 msgid "Idiomas habilitados"
 msgstr "Hizkuntzak gaituta"
 
@@ -446,7 +443,11 @@ msgstr "Hizkuntzak gaituta"
 msgid "Enlace a la política de privacidad"
 msgstr "Esteka pribatutasun politikarako"
 
-#: core/models/node.py:51 templates/market/edit.html:5
+#: core/models/node.py:44
+msgid "Habilitar funcionalidad de intercooperación"
+msgstr "Gaitu Interkooperazio funtzionalitatea"
+
+#: core/models/node.py:52 templates/market/edit.html:5
 #: templates/market/list.html:4 templates/market/public/edit.html:5
 #: templates/market/public/email_preview.html:6
 #: templates/market/public/template_preview.html:7
@@ -501,9 +502,35 @@ msgid "Ya existe un usuario registrado con este email."
 msgstr ""
 "Dagoeneko erregistratutako erabiltzaile bat dago posta elektroniko honekin."
 
+#: market/forms/intercoop.py:34
+msgid ""
+"Si se marca la opción para validar la socia externa, hay que introducir un "
+"valor para la etiqueta"
+msgstr ""
+"Kanpoko bazkidea balioztatzeko aukera hautatzen bada, balio bat sartu behar "
+"duzu etiketarentzat."
+
 #: market/forms/market.py:45
 msgid "Dejar en blanco para usar la página por defecto de la app"
-msgstr ""
+msgstr "Hutsik utzi aplikazioaren lehenetsitako orria erabiltzeko"
+
+#: market/forms/register/consumer.py:13
+msgid "Quiero ser socia de intercooperación"
+msgstr "Interkooperazioko bazkide izan nahi dut"
+
+#: market/forms/register/consumer.py:13
+msgid ""
+"Ingresar como socia/o de intercooperación a través de mi condición de socia "
+"en:"
+msgstr "Sartu elkarlanerako kide gisa nire kide egoeraren bidez hemen:"
+
+#: market/forms/register/consumer.py:29
+msgid "Tienes que seleccionar una entidad de intercooperación concreta"
+msgstr "Elkarlanerako entitate espezifiko bat aukeratu behar duzu"
+
+#: market/forms/register/consumer.py:34
+msgid "Este campo no puede estar vacío."
+msgstr "Eremu hau ezin da hutsik egon."
 
 #: market/models/account.py:17 templates/provider/query.html:9
 msgid "Gestionado por"
@@ -513,16 +540,16 @@ msgstr "kudeatua"
 msgid "NIF/CIF/Pasaporte"
 msgstr "IFZ/IFK/Pasaportea"
 
-#: market/models/account.py:21 templates/consumer/detail.html:83
+#: market/models/account.py:21 templates/consumer/detail.html:86
 msgid "Teléfono"
 msgstr "Telefonoa"
 
-#: market/models/account.py:22 templates/consumer/detail.html:51
+#: market/models/account.py:22 templates/consumer/detail.html:54
 #: templates/member/check_form.html:38 templates/provider/detail.html:47
 msgid "Número de socia"
 msgstr "Bazkide zenbakia"
 
-#: market/models/account.py:23 templates/consumer/detail.html:88
+#: market/models/account.py:23 templates/consumer/detail.html:91
 #: templates/public/provider/query.html:118
 msgid "Dirección"
 msgstr "Helbidea"
@@ -536,7 +563,7 @@ msgid "Última actualización"
 msgstr "Azken eguneratzea"
 
 #: market/models/account.py:32 templates/account/card.html:9
-#: templates/consumer/query.html:6
+#: templates/consumer/query.html:8
 msgid "Fecha de alta"
 msgstr "Izena emateko data"
 
@@ -544,15 +571,23 @@ msgstr "Izena emateko data"
 msgid "Favoritos"
 msgstr "Faboritoak"
 
-#: market/models/consumer.py:13
-msgid "Es socia de intercooperación"
-msgstr "Interkooperazioko bazkidea da"
-
-#: market/models/consumer.py:15 templates/consumer/detail.html:100
+#: market/models/consumer.py:14 templates/consumer/detail.html:104
 msgid "Documento identificativo (DNI/NIE/Pasaporte...)"
 msgstr "Identifikazio agiria (NAN/AIZ/Pasaportea...)"
 
-#: market/models/consumer.py:16 templates/consumer/detail.html:93
+#: market/models/consumer.py:15 templates/consumer/detail.html:111
+msgid "Documento identificativo (reverso)"
+msgstr "Identifikazio agiria (alderantziz)"
+
+#: market/models/consumer.py:15
+msgid ""
+"En caso de que hayas subido una foto con únicamente la parte delantera de tu "
+"documento, puedes subir aquí la trasera"
+msgstr ""
+"Dokumentuaren aurrealdearen argazkia bakarrik igo baduzu, atzealdea ere igo "
+"dezakezu hemen."
+
+#: market/models/consumer.py:16 templates/consumer/detail.html:96
 msgid "Boletín de difusión"
 msgstr "Buletina"
 
@@ -564,16 +599,63 @@ msgstr ""
 "Albisteekin eta abantailak/eskaintzak dituen buletina jasotzea onartzen "
 "duzubazkideak formatu elektronikoan"
 
-#: market/models/consumer.py:19
+#: market/models/consumer.py:18
+msgid "Es socia de intercooperación"
+msgstr "Interkooperazioko bazkidea da"
+
+#: market/models/consumer.py:19 templates/intercoop/delete.html:18
+#: templates/intercoop/detail.html:13 templates/intercoop/list.html:5
+#: templates/intercoop/list.html:13 templates/navbar/market.html:57
+msgid "Intercooperación"
+msgstr "Interkooperazio"
+
+#: market/models/consumer.py:20
+msgid "Identificador de socia externa"
+msgstr "Kanpoko bazkidearen identifikatzailea"
+
+#: market/models/consumer.py:23
 msgid "Consumidora"
 msgstr "Kontsumitzailea"
 
-#: market/models/consumer.py:20 templates/consumer/create.html:15
+#: market/models/consumer.py:24 templates/consumer/create.html:15
 #: templates/consumer/delete.html:18 templates/consumer/detail.html:16
 #: templates/consumer/edit.html:14 templates/consumer/list.html:5
-#: templates/consumer/list.html:13 templates/navbar/market.html:57
+#: templates/consumer/list.html:13 templates/intercoop/query.html:8
+#: templates/navbar/market.html:49
 msgid "Consumidoras"
 msgstr "Kontsumitzaileak"
+
+#: market/models/intercoop.py:17
+msgid "Fecha de creación"
+msgstr "Sortze data"
+
+#: market/models/intercoop.py:18
+msgid "Entidad proveedora de intercooperación"
+msgstr "Interkooperazio hornitzaile entitatea"
+
+#: market/models/intercoop.py:20
+msgid "Condiciones de intercooperación"
+msgstr "Interkooperazio baldintzak"
+
+#: market/models/intercoop.py:21
+msgid "Incluir identificador de socia externa para validación"
+msgstr "Baliozkotzeko, sartu kanpoko bazkidearen identifikatzailea"
+
+#: market/models/intercoop.py:22
+msgid "Etiqueta del identificador en el formulario"
+msgstr "Identifikazio-etiketa formularioan"
+
+#: market/models/intercoop.py:22
+msgid "Por ejemplo, \"Número de socia\""
+msgstr "Adibidez, bazkide zenbakia"
+
+#: market/models/intercoop.py:25
+msgid "Proveedora de intercooperación"
+msgstr "Interkooperazio hornitzailea"
+
+#: market/models/intercoop.py:26
+msgid "Proveedoras de intercooperación"
+msgstr "Interkooperazio hornitzaileak"
 
 #: market/models/provider.py:19 news/models/news.py:17
 msgid "Descripción corta"
@@ -584,10 +666,8 @@ msgid "Productos y servicios"
 msgstr "Produktuak eta zerbitzuak"
 
 #: market/models/provider.py:21
-#, fuzzy
-#| msgid "Descripción corta"
 msgid "Descripción y productos vectorizados"
-msgstr "Deskribapen laburra"
+msgstr "Deskribapena eta bektorizazioko produktuak"
 
 #: market/models/provider.py:23
 msgid "Oculta en listado público"
@@ -596,7 +676,7 @@ msgstr "Zerrenda publikoan ezkutatuta"
 #: market/models/provider.py:27 templates/category/delete.html:18
 #: templates/category/detail.html:5 templates/category/detail.html:13
 #: templates/category/list.html:5 templates/category/list.html:13
-#: templates/navbar/market.html:42
+#: templates/intercoop/detail.html:5 templates/navbar/market.html:70
 msgid "Categorías"
 msgstr "Kategoriak"
 
@@ -624,18 +704,30 @@ msgstr "Kategoria behar bezala ezabatu da."
 msgid "Tiene usuario asociado"
 msgstr "Erabiltzaile elkartua dauka"
 
-#: market/views/consumer.py:63 market/views/register.py:63
+#: market/views/consumer.py:73 market/views/register.py:68
 msgid "Consumidora añadida correctamente."
 msgstr "Kontsumitzailea behar bezala gehitu da."
 
-#: market/views/consumer.py:88 market/views/market.py:80
+#: market/views/consumer.py:98 market/views/market.py:80
 #: market/views/market.py:141
 msgid "Datos actualizados correctamente."
 msgstr "Datuak behar bezala eguneratu dira."
 
-#: market/views/consumer.py:102
+#: market/views/consumer.py:112
 msgid "Consumidora eliminada correctamente."
 msgstr "Kontsumitzailea behar bezala ezabatu da."
+
+#: market/views/intercoop.py:36
+msgid "Intercooperación añadida correctamente."
+msgstr "Interkooperazio behar bezala gehitu da."
+
+#: market/views/intercoop.py:49
+msgid "Cambios en intercooperación actualizados correctamente."
+msgstr "Interkooperazio izandako aldaketak behar bezala eguneratu dira"
+
+#: market/views/intercoop.py:58
+msgid "Intercooperación eliminada correctamente."
+msgstr "Interkooperazio behar bezala ezabatu da."
 
 #: market/views/provider.py:154
 msgid "Proveedora añadida correctamente."
@@ -649,15 +741,15 @@ msgstr "Hornitzailea behar bezala eguneratu da."
 msgid "Proveedora eliminada correctamente."
 msgstr "Hornitzailea behar bezala ezabatu da."
 
-#: market/views/register.py:40
+#: market/views/register.py:43
 msgid "El registro interno no está disponible para este mercado."
 msgstr "Barne erregistroa ez dago eskuragarri merkatu honetarako."
 
-#: market/views/register.py:83
+#: market/views/register.py:88
 msgid "Nueva solicitud de socia consumidora"
 msgstr "Kontsumitzaileen bazkideen aplikazio berria"
 
-#: market/views/register.py:95
+#: market/views/register.py:100
 #, python-brace-format
 msgid "Solicitud de alta en el Mercado Social de {node}"
 msgstr "{node} Merkatu Sozialean izena emateko eskaera"
@@ -874,7 +966,7 @@ msgstr "Abantaila hau aldatzeko, jarri harremanetan"
 msgid "Editar ventaja"
 msgstr "Abantaila editatu"
 
-#: templates/benefits/edit.html:19 templates/navbar/market.html:50
+#: templates/benefits/edit.html:19 templates/navbar/market.html:42
 #: templates/offers/entity_list.html:20 templates/provider/create.html:18
 #: templates/provider/delete.html:18 templates/provider/edit.html:18
 #: templates/provider/list.html:19
@@ -908,7 +1000,7 @@ msgstr ""
 "deritzozunean."
 
 #: templates/benefits/list.html:8 templates/benefits/list.html:19
-#: templates/dashboard/provider.html:53 templates/navbar/market.html:71
+#: templates/dashboard/provider.html:53 templates/navbar/market.html:84
 #: templates/navbar/user_provider_menu.html:13
 #: templates/provider/detail.html:58 templates/provider/query.html:23
 #: templates/public/provider/query.html:79
@@ -917,11 +1009,12 @@ msgid "Ventajas"
 msgstr "Abantailak"
 
 #: templates/benefits/list.html:21 templates/category/list.html:15
-#: templates/consumer/list.html:15 templates/market/public/edit.html:15
-#: templates/news/list.html:15 templates/offers/list.html:15
-#: templates/provider/list.html:21 templates/user/list.html:14
+#: templates/consumer/list.html:15 templates/intercoop/list.html:15
+#: templates/market/public/edit.html:15 templates/news/list.html:15
+#: templates/offers/list.html:15 templates/provider/list.html:21
+#: templates/user/list.html:14
 msgid "Ayuda"
-msgstr ""
+msgstr "Laguntza"
 
 #: templates/benefits/list.html:43 templates/benefits/query.html:26
 msgid "Eliminar ventaja"
@@ -935,16 +1028,16 @@ msgstr ""
 "Ziur zaude abantaila hori ezabatu nahi duzula? Ekintza hori ezin da desegin."
 
 #: templates/benefits/list.html:52 templates/category/delete.html:34
-#: templates/consumer/delete.html:35 templates/news/delete.html:34
-#: templates/offers/delete.html:37 templates/provider/delete.html:35
-#: templates/user/delete.html:36
+#: templates/consumer/delete.html:35 templates/intercoop/delete.html:40
+#: templates/news/delete.html:34 templates/offers/delete.html:37
+#: templates/provider/delete.html:35 templates/user/delete.html:36
 msgid "Cancelar"
 msgstr "Utzi"
 
 #: templates/benefits/list.html:53 templates/category/delete.html:33
-#: templates/consumer/delete.html:34 templates/news/delete.html:33
-#: templates/offers/delete.html:36 templates/provider/delete.html:34
-#: templates/user/delete.html:35
+#: templates/consumer/delete.html:34 templates/intercoop/delete.html:39
+#: templates/news/delete.html:33 templates/offers/delete.html:36
+#: templates/provider/delete.html:34 templates/user/delete.html:35
 msgid "Aceptar"
 msgstr "Onartu"
 
@@ -958,8 +1051,8 @@ msgstr "Entitatea"
 msgid "Acciones"
 msgstr "Ekintzak"
 
-#: templates/benefits/query.html:25 templates/consumer/detail.html:55
-#: templates/consumer/query.html:31 templates/news/query.html:21
+#: templates/benefits/query.html:25 templates/consumer/detail.html:58
+#: templates/consumer/query.html:32 templates/news/query.html:21
 #: templates/provider/header_detail.html:19 templates/user/query.html:34
 msgid "Editar"
 msgstr "Editatu"
@@ -985,8 +1078,8 @@ msgstr "Ziur hautatutako kategoria ezabatu nahi duzula?"
 msgid "Número de entidades"
 msgstr "Entitate kopurua"
 
-#: templates/category/query.html:18 templates/consumer/query.html:33
-#: templates/provider/query.html:32
+#: templates/category/query.html:18 templates/consumer/query.html:34
+#: templates/intercoop/query.html:21 templates/provider/query.html:32
 msgid "Eliminar"
 msgstr "Ezabatu"
 
@@ -1033,19 +1126,19 @@ msgstr "elementuak"
 
 #: templates/common/utils/semantic_result.html:6
 msgid "Resultado exacto"
-msgstr ""
+msgstr "Emaitza zehatza"
 
 #: templates/common/utils/semantic_result.html:12
 msgid "Búsqueda semántica: Similitud baja"
-msgstr ""
+msgstr "Bilaketa semantikoa: Antzekotasun baxua"
 
 #: templates/common/utils/semantic_result.html:16
 msgid "Búsqueda semántica: Similitud media"
-msgstr ""
+msgstr "Bilaketa semantikoa: Antzekotasun ertaina"
 
 #: templates/common/utils/semantic_result.html:20
 msgid "Búsqueda semántica: Similitud alta"
-msgstr ""
+msgstr "Bilaketa semantikoa: Antzekotasun altua"
 
 #: templates/consumer/create.html:6 templates/consumer/create.html:16
 #: templates/consumer/edit.html:6 templates/consumer/list.html:21
@@ -1076,15 +1169,15 @@ msgstr "Kontu gonbidatua"
 msgid "Socia de intercooperación"
 msgstr "Interkooperazio bazkidea"
 
-#: templates/consumer/detail.html:72
+#: templates/consumer/detail.html:75
 msgid "NIF/CIF"
 msgstr "IFZ/IFK"
 
-#: templates/consumer/detail.html:78 templates/user/query.html:6
+#: templates/consumer/detail.html:81 templates/user/query.html:6
 msgid "Email"
 msgstr "Posta elektronikoa"
 
-#: templates/consumer/detail.html:101
+#: templates/consumer/detail.html:105 templates/consumer/detail.html:112
 msgid "Ver archivo"
 msgstr "Fitxategia ikusi"
 
@@ -1108,7 +1201,7 @@ msgstr "Erabiltzailerik ez"
 msgid "INACTIVA"
 msgstr "EZAKTIBOA"
 
-#: templates/consumer/query.html:30
+#: templates/consumer/query.html:31
 msgid "Ver detalle"
 msgstr "xehetasuna ikusi"
 
@@ -1133,7 +1226,11 @@ msgstr "Kargatu zure NAN dokumentuaren fitxategi bat (irudia edo PDFa)."
 msgid "Máximo tamaño de archivo: "
 msgstr "Fitxategiaren gehienezko tamaina:"
 
-#: templates/consumer/register/form.html:100
+#: templates/consumer/register/form.html:95
+msgid "Elige la entidad de intercooperación"
+msgstr "Aukeratu interkooperazioko entitatea"
+
+#: templates/consumer/register/form.html:127
 msgid "Enviar solicitud"
 msgstr "Eskaera bidali"
 
@@ -1229,7 +1326,7 @@ msgstr "Nire entitatea"
 msgid "Ver balance/auditoría social"
 msgstr "Auditoretza Soziala ikusi"
 
-#: templates/dashboard/provider.html:37 templates/navbar/market.html:64
+#: templates/dashboard/provider.html:37 templates/navbar/market.html:77
 #: templates/navbar/user_provider_menu.html:9 templates/offers/create.html:20
 #: templates/offers/delete.html:18 templates/offers/edit.html:21
 #: templates/offers/entity_list.html:23 templates/offers/list.html:5
@@ -1302,6 +1399,54 @@ msgstr "Zure erabiltzaile-izena, ahazten bazaizu:"
 msgid "Please go to the following page and choose a new password:"
 msgstr "Joan orrialde honetara eta aukeratu pasahitz berri bat:"
 
+#: templates/intercoop/create.html:6 templates/intercoop/create.html:15
+#: templates/intercoop/list.html:21
+msgid "Nueva intercooperación"
+msgstr "interkooperazio berria"
+
+#: templates/intercoop/create.html:31
+msgid "Crear intercooperación"
+msgstr "Interkooperazio sortu"
+
+#: templates/intercoop/create.html:37
+msgid "Entidad de intercooperación"
+msgstr "Interkooperazio entitatea"
+
+#: templates/intercoop/create.html:39
+msgid ""
+"En el formulario de alta de consumidoras, se mostrará un listado de las "
+"entidades de intercooperación. Si el campo de \"Condiciones\" no está vacío, "
+"se mostrará ese texto en el formulario al seleccionar la entidad."
+msgstr ""
+"Kontsumitzaileen erregistro-formularioan, elkarlanerako erakundeen zerrenda "
+"bat bistaratuko da. \"Baldintzak\" eremua hutsik ez badago, testu hori "
+"formularioan bistaratuko da entitatea hautatzen denean"
+
+#: templates/intercoop/create.html:42
+msgid ""
+"Se puede especificar que en el registro haya que introducir un código "
+"identificador (por ejemplo, el número de socia en la otra entidad) a efectos "
+"de validación. "
+msgstr ""
+"Balioztatzeko, identifikatzaile-kode bat (adibidez, beste erakundeko kide-"
+"zenbakia) erregistroan sartu behar dela zehaztu dezakezu."
+
+#: templates/intercoop/delete.html:18 templates/intercoop/delete.html:30
+msgid "Eliminar intercooperación"
+msgstr "Interkooperazio ezabatu"
+
+#: templates/intercoop/delete.html:32
+msgid "¿Estás segura de que quieres eliminar la intercooperación seleccionada?"
+msgstr "Ziur zaude hautatutako interkooperazio ezabatu nahi duzula?"
+
+#: templates/intercoop/query.html:7
+msgid "Id. para validación"
+msgstr "Balioztatzeko"
+
+#: templates/intercoop/query.html:22
+msgid "Ver consumidoras"
+msgstr "Ikusi kontsumitzaileak"
+
 #: templates/market/create.html:6 templates/market/create.html:15
 #: templates/market/list.html:15
 msgid "Nuevo mercado"
@@ -1320,25 +1465,23 @@ msgstr "Merkatua gehitu"
 msgid "Explorar mercado"
 msgstr "Merkatua esploratu"
 
-#: templates/market/form.html:39
+#: templates/market/form.html:40
 msgid "Multi-idioma"
 msgstr "Hizkuntza anitzekoa"
 
-#: templates/market/form.html:72 templates/market/public/form.html:13
-#, fuzzy
-#| msgid "Datos públicos"
+#: templates/market/form.html:73 templates/market/public/form.html:13
 msgid "Datos básicos"
-msgstr "Datu publikoak"
+msgstr "Oinarrizko datuak"
 
-#: templates/market/form.html:80
+#: templates/market/form.html:81
 msgid "Logo del mercado (preferiblemente PNG con transparencia)"
 msgstr "Merkatuaren logotipoa (ahal izanez gero PNG gardentasunarekin)"
 
-#: templates/market/form.html:101 templates/market/public/form.html:23
+#: templates/market/form.html:102 templates/market/public/form.html:23
 msgid "Distintivo de balance/auditoría social"
 msgstr "Auditoretza sozialaren bereizgarria"
 
-#: templates/market/form.html:102 templates/market/public/form.html:24
+#: templates/market/form.html:103 templates/market/public/form.html:24
 msgid ""
 "Imagen (preferiblemente PNG con transparencia) para representar el "
 "distintivo de balance/auditoría social de este mercado. "
@@ -1346,23 +1489,23 @@ msgstr ""
 "Irudia (ahal izanez gero PNG gardentasuna) merkatu honen auditoretza "
 "sozialaren bereizgarria irudikatzeko. "
 
-#: templates/market/form.html:103 templates/market/public/form.html:25
+#: templates/market/form.html:104 templates/market/public/form.html:25
 msgid ""
 "Se utiliza desde la app para acceder al detalle de balance de cada proveedora"
 msgstr ""
 "aplikaziotik erabiltzen da hornitzaile bakoitzaren auditoretzaren "
 "xehetasunak sartzeko"
 
-#: templates/market/form.html:138 templates/provider/form.html:103
+#: templates/market/form.html:139 templates/provider/form.html:103
 msgid "Geolocalización"
 msgstr "Geokokapena"
 
-#: templates/market/form.html:139 templates/provider/form.html:104
+#: templates/market/form.html:140 templates/provider/form.html:104
 msgid ""
 "Mueve el pin por el mapa hasta posicionarlo en la localización correcta."
 msgstr "Mugitu pina mapan toki egokian kokatu arte."
 
-#: templates/market/form.html:153 templates/provider/form.html:111
+#: templates/market/form.html:154 templates/provider/form.html:111
 msgid ""
 "Puedes hacer zoom en los controles del mapa para ajustar al máximo la "
 "posición, o entrar en la vista de pantalla completa."
@@ -1370,7 +1513,7 @@ msgstr ""
 "mapen kontrolak handitu ditzakezu posizioa ahalik eta gehien doitzeko, edo "
 "pantaila osoko ikuspegia sar dezakezu."
 
-#: templates/market/form.html:159 templates/market/public/form.html:112
+#: templates/market/form.html:160 templates/market/public/form.html:112
 #: templates/provider/form.html:127
 msgid "Redes sociales"
 msgstr "Sare sozialak"
@@ -1439,29 +1582,18 @@ msgstr ""
 "%(mercado)s ERALDATZEN ARI ZARA "
 
 #: templates/market/public/edit.html:13
-#, fuzzy
-#| msgid "Personalizar mercado"
 msgid "Personalizar"
-msgstr "Pertsonalizatu merkatua"
+msgstr "Pertsonalizatu"
 
 #: templates/market/public/email_preview.html:23
-#, fuzzy
-#| msgid "Previsualizar"
 msgid "Previsualizar email"
-msgstr "Aurrebista"
+msgstr "Aurreikusi mezu elektronikoa"
 
 #: templates/market/public/form.html:52
 msgid "Textos personalizados en emails y formularios"
 msgstr "Mezu elektronikoetan eta inprimakietan testu pertsonalizatuak"
 
 #: templates/market/public/form.html:53
-#, fuzzy
-#| msgid ""
-#| "Desde aquí puedes modificar los textos de los emails que se envían desde "
-#| "la app en distintos momentos, o algunos textos informativos que aparecen "
-#| "en los formularios de la aplicación. Pulsando el botón de \"previsualizar"
-#| "\" puedes ver el contenido actual en su contexto. Si dejas un campo "
-#| "vacío, se mostrará el valor predefinido de la herramienta."
 msgid ""
 "Desde aquí puedes modificar los textos de los emails que se envían desde la "
 "app en distintos momentos, o algunos textos informativos que aparecen en los "
@@ -1470,11 +1602,12 @@ msgid ""
 "primero). Si dejas un campo vacío, se mostrará el valor predefinido de la "
 "herramienta."
 msgstr ""
-"Hemendik hemendik bidaltzen diren mezu elektronikoen testuak alda "
-"ditzakezuaplikazioa une desberdinetan, edo informazio-testu batzukeskaera-"
-"inprimakiak. \"aurrebista\" botoian klik eginez, ikusi uneko edukia "
-"testuinguruan. Eremu bat hutsik uzten baduzu, bistaratuko da tresnaren balio "
-"lehenetsia."
+"Hemendik, aplikaziotik une desberdinetan bidalitako mezu elektronikoen "
+"testua edo aplikazioaren formularioetan agertzen diren informazio-testu "
+"batzuk alda ditzakezu. \"Aurreikusi\" botoian klik eginez, uneko edukia "
+"testuinguruan ikus dezakezu (gogoratu lehenik ALDAKETAK GORDE botoian klik "
+"egitea). Eremu bat hutsik uzten baduzu, tresnaren balio lehenetsia "
+"bistaratuko da."
 
 #: templates/market/public/form.html:73 templates/market/public/form.html:76
 msgid "Previsualizar"
@@ -1493,14 +1626,18 @@ msgid "Carnet de socia"
 msgstr "Bazkide txartela"
 
 #: templates/market/query.html:10
+msgid "Intercoop."
+msgstr "Interkoop."
+
+#: templates/market/query.html:11
 msgid "Idiomas"
 msgstr "Hizkuntzak"
 
-#: templates/market/query.html:30
+#: templates/market/query.html:32
 msgid "Editar mercado"
 msgstr "Merkatu aldatu"
 
-#: templates/market/query.html:31
+#: templates/market/query.html:33
 msgid "Gestionar mercado"
 msgstr "Merkatua kudeatu"
 
@@ -1804,6 +1941,10 @@ msgstr "Abantailarik ez"
 msgid "Descubre la app"
 msgstr "Aplikazioa ezagutu"
 
+#: templates/public/credits.html:27 templates/public/index.html:114
+msgid "Ver repositorios en Github"
+msgstr "Ikusi biltegiak Github-en"
+
 #: templates/public/footer.html:14
 msgid "Créditos"
 msgstr "Kredituak"
@@ -1930,10 +2071,6 @@ msgstr ""
 "libreki aztertu, banatu eta hobetuBeraren iturburu-kodea kaleratzea, "
 "lankidetza sustatuz etaondasun komunak."
 
-#: templates/public/index.html:114
-msgid "Ver repositorios en Github"
-msgstr "Ikusi biltegiak Github-en"
-
 #: templates/public/market/card.html:13
 msgid "Ver entidades"
 msgstr "Ikusi entitateak"
@@ -1944,7 +2081,7 @@ msgstr "Nire kontua"
 
 #: templates/public/provider/query.html:39
 msgid "Más información de la entidad"
-msgstr ""
+msgstr "Entitateari buruzko informazio gehiago"
 
 #: templates/public/provider/query.html:49
 msgid "Balance/Auditoría social"

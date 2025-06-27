@@ -84,11 +84,15 @@
         {% include "common/forms/field.html" with field=form.city %}
     </div>
 
+    <div class="col-lg-12">
+        {% include 'common/custom_text/content.html' with text_id='consumer_form_bottom' %}
+    </div>
+
     <div class="col-md-12">
     {% if node.intercoop_enabled %}
         {% include "common/forms/switch.html" with field=form.is_intercoop %}
         <div class="my-4" data-visible-by="#{{form.is_intercoop.id_for_label}}">
-            Elige la entidad de intercooperación con la que te registras:
+            {% translate "Elige la entidad de intercooperación" %}
             <div class="row">
             {% for entity in intercoop_entities %}
                 <div class="col-md-6 col-lg-4 mt-3">
@@ -108,10 +112,6 @@
 
         </div>
     {% endif %}
-    </div>
-
-    <div class="col-lg-12">
-        {% include 'common/custom_text/content.html' with text_id='consumer_form_bottom' %}
     </div>
 
     <div class="col-md-12 col-lg-12 mt-3">

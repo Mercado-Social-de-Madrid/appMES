@@ -49,7 +49,7 @@ class SemanticSearchFilter(SearchFilter):
                     "procesado": query_text,
                     "resultados": [{"id": str(entity.id), "nombre": entity.name, "similitud": entity.similarity} for entity in entities]
                 }
-                logger.debug(f'[BUSQUEDA] - {json.dumps(data)}')
+                logger.info(f'[BUSQUEDA] - {json.dumps(data)}')
 
 
             else:

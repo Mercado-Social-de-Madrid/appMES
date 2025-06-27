@@ -1,5 +1,21 @@
 # Versiones
 
+## v2.3
+Julio 2025
+
+### Novedades y cambios
+
+- Añadida función para gestionar entidades y socias de intercooperación
+- Añadido campo para el reverso del DNI en el formulario público de alta
+- Ajustados los umbrales de la búsqueda semántica
+- Documentación de administración actualizada
+- Actualizadas las traducciones a euskera
+- Se han desactivado los idiomas catalán y gallego ya que de momento no se usan
+
+### Errores corregidos
+
+- TG-81: borrado Madrid de la imagen de las chapas de fondo
+
 
 ## v2.2.1
 Junio 2025
