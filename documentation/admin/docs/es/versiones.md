@@ -1,5 +1,13 @@
 # Versiones
 
+## v2.3.1
+Julio 2025
+
+### Errores corregidos
+
+- HOTFIX: arreglado error en búsqueda si campo embedding está vacío
+
+
 ## v2.3
 Julio 2025
 
