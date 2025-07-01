@@ -11,7 +11,7 @@ class SemanticSearchSerializerMixin(BaseSerializer):
         if hasattr(instance, 'exact_match'):
             representation['exact_match'] = instance.exact_match
 
-        if hasattr(instance, 'similarity'):
+        if hasattr(instance, 'similarity') and instance.similarity not in (None, ''):
             representation['similarity'] = instance.similarity
             representation['similarity_level'] = similarity_level(instance.similarity)
 
