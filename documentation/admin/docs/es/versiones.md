@@ -1,6 +1,6 @@
 # Versiones
 
-## v2.3
+## v2.3.1
 Julio 2025
 
 ### Novedades y cambios
@@ -15,6 +15,7 @@ Julio 2025
 ### Errores corregidos
 
 - TG-81: borrado Madrid de la imagen de las chapas de fondo
+- HOTFIX: arreglado error en búsqueda si campo embedding está vacío
 
 
 ## v2.2.1
