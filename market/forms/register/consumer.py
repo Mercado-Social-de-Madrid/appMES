@@ -10,7 +10,7 @@ from market.models import Intercoop
 
 class ConsumerSignupForm(BaseSignupForm, ConsumerForm):
     required_fields = ['first_name', 'last_name', 'idcard_file']
-    is_intercoop = forms.BooleanField(label=_('Quiero ser socia de intercooperación'), required=False, help_text=_('Ingresar como socia/o de intercooperación a través de mi condición de socia en:'))
+    is_intercoop = forms.BooleanField(label=_('Quiero ser socia de intercooperación'), required=False, help_text=_('Si participas en alguna entidad con la que tenemos un acuerdo de intercooperación, puedes ser socia directamente, sin realizar ninguna aportación económica'))
     class Meta(ConsumerForm.Meta):
         widgets = ConsumerForm.Meta.widgets | {
             'idcard_file': forms.FileInput(attrs={'class': 'custom-file-input', }),

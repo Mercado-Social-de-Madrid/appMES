@@ -92,7 +92,7 @@
     {% if node.intercoop_enabled %}
         {% include "common/forms/switch.html" with field=form.is_intercoop %}
         <div class="my-4" data-visible-by="#{{form.is_intercoop.id_for_label}}">
-            {% translate "Elige la entidad de intercooperación" %}
+            {% translate "Ingresar como socia/o de intercooperación a través de mi condición de socia en:" %}
             <div class="row">
             {% for entity in intercoop_entities %}
                 <div class="col-md-6 col-lg-4 mt-3">

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MES web app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-27 11:28+0000\n"
+"POT-Creation-Date: 2025-07-08 12:06+0000\n"
 "PO-Revision-Date: 2024-08-16 17:44+0100\n"
 "Last-Translator: Julio\n"
 "Language-Team: Basque (Spain)\n"
@@ -520,9 +520,10 @@ msgstr "Interkooperazioko bazkide izan nahi dut"
 
 #: market/forms/register/consumer.py:13
 msgid ""
-"Ingresar como socia/o de intercooperación a través de mi condición de socia "
-"en:"
-msgstr "Sartu elkarlanerako kide gisa nire kide egoeraren bidez hemen:"
+"Si participas en alguna entidad con la que tenemos un acuerdo de "
+"intercooperación, puedes ser socia directamente, sin realizar ninguna "
+"aportación económica"
+msgstr "Elkarlanerako akordioa dugun erakunde batean parte hartzen baduzu, zuzenean bazkide egin zaitezke, inolako ekarpen ekonomikorik egin gabe."
 
 #: market/forms/register/consumer.py:29
 msgid "Tienes que seleccionar una entidad de intercooperación concreta"
@@ -1227,8 +1228,10 @@ msgid "Máximo tamaño de archivo: "
 msgstr "Fitxategiaren gehienezko tamaina:"
 
 #: templates/consumer/register/form.html:95
-msgid "Elige la entidad de intercooperación"
-msgstr "Aukeratu interkooperazioko entitatea"
+msgid ""
+"Ingresar como socia/o de intercooperación a través de mi condición de socia "
+"en:"
+msgstr "Sartu lankidetza-bazkide gisa nire bazkide-egoeraren bidez:"
 
 #: templates/consumer/register/form.html:127
 msgid "Enviar solicitud"
@@ -2383,6 +2386,9 @@ msgstr "Izena emateko zain"
 #: templates/user/status_circle.html:9
 msgid "Registrada"
 msgstr "Erregistratua"
+
+#~ msgid "Elige la entidad de intercooperación"
+#~ msgstr "Aukeratu interkooperazioko entitatea"
 
 #~ msgid "Catalá"
 #~ msgstr "Katalana"
