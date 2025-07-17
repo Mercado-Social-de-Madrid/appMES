@@ -1,12 +1,12 @@
 # Versiones
 
-## v2.3.1
+## v2.3.1 - v2.3.2
 Julio 2025
 
 ### Errores corregidos
 
 - HOTFIX: arreglado error en búsqueda si campo embedding está vacío
-
+- HOTFIX: corregido error en edición de socias
 
 ## v2.3
 Julio 2025
