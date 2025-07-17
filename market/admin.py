@@ -44,5 +44,5 @@ class IntercoopAdmin(admin.ModelAdmin):
     list_filter = ["node", "external_id_needed"]
 
     @admin.display(description=_("Nombre"))
-    def namesa(self, obj):
+    def name(self, obj):
         return obj.display_name

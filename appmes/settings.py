@@ -32,7 +32,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-VERSION = "2.3.1"
+VERSION = "2.3.2"
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 ADMINS = env.list("ADMINS")
