@@ -4,10 +4,6 @@ ENV PIP_DISABLE_PIP_VERSION_CHECK 1
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /code
-
-COPY ./requirements.txt .
-
 RUN apt-get update -y && \
     apt-get install -y libpq-dev gcc && \
     apt-get install -y logrotate && \
@@ -15,9 +11,21 @@ RUN apt-get update -y && \
     apt-get install -y gettext && \
     pip install --upgrade pip
 
-COPY ./entrypoint.sh .
+COPY ./requirements.txt .
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+COPY . /code
+
+# Build user documentation
+WORKDIR /code/documentation/user
+RUN mkdocs build
+
+# Build admin documentation
+WORKDIR /code/documentation/admin
+RUN mkdocs build
+
+WORKDIR /code
+
 RUN chmod +x /code/entrypoint.sh
-
-COPY . .
-
 ENTRYPOINT ["sh", "/code/entrypoint.sh"]

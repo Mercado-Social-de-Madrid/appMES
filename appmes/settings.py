@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 import environ
-import sentry_sdk
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
@@ -32,7 +31,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-VERSION = "2.3.2"
+APP_VERSION = env("APP_VERSION", str, "dev")
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 ADMINS = env.list("ADMINS")
@@ -310,14 +309,6 @@ EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 EMAIL_SEND_FROM = env('EMAIL_SEND_FROM')
 
 ENABLE_EMAIL_SENDING = env('ENABLE_EMAIL_SENDING') == 'True'
-
-# ======= Sentry Configuration ========
-sentry_sdk.init(
-    dsn=env('SENTRY_DSN'),
-    traces_sample_rate=1.0,
-    profiles_sample_rate=0.5,
-    environment=env('SENTRY_ENV')
-)
 
 # ======= Firebase Configuration ========
 FIREBASE_APP = initialize_app()

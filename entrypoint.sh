@@ -1,8 +1,5 @@
 #!/bin/sh
 
-echo 'Installing requirements...'
-pip install -r requirements.txt
-
 echo 'Running migrations...'
 python manage.py migrate
 
@@ -16,4 +13,7 @@ echo 'Compiling translations...'
 python manage.py compilemessages
 
 echo 'Starting Django Server...'
-exec "$@"
+mkdir -p /var/run/gunicorn
+gunicorn &
+
+wait
