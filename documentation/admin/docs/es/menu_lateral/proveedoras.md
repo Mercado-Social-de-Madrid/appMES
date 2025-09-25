@@ -6,68 +6,68 @@ icon: material/store
 Desde esta pantalla podrás gestionar las entidades proveedoras relacionadas con tu Mercado. Éstas se muestran en
 la [app móvil](/docs/user/aplicacion_movil/entidades/) y [la web](../../integraciones/web/#1-listado-de-entidades).
 
+
+## Listado
+
+Aquí podemos ver la lista de de Entidades Proveedoras que tenemos en nuestro mercado. El buscador utiliza los siguientes campos:
+
+- Nombre
+- Email
+- Número de socia
+- CIF
+- Dirección
+
+Al lado del logo, se puede ver un icono que indica en qué estado está el usuario asociado para el acceso a la app:
+
+![Estado del usuario de proveedora](../../assets/lista-entidades.png){ loading=lazy} 
+
+- :material-close: Sin usuario. Se ha creado el registro de la proveedora pero sin usuario asociado. Se puede crear más adelante.
+- :material-clock-outline: Pendiente de registro. Se ha creado el usuario pero todavía no se ha establecido una contraseña mediante 
+- el enlace único que llegó al email de la proveedora.
+- :material-check-all: Registro completado. El usuario ha establecido su contraseña y ya puede acceder a la app.
+
+A la derecha de cada fila hay unos iconos para realizar de forma rápida diferentes acciones: 
+
+- Editar proveedora
+- Ver ofertas
+- Crear o editar usuario (en función de si tiene o no usuario creado)
+- Eliminar proveedora. Al hacerlo se eliminará también su usuario asociado si lo tuviera.
+
+
 ## Ver detalles de la proveedora
 Para ver en detalle una proveedora, haz click en la fila de la proveedora que quieres consultar. Esto te llevará a otra 
 pantalla donde se muestran los detalles principales de la proveedora. Además desde esta pantalla podrás editar los datos
 de la proveedora y añadir una ventaja.
 
-## :material-plus: Añadir proveedora
-/// admonition | registro
-    type: info
-Puedes ver todo el proceso de registro de socias proveedoras en la página [Registro de socias](../registro.md).
-///
-
 Haciendo click en el botón "Añadir nueva" accederás a la pantalla para añadir una nueva entidad proveedora. 
 En esta pantalla se te pedirán varios datos referentes a la proveedora divididas en las siguientes secciones:
 
-### Información de la entidad
-  - Foto de perfil / logo (tamaño recomendado: máximo 600px de ancho, formato cuadrado)
-  - Nombre (campo multidioma)
-  - Email
-  - NIF/CIF/Pasaporte
+## :material-pencil: Editar proveedora
+Además de a través de la pantalla de detalle anterior, se puede acceder a la pantalla de edición a través el icono
+:material-pencil: que está en cada fila del listado.
+
+Los campos de perfil que pueden editar las propias entidades se explican en la sección 
+["Mi Entidad" de la documentación de usuaria](/docs/user/panel_gestion/entidades/mi_entidad/#informacion-entidad)
+
+A continuación se muestran los campos de entidad solo editables por administradoras:
+
   - Número de socia
-  - Dirección postal
-  - Descripción corta o slogan (campo multidioma)
-  - Descripción (campo multidioma)
-  - Productos y servicios (campo multidioma)
-  - Categorías a las que pertenece. [Ver cómo gestionar categorías](categorias.md)
-  - Número de personas trabajadoras
+  - Informe balance/auditoría social: Enlace a la infografía. 
 
-[](){ #productos-servicios }
-/// admonition | Productos y servicios
-    type: tip
-Este campo es el más importante para la [búsqueda semántica](../busqueda_semantica.md), la forma óptima de completarlo 
-para optimizar las búsquedas es enumerar en diferentes líneas los productos y servicios principales, ordenados por 
-importancia y lo más escueto posible.
-
-Por ejemplo para una entidad de diseño gráfico, se podría rellenar así:
-
-Diseño gráfico<br>
-Ilustración<br>
-Diseño web<br>
-Identidad corporativa<br>
-Diseño editorial<br>
-
+/// admonition | Visibilidad de la Infografía 
+    type: warning
+Para que se muestre el distintivo que da acceso a la infografía del balance social, tiene que existir un **Número de socia** 
+y un enlace válido a la infografía en sus campos correspondientes. Si no se da una de las dos, no se muestra la infografía.
 ///
 
-### Galería
-  - Fotografías de la proveedora (tamaño recomendado: máximo 1000px de ancho, formato horizontal)
-
-### Geolocalización
-  - Usa el mapa interactivo para colocar el pin en la localización donde se encuentra la proveedora. 
-Esta localización será visible en el mapa general de proveedoras.
-
-### Visibilidad
-  - Oculta en listado público
-  - Activa
-
-### Redes sociales
-  - Enlaces de la entidad a distintas redes sociales, incluyendo enlace a la página web.
+- Visibilidad:
+    - Activa: Marca el estado de la entidad en el mercado
+    - Oculta en listado público: Si por algún motivo se quiere gestionar la entidad de forma interna sin que se vea públicamente.
 
 /// admonition | Redes sociales admitidas
     type: info
 Actualmente, las redes sociales admitidas son: Facebook, Fediverso, Instagram, LinkedIn, Pinterest, 
-Telegram, TikTok, Whatsapp, X, Youtube.
+Telegram, TikTok, Whatsapp, X, Youtube. Si se necesitaran otras redes hay que hablar con el equipo de desarrollo.
 ///
 
 ### Crear usuaria asociada a la proveedora
@@ -81,14 +81,12 @@ Si no seleccionamos la opción podremos enviar el mail de prerregistro más adel
   
 Una vez rellenados los campos obligatorios, pulsa el botón "Crear entidad" para crear la entidad proveedoras.
 
-## :material-pencil: Editar proveedora
-Para editar una proveedora puedes hacer click en la fila correspondiente a la usuaria que se quiera editar, o haciendo 
-click en el icono :material-pencil:.
-En esta pantalla podrás modificar la información de la proveedora y pulsar el botón "Guardar cambios" cuando estés satisfecha. 
 
 ## :material-basket: Consultar ofertas de la proveedora
-Para consultar las ofertas de una provedora puedes hacer click en el icono :material-basket: que se encuentra en la fila 
-de la provedora de la que quieres consultar las ofertas.
+Para consultar las ofertas de una provedora puedes hacer click en el icono :material-basket: al final de la fila.
+
+También se puede acceder y buscar desde la sección [Ofertas](ofertas.md)
 
 ## :material-delete: Eliminar proveedora
 Para eliminar una proveedora ponte en contacto con el equipo de administración.
+

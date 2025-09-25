@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MES web app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-08 12:06+0000\n"
+"POT-Creation-Date: 2025-10-13 11:30+0000\n"
 "PO-Revision-Date: 2024-08-16 17:44+0100\n"
 "Last-Translator: Julio\n"
 "Language-Team: Basque (Spain)\n"
@@ -48,11 +48,11 @@ msgstr "Badago posta elektroniko honekin erregistratutako erabiltzaile bat."
 msgid "No existe objeto entity o person en el cuerpo de la petición"
 msgstr "Ez dago entitate edo pertsona objekturik eskaeraren gorputzean"
 
-#: appmes/settings.py:189
+#: appmes/settings.py:188
 msgid "Castellano"
 msgstr "gaztelania"
 
-#: appmes/settings.py:190
+#: appmes/settings.py:189
 msgid "Euskara"
 msgstr "euskara"
 
@@ -523,7 +523,9 @@ msgid ""
 "Si participas en alguna entidad con la que tenemos un acuerdo de "
 "intercooperación, puedes ser socia directamente, sin realizar ninguna "
 "aportación económica"
-msgstr "Elkarlanerako akordioa dugun erakunde batean parte hartzen baduzu, zuzenean bazkide egin zaitezke, inolako ekarpen ekonomikorik egin gabe."
+msgstr ""
+"Elkarlanerako akordioa dugun erakunde batean parte hartzen baduzu, zuzenean "
+"bazkide egin zaitezke, inolako ekarpen ekonomikorik egin gabe."
 
 #: market/forms/register/consumer.py:29
 msgid "Tienes que seleccionar una entidad de intercooperación concreta"
@@ -1259,7 +1261,6 @@ msgid "consumidoras"
 msgstr "kontsumitzaileak"
 
 #: templates/dashboard/admin.html:28 templates/dashboard/market.html:28
-#: templates/public/provider/list.html:25
 msgid "proveedoras"
 msgstr "hornitzaileak"
 
@@ -1732,6 +1733,10 @@ msgstr "Administrazioa"
 msgid "Editar mercados"
 msgstr "Merkatuak editatu"
 
+#: templates/navbar/drawer.html:16
+msgid "Versión"
+msgstr "Saioa"
+
 #: templates/navbar/drawer.html:21
 msgid "Guía de administración"
 msgstr "Administraziorako Gida"
@@ -2082,6 +2087,10 @@ msgstr "Ikusi entitateak"
 msgid "Mi cuenta"
 msgstr "Nire kontua"
 
+#: templates/public/provider/list.html:24
+msgid "entidades"
+msgstr "entitateak"
+
 #: templates/public/provider/query.html:39
 msgid "Más información de la entidad"
 msgstr "Entitateari buruzko informazio gehiago"
@@ -2101,6 +2110,16 @@ msgstr "Posta elektronikoa"
 #: templates/registration/login.html:58
 msgid "¿Has olvidado tu contraseña?"
 msgstr "Pasahitza ahaztu al duzu?"
+
+#: templates/registration/login.html:61
+msgid ""
+"¿No tienes usuario? Tienes que ser socia de algún mercado territorial para "
+"acceder a tu perfil"
+msgstr "Ez duzu erabiltzaile-izenik? Eskualdeko merkatu bateko kide izan behar duzu zure profilera sartzeko."
+
+#: templates/registration/login.html:62
+msgid "Más información"
+msgstr "Informazio gehiago"
 
 #: templates/registration/password_base.html:11
 msgid "Modificar contraseña"

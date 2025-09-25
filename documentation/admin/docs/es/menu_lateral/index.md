@@ -48,5 +48,5 @@ En la sección de Noticias, podrás gestionar las novedades y comunicados del Me
 
 ## :material-information-box-outline: Pie del menú
 En la parte inferior aparece el número de versión de la aplicación web. Esto nos orienta a la hora de reportar posibles
-fallos o ver los cambios que hay en cada nueva versión.
+fallos o ver los cambios que hay en cada nueva versión, al pinchar en este número nos llevará al registro de cambios en Github.
 También hay un botón de acceso a la documentación para administradoras.

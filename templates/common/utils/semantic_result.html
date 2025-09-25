@@ -9,15 +9,15 @@
     {% similarity_check item.similarity as similarity %}
     <i class="material-icons-outlined"
        {% if similarity.0 == 'low' %}
-            title="{% translate 'Búsqueda semántica: Similitud baja' %}"
+            title="{% translate 'Búsqueda semántica: Similitud baja' %} - {{ item.similarity }} "
         {% endif %}
 
         {% if similarity.0 == 'medium' %}
-            title="{% translate 'Búsqueda semántica: Similitud media' %}"
+            title="{% translate 'Búsqueda semántica: Similitud media' %} - {{ item.similarity }}"
         {% endif %}
 
         {% if similarity.0 == 'high' %}
-            title="{% translate 'Búsqueda semántica: Similitud alta' %}"
+            title="{% translate 'Búsqueda semántica: Similitud alta' %} - {{ item.similarity }}"
         {% endif %}
     data-toggle="tooltip" data-placement="bottom" >
         api
