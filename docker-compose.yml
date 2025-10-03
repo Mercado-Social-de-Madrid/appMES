@@ -1,18 +1,13 @@
 
 services:
   web:
+    container_name: "appmes-web"
     build: .
-    command: gunicorn
     ports:
       - "${DJANGO_PORT:-8000}:8000"
     volumes:
-      - .:/code
       - ./logs:/var/log/appMES/
-      - gunicorn_logs:/var/log/gunicorn/
-      - gunicorn_pid:/var/run/gunicorn/
       - ../config/logrotate:/etc/logrotate.d
-      - ../config/firebase:/firebase/
-      - ../config:/config/
       - ../static:/static
       - ../media:/media
     env_file:
@@ -21,9 +16,8 @@ services:
       db:
         condition: service_healthy
   db:
-    image: postgres:17
-    build:
-      dockerfile: Dockerfile.postgres
+    container_name: "appmes-db"
+    image: pgvector/pgvector:pg17
     ports:
       - "${DB_PORT:-5432}:${DB_PORT:-5432}"
     volumes:
@@ -41,5 +35,3 @@ services:
 
 volumes:
   postgres_data_17:
-  gunicorn_logs:
-  gunicorn_pid:

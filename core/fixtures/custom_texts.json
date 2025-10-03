@@ -5,14 +5,10 @@
     "fields": {
         "title": "Bienvenida Consumidoras",
         "title_es": "Bienvenida Consumidoras",
-        "title_ca": "",
         "title_eu": "",
-        "title_gl": "",
         "description": "Se envía al crear una nueva cuenta de acceso en la app para una socia consumidora.",
         "description_es": "Se envía al crear una nueva cuenta de acceso en la app para una socia consumidora.",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "preview_type": "email"
     }
 },
@@ -22,14 +18,10 @@
     "fields": {
         "title": "Solicitud de alta de consumidora",
         "title_es": "Solicitud de alta de consumidora",
-        "title_ca": "",
         "title_eu": "",
-        "title_gl": "",
         "description": "Se envía cuando alguien completa el formulario de solicitud de alta como socia consumidora.",
         "description_es": "Se envía cuando alguien completa el formulario de solicitud de alta como socia consumidora.",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "preview_type": "email"
     }
 },
@@ -39,14 +31,10 @@
     "fields": {
         "title": "Formulario público de registro para consumidoras",
         "title_es": "Formulario público de registro para consumidoras",
-        "title_ca": "",
         "title_eu": "",
-        "title_gl": "",
         "description": "Formulario para incrustar en la app o en web externas para registro de consumidoras (no aplica a todos los mercados)",
         "description_es": "Formulario para incrustar en la app o en web externas para registro de consumidoras (no aplica a todos los mercados)",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "preview_type": "form"
     }
 },
@@ -56,14 +44,10 @@
     "fields": {
         "title": "Restablecer contraseña",
         "title_es": "Restablecer contraseña",
-        "title_ca": "",
         "title_eu": "",
-        "title_gl": "",
         "description": "Email que se envía cuando la usuaria no recuerda la contraseña de su cuenta, para generar una nueva.",
         "description_es": "Email que se envía cuando la usuaria no recuerda la contraseña de su cuenta, para generar una nueva.",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "preview_type": "email"
     }
 },
@@ -73,14 +57,10 @@
     "fields": {
         "title": "Bienvenida Proveedoras",
         "title_es": "Bienvenida Proveedoras",
-        "title_ca": "",
         "title_eu": "",
-        "title_gl": "",
         "description": "Se envía al crear una nueva cuenta de acceso en la app para una entidad proveedora.",
         "description_es": "Se envía al crear una nueva cuenta de acceso en la app para una entidad proveedora.",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "preview_type": "email"
     }
 },
@@ -91,14 +71,10 @@
         "context": "consumer_register",
         "description": "Información final",
         "description_es": "Información final",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "help_text": "Texto que aparece en la parte inferior del formulario, por ejemplo para informar de siguientes pasos del proceso.",
         "help_text_es": "Texto que aparece en la parte inferior del formulario, por ejemplo para informar de siguientes pasos del proceso.",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
+        "help_text_eu": ""
     }
 },
 {
@@ -108,14 +84,10 @@
         "context": "consumer_register",
         "description": "Introducción",
         "description_es": "Introducción",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "help_text": "Texto que aparece antes de los campos del formulario ofreciendo una breve explicación sobre darse de alta en el mercado social.",
         "help_text_es": "Texto que aparece antes de los campos del formulario ofreciendo una breve explicación sobre darse de alta en el mercado social.",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
+        "help_text_eu": ""
     }
 },
 {
@@ -125,14 +97,10 @@
         "context": "consumer_register",
         "description": "Título",
         "description_es": "Título",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "help_text": "Texto que aparece en la cabecera del formulario",
         "help_text_es": "Texto que aparece en la cabecera del formulario",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
+        "help_text_eu": ""
     }
 },
 {
@@ -142,14 +110,10 @@
         "context": "consumer_preregister",
         "description": "Cuerpo del mensaje",
         "description_es": "Cuerpo del mensaje",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "help_text": "Texto principal que aparece en el correo",
         "help_text_es": "Texto principal que aparece en el correo",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
+        "help_text_eu": ""
     }
 },
 {
@@ -159,14 +123,10 @@
         "context": "consumer_preregister_request",
         "description": "Cuerpo del mensaje",
         "description_es": "Cuerpo del mensaje",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "help_text": "Texto principal que aparece en el correo",
         "help_text_es": "Texto principal que aparece en el correo",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
+        "help_text_eu": ""
     }
 },
 {
@@ -176,14 +136,10 @@
         "context": "consumer_preregister_request",
         "description": "Título",
         "description_es": "Título",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "help_text": "Título que aparece en la cabecera del email",
         "help_text_es": "Título que aparece en la cabecera del email",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
+        "help_text_eu": ""
     }
 },
 {
@@ -193,14 +149,10 @@
         "context": "consumer_preregister",
         "description": "Título",
         "description_es": "Título",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "help_text": "Título que aparece en la cabecera del email",
         "help_text_es": "Título que aparece en la cabecera del email",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
+        "help_text_eu": ""
     }
 },
 {
@@ -210,14 +162,10 @@
         "context": "password_reset",
         "description": "Cuerpo del mensaje",
         "description_es": "Cuerpo del mensaje",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "help_text": "Texto describiendo que la usuaria ha solicitado restablecer su contraseña.",
         "help_text_es": "Texto describiendo que la usuaria ha solicitado restablecer su contraseña.",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
+        "help_text_eu": ""
     }
 },
 {
@@ -227,14 +175,10 @@
         "context": "password_reset",
         "description": "Título",
         "description_es": "Título",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "help_text": "",
         "help_text_es": "",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
+        "help_text_eu": ""
     }
 },
 {
@@ -244,14 +188,10 @@
         "context": "provider_preregister",
         "description": "Cuerpo del mensaje",
         "description_es": "Cuerpo del mensaje",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "help_text": "Texto principal que aparece en el correo",
         "help_text_es": "Texto principal que aparece en el correo",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
+        "help_text_eu": ""
     }
 },
 {
@@ -261,14 +201,10 @@
         "context": "provider_preregister",
         "description": "Título",
         "description_es": "Título",
-        "description_ca": "",
         "description_eu": "",
-        "description_gl": "",
         "help_text": "Título que aparece en la cabecera del email",
         "help_text_es": "Título que aparece en la cabecera del email",
-        "help_text_ca": "",
-        "help_text_eu": "",
-        "help_text_gl": ""
+        "help_text_eu": ""
     }
 }
 ]
