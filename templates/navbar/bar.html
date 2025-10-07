@@ -1,4 +1,11 @@
 {% load static %}
+{% load i18n %}
+
+{% if not ENV|upper == "PROD" %}
+    <div class="environment-alert">
+        <p>{% translate "Estás trabajando en el entorno de" %} {{ ENV|upper }}</p>
+    </div>
+{% endif %}
 
 {% if not 'from_app' in request.GET and not hide_navbar and not 'hide_toolbar' in request.GET and not hide_toolbar %}
 <nav id="top-bar" class="navbar navbar-expand navbar-secondary bg-primary text-light sticky-top
@@ -28,7 +35,6 @@
           </div>
      </div>
 </nav>
-
 {% if not hide_secondary_bar %}
     {% if request.user.is_superuser or request.user.is_staff %}
         {% include 'navbar/drawer.html' %}
