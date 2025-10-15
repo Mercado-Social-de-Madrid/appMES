@@ -6,10 +6,9 @@
             "name": "Madrid",
             "shortname": "MAD",
             "visible": true,
-            "contact_email": "madrid@mercadosocial.net",
+            "contact_email": "test@mercadosocial.net",
             "self_register_allowed": false,
-            "webpage_link": "https://madrid.mercadosocial.net/",
-            "takahe_server": "https://takahe.mercadosocial.madrid/",
+            "webpage_link": "https://mercadosocial.madrid/",
             "member_card_enabled": true
         }
     },
@@ -20,7 +19,7 @@
             "name": "Aragón",
             "shortname": "ARA",
             "visible": true,
-            "contact_email": "info@mercadosocialaragon.net",
+            "contact_email": "test@mercadosocial.net",
             "self_register_allowed": false,
             "webpage_link": "https://mercadosocialaragon.net/",
             "member_card_enabled": false
@@ -50,8 +49,8 @@
         "fields":
         {
             "polymorphic_ctype": 17,
-            "social_network": "X",
-            "url": "https://twitter.com/MES_Madrid"
+            "social_network": "Fediverso",
+            "url": "https://masto.es/@mercadosocialmadrid"
         }
     },
     {
@@ -77,8 +76,8 @@
         "pk": 1006,
         "fields": {
             "polymorphic_ctype": 17,
-            "social_network": "X",
-            "url": "https://twitter.com/MESCoopAragon"
+            "social_network": "Instagram",
+            "url": "https://www.instagram.com/mercadosocialdearagon/"
         }
     },
     {
@@ -125,9 +124,31 @@
     },
     {
         "model": "authentication.user",
+        "pk": 1000,
+        "fields": {
+          "password": "pbkdf2_sha256$870000$246RhAOwRs4xNNA7dAIH7Q$zHhNFSGUAaz59ST/qTUe9TUyNeDHMPbEKuzLshgsM4o=",
+          "last_login": "2024-03-08T09:26:17.056",
+          "is_superuser": true,
+          "is_staff": true,
+          "is_active": true,
+          "date_joined": "2024-03-08T09:25:08.684",
+          "created_at": "2024-03-08T09:25:08.704",
+          "updated_at": "2024-03-08T09:25:42.807",
+          "email": "admin@admin.es",
+          "first_name": "Admin",
+          "last_name": null,
+          "node": null,
+          "manages_multi": false,
+          "preferred_locale": "es-ES",
+          "groups": [],
+          "user_permissions": []
+        }
+    },
+    {
+        "model": "authentication.user",
         "pk": 1001,
         "fields": {
-          "password": "pbkdf2_sha256$720000$2Ig8AVm0n3G0WAhKV6e3VR$b05gP//3k1fyyJaJWdzzFsW1RsqMEpzJx8JZraaNlAM=",
+          "password": "pbkdf2_sha256$870000$C55vE0azvXcgUOhkz5VVRO$ymiceLHYkJR2ZyOgMKJcYPypVEsKgGems+WxVuMy1K8=",
           "last_login": "2024-03-08T09:26:17.056",
           "is_superuser": false,
           "is_staff": true,
@@ -135,9 +156,9 @@
           "date_joined": "2024-03-08T09:25:08.684",
           "created_at": "2024-03-08T09:25:08.704",
           "updated_at": "2024-03-08T09:25:42.807",
-          "email": "madrid@mercadosocial.net",
-          "first_name": "Madrid Admin",
-          "last_name": null,
+          "email": "madrid@admin.es",
+          "first_name": "Madrid",
+          "last_name": "Admin",
           "node": 1001,
           "manages_multi": false,
           "preferred_locale": "es-ES",
@@ -149,7 +170,7 @@
         "model": "authentication.user",
         "pk": 1002,
         "fields": {
-          "password": "pbkdf2_sha256$720000$Vk4qZTlc4n9locX49avDiS$pjD6PzuXjFzV5DoxftkDn1Y1SF3gvOcWxD3M+2Yp1Fo=",
+          "password": "pbkdf2_sha256$870000$rBW2FGOe5oMLu1OnwNg4HR$p/wYCbKQp3g4eQ4JptTAB41iEYtnrfWBDG8vmChbgPs=",
           "last_login": "2024-03-08T09:26:17.056",
           "is_superuser": false,
           "is_staff": true,
@@ -157,9 +178,9 @@
           "date_joined": "2024-03-08T09:25:08.684",
           "created_at": "2024-03-08T09:25:08.704",
           "updated_at": "2024-03-08T09:25:42.807",
-          "email": "aragon@mercadosocial.net",
-          "first_name": "Aragon Admin",
-          "last_name": null,
+          "email": "aragon@admin.es",
+          "first_name": "Aragón",
+          "last_name": "Admin",
           "node": 1002,
           "manages_multi": false,
           "preferred_locale": "es-ES",
@@ -171,7 +192,7 @@
         "model": "authentication.user",
         "pk": 1003,
         "fields": {
-          "password": "pbkdf2_sha256$720000$BkqHjswxRRuGSnqApZYK1b$kVi8jkMlh6K66YJASnWpnF+0e6wTXJutucsVEaDynaI=",
+          "password": "pbkdf2_sha256$870000$m8IdFclZoz2dR3nyj7Oft7$9e6BEvIV1jkReslgzUrmvaF0N0ootNCRg03zAPv8NM8=",
           "last_login": "2024-03-08T09:37:50.319",
           "is_superuser": false,
           "is_staff": false,
@@ -179,9 +200,9 @@
           "date_joined": "2024-03-08T09:37:07.133",
           "created_at": "2024-03-08T09:37:07.754",
           "updated_at": "2024-03-08T09:37:07.754",
-          "email": "proveedora_mad@mercadosocial.net",
-          "first_name": "Proveedora",
-          "last_name": "Madrid",
+          "email": "madrid@proveedora.es",
+          "first_name": "Madrid",
+          "last_name": "Proveedora",
           "node": null,
           "manages_multi": false,
           "preferred_locale": "es-ES",
@@ -193,7 +214,7 @@
         "model": "authentication.user",
         "pk": 1004,
         "fields": {
-            "password": "pbkdf2_sha256$720000$BkqHjswxRRuGSnqApZYK1b$kVi8jkMlh6K66YJASnWpnF+0e6wTXJutucsVEaDynaI=",
+            "password": "pbkdf2_sha256$870000$L32OXMSk6SxUqsI3Kg3SU5$8259eJrP28vxU88/JdJ27njA0JVLtcLINbWbmQcD/6g=",
             "last_login": "2024-03-08T09:37:50.319",
             "is_superuser": false,
             "is_staff": false,
@@ -201,9 +222,9 @@
             "date_joined": "2024-03-08T09:37:07.133",
             "created_at": "2024-03-08T09:37:07.754",
             "updated_at": "2024-03-08T09:37:07.754",
-            "email": "proveedora_ara@mercadosocial.net",
-            "first_name": "Proveedora",
-            "last_name": "Aragon",
+            "email": "aragon@proveedora.es",
+            "first_name": "Aragón",
+            "last_name": "Proveedora",
             "node": null,
             "manages_multi": false,
             "preferred_locale": "es-ES",
@@ -215,7 +236,7 @@
         "model": "authentication.user",
         "pk": 1005,
         "fields": {
-          "password": "pbkdf2_sha256$720000$SrDlBwbGR0HhSeRhyjly0X$leDfHNQJKgPtjPdKb+uOwi4ANQB8WzqAgXMXyfzatFU=",
+          "password": "pbkdf2_sha256$870000$iJnPXpGv613dRFggHIbXJu$sH8FtFGYDIF50rn4JtQMh+SNJAGzSelr+fB37eR221k=",
           "last_login": null,
           "is_superuser": false,
           "is_staff": false,
@@ -223,9 +244,9 @@
           "date_joined": "2024-03-08T10:11:26.573",
           "created_at": "2024-03-08T10:11:26.574",
           "updated_at": "2024-03-08T10:15:29.371",
-          "email": "consumidora_mad@mercadosocial.net",
-          "first_name": "Consumidora",
-          "last_name": "Madrid",
+          "email": "madrid@consumidora.es",
+          "first_name": "Madrid",
+          "last_name": "Consumidora",
           "node": null,
           "manages_multi": false,
           "preferred_locale": "es-ES",
@@ -237,7 +258,7 @@
         "model": "authentication.user",
         "pk": 1006,
         "fields": {
-          "password": "pbkdf2_sha256$720000$SrDlBwbGR0HhSeRhyjly0X$leDfHNQJKgPtjPdKb+uOwi4ANQB8WzqAgXMXyfzatFU=",
+          "password": "pbkdf2_sha256$870000$vuv2EZgklJprWcNNyIIOHw$eOCo+0UA52KSEJLhdME0EA/daI93mLA+YtbwJQbw0Ow=",
           "last_login": null,
           "is_superuser": false,
           "is_staff": false,
@@ -245,9 +266,9 @@
           "date_joined": "2024-03-08T10:11:26.573",
           "created_at": "2024-03-08T10:11:26.574",
           "updated_at": "2024-03-08T10:15:29.371",
-          "email": "consumidora_ara@mercadosocial.net",
-          "first_name": "Consumidora",
-          "last_name": "Aragón",
+          "email": "aragon@consumidora.es",
+          "first_name": "Aragón",
+          "last_name": "Consumidora",
           "node": null,
           "manages_multi": false,
           "preferred_locale": "es-ES",
@@ -264,14 +285,14 @@
           "owner": 1003,
           "is_active": true,
           "cif": "123456789",
-          "email": "proveedora_mad@mercadosocial.net"
+          "email": "madrid@proveedora.es"
         }
     },
     {
         "model": "market.provider",
         "pk": "b7fa8991-e5ef-4ddf-9036-3c8a34cb7daa",
         "fields": {
-          "name": "Proveedora Madrid",
+          "name": "Madrid Proveedora",
           "latitude": 0.0,
           "longitude": 0.0,
           "num_workers": 2,
@@ -287,14 +308,14 @@
           "owner": 1004,
           "is_active": true,
           "cif": "123456789",
-          "email": "proveedora_ara@mercadosocial.net"
+          "email": "aragon@proveedora.es"
         }
     },
     {
         "model": "market.provider",
         "pk": "6f03d6e2-3a43-4e17-9a9d-982e4054c5f1",
         "fields": {
-          "name": "Proveedora Aragón",
+          "name": "Aragón Proveedora",
           "latitude": 0.0,
           "longitude": 0.0,
           "num_workers": 2,
@@ -310,15 +331,15 @@
           "owner": 1005,
           "is_active": true,
           "cif": "123456789",
-          "email": "consumidora_mad@mercadosocial.net"
+          "email": "madrid@consumidora.es"
         }
     },
     {
         "model": "market.consumer",
         "pk": "a1ff35f0-d22c-4108-b50f-5f2e3d604043",
         "fields": {
-          "first_name": "Consumidora",
-          "last_name": "Madrid",
+          "first_name": "Madrid",
+          "last_name": "Consumidora",
           "is_intercoop": false,
           "favorites": []
         }
@@ -332,15 +353,15 @@
           "owner": 1006,
           "is_active": true,
           "cif": "123456789",
-          "email": "consumidora_ara@mercadosocial.net"
+          "email": "aragon@consumidora.es"
         }
     },
     {
         "model": "market.consumer",
         "pk": "6d9c50e7-8743-4d4b-bcb8-55a7e7a1a2f9",
         "fields": {
-          "first_name": "Consumidora",
-          "last_name": "Aragón",
+          "first_name": "Aragón",
+          "last_name": "Consumidora",
           "is_intercoop": false,
           "favorites": []
         }
