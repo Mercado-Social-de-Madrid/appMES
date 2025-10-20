@@ -21,6 +21,6 @@ su carnet digital en la app.
 ### :material-store: Entidades
 
 - Tendrán mayor visibilidad en la red gracias al buscador de productos y servicios, nombre o categorías/sectores.
-- Podrán ofrecer ventajas o descuentos a socias y ofertas especiales que llegarán con un aviso al movil de las usuarias.
+- Podrán ofrecer ventajas o descuentos a socias y ofertas especiales que llegarán con un aviso al móvil de las usuarias.
 - Tendrán acceso a un panel privado para editar su información de perfil, ventajas y ofertas.
 

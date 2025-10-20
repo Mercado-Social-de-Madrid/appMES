@@ -32,12 +32,12 @@ en la web como se explica en [esta sección](../panel_gestion/consumidoras/index
 
 
 <!-- Este código hace que los siguientes textos dejen de estar alineados al lado de la imagen y sigan por debajo -->
-<!-- TODO Ver si esto se puede hacer más elegante -->
+<!-- TODO Ver si esto se puede hacer más elegante con Mkdocs. Asegurar que se reemplaza en el resto de lugares -->
 <p style="clear: left;"></p> 
 
 ### Comprobar estado de socia
 Las entidades tendrán una función añadida para comprobar si una socia está activa en el mercado para aplicarle o no la ventaja
-que ofrece. Tiene dos opciones, usar la cámara para escánear el código QR de la socia, o introducir el número de social manualmente.
+que ofrece. Tiene dos opciones, usar la cámara para escanear el código QR de la socia, o introducir el número de social manualmente.
 Estos botones están en la parte superior derecha de la pantalla del carnet digital.
 
 ![Comprobar estado socia](../../assets/comprobar-estado-socia.png){ loading=lazy width=400px }

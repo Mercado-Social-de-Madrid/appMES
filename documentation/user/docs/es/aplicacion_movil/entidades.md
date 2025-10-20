@@ -35,10 +35,10 @@ Al pulsar en una entidad accedemos al resto de su información:
 - Nombre
 - Categoría
 - Imágenes
-- Slogan
+- Descripción corta o slogan
 - Descripción
 - Productos y servicios
-- Iconos de contacto y redes...
+- Iconos de contacto y redes sociales
 - Distintivo del balance social con acceso a su infografía
 - Ventajas para socias
 - Ofertas

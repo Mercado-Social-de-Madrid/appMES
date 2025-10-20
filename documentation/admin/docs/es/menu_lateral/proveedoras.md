@@ -9,7 +9,7 @@ la [app móvil](/docs/user/aplicacion_movil/entidades/) y [la web](../../integra
 
 ## Listado
 
-Aquí podemos ver la lista de de Entidades Proveedoras que tenemos en nuestro mercado. El buscador utiliza los siguientes campos:
+Aquí podemos ver la lista de Entidades Proveedoras que tenemos en nuestro mercado. El buscador utiliza los siguientes campos:
 
 - Nombre
 - Email

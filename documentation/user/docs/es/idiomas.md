@@ -12,7 +12,7 @@ Podemos cambiar el idioma de los contenidos en el menú desplegable de la esquin
 
 ![Cambiar idioma](../assets/idiomas.png){ loading=lazy width=250px }
 
-Las entidades de mercados que tengan varias lenguas, podrán también editar sus contenidos multidioma. Para ello en los campos
+Las entidades de mercados que tengan varias lenguas habilitadas podrán editar sus contenidos en cualquiera de ellas. Para ello en los campos
 que sean traducibles se mostrarán varias pestañas para introducir los contenidos en cada lengua:
 
 ![Cambiar idioma](../assets/campos-multidioma.png){ loading=lazy }

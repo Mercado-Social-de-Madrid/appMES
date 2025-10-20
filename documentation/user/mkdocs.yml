@@ -74,6 +74,7 @@ nav:
       - aplicacion_movil/entidades.md
       - aplicacion_movil/destacados.md
       - aplicacion_movil/menu.md
+      - aplicacion_movil/notificaciones.md
   - Panel de gestión:
     - panel_gestion/index.md
     - Consumidoras:

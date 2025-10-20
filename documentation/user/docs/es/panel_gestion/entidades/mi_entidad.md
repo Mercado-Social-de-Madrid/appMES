@@ -18,12 +18,13 @@ Aquí podrás ver y modificar la información de la entidad
   - Nombre (campo multidioma): Es el nombre comercial que se ve de cara al público, no tiene por qué coincidir con la razón social
   - Email: para contacto público
   - Dirección postal
-  - Descripción corta o slogan (campo multidioma)
-  - Descripción (campo multidioma)
-  - Productos y servicios (campo multidioma)
+  - Descripción corta o slogan (campo multidioma). Se recomienda un máximo de 80 caracteres
+  - Descripción (campo multidioma). Se recomienda una descripción completa pero breve, no más de 2 o 3 párrafos.
+  - Productos y servicios (campo multidioma). Ver caja de explicación más abajo.
   - Categorías a las que pertenece. [Ver cómo gestionar categorías](categorias.md)
   - Número de personas trabajadoras
-  - Galería: Fotografías de la entidad (tamaño recomendado: máximo 1000px de ancho, formato horizontal)
+  - Galería: Fotografías de la entidad (tamaño recomendado: máximo 1000px de ancho, formato horizontal). La primera de las
+imágenes de esta galería será la que se muestre en el listado de la app.
   - Geolocalización: Usa el mapa interactivo para colocar el pin en la localización donde se encuentra la entidad. 
 Esta localización será visible en el mapa general.
   - Redes sociales
