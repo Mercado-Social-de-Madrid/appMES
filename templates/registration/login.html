@@ -56,8 +56,12 @@
 
           <button type="submit" class="btn btn-primary btn-action btn-lg btn-block ">{% translate 'Entrar' %}</button>
           <a href="{% url 'auth:password_reset' %}" class="text-dark mt-3 d-block">{% translate '¿Has olvidado tu contraseña?' %}</a>
-
       </p>
+      <p class="text-center">
+          {% translate '¿No tienes usuario? Tienes que ser socia de algún mercado territorial para acceder a tu perfil' %}
+          <a href="https://mercadosocial.app/docs/user/problemas_comunes/#como-registro-mi-usuario-en-la-app" class="text-dark mt-3 d-block">{% translate 'Más información' %}</a>
+      </p>
+
       <!--<a href="#"  class="btn btn-lg">Olvidé mi contraseña</a>-->
 
 

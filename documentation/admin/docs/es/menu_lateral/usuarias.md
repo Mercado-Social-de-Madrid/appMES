@@ -7,7 +7,7 @@ Esta pantalla muestra la lista de usuarios del mercado.
 Estas cuentas de usuario están relacionadas con el **acceso a la aplicación**, los datos más importantes son el **email y
 la contraseña**.
 
-![Listado de usuarios](../assets/listado_usuarios.png){ loading=lazy} 
+![Listado de usuarios](../assets/images/listado_usuarios.png){ loading=lazy} 
 
 
 Existen dos tipos o roles:
@@ -59,14 +59,14 @@ su contraseña inicial.
 Para editar una usuaria puedes hacer click en la fila correspondiente a la usuaria que se quiera editar, o haciendo 
 click en el icono :material-pencil:.
 
-![Editar usuario registrado](../../assets/editar_usuario_1.png){ loading=lazy} 
+![Editar usuario registrado](../../assets/images/editar_usuario_1.png){ loading=lazy} 
 
 /// admonition | 
     type: tip
 Esta sección es útil cuando alguna persona pide ayuda para recordar su email de registro o resetear su contraseña.
 ///
 
-![Editar usuario registrado](../../assets/editar_usuario_preregistro.png){ align=right width=30% loading=lazy} 
+![Editar usuario registrado](../../assets/images/editar_usuario_preregistro.png){ align=right width=30% loading=lazy} 
 Si un usuario todavía no se ha registrado en la app, le aparece este recuadro que hemos llamado `Preregistro` donde se le
 puede reenviar el email con las instrucciones de registro en la app o copiar el enlace para enviarlo manualmente.
 
@@ -79,7 +79,7 @@ Para eliminar un usuario, puedes hacerlo de dos maneras:
  
 En ambos casos se abrirá una pantalla de confirmación.
 
-![Confirmación eliminar usuario](../../assets/eliminar_usuario_confirmacion.png){ loading=lazy} 
+![Confirmación eliminar usuario](../../assets/images/eliminar_usuario_confirmacion.png){ loading=lazy} 
 
 Como indica el mensaje, eliminar un `usuario` vinculado a una `socia`, no elimina los datos de la socia. Si se quiere eliminar 
 completamente una socia consumidora o proveedora, hay que hacerlo desde su sección correspondiente en el menú.

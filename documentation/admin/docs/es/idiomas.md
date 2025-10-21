@@ -5,18 +5,18 @@ icon: material/translate
 # Idiomas
 
 La aplicación ahora mismo está preparada para insertar traducciones en varias lenguas. Ahora mismo está traducida a 
-**castellano** y **euskera**.
+**castellano** y **euskera**, pero se pueden añadir fácilmente nuevos idiomas.
 
 Es importante diferenciar dos lugares diferentes donde se pueden ver las traducciones:
 
 - Textos internos de las aplicaciones: Son los textos que van en el propio código de las aplicaciones, tanto la app web
-como las móviles de Android e iOS. Cada vez que hay cambios o nuevas funciones en las apps, hay que actualizar tabmién
-estos textos.
+como las móviles de Android e iOS. Cada vez que hay cambios o nuevas funciones en las apps, hay que actualizar también
+estos textos. Normalmente de esto se encarga el equipo de desarrollo, si se detecta algún error en las traducciones, se les puede avisar.
 - Contenidos del mercado: Es la información dinámica que se gestiona desde el panel de administración. Un mercado con
 varias lenguas oficiales, se configura al comienzo para editar esos idiomas y a partir de ahí tiene disponibles
 pestañas por idioma en los campos traducibles
 
-![Campos multidioma](../assets/campos-multidioma.png){ loading=lazy }
+![Campos multidioma](../assets/images/campos-multidioma.png){ loading=lazy }
  
 
 ## Configuración de idiomas de mercado

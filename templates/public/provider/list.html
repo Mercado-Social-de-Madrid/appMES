@@ -19,21 +19,23 @@
                     <img class="img-fluid align-self-center"  src="{% if node.banner_image %}{{ node.banner_image.url }}{% else %}{% static 'imgs/brand.png' %}{% endif %}" alt="{{node.name}}">
                 </div>
                 <div class="align-self-center flex-grow-1 mr-3">
-                    <h1 class="mb-0">
-                    {{node.name}}
-                        </h1>
-                    <span class="lead">{{page_obj.paginator.count|default:0}} {% translate 'proveedoras' %}</span>
+                    <h1 class="mb-0">{{node.name}}</h1>
+                    <h4><a href="mailto:{{ node.contact_email}}" style="color: white">{{ node.contact_email }}</a></h4>
+                    <span class="lead">{{page_obj.paginator.count|default:0}} {% translate 'entidades' %}</span>
                 </div>
 
                 <div class="align-self-center">
                     {% include 'common/social_links.html' with obj=node btn_class='bg-brand text-light' %}
                 </div>
+
             </div>
 
 
         </div>
+
     </div>
 {% endif %}
+
 
 <div class="container">
     {% include 'common/list/filter_form.html' %}

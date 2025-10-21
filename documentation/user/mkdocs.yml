@@ -1,13 +1,13 @@
 yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
-site_name: Guía de usuario de la AppMES
+site_name: Guía de usuario de la App del MES
 site_url: https://0.0.0.0/docs/user
 extra_css:
   - assets/css/extra.css
 
 theme:
   name: material
-  logo: assets/logo-mes-oscuro.png
+  logo: assets/images/logo-mes-oscuro.png
   language: es
   features:
     - navigation.instant
@@ -65,21 +65,28 @@ plugins:
           build: false
 
 nav:
+  - Introducción: introduccion.md
+  - Web pública: web_publica.md
+  - Idiomas: idiomas.md
   - Aplicación movil:
       - aplicacion_movil/index.md
       - aplicacion_movil/carnet.md
       - aplicacion_movil/entidades.md
       - aplicacion_movil/destacados.md
+      - aplicacion_movil/menu.md
+      - aplicacion_movil/notificaciones.md
   - Panel de gestión:
     - panel_gestion/index.md
-    - Proveedoras:
-      - panel_gestion/proveedoras/index.md
-      - panel_gestion/proveedoras/inicio.md
-      - panel_gestion/proveedoras/mi_entidad.md
-      - panel_gestion/proveedoras/ofertas.md
-      - panel_gestion/proveedoras/ventajas.md
     - Consumidoras:
       - panel_gestion/consumidoras/index.md
+    - Entidades:
+      - panel_gestion/entidades/index.md
+      - panel_gestion/entidades/mi_entidad.md
+      - panel_gestion/entidades/ofertas.md
+      - panel_gestion/entidades/ventajas.md
+      - panel_gestion/entidades/balance.md
+      - panel_gestion/entidades/carnet-socia.md
   - Accesibilidad: accesibilidad.md
+  - Búsqueda semántica: busqueda_semantica.md
   - Problemas comunes: problemas_comunes.md
   - Software libre: software_libre.md

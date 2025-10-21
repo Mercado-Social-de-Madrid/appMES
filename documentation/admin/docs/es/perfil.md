@@ -3,7 +3,7 @@ icon: material/account-circle
 ---
 
 # Perfil
-![Editar perfil](../assets/editar_perfil.png){ align=right width=25% loading=lazy} 
+![Editar perfil](../assets/images/editar_perfil.png){ align=right width=25% loading=lazy} 
 
 Haciendo click en el botón que tiene el icono :material-account-circle: en la esquina superior derecha accedemos a la 
 siguiente información:
@@ -21,7 +21,7 @@ con nuestro perfil, como:
 - Idioma preferido de la interfaz
 - Actualizar contraseña
 
-![Editar perfil](../assets/mi_perfil.png){ loading=lazy} 
+![Editar perfil](../assets/images/mi_perfil.png){ loading=lazy} 
 
 ## Cerrar Sesión
 Seleccionando la opción de cerrar sesión, la aplicación finalizará la sesión con la cuenta actual y nos redigirá a la 

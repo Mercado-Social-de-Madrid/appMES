@@ -41,21 +41,24 @@
 
                         <div class="form-group" data-links="#entity-address">
                             {% include "common/forms/field.html" with field=form.address not_floating=True  %}
-                            <small style="color: grey">Introduce únicamente la dirección y número de la calle (ej.: "C/ Libreros, 1")</small>
                         </div>
 
-                        <div class="mt-2">
+                        <div class="mt-2 " style="margin-bottom: 30px">
                             {% include "common/forms/multilang_field.html" with form=form fieldname='short_description' %}
+                            <small style="color: grey">{% translate "Descripción corta o slogan. Se recomienda un máximo de 80 caracteres" %}}</small>
                         </div>
 
-                        <div class="mt-2">
+                        <div class="mt-2" style="margin-bottom: 30px">
                             {% include "common/forms/label.html" with field=form.description%}
                             {% include "common/forms/multilang_field.html" with form=form fieldname='description' hide_label=True %}
+                            <small style="color: grey">{% translate "Se recomienda una descripción completa pero breve, no más de 2 o 3 párrafos" %}}</small>
                         </div>
 
-                        <div class="mt-2">
+                        <div class="mt-2" style="margin-bottom: 30px">
                             {% include "common/forms/label.html" with field=form.services%}
                             {% include "common/forms/multilang_field.html" with form=form fieldname='services' hide_label=True %}
+                            <small style="color: grey;">{% translate 'Este campo es importante para la búsqueda semántica, <a href="https://mercadosocial.app/docs/user/panel_gestion/entidades/mi_entidad/#productos-servicios" target="_blank">más información</a>' %}</small>
+
                         </div>
 
                         {% include "common/forms/multiselect.html" with field=form.categories tags=categories %}
@@ -68,6 +71,8 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="card-title"><i class="material-icons">photo_library</i> {% translate "Galería" %} </div>
+                        <p class="card-text">Fotografías de la entidad. tamaño recomendado: máximo 1000px de ancho, formato horizontal. La primera de las
+                                                imágenes de esta galería será la que se muestre en el listado de la app.</p>
                         {{ form.gallery.as_hidden }}
                         {{ formsets.gallery.management_form }}
                         {% for gallery_form in formsets.gallery %}

@@ -20,14 +20,29 @@ Acciones de administración:
 Haciendo click en el botón "Publicar Noticia" accederás a la pantalla para añadir una nueva noticia. 
 En esta pantalla aparecen estos campos:
 
-  - Título de la noticia (multidioma)
-  - Imágen de portada de la noticia
-  - URL con más información
-    - Texto del botón de info: Solo visible si se indica una URL de más información. (multidioma)
-  - Descripción corta (multidioma)
-  - Descripción larga (multidioma)
+  - Título de la noticia (multidioma): Aparece en el encabezado de la noticia en la app y en la notificación
+  - Imágen de portada de la noticia: Se muestra al abrir la noticia en la app. Se recomienda formato horizontal con un
+máximo de 1000px de ancho.
+  - URL con más información: Muestra un botón extra al final de la noticia. Al hacer click se abre esta dirección web (URL).
+    - Texto del botón de info (multidioma): Texto opcional para mostrar en el botón. Solo visible si se indica una URL de más información. 
+  - Descripción corta (multidioma). Se muestra la notificación que llega al teléfono.
+  - Descripción larga (multidioma). Se muestra al abrir la noticia en la app móvil.
 
-Una vez rellenados los campos obligatorios, pulsa el botón "Publicar" para hacer pública la noticia.
+Una vez rellenados los campos obligatorios, pulsa el botón "Publicar" para enviar la noticia.
+
+Así es como se ve la información de una noticia, por orden: 
+
+- Notificación
+- Principio de la noticia en la app
+- Final de la noticia con botón
+
+![Notificacion de noticia](../../assets/images/notificacion-noticia.png){ loading=lazy   width=230px }
+![Noticia imagen](../../assets/images/noticia-1.png){ loading=lazy   width=230px }
+![Noticia botón](../../assets/images/noticia-2.png){ loading=lazy   width=230px }
+
+La información de noticias también se ve en los paneles de administración de consumidoras, entidades y administradoras:
+
+![Noticia web](../../assets/images/noticias-web.png){ loading=lazy   width=430px }
 
 ## :material-pencil: Editar noticia
 Para editar una noticia puedes hacer click en la fila correspondiente a la noticia que se quiera editar, 

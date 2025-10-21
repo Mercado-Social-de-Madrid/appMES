@@ -10,7 +10,7 @@ añadir el mercado al sistema) en la [pantalla de login](https://mercadosocial.a
 Lo primero que se nos muestra al acceder es un dashboard o panel de control para tener una visión general del estado
 de nuestro mercado:
 
-![Panel de control admin](../assets/dashboard-admin.png){ loading=lazy }
+![Panel de control admin](../assets/images/dashboard-admin.png){ loading=lazy }
 
 Desde aquí podemos ver los diferentes elementos que se crearon en diferentes periodos de tiempo: Últimos 3 meses, último mes,
 última semana.
@@ -28,5 +28,5 @@ de algunos elementos de nuestro mercado como se describe en la sección [Persona
 Para volver en cualquier momento a este panel de control solamente hay que pulsar el logo de "Mercado Social" en la 
 parte superior.
 
-![Logo MES inicio](../assets/logo-mes-inicio.png){ loading=lazy }
+![Logo MES inicio](../assets/images/logo-mes-inicio.png){ loading=lazy }
 ///

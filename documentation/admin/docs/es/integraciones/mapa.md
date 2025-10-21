@@ -10,7 +10,7 @@ Existe la posibilidad de mostrar las entidades geolocalizadas en un mapa interac
 Ahora mismo se hace a través de un servicio de creación de mapas externo open source llamado uMap 
 (utiliza los datos de [OpenStreetMap](https://www.openstreetmap.org)) pero está pendiente de hacer una integración más directa en la misma aplicación.
 
-![mapa de entiddes](../../assets/mapa-umap.png){ loading=lazy }
+![mapa de entiddes](../../assets/images/mapa-umap.png){ loading=lazy }
 
 /// admonition | Integración del mapa
     type: info

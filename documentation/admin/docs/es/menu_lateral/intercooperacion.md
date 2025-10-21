@@ -19,7 +19,7 @@ que no realiza una actividad productiva), para poder incluirlo habrá igualmente
 entidad de alta en el listado de proveedoras, y si no se quiere que aparezcan en el listado público de web y app
 se puede marcar para dicha entidad la opción "Oculta en el listado público".
 
-![Formulario de nueva consumidora](../../assets/form-intercoop.png){ loading=lazy }
+![Formulario de nueva consumidora](../../assets/images/form-intercoop.png){ loading=lazy }
 /// caption
 Formulario de nueva consumidora
 ///
@@ -45,7 +45,7 @@ Cuando habilitamos esta opción:
 - En el email de administración de nuevas altas se incluyen los campos asociados al nuevo registro
 - En el listado de consumidoras se añade un nuevo filtro para mostrar las que vienen de una entidad de intercoop. concreta
 
-![Filtro de intercooperación en listado de consumidoras](../../assets/intercoop-filtro.png){ loading=lazy }
+![Filtro de intercooperación en listado de consumidoras](../../assets/images/intercoop-filtro.png){ loading=lazy }
 /// caption
 Filtro de intercooperación en listado de consumidoras
 ///

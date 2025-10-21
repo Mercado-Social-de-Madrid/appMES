@@ -11,7 +11,7 @@ todos.
 Pulsando :material-tray-arrow-down: DESCARGAR FICHERO CSV se descargará un archivo con formato `.csv` preparado para
 abrirse en programas como Excell (Microsoft), Calc (Libre Office) o similares.
 
-![campos a exportar](../../assets/exportar-campos.png){ loading=lazy }
+![campos a exportar](../../assets/images/exportar-campos.png){ loading=lazy }
 
 /// admonition | Datos filtrados
     type: tip

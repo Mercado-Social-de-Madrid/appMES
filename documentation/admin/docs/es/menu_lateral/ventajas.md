@@ -9,7 +9,7 @@ En esta app, llamamos **Ventajas** a los beneficios que ofrecen ciertas entidade
 Pueden ser descuentos en compras u otro tipo de beneficios.
 Los mercados que no tengan la figura de socia consumidora podrán igualmente ofrecer ventajas solo a las socias proveedoras (entidades).
 
-![Información de ventajas](../../assets/info-ventajas-admin.png){ loading=lazy }
+![Información de ventajas](../../assets/images/info-ventajas-admin.png){ loading=lazy }
 
 /// admonition | Destinatarias
     type: info
@@ -22,10 +22,10 @@ socias de Intercooperación.
 Ahora mismo las ventajas no las pueden añadir las entidades directamente en su panel de gestión, se decidió así para poder
 hacer una valoración previa por parte de las gestoras de cada mercado. En su lugar, a la entidad se le muestra la forma de 
 ofrecer su ventaja solicitándolo a través del email de contacto del mercado (configurado en la sección 
-[Personalizar Mercado](http://localhost:8001/docs/admin/menu_lateral/personalizacion/#1-datos-basicos))
+[Personalizar Mercado](../personalizacion/#1-datos-basicos))
 ///
 
-[Pulsa aquí](/docs/user/consumidoras/#ventajas) para ver cómo las socias ven la información de ventajas.
+[Pulsa aquí](/docs/user/panel_gestion/entidades/ventajas/#visualizacion-ventajas) para ver cómo las socias ven la información de ventajas.
 
 
 ## :material-plus: Añadir ventaja

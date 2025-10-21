@@ -18,7 +18,7 @@ Existen 3 formas de dar de alta socias consumidoras:
 En el botón superior derecho, hacemos click en `+ NUEVA CONSUMIDORA`, rellenamos sus datos y hacemos click en el botón 
 `AÑADIR CONSUMIDORA` en la parte inferior 
 
-![Nueva consumidora](../../assets/nueva-consumidora.png){ loading=lazy }
+![Nueva consumidora](../../assets/images/nueva-consumidora.png){ loading=lazy }
 
 /// admonition | Creación de usuario asociado
     type: info
@@ -72,7 +72,7 @@ icono :material-pencil: en el listado), marcamos la casilla `Activa` y guardamos
 el listado pulsando :material-account-plus:). En la siguiente pantalla pulsamos `CREAR USUARIO`. Opcionalmente podemos cambiar 
 su idioma por defecto (para mercados con varios idiomas)
 
-![Crear usuario](../../assets/crear-usuario.png){ loading=lazy }
+![Crear usuario](../../assets/images/crear-usuario.png){ loading=lazy }
 
 /// admonition | Usuarios duplicados
     type: warning
