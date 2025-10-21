@@ -6,8 +6,8 @@ icon: material/store-outline
 
 Aquí podrás ver y modificar la información de la entidad
 
-![Panel entidad perfil](../../../assets/panel-entidad-perfil.png){ loading=lazy }
-![Panel entidad modificar perfil](../../../assets/panel-entidad-modificar-perfil.png){ loading=lazy }
+![Panel entidad perfil](../../../assets/images/panel-entidad-perfil.png){ loading=lazy }
+![Panel entidad modificar perfil](../../../assets/images/panel-entidad-modificar-perfil.png){ loading=lazy }
 
 
 <p id="informacion-entidad"></p> 
@@ -51,13 +51,13 @@ Esta información se muestra de la siguiente forma en estos lugares:
 
 ## Página web
 
-![Panel entidad modificar perfil](../../../assets/entidad-detalle-web.png){ loading=lazy }
+![Panel entidad modificar perfil](../../../assets/images/entidad-detalle-web.png){ loading=lazy }
 Más información en la sección [Web pública](../../../web_publica/)
 
 ## App móvil
 
-![Detalle de entidad](../../../assets/entidad-detalle.png){ loading=lazy align=left  width=300px }
-![Distintivo de entidad](../../../assets/entidad-distintivo.png){ loading=lazy align=left  width=300px }
+![Detalle de entidad](../../../assets/images/entidad-detalle.png){ loading=lazy align=left  width=300px }
+![Distintivo de entidad](../../../assets/images/entidad-distintivo.png){ loading=lazy align=left  width=300px }
 
 <p style="clear: left;"></p> 
 
@@ -73,4 +73,4 @@ los datos que las entidades o administradoras gestionan en esta herramienta.
 Es el caso por ejemplo del [Mercado de Aragón](https://mercadosocialaragon.net/catalogo-entidades/){ target=blank }, 
 donde han hecho un diseño propio en su web:
 
-![Detalle entidad personalizado](../../../assets/entidad-detalle-personalizado.png){ loading=lazy }
+![Detalle entidad personalizado](../../../assets/images/entidad-detalle-personalizado.png){ loading=lazy }

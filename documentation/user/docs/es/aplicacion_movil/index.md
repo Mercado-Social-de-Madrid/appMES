@@ -12,7 +12,7 @@ Existen aplicaciones móviles para las dos plataformas principales: Android e iO
 (Archivo instalable para teléfonos Android. Esta opción está pensada para usuarias que no tengan 
 los servicios de Google en su teléfono)
 
-![Entidades app móvil](../../assets/entidades-lista.png){ loading=lazy align=left width=300px }
+![Entidades app móvil](../../assets/images/entidades-lista.png){ loading=lazy align=left width=300px }
 
 El objetivo de la app móvil es crear un vínculo más cercano de las usuarias con el MES, mejorando su experiencia y aprovechando
 las ventajas de utilizar una aplicación móvil nativa con las siguientes características: 

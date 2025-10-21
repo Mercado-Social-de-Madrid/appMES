@@ -9,7 +9,7 @@ En esta app, llamamos **Ventajas** a los beneficios que ofrecen ciertas entidade
 Pueden ser descuentos en compras u otro tipo de beneficios.
 Los mercados que no tengan la figura de socia consumidora podrán igualmente ofrecer ventajas solo a las socias proveedoras (entidades).
 
-![Información de ventajas](../../assets/info-ventajas-admin.png){ loading=lazy }
+![Información de ventajas](../../assets/images/info-ventajas-admin.png){ loading=lazy }
 
 /// admonition | Destinatarias
     type: info

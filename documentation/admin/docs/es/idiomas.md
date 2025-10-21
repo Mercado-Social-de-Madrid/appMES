@@ -16,7 +16,7 @@ estos textos. Normalmente de esto se encarga el equipo de desarrollo, si se dete
 varias lenguas oficiales, se configura al comienzo para editar esos idiomas y a partir de ahí tiene disponibles
 pestañas por idioma en los campos traducibles
 
-![Campos multidioma](../assets/campos-multidioma.png){ loading=lazy }
+![Campos multidioma](../assets/images/campos-multidioma.png){ loading=lazy }
  
 
 ## Configuración de idiomas de mercado

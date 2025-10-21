@@ -9,7 +9,7 @@ Esta función estará disponible para los mercados que tengan registro de socias
 podrán acceder a ventajas y descuentos que ofrezcan las entidades de la red, es una forma sencilla de verificar la condición
 de socia del mercado social correspondiente.
 
-![Carnet socia consumidora](../../assets/carnet-socia-consumidora.png){ loading=lazy align=left width=250px }
+![Carnet socia consumidora](../../assets/images/carnet-socia-consumidora.png){ loading=lazy align=left width=250px }
 
 En este carnet se muestran los datos personales o de entidad, el número de socia y un código QR con el que se puede validar 
 el estado de la socia (activa o no activa en el mercado si se ha dado de baja).
@@ -40,4 +40,4 @@ Las entidades tendrán una función añadida para comprobar si una socia está a
 que ofrece. Tiene dos opciones, usar la cámara para escanear el código QR de la socia, o introducir el número de social manualmente.
 Estos botones están en la parte superior derecha de la pantalla del carnet digital.
 
-![Comprobar estado socia](../../assets/comprobar-estado-socia.png){ loading=lazy width=400px }
+![Comprobar estado socia](../../assets/images/comprobar-estado-socia.png){ loading=lazy width=400px }

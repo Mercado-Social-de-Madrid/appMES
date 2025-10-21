@@ -9,4 +9,4 @@ nuestra infografía del último año (si es que la hemos hecho).
 
 Se muestra de esta manera en app móvil y web.
 
-![Balance auditoría social](../../../assets/panel-entidad-balance.png){ loading=lazy }
+![Balance auditoría social](../../../assets/images/panel-entidad-balance.png){ loading=lazy }

@@ -44,15 +44,15 @@ indicar el tipo de resultado: un check para coincidencias exactas de palabras y 
 Así se muestra:
 
 ### Web
-![busqueda web](../assets/busqueda-web.png)
+![busqueda web](../assets/images/busqueda-web.png)
 
-![grado similitud web](../assets/grado-similitud.png){ align=right }
+![grado similitud web](../assets/images/grado-similitud.png){ align=right }
 Al pasar el cursor del ratón por encima se muestra el grado de similitud: Alta, media o baja
 
 <br><br>
 ### Aplicación móvil
 
-![busqueda movil](../assets/busqueda-movil.png)
+![busqueda movil](../assets/images/busqueda-movil.png)
 
-![grado similitud movil](../assets/grado-similitud-movil.png){ align=right }
+![grado similitud movil](../assets/images/grado-similitud-movil.png){ align=right }
 Al pinchar en cada uno de los iconos, se muestra una breve explicación del resultado:

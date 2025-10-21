@@ -36,13 +36,13 @@ Así es como se ve la información de una noticia, por orden:
 - Principio de la noticia en la app
 - Final de la noticia con botón
 
-![Notificacion de noticia](../../assets/notificacion-noticia.png){ loading=lazy   width=230px }
-![Noticia imagen](../../assets/noticia-1.png){ loading=lazy   width=230px }
-![Noticia botón](../../assets/noticia-2.png){ loading=lazy   width=230px }
+![Notificacion de noticia](../../assets/images/notificacion-noticia.png){ loading=lazy   width=230px }
+![Noticia imagen](../../assets/images/noticia-1.png){ loading=lazy   width=230px }
+![Noticia botón](../../assets/images/noticia-2.png){ loading=lazy   width=230px }
 
 La información de noticias también se ve en los paneles de administración de consumidoras, entidades y administradoras:
 
-![Noticia web](../../assets/noticias-web.png){ loading=lazy   width=430px }
+![Noticia web](../../assets/images/noticias-web.png){ loading=lazy   width=430px }
 
 ## :material-pencil: Editar noticia
 Para editar una noticia puedes hacer click en la fila correspondiente a la noticia que se quiera editar, 

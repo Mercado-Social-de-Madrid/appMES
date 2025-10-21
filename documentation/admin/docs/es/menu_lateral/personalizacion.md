@@ -12,7 +12,7 @@ Dentro de esta sección nos encontramos 3 bloques:
 
 ## 1. Datos básicos
 
-![Personalizar datos básicos](../../assets/personalizar-datos-basicos.png){ loading=lazy }
+![Personalizar datos básicos](../../assets/images/personalizar-datos-basicos.png){ loading=lazy }
 
 En este bloque podremos editar los siguientes datos del mercado:
 
@@ -31,7 +31,7 @@ con fondo transparente)*
 - Enlace a la página de información básica de mercado: Esta página se muestra en la app móvil. Como se puede ver en esta imagen, 
 se trata de mostrar al usuario el objetivo y los valores del Mercado Social de un vistazo.
 
-![Página de info de mercado](../../assets/info-mes-app-auto.png){ loading=lazy width=40% }
+![Página de info de mercado](../../assets/images/info-mes-app-auto.png){ loading=lazy width=40% }
 
 /// admonition | Recomendación
     type: tip
@@ -44,8 +44,8 @@ en la frase del final, pero si se quiere poner una web personalizada, se puede r
 
 Enlaces a las redes sociales de cada mercado. Estas aparecen en el listado público de entidades de la web y en las aplicaciones móviles:
 
-![redes de mercado en web](../../assets/rrss-mercado-web.png){ loading=lazy }
-![redes de mercado en móvil](../../assets/rrss-mercado-movil.png){ loading=lazy width=30% }
+![redes de mercado en web](../../assets/images/rrss-mercado-web.png){ loading=lazy }
+![redes de mercado en móvil](../../assets/images/rrss-mercado-movil.png){ loading=lazy width=30% }
 
 /// admonition | Nuevas redes
     type: info
@@ -58,7 +58,7 @@ Si se necesita alguna nueva, hay que avisar al equipo de desarrollo
 Este bloque permite editar a cada mercado ciertos textos que se muestran públicamente según sus necesidades. No es obligatorio
 rellenarlos, en cada uno se ofrecen unos contenidos por defecto.
 
-![Textos personalizados](../../assets/textos-personalizados.png){ loading=lazy }
+![Textos personalizados](../../assets/images/textos-personalizados.png){ loading=lazy }
 
 En cada sección desplegable se ofrece información del contexto de ese texto, los campos editables y un botón para previsualizar 
 el texto personalizado.

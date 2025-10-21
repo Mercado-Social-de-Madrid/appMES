@@ -34,10 +34,10 @@ entidad, como se detalla en las siguientes secciones. Pero hay un par de element
 
 - Dos nuevas opciones en el menú de perfil (arriba a la derecha) para Editar perfil y Cerrar sesión
 
-![Panel opciones perfil](../../assets/panel-opciones-perfil.png){ loading=lazy width=200px }
+![Panel opciones perfil](../../assets/images/panel-opciones-perfil.png){ loading=lazy width=200px }
 
 ## Editar perfil
 
 Al pulsar en esta opción se nos mostrará una vista para cambiar el idioma de la interfaz y cambiar nuestra contraseña de acceso:
 
-![Panel editar perfil](../../assets/panel-editar-perfil.png){ loading=lazy }
+![Panel editar perfil](../../assets/images/panel-editar-perfil.png){ loading=lazy }

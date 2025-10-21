@@ -4,7 +4,7 @@ icon: material/menu
 
 # Menú lateral
 
-![Menú Lateral](../../assets/menu_lateral_mercado.png){ align=left width=200px loading=lazy }
+![Menú Lateral](../../assets/images/menu_lateral_mercado.png){ align=left width=200px loading=lazy }
 
 El Menú Lateral de la aplicación proporciona acceso rápido y sencillo a las distintas secciones del Mercado Social que estás administrando. A continuación, se detallan los elementos presentes en el menú, dispuestos de arriba a abajo:
     

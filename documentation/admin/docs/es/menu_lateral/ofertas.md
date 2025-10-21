@@ -11,7 +11,7 @@ con una notificación en el móvil, y se pueden consultar a través de la secci�
 Cada entidad se puede autogestionar sus ofertas a través de su panel de administración, y si hiciera falta las 
 administradoras pueden :material-eye: ver, :material-pencil: editar o :material-delete:eliminar ofertas creadas a través de esta sección.
 
-![Ofertas](../../assets/offers.png){ loading=lazy }
+![Ofertas](../../assets/images/offers.png){ loading=lazy }
 
 
 La barra de búsqueda utiliza los siguientes campos para filtrar resultados:

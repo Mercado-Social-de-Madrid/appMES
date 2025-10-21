@@ -16,7 +16,7 @@ Las entidades podrán realizar las siguientes operaciones en su panel de gestió
 que pasa por un proceso de revisión)
 
 En el momento de acceder al panel se muestra la siguiente pantalla con accesos a todas las secciones
-![Panel entidad inicio](../../../assets/panel-entidad-inicio.png){ loading=lazy }
+![Panel entidad inicio](../../../assets/images/panel-entidad-inicio.png){ loading=lazy }
 
 
 

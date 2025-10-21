@@ -19,7 +19,7 @@ Aquí podemos ver la lista de Entidades Proveedoras que tenemos en nuestro merca
 
 Al lado del logo, se puede ver un icono que indica en qué estado está el usuario asociado para el acceso a la app:
 
-![Estado del usuario de proveedora](../../assets/lista-entidades.png){ loading=lazy} 
+![Estado del usuario de proveedora](../../assets/images/lista-entidades.png){ loading=lazy} 
 
 - :material-close: Sin usuario. Se ha creado el registro de la proveedora pero sin usuario asociado. Se puede crear más adelante.
 - :material-clock-outline: Pendiente de registro. Se ha creado el usuario pero todavía no se ha establecido una contraseña mediante 
@@ -72,7 +72,7 @@ Telegram, TikTok, Whatsapp, X, Youtube. Si se necesitaran otras redes hay que ha
 
 ### Crear usuaria asociada a la proveedora
 
-![Crear usuaria y mandar email de prerregistro](../../assets/prerregistro.png){ align=right width=50% loading=lazy} 
+![Crear usuaria y mandar email de prerregistro](../../assets/images/prerregistro.png){ align=right width=50% loading=lazy} 
 Cuando creamos una entidad proveedora tenemos la opción de crear paralelamente una cuenta de usuaria. 
 Si seleccionas esta opción, se enviará automáticamente un correo a la dirección de email de la proveedora, 
 desde el cual podrá crear una  contraseña para acceder a la aplicación móvil.

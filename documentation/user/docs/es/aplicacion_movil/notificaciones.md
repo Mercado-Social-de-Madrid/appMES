@@ -15,5 +15,5 @@ que se abra la app, hay que permitir las notificaciones en la ventana que aparec
 También se pueden habilitar o deshabilitar manualmente desde los ajustes del teléfono:
 `Ajustes -> Aplicaciones -> Mercado Social -> Notificaciones`
 
-![Notificacion de noticia](../../assets/notificacion-noticia.png){ loading=lazy  width=300px }
+![Notificacion de noticia](../../assets/images/notificacion-noticia.png){ loading=lazy  width=300px }
 

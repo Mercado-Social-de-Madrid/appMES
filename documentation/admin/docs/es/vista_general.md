@@ -53,7 +53,7 @@ para iPhone y iPad, con las mismas funciones que la de Android pero con algunos 
 para adaptarlos a los sistemas de iOS.
 
 En este diagrama se muestra la infraestructura general
-![Infraestructura de la app del MES](../assets/infraestructura-app-mes.jpg){ loading=lazy} 
+![Infraestructura de la app del MES](../assets/images/infraestructura-app-mes.jpg){ loading=lazy} 
 
 ## :material-keyboard-settings-outline: Características generales
 

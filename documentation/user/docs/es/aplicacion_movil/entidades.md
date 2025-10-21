@@ -11,9 +11,9 @@ Existe también un filtro de búsqueda para encontrar entidades por su nombre o 
 Esta búsqueda por texto es semántica, lo que permite encontrar resultados por aproximación de significado, se explica con más
 detalle en la sección [Búsqueda semántica](../busqueda_semantica.md)
 
-![Lista entidades](../../assets/entidades-lista.png){ loading=lazy  width=230px }
-![Mapa de entidades](../../assets/entidades-mapa.png){ loading=lazy  width=230px }
-![Filtro de entidades](../../assets/entidades-filtro.png){ loading=lazy  width=230px }
+![Lista entidades](../../assets/images/entidades-lista.png){ loading=lazy  width=230px }
+![Mapa de entidades](../../assets/images/entidades-mapa.png){ loading=lazy  width=230px }
+![Filtro de entidades](../../assets/images/entidades-filtro.png){ loading=lazy  width=230px }
 
 /// admonition | Visibilidad de entidades
     type: info
@@ -27,8 +27,8 @@ a mano usando luego el filtro.
 
 <p id="movil-entidades"></p>
 
-![Detalle de entidad](../../assets/entidad-detalle.png){ loading=lazy align=left  width=230px }
-![Distintivo de entidad](../../assets/entidad-distintivo.png){ loading=lazy align=left  width=230px }
+![Detalle de entidad](../../assets/images/entidad-detalle.png){ loading=lazy align=left  width=230px }
+![Distintivo de entidad](../../assets/images/entidad-distintivo.png){ loading=lazy align=left  width=230px }
 
 Al pulsar en una entidad accedemos al resto de su información:
 

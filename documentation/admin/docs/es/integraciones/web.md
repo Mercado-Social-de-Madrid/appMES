@@ -18,7 +18,7 @@ del nombre de nuestro territorio en la esquina superior izquierda. Suele ser una
 
 ### 1. :material-format-list-text: Listado de entidades
 
-![Web listado entidades](../../assets/web-listado-entidades.png){ loading=lazy }
+![Web listado entidades](../../assets/images/web-listado-entidades.png){ loading=lazy }
 
 Se muestra el listado de nuestras entidades activas. Al pulsar el botón "Más información de la entidad" se abre un pop-up
 con la descripción, productos/servicios y dirección.
@@ -38,7 +38,7 @@ https://mercadosocial.app/d/{codigo_de_mercado}
 Para los territorios que tengan registro de socias consumidoras, se ofrece un formulario público para facilitar la
 solicitud de alta por parte de personas interesadas.
 
-![Formulario alta consumidora](../../assets/formulario-alta-consumidora.png){ loading=lazy }
+![Formulario alta consumidora](../../assets/images/formulario-alta-consumidora.png){ loading=lazy }
 
 Esta es la dirección del formulario de registro:
 ``` 
