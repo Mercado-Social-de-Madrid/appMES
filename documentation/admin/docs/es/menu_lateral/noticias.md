@@ -28,7 +28,7 @@ máximo de 1000px de ancho.
   - Descripción corta (multidioma). Se muestra la notificación que llega al teléfono.
   - Descripción larga (multidioma). Se muestra al abrir la noticia en la app móvil.
 
-Una vez rellenados los campos obligatorios, pulsa el botón "Publicar" para hacer enviar la noticia.
+Una vez rellenados los campos obligatorios, pulsa el botón "Publicar" para enviar la noticia.
 
 Así es como se ve la información de una noticia, por orden: 
 
