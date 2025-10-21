@@ -31,7 +31,6 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-APP_VERSION = env("APP_VERSION", str, "dev")
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 ADMINS = env.list("ADMINS")
@@ -127,7 +126,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'market.context_processors.user_market',
-                'core.context_processors.version_number',
+                'core.context_processors.export_vars',
             ],
             "loaders": default_loaders if DEBUG else cached_loaders,
         },

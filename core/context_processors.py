@@ -1,5 +1,7 @@
-from django.conf import settings
+import os
 
-
-def version_number(request):
-    return {"VERSION_NUMBER": settings.APP_VERSION}
+def export_vars(request):
+    return {
+        "VERSION_NUMBER": os.environ.get("APP_VERSION", "dev"),
+        "ENV": os.environ.get("ENV")
+    }
