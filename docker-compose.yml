@@ -6,6 +6,7 @@ services:
     ports:
       - "${DJANGO_PORT:-8000}:8000"
     volumes:
+      - .:/code
       - ./logs:/var/log/appMES/
       - ../config/logrotate:/etc/logrotate.d
       - ../static:/static
