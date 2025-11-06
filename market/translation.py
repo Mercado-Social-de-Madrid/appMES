@@ -10,7 +10,7 @@ class CategoryTranslationOptions(TranslationOptions):
 
 @register(Provider)
 class ProviderTranslationOptions(TranslationOptions):
-    fields = ('name', 'description', 'short_description', 'services', 'legal_form')
+    fields = ('name', 'description', 'short_description', 'services', 'legal_form', 'balance_detail')
 
 @register(Intercoop)
 class IntercoopTranslationOptions(TranslationOptions):

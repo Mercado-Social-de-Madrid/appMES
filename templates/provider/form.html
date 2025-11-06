@@ -63,7 +63,14 @@
 
                         {% include "common/forms/multiselect.html" with field=form.categories tags=categories %}
                         {% include "common/forms/field.html" with field=form.num_workers %}
-                        {% include "common/forms/field.html" with field=form.balance_detail %}
+
+                        {% if request.user.is_staff %}
+                            {% include "common/forms/multilang_field.html" with form=form fieldname='balance_detail' hide_label=True %}
+                        {% else %}
+                        <div style="display:none;">
+                            {% include "common/forms/multilang_field.html" with form=form fieldname='balance_detail' hide_label=True %}
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
                 </div>
