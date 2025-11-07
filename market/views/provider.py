@@ -55,7 +55,7 @@ class ProviderList(FilterMixin, MarketMixin,  ExportAsCSVMixin, FilterView, List
     paginate_by = 15
 
     available_fields = ['member_id', 'cif', 'name', 'address', 'email', 'phone_number', 'node',
-                        'description', 'short_description', 'legal_form_title', 'num_workers', 'balance_detail',
+                        'description', 'short_description', 'legal_form_title', 'balance_detail',
                         'registration_date', ]
 
     field_labels = {'node': _('Mercado'),}
