@@ -133,7 +133,6 @@ class PreRegisterUserView(APIView):
                 short_description=provider.get('short_description'),
                 latitude=provider.get('latitude', 0),
                 longitude=provider.get('longitude', 0),
-                num_workers=provider.get('num_workers', 1),
                 legal_form=provider.get('legal_form'),
                 webpage_link=provider.get('webpage_link'),
                 phone_number=provider.get('contact_phone'),

@@ -40,7 +40,6 @@ def import_provider(item, node):
             short_description=item['short_description'],
             latitude=item['latitude'],
             longitude=item['longitude'],
-            num_workers=item['num_workers'],
             legal_form=item['legal_form'],
             balance_detail=item['balance_detail'],
             not_listed=item['hidden'],
