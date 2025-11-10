@@ -54,9 +54,9 @@ class ProviderList(FilterMixin, MarketMixin,  ExportAsCSVMixin, FilterView, List
     ajax_template_name = 'provider/query.html'
     paginate_by = 15
 
-    available_fields = ['cif', 'name', 'address', 'email', 'phone_number', 'node',
+    available_fields = ['member_id', 'cif', 'name', 'address', 'email', 'phone_number', 'node',
                         'description', 'short_description', 'legal_form_title', 'num_workers', 'balance_detail',
-                        'registration_date']
+                        'registration_date', ]
 
     field_labels = {'node': _('Mercado'),}
 
