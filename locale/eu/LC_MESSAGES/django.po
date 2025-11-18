@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MES web app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 11:30+0000\n"
+"POT-Creation-Date: 2025-11-18 10:49+0000\n"
 "PO-Revision-Date: 2024-08-16 17:44+0100\n"
 "Last-Translator: Julio\n"
 "Language-Team: Basque (Spain)\n"
@@ -44,15 +44,15 @@ msgstr "Erabiltzaile honek ez du inolako merkaturik kudeatzen."
 msgid "Ya existe un usuario registrado con este correo electrónico."
 msgstr "Badago posta elektroniko honekin erregistratutako erabiltzaile bat."
 
-#: api/views/user.py:147
+#: api/views/user.py:146
 msgid "No existe objeto entity o person en el cuerpo de la petición"
 msgstr "Ez dago entitate edo pertsona objekturik eskaeraren gorputzean"
 
-#: appmes/settings.py:188
+#: appmes/settings.py:187
 msgid "Castellano"
 msgstr "gaztelania"
 
-#: appmes/settings.py:189
+#: appmes/settings.py:188
 msgid "Euskara"
 msgstr "euskara"
 
@@ -335,7 +335,7 @@ msgstr "Merkatua"
 msgid "Texto"
 msgstr "Testua"
 
-#: core/models/gallery.py:13 templates/provider/form.html:70
+#: core/models/gallery.py:13 templates/provider/form.html:79
 msgid "Galería"
 msgstr "Galeria"
 
@@ -407,7 +407,7 @@ msgstr "Irudi nagusia"
 msgid "Imagen del distintivo de balance"
 msgstr "Auditoretza sozialaren bereizgarriaren irudia"
 
-#: core/models/node.py:31 market/models/provider.py:36
+#: core/models/node.py:31 market/models/provider.py:35
 msgid "Página web"
 msgstr "Web orria"
 
@@ -684,14 +684,10 @@ msgid "Categorías"
 msgstr "Kategoriak"
 
 #: market/models/provider.py:29
-msgid "Número de trabajadores"
-msgstr "Langile kopurua"
-
-#: market/models/provider.py:30
 msgid "Forma legal"
 msgstr "Forma juridikoa"
 
-#: market/models/provider.py:34
+#: market/models/provider.py:33
 msgid "Informe balance"
 msgstr "Auditoretza sozialaren txostena"
 
@@ -1500,16 +1496,16 @@ msgstr ""
 "aplikaziotik erabiltzen da hornitzaile bakoitzaren auditoretzaren "
 "xehetasunak sartzeko"
 
-#: templates/market/form.html:139 templates/provider/form.html:103
+#: templates/market/form.html:139 templates/provider/form.html:114
 msgid "Geolocalización"
 msgstr "Geokokapena"
 
-#: templates/market/form.html:140 templates/provider/form.html:104
+#: templates/market/form.html:140 templates/provider/form.html:115
 msgid ""
 "Mueve el pin por el mapa hasta posicionarlo en la localización correcta."
 msgstr "Mugitu pina mapan toki egokian kokatu arte."
 
-#: templates/market/form.html:154 templates/provider/form.html:111
+#: templates/market/form.html:154 templates/provider/form.html:122
 msgid ""
 "Puedes hacer zoom en los controles del mapa para ajustar al máximo la "
 "posición, o entrar en la vista de pantalla completa."
@@ -1518,7 +1514,7 @@ msgstr ""
 "pantaila osoko ikuspegia sar dezakezu."
 
 #: templates/market/form.html:160 templates/market/public/form.html:112
-#: templates/provider/form.html:127
+#: templates/provider/form.html:138
 msgid "Redes sociales"
 msgstr "Sare sozialak"
 
@@ -1733,6 +1729,10 @@ msgstr "Administrazioa"
 msgid "Editar mercados"
 msgstr "Merkatuak editatu"
 
+#: templates/navbar/bar.html:6
+msgid "Estás trabajando en el entorno de"
+msgstr ""
+
 #: templates/navbar/drawer.html:16
 msgid "Versión"
 msgstr "Saioa"
@@ -1924,6 +1924,22 @@ msgstr "Ziur al zaude hautatutako hornitzailea ezabatu nahi duzula?"
 msgid "Actualizar imagen"
 msgstr "Irudia eguneratu"
 
+#: templates/provider/form.html:48
+msgid "Descripción corta o slogan. Se recomienda un máximo de 80 caracteres"
+msgstr ""
+
+#: templates/provider/form.html:54
+msgid ""
+"Se recomienda una descripción completa pero breve, no más de 2 o 3 párrafos"
+msgstr ""
+
+#: templates/provider/form.html:60
+msgid ""
+"Este campo es importante para la búsqueda semántica, <a href=\"https://"
+"mercadosocial.app/docs/user/panel_gestion/entidades/mi_entidad/#productos-"
+"servicios\" target=\"_blank\">más información</a>"
+msgstr ""
+
 #: templates/provider/list.html:8 templates/public/provider/list.html:8
 #: templates/reports/offers_card.html:13
 msgid "Entidades"
@@ -1957,6 +1973,14 @@ msgstr "Ikusi biltegiak Github-en"
 msgid "Créditos"
 msgstr "Kredituak"
 
+#: templates/public/index.html:21
+msgid ""
+"Sé parte de la Economía Social y Solidaria, desata todo el potencial del "
+"consumo consciente a través de la app del Mercado Social"
+msgstr ""
+"Izan zaitez Ekonomia Sozial eta Solidarioaren parte, eta kontsumo kontzientearen ahalmen "
+"osoa piztu Merkatu Sozialaren aplikazioaren bidez"
+
 #: templates/public/index.html:25
 msgid "Descarga en Google Play"
 msgstr "Deskargatu Google Play-n"
@@ -1979,8 +2003,9 @@ msgid ""
 "filtrando por categorías y búsquedas inteligentes. Podrás consultar toda la "
 "información de cada entidad"
 msgstr ""
-"Aztertu Merkatu Sozialaren parte diren entitateen zerrenda, kategorien eta bilaketa "
-"adimentsuen arabera iragaztez. Entitate bakoitzaren informazio guztia kontsultatu ahal izango duzu."
+"Aztertu Merkatu Sozialaren parte diren entitateen zerrenda, kategorien eta "
+"bilaketa adimentsuen arabera iragaztez. Entitate bakoitzaren informazio "
+"guztia kontsultatu ahal izango duzu."
 
 #: templates/public/index.html:46
 msgid ""
@@ -1988,9 +2013,9 @@ msgid ""
 "en el Mercado Social de forma sencilla, así como publicar nuevas ofertas o "
 "generar un QR para la consulta de tu balance/auditoría social."
 msgstr ""
-"Entitate hornitzaile gisa, Merkatu Sozialean zure profil publikoa web paneletik modu errazean "
-"edita dezakezu, baita eskaintza berriak argitaratu ere, edo sortu QR kode bat zure "
-"Balantzea/Auditoria soziala kontsultatzeko."
+"Entitate hornitzaile gisa, Merkatu Sozialean zure profil publikoa web "
+"paneletik modu errazean edita dezakezu, baita eskaintza berriak argitaratu "
+"ere, edo sortu QR kode bat zure Balantzea/Auditoria soziala kontsultatzeko."
 
 #: templates/public/index.html:47
 msgid "Consulta los mercados territoriales presentes en la aplicación"
@@ -2006,9 +2031,10 @@ msgid ""
 "las ventajas y descuentos que se ofrecen dentro de la red de la economía "
 "social y solidaria a través de tu carnet digital."
 msgstr ""
-"Kontsumitzaile bazkide gisa, zure merkatuak funtzio hau barne hartzen badu, zure txartel "
-"digitalaren bidez aprobetxatu ahal izango duzu ekonomiaren sozial eta solidarioaren sarearen "
-"barruan eskaintzen diren abantailak eta deskontuak."
+"Kontsumitzaile bazkide gisa, zure merkatuak funtzio hau barne hartzen badu, "
+"zure txartel digitalaren bidez aprobetxatu ahal izango duzu ekonomiaren "
+"sozial eta solidarioaren sarearen barruan eskaintzen diren abantailak eta "
+"deskontuak."
 
 #: templates/public/index.html:76
 msgid "Mantente informada"
@@ -2020,8 +2046,9 @@ msgid ""
 "interesa. Recibirás directamente en la aplicación ofertas de las entidades "
 "que más te interesan, así como las últimas noticias de la ESS"
 msgstr ""
-"Jaso albisteak eta eskaintzen alertak, interesatzen zaizun guztiaren berri izateko. Gehien interesatzen zaizkizun entitateen "
-"eskaintzak zuzenean jasoko dituzu aplikazioan, baita ESSko azken berriak ere."
+"Jaso albisteak eta eskaintzen alertak, interesatzen zaizun guztiaren berri "
+"izateko. Gehien interesatzen zaizkizun entitateen eskaintzak zuzenean jasoko "
+"dituzu aplikazioan, baita ESSko azken berriak ere."
 
 #: templates/public/index.html:94
 msgid "Garantía ética"
@@ -2037,11 +2064,13 @@ msgid ""
 "infografía de cada entidad, visibilizando el compromiso de estas con la "
 "sostenibilidad y la justicia social."
 msgstr ""
-"<strong>Balantzea/Auditoria Soziala</strong> tresnaren bidez, Merkatu Soziala osatzen duten entitateen "
-"jarduera ESSren oinarrizko printzipioeekin garatzen dela ziurtatu daiteke: lan duina, "
-"ekitatea, lankidetza, inguruarekiko konpromisoa, irabazi-asmorik eza eta iraunkortasun "
-"ekologikoa. Aplikaziotik, entitate bakoitzaren infografiara sar zaitezke, jasangarritasunarekiko "
-"eta justizia sozialarekiko duten konpromisoa ikusgarri eginez."
+"<strong>Balantzea/Auditoria Soziala</strong> tresnaren bidez, Merkatu "
+"Soziala osatzen duten entitateen jarduera ESSren oinarrizko printzipioeekin "
+"garatzen dela ziurtatu daiteke: lan duina, ekitatea, lankidetza, "
+"inguruarekiko konpromisoa, irabazi-asmorik eza eta iraunkortasun ekologikoa. "
+"Aplikaziotik, entitate bakoitzaren infografiara sar zaitezke, "
+"jasangarritasunarekiko eta justizia sozialarekiko duten konpromisoa "
+"ikusgarri eginez."
 
 #: templates/public/index.html:98
 msgid "Descubre más"
@@ -2060,10 +2089,11 @@ msgid ""
 "liberación del código fuente de los mismos, fomentando la cooperación y los "
 "bienes comunes."
 msgstr ""
-"Webgune honetarako eta Merkatu Soziala sakeleko aplikazioetarako garatutako lan guztia "
-"software libreko lizentziekin kaleratzen da. Software librearen mugimenduak pertsonen "
-"askatasuna bilatzen du programak askatasunez erabiltzeko, ikasteko, banatzeko eta hobetzeko, "
-"horien iturburu-kodea askatuz, lankidetza eta ondasun komunak sustatuz."
+"Webgune honetarako eta Merkatu Soziala sakeleko aplikazioetarako garatutako "
+"lan guztia software libreko lizentziekin kaleratzen da. Software librearen "
+"mugimenduak pertsonen askatasuna bilatzen du programak askatasunez "
+"erabiltzeko, ikasteko, banatzeko eta hobetzeko, horien iturburu-kodea "
+"askatuz, lankidetza eta ondasun komunak sustatuz."
 
 #: templates/public/market/card.html:13
 msgid "Ver entidades"
@@ -2101,7 +2131,9 @@ msgstr "Pasahitza ahaztu al duzu?"
 msgid ""
 "¿No tienes usuario? Tienes que ser socia de algún mercado territorial para "
 "acceder a tu perfil"
-msgstr "Ez duzu erabiltzaile-izenik? Eskualdeko merkatu bateko kide izan behar duzu zure profilera sartzeko."
+msgstr ""
+"Ez duzu erabiltzaile-izenik? Eskualdeko merkatu bateko kide izan behar duzu "
+"zure profilera sartzeko."
 
 #: templates/registration/login.html:62
 msgid "Más información"
@@ -2391,6 +2423,9 @@ msgstr "Izena emateko zain"
 #: templates/user/status_circle.html:9
 msgid "Registrada"
 msgstr "Erregistratua"
+
+#~ msgid "Número de trabajadores"
+#~ msgstr "Langile kopurua"
 
 #~ msgid "Elige la entidad de intercooperación"
 #~ msgstr "Aukeratu interkooperazioko entitatea"
