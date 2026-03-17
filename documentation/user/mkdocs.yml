@@ -7,7 +7,7 @@ extra_css:
 
 theme:
   name: material
-  logo: assets/images/logo-mes-oscuro.png
+  logo: assets/images/img_logo_morado.png
   language: es
   features:
     - navigation.instant

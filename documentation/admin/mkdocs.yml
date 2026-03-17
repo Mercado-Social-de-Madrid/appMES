@@ -7,7 +7,7 @@ extra_css:
 
 theme:
   name: material
-  logo: assets/images/logo-mes-blanco.png
+  logo: assets/images/img_logo_blanco.png
   language: es
   features:
     - navigation.instant

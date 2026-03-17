@@ -6,4 +6,5 @@ En esta guía se describen las funciones para usuarias de la app del Mercado Soc
 
 Para encontrar contenidos directamente, utilizar la barra de búsqueda ↗️
 
-![Logo MES](../assets/images/logo-mes.png){ loading=lazy }
+![Logo MES](../assets/images/img_logo_morado.png#only-light){ loading=lazy }
+![Logo MES](../assets/images/img_logo_blanco.png#only-dark){ loading=lazy }
