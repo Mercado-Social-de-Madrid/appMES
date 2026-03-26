@@ -16,15 +16,28 @@
 
     <link href="{% sass_src 'css/mes.scss' %}?v=1" rel="stylesheet" type="text/css" />
 
-    <link rel="apple-touch-icon" sizes="144x144" href="{% static "icons/apple-touch-icon.png" %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static "icons/favicon-32x32.png" %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static "icons/favicon-16x16.png" %}">
-    <link rel="manifest" href="{% static "icons/site.webmanifest" %}">
-    <link rel="mask-icon" href="{% static "icons/safari-pinned-tab.svg" %}" color="#5bbad5">
-    <link rel="shortcut icon" href="{% static "icons/favicon.ico" %}">
-    <meta name="msapplication-TileColor" content="#99bb14">
-    <meta name="msapplication-config" content="{% static "icons/browserconfig.xml" %}">
-    <meta name="theme-color" content="#99bb14">
+  {% block social_meta %}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mercado social" />
+    <meta name="twitter:description" content="Sé parte de la Economía Social y Solidaria, desata todo el potencial del consumo consciente a través de la app del Mercado Social" />
+    <meta name="twitter:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static 'imgs/public/appmes_banner.jpg' %}" />
+
+    <meta property="og:url" content="{{request.build_absolute_uri}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Mercado social" />
+    <meta property="og:description" content="Sé parte de la Economía Social y Solidaria, desata todo el potencial del consumo consciente a través de la app del Mercado Social" />
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static 'imgs/public/appmes_banner.png' %}" />
+  {% endblock social_meta %}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'favicon/favicon-96x96.png' %}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}" />
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}" />
+    <meta name="apple-mobile-web-app-title" content="Mercado Social" />
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}" />
+    <meta name="msapplication-TileColor" content="#cef17b">
+    <meta name="theme-color" content="#cef17b">
 
     {% block extra_styles %}{% endblock extra_styles %}
   </head>
