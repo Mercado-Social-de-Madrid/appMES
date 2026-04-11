@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: MES web app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-18 10:49+0000\n"
-"PO-Revision-Date: 2026-04-11 07:50+0000\n"
-"Last-Translator: Alberto Moreta <albertomoreta@etik.com>\n"
+"PO-Revision-Date: 2026-04-12 08:34+0000\n"
+"Last-Translator: Weblate Admin <admin@simbiotica.coop>\n"
 "Language-Team: Catalan <http://translate.simbiotica.coop/projects/mercado-"
 "social/appmes-web/ca/>\n"
 "Language: ca\n"
@@ -58,7 +58,7 @@ msgstr ""
 #: authentication/admin.py:34 authentication/admin.py:67
 #: templates/registration/login.html:36 templates/user/profile.html:26
 msgid "Contraseña"
-msgstr ""
+msgstr "Contrasenya"
 
 #: authentication/admin.py:36
 msgid "Repetir contraseña"
