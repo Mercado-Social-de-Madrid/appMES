@@ -9,6 +9,7 @@ RUN apt-get update -y && \
     apt-get install -y logrotate && \
     apt-get install -y libcairo2 libcairo2-dev libpangocairo-1.0-0 && \
     apt-get install -y gettext && \
+    apt-get install -y libgdk-pixbuf2.0-dev && \
     pip install --upgrade pip
 
 COPY ./requirements.txt .
