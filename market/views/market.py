@@ -70,7 +70,6 @@ class EditMarket(MarketMixin, UpdateView, MarketFormsetView):
     pk_url_kwarg = 'market'
     form_class = MarketForm
     model = Node
-    initial = {'preferred_locale': 'es'}
 
     def form_invalid(self, form):
         logger.debug(form.errors)
