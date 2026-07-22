@@ -78,26 +78,34 @@
                     <div class="card-body">
                         <div class="card-title"><i class="material-icons">photo_library</i> {% translate "Galería" %} </div>
                         <p class="card-text">Fotografías de la entidad. tamaño recomendado: máximo 1000px de ancho, formato horizontal. La primera de las
-                                                imágenes de esta galería será la que se muestre en el listado de la app.</p>
+                                                imágenes de esta galería será la que se muestre en el listado de la app. Puedes reordenar las imágenes haciendo
+                                            click en una de ellas y arrastrando hasta colocarla en la posición deseada.</p>
                         {{ form.gallery.as_hidden }}
                         {{ formsets.gallery.management_form }}
-                        {% for gallery_form in formsets.gallery %}
-                            <div class="gallery-form-photo file-field">
-                             {% if formsets.gallery.can_delete %}
-                                {{ gallery_form.DELETE }}
-                                {{ gallery_form.photo_id }}
-                            {% endif %}
-                                <div class="form-photo">
-                                    <div class="thumb" style="background-image:url('{{gallery_form.photo.value.url}}');"></div>
-                                    {% if not gallery_form.photo_id.value %}
-                                        <i class="upload material-icons" data-placement="bottom" title="Subir foto">file_upload</i>
-                                        {{ gallery_form.photo }}
+                        <div class="gallery-container">
+                            {% for gallery_form in formsets.gallery %}
+                                <div draggable="true" class="gallery-form-photo file-field">
+                                    {% if formsets.gallery.can_delete %}
+                                        {{ gallery_form.DELETE }}
+                                        {{ gallery_form.photo_id }}
                                     {% endif %}
+
+                                    <div class="form-photo">
+                                        <div class="thumb" style="background-image:url('{{gallery_form.photo.value.url}}');"></div>
+                                        {% if not gallery_form.photo_id.value %}
+                                            <i class="upload material-icons" data-placement="bottom" title="Subir foto">file_upload</i>
+                                            {{ gallery_form.photo }}
+                                        {% endif %}
+                                    </div>
+
+                                    {{ gallery_form.order.as_hidden }}
+                                    {{ gallery_form.title.as_hidden }}
                                 </div>
-                            {{ gallery_form.order.as_hidden }}
-                            {{ gallery_form.title.as_hidden }}
-                                </div>
-                        {% endfor %}
+
+                            {% endfor %}
+
+                        </div>
+
                     </div>
                 </div>
 

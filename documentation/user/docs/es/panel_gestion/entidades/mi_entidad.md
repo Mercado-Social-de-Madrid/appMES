@@ -24,7 +24,8 @@ Aquí podrás ver y modificar la información de la entidad
   - Categorías a las que pertenece. [Ver cómo gestionar categorías](categorias.md)
   - Número de personas trabajadoras
   - Galería: Fotografías de la entidad (tamaño recomendado: máximo 1000px de ancho, formato horizontal). La primera de las
-imágenes de esta galería será la que se muestre en el listado de la app.
+imágenes de esta galería será la que se muestre en el listado de la app. Puedes reordenar las imágenes haciendo click 
+en una de ellas y arrastrando hasta colocarla en la posición deseada.
   - Geolocalización: Usa el mapa interactivo para colocar el pin en la localización donde se encuentra la entidad. 
 Esta localización será visible en el mapa general.
   - Redes sociales
