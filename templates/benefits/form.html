@@ -55,7 +55,7 @@
         </div>
 
         <div class="col-lg-12 custom-control" >
-            {{form.discount_link_text}}
+            {% include "common/forms/multilang_field.html" with form=form fieldname='discount_link_text' %}
         </div>
     </div>
     <br>
