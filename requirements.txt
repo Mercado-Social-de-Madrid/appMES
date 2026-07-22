@@ -10,7 +10,7 @@ django-qr-code==3.1.1
 
 # Multilang
 django-localflavor==4.0
-django-modeltranslation==0.18.12
+django-modeltranslation==0.18.13
 
 # DRF
 djangorestframework==3.14.0
