@@ -34,6 +34,14 @@
             <h4>Descripción completa:</h4>
             {{object.description|default_if_none:'-'}}
             {% endautoescape %}
+
+            {% if object.contact_address %}
+                {% autoescape off %}
+                <h4>Dirección de contacto:</h4>
+                {{object.contact_address|default_if_none:'-'}}
+                {% endautoescape %}
+            {% endif %}
+
         </div>
 
 

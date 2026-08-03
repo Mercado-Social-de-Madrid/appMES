@@ -14,6 +14,7 @@ class ProviderForm(MultiLangForm, AccountForm):
         widgets = AccountForm.Meta.widgets | {
             'short_description': forms.widgets.Textarea(attrs={'cols': 190, 'rows': 2, 'maxlength': '320'}),
             'description': CKEditorWidget(attrs={'cols': 190, 'rows': 30}),
+            'contact_address': forms.Textarea(attrs={'rows': 3, }),
             'services': CKEditorWidget(attrs={'cols': 190, 'rows': 30}),
         }
         exclude = AccountForm.Meta.exclude + ['embedding_description']

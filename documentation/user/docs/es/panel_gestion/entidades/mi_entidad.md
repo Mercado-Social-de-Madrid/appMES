@@ -18,6 +18,7 @@ Aquí podrás ver y modificar la información de la entidad
   - Nombre (campo multidioma): Es el nombre comercial que se ve de cara al público, no tiene por qué coincidir con la razón social
   - Email: para contacto público
   - Dirección postal
+  - Dirección de contacto. Puede ser útil si tu entidad tiene varias sedes.
   - Descripción corta o slogan (campo multidioma). Se recomienda un máximo de 80 caracteres
   - Descripción (campo multidioma). Se recomienda una descripción completa pero breve, no más de 2 o 3 párrafos.
   - Productos y servicios (campo multidioma). Ver caja de explicación más abajo.

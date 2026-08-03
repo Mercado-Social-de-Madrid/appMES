@@ -43,6 +43,10 @@
                             {% include "common/forms/field.html" with field=form.address not_floating=True  %}
                         </div>
 
+                        <div class="form-group" data-links="#entity-contact-address">
+                            {% include "common/forms/field.html" with field=form.contact_address not_floating=True  %}
+                        </div>
+
                         <div class="mt-2 " style="margin-bottom: 30px">
                             {% include "common/forms/multilang_field.html" with form=form fieldname='short_description' %}
                             <small style="color: grey">{% translate "Descripción corta o slogan. Se recomienda un máximo de 80 caracteres" %}</small>

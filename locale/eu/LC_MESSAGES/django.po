@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MES web app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-18 10:49+0000\n"
+"POT-Creation-Date: 2026-08-03 07:51+0000\n"
 "PO-Revision-Date: 2024-08-16 17:44+0100\n"
 "Last-Translator: Julio\n"
 "Language-Team: Basque (Spain)\n"
@@ -335,7 +335,7 @@ msgstr "Merkatua"
 msgid "Texto"
 msgstr "Testua"
 
-#: core/models/gallery.py:13 templates/provider/form.html:79
+#: core/models/gallery.py:13 templates/provider/form.html:83
 msgid "Galería"
 msgstr "Galeria"
 
@@ -367,11 +367,11 @@ msgstr ""
 "Lehenespenez, merkatu berri bat ezkutatzen hasten da aplikazioan sartzeko "
 "prest dagoen arte"
 
-#: core/models/node.py:15 market/models/provider.py:24
+#: core/models/node.py:15 market/models/provider.py:25
 msgid "Latitud"
 msgstr "Latitudea"
 
-#: core/models/node.py:16 market/models/provider.py:25
+#: core/models/node.py:16 market/models/provider.py:26
 msgid "Longitud"
 msgstr "Luzera"
 
@@ -407,7 +407,7 @@ msgstr "Irudi nagusia"
 msgid "Imagen del distintivo de balance"
 msgstr "Auditoretza sozialaren bereizgarriaren irudia"
 
-#: core/models/node.py:31 market/models/provider.py:35
+#: core/models/node.py:31 market/models/provider.py:36
 msgid "Página web"
 msgstr "Web orria"
 
@@ -548,7 +548,7 @@ msgid "Teléfono"
 msgstr "Telefonoa"
 
 #: market/models/account.py:22 templates/consumer/detail.html:54
-#: templates/member/check_form.html:38 templates/provider/detail.html:47
+#: templates/member/check_form.html:38 templates/provider/detail.html:55
 msgid "Número de socia"
 msgstr "Bazkide zenbakia"
 
@@ -664,30 +664,36 @@ msgstr "Interkooperazio hornitzaileak"
 msgid "Descripción corta"
 msgstr "Deskribapen laburra"
 
-#: market/models/provider.py:20 templates/public/provider/query.html:111
+#: market/models/provider.py:20
+#, fuzzy
+#| msgid "Email de contacto"
+msgid "Dirección de contacto"
+msgstr "Harremanetarako posta elektronikoa"
+
+#: market/models/provider.py:21 templates/public/provider/query.html:111
 msgid "Productos y servicios"
 msgstr "Produktuak eta zerbitzuak"
 
-#: market/models/provider.py:21
+#: market/models/provider.py:22
 msgid "Descripción y productos vectorizados"
 msgstr "Deskribapena eta bektorizazioko produktuak"
 
-#: market/models/provider.py:23
+#: market/models/provider.py:24
 msgid "Oculta en listado público"
 msgstr "Zerrenda publikoan ezkutatuta"
 
-#: market/models/provider.py:27 templates/category/delete.html:18
+#: market/models/provider.py:28 templates/category/delete.html:18
 #: templates/category/detail.html:5 templates/category/detail.html:13
 #: templates/category/list.html:5 templates/category/list.html:13
 #: templates/intercoop/detail.html:5 templates/navbar/market.html:70
 msgid "Categorías"
 msgstr "Kategoriak"
 
-#: market/models/provider.py:29
+#: market/models/provider.py:30
 msgid "Forma legal"
 msgstr "Forma juridikoa"
 
-#: market/models/provider.py:33
+#: market/models/provider.py:34
 msgid "Informe balance"
 msgstr "Auditoretza sozialaren txostena"
 
@@ -888,7 +894,7 @@ msgid "Mercado Social"
 msgstr "Merkatu Soziala"
 
 #: templates/benefits/add.html:7 templates/benefits/add.html:17
-#: templates/benefits/list.html:27 templates/provider/detail.html:63
+#: templates/benefits/list.html:27 templates/provider/detail.html:71
 msgid "Añadir ventaja"
 msgstr "Abantaila gehitu"
 
@@ -976,7 +982,7 @@ msgstr "Hornitzaileak"
 msgid "Editar ventajas"
 msgstr "Abantailak editatu"
 
-#: templates/benefits/edit.html:27 templates/provider/detail.html:61
+#: templates/benefits/edit.html:27 templates/provider/detail.html:69
 #: templates/public/provider/query.html:58
 msgid "Ver ventajas"
 msgstr "Abantailak ikusi"
@@ -1001,7 +1007,7 @@ msgstr ""
 #: templates/benefits/list.html:8 templates/benefits/list.html:19
 #: templates/dashboard/provider.html:53 templates/navbar/market.html:84
 #: templates/navbar/user_provider_menu.html:13
-#: templates/provider/detail.html:58 templates/provider/query.html:23
+#: templates/provider/detail.html:66 templates/provider/query.html:23
 #: templates/public/provider/query.html:79
 #: templates/reports/benefits_card.html:8
 msgid "Ventajas"
@@ -1156,7 +1162,7 @@ msgstr "Kontsumitzailea ezabatu"
 msgid "¿Estás segura de que quieres eliminar la consumidora seleccionada?"
 msgstr "Ziur zaude hautatutako kontsumitzailea ezabatu nahi duzula?"
 
-#: templates/consumer/detail.html:30 templates/provider/detail.html:44
+#: templates/consumer/detail.html:30 templates/provider/detail.html:52
 msgid "Ver carnet de socia"
 msgstr "Bazkide txartela ikusi"
 
@@ -1496,16 +1502,16 @@ msgstr ""
 "aplikaziotik erabiltzen da hornitzaile bakoitzaren auditoretzaren "
 "xehetasunak sartzeko"
 
-#: templates/market/form.html:139 templates/provider/form.html:114
+#: templates/market/form.html:139 templates/provider/form.html:118
 msgid "Geolocalización"
 msgstr "Geokokapena"
 
-#: templates/market/form.html:140 templates/provider/form.html:115
+#: templates/market/form.html:140 templates/provider/form.html:119
 msgid ""
 "Mueve el pin por el mapa hasta posicionarlo en la localización correcta."
 msgstr "Mugitu pina mapan toki egokian kokatu arte."
 
-#: templates/market/form.html:154 templates/provider/form.html:122
+#: templates/market/form.html:154 templates/provider/form.html:126
 msgid ""
 "Puedes hacer zoom en los controles del mapa para ajustar al máximo la "
 "posición, o entrar en la vista de pantalla completa."
@@ -1514,7 +1520,7 @@ msgstr ""
 "pantaila osoko ikuspegia sar dezakezu."
 
 #: templates/market/form.html:160 templates/market/public/form.html:112
-#: templates/provider/form.html:138
+#: templates/provider/form.html:142
 msgid "Redes sociales"
 msgstr "Sare sozialak"
 
@@ -1836,11 +1842,11 @@ msgstr "Ziur zaude aukeratutako eskaintza ezabatu nahi duzula?"
 msgid "Añadir oferta"
 msgstr "Eskaintza gehitu"
 
-#: templates/offers/entity_list.html:40 templates/provider/detail.html:78
+#: templates/offers/entity_list.html:40 templates/provider/detail.html:86
 msgid "Ofertas en curso"
 msgstr "Eskaintzak martxan"
 
-#: templates/offers/entity_list.html:42 templates/provider/detail.html:82
+#: templates/offers/entity_list.html:42 templates/provider/detail.html:90
 msgid "No hay ninguna oferta activa actualmente."
 msgstr "Une honetan ez dago eskaintza aktiborik."
 
@@ -1924,21 +1930,24 @@ msgstr "Ziur al zaude hautatutako hornitzailea ezabatu nahi duzula?"
 msgid "Actualizar imagen"
 msgstr "Irudia eguneratu"
 
-#: templates/provider/form.html:48
+#: templates/provider/form.html:52
 msgid "Descripción corta o slogan. Se recomienda un máximo de 80 caracteres"
-msgstr "Deskribapen laburra edo slogana. Gehienez 80 karaktere gomendatzen dira"
+msgstr ""
+"Deskribapen laburra edo slogana. Gehienez 80 karaktere gomendatzen dira"
 
-#: templates/provider/form.html:54
+#: templates/provider/form.html:58
 msgid ""
 "Se recomienda una descripción completa pero breve, no más de 2 o 3 párrafos"
-msgstr "Deskribapen osoa baina laburra gomendatzen da, gehienez 2 edo 3 paragrafo"
+msgstr ""
+"Deskribapen osoa baina laburra gomendatzen da, gehienez 2 edo 3 paragrafo"
 
-#: templates/provider/form.html:60
+#: templates/provider/form.html:64
 msgid ""
 "Este campo es importante para la búsqueda semántica, <a href=\"https://"
 "mercadosocial.app/docs/user/panel_gestion/entidades/mi_entidad/#productos-"
 "servicios\" target=\"_blank\">más información</a>"
-msgstr "Eremu hau garrantzitsua da bilaketa semantikorako, <a href=\"https://"
+msgstr ""
+"Eremu hau garrantzitsua da bilaketa semantikorako, <a href=\"https://"
 "mercadosocial.app/docs/user/panel_gestion/entidades/mi_entidad/#productos-"
 "servicios\" target=\"_blank\">informazio gehiago</a>"
 
@@ -1980,8 +1989,8 @@ msgid ""
 "Sé parte de la Economía Social y Solidaria, desata todo el potencial del "
 "consumo consciente a través de la app del Mercado Social"
 msgstr ""
-"Izan zaitez Ekonomia Sozial eta Solidarioaren parte, eta kontsumo kontzientearen ahalmen "
-"osoa piztu Merkatu Sozialaren aplikazioaren bidez"
+"Izan zaitez Ekonomia Sozial eta Solidarioaren parte, eta kontsumo "
+"kontzientearen ahalmen osoa piztu Merkatu Sozialaren aplikazioaren bidez"
 
 #: templates/public/index.html:25
 msgid "Descarga en Google Play"

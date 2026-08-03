@@ -17,6 +17,7 @@ class Provider(Account):
     name = models.CharField(null=True, blank=True, verbose_name=_('Nombre'), max_length=250)
     description = models.TextField(null=True, blank=True, verbose_name=_('Descripción'))
     short_description = models.TextField(null=True, blank=True, verbose_name=_('Descripción corta'))
+    contact_address = models.TextField(null=True, blank=True, verbose_name=_('Dirección de contacto'))
     services = models.TextField(null=True, blank=True, verbose_name=_('Productos y servicios'))
     embedding_description = VectorField(dimensions=384, verbose_name=_('Descripción y productos vectorizados'), null=True, blank=True)
 
