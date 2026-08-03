@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MES web app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-18 10:49+0000\n"
+"POT-Creation-Date: 2026-08-03 07:49+0000\n"
 "PO-Revision-Date: 2024-08-16 17:44+0100\n"
 "Last-Translator: Julio\n"
 "Language-Team: Basque (Spain)\n"
@@ -1926,19 +1926,22 @@ msgstr "Irudia eguneratu"
 
 #: templates/provider/form.html:48
 msgid "Descripción corta o slogan. Se recomienda un máximo de 80 caracteres"
-msgstr "Deskribapen laburra edo slogana. Gehienez 80 karaktere gomendatzen dira"
+msgstr ""
+"Deskribapen laburra edo slogana. Gehienez 80 karaktere gomendatzen dira"
 
 #: templates/provider/form.html:54
 msgid ""
 "Se recomienda una descripción completa pero breve, no más de 2 o 3 párrafos"
-msgstr "Deskribapen osoa baina laburra gomendatzen da, gehienez 2 edo 3 paragrafo"
+msgstr ""
+"Deskribapen osoa baina laburra gomendatzen da, gehienez 2 edo 3 paragrafo"
 
 #: templates/provider/form.html:60
 msgid ""
 "Este campo es importante para la búsqueda semántica, <a href=\"https://"
 "mercadosocial.app/docs/user/panel_gestion/entidades/mi_entidad/#productos-"
 "servicios\" target=\"_blank\">más información</a>"
-msgstr "Eremu hau garrantzitsua da bilaketa semantikorako, <a href=\"https://"
+msgstr ""
+"Eremu hau garrantzitsua da bilaketa semantikorako, <a href=\"https://"
 "mercadosocial.app/docs/user/panel_gestion/entidades/mi_entidad/#productos-"
 "servicios\" target=\"_blank\">informazio gehiago</a>"
 
@@ -1980,8 +1983,8 @@ msgid ""
 "Sé parte de la Economía Social y Solidaria, desata todo el potencial del "
 "consumo consciente a través de la app del Mercado Social"
 msgstr ""
-"Izan zaitez Ekonomia Sozial eta Solidarioaren parte, eta kontsumo kontzientearen ahalmen "
-"osoa piztu Merkatu Sozialaren aplikazioaren bidez"
+"Izan zaitez Ekonomia Sozial eta Solidarioaren parte, eta kontsumo "
+"kontzientearen ahalmen osoa piztu Merkatu Sozialaren aplikazioaren bidez"
 
 #: templates/public/index.html:25
 msgid "Descarga en Google Play"
@@ -2108,6 +2111,18 @@ msgstr "Nire kontua"
 #: templates/public/provider/list.html:24
 msgid "entidades"
 msgstr "entitateak"
+
+#: templates/public/provider/list.html:30
+#, fuzzy
+#| msgid "socia consumidora"
+msgid "Hazte socia consumidora"
+msgstr "bazkide kontsumitzailea"
+
+#: templates/public/provider/list.html:33
+#, fuzzy
+#| msgid "socia proveedora"
+msgid "Hazte socia proveedora"
+msgstr "bazkide hornitzailea"
 
 #: templates/public/provider/query.html:39
 msgid "Más información de la entidad"

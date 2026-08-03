@@ -26,6 +26,12 @@
 
                 <div class="align-self-center">
                     {% include 'common/social_links.html' with obj=node btn_class='bg-brand text-light' %}
+                    {% if node.register_consumer_url %}
+                        <div class="text-center"><a href="{{ node.register_consumer_url }}" target="_blank" class="btn btn-secondary btn-action text-light" style="margin-top: 10px">{% translate "Hazte socia consumidora" %}<i class="material-icons-outlined ml-2">open_in_new</i> </a></div>
+                    {% endif %}
+                    {% if node.register_provider_url %}
+                        <div class="text-center"><a href="{{ node.register_provider_url }}" target="_blank" class="btn btn-secondary btn-action text-light" style="margin-top: 10px">{% translate "Hazte socia proveedora" %}<i class="material-icons-outlined ml-2">open_in_new</i></a></div>
+                    {% endif %}
                 </div>
 
             </div>
