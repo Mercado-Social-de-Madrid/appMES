@@ -42,12 +42,18 @@
 
 <script type="text/javascript">
 
+    $('.address-form').formset({
+        prefix: '{{ formsets.addresses.prefix }}',
+    });
+
     $('.gallery-form-photo').formset({
         prefix: '{{ formsets.gallery.prefix }}',
         addText: '<i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Añadir foto">add</i></div>',
         deleteText: '<div class="btn btn-primary btn-float btn-small" href="#!" data-toggle="tooltip" data-placement="bottom" title="{% translate "Eliminar foto" %}"><i class="material-icons">delete</i></div>',
         added: function(row){ row.find('.form-photo').removeClass('uploaded').find('.thumb').css('background-image',''); }
     });
+
+
 
 </script>
 
