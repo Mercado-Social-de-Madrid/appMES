@@ -20,9 +20,6 @@ class Account(PolymorphicModel):
     email = models.CharField(null=False, blank=False, verbose_name='Email', max_length=250)
     phone_number = models.CharField(null=True, blank=True, verbose_name=_('Teléfono'), max_length=25)
     member_id = models.CharField(null=True, blank=True, max_length=20, verbose_name=_('Número de socia'))
-    address = models.TextField(null=True, blank=True, verbose_name=_('Dirección'))
-    city = models.CharField(null=True, blank=True, max_length=250, verbose_name=_('Municipio'))
-
     profile_image = ProcessedImageField(null=True, blank=True, upload_to=RandomFileName('profiles/'),
                                verbose_name='Imagen de perfil',
                                processors=[ResizeToFill(512, 512, upscale=False)], format='JPEG',
@@ -43,6 +40,11 @@ class Account(PolymorphicModel):
     def display_name(self):
         return self.cif
 
+    @property
+    def main_address(self):
+        if not self.addresses.all():
+            return ""
+        return self.addresses.first()
 
     def __str__(self):
         return self.display_name
