@@ -523,3 +523,38 @@ document.addEventListener("DOMContentLoaded", event => {
         item.addEventListener("dragend", dragEnd);
     });
 });
+
+$(document).on('change', '.city-select', function () {
+    var $citySelect = $(this);
+    var cityId = $citySelect.val();
+    console.log(cityId);
+
+    var $formsetRow = $citySelect.closest('.address-form');
+    console.log($formsetRow);
+    var $townSelect = $formsetRow.find('.town-select');
+
+    if (!cityId) {
+        return;
+    }
+
+  $.ajax({
+    url: $formsetRow.attr('action'),
+    data: {
+      'city': cityId
+    },
+    dataType: 'json',
+    success: function (data) {
+        var options = '<option value="">Selecciona una localidad</option>';
+        $.each(data, function(index, town) {
+            console.log(town);
+            options += '<option value="' + town[0] + '">' + town[1] + '</option>';
+        });
+
+        $(".town-select").html(options);
+    },
+    error: function() {
+        alert('Error loading cities.');
+    }
+  });
+
+});

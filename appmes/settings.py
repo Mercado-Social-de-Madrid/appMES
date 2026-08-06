@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 
     # Third-party apps
     'qr_code',
+    'cities_light',
     'ckeditor',
     'imagekit',
     'sass_processor',
@@ -322,3 +323,9 @@ ASSETLINKS_FILE = os.path.join(ROOT_DIR, env('ASSETLINKS_FILE'))
 # ======= Semantic search Config =======
 SEMANTIC_SIMILARITY_THRESHOLD = env('SEMANTIC_SIMILARITY_THRESHOLD', float, 0.7)
 ENABLE_VECTOR_EMBEDDING = env('ENABLE_VECTOR_EMBEDDING', bool, False)
+
+# ====== DJANGO CITIES =======
+CITIES_LIGHT_TRANSLATION_LANGUAGES = ['es', 'ca', 'eu', 'gl', 'abbr']
+CITIES_LIGHT_INCLUDE_COUNTRIES = ['ES']
+CITIES_LIGHT_INDEX_SEARCH_NAMES = True
+CITIES_LIGHT_CITY_SOURCES = ['http://download.geonames.org/export/dump/cities500.zip']

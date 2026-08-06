@@ -7,7 +7,7 @@
                     <div class="profile pt-0">
                         {% include 'account/profile_circle.html' with addclass='float-left' %}
                         <h3 class="mb-0">{{account.name}}</h3>
-                        {{account.address }}
+                        {{account.main_address }}
                         {% include 'category/tag_list_detail.html' with tags=account.categories.all %}
                     </div>
 
