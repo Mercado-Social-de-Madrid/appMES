@@ -11,12 +11,10 @@ from core.forms.galleryform import PhotoGalleryForm
 from core.forms.social_profiles import SocialProfileForm, ProviderSocialProfileForm
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ExportAsCSVMixin import ExportAsCSVMixin
-from core.mixins.FormsetView import FormsetView
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
 from core.models import Gallery, GalleryPhoto, Node
 from helpers.filters.LabeledOrderingFilter import LabeledOrderingFilter
 from helpers.filters.SearchFilter import SearchFilter
-from helpers.filters.SemanticSearchFilter import SemanticSearchFilter
 from helpers.filters.filtermixin import FilterMixin
 from helpers.forms.BootstrapForm import BootstrapForm
 from market.forms.provider import ProviderForm, CreateProviderForm
@@ -24,6 +22,7 @@ from market.mixins.current_market import MarketMixin, AccountAccessMixin
 from market.models import Category, Provider
 from django_filters.views import FilterView
 
+from market.views import AccountFormSet
 from offers.models import Offer
 
 
@@ -71,9 +70,10 @@ class ProviderList(FilterMixin, MarketMixin,  ExportAsCSVMixin, FilterView, List
         return super().get_queryset().filter(node=self.node)
 
 
-class ProviderFormSet(FormsetView):
+class ProviderFormSet(AccountFormSet):
     def get_named_formsets(self):
-        return {
+        account_formsets = super(ProviderFormSet, self).get_named_formsets()
+        return account_formsets | {
             'gallery': PhotoGalleryForm.getGalleryFormset(),
             'social_profiles': ProviderSocialProfileForm.getSocialProfileFormset()
         }

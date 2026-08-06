@@ -1,7 +1,7 @@
 from django.contrib import admin
 from modeltranslation.admin import TabbedTranslationAdmin
 
-from core.models import Node, Gallery, GalleryPhoto
+from core.models import Node, Gallery, GalleryPhoto, Address
 from core.models.custom_text import CustomizableText, CustomizableTextContext, NodeCustomText
 from core.models.social_profile import SocialNetwork, NodeSocialProfile
 from django.utils.translation import gettext_lazy as _
@@ -49,3 +49,7 @@ class CustomizableTextContextAdmin(TabbedTranslationAdmin):
 @admin.register(NodeCustomText)
 class NodeCustomTextAdmin(TabbedTranslationAdmin):
     list_display = ["text_id", "node"]
+
+@admin.register(Address)
+class AddressAdmin(admin.ModelAdmin):
+    list_display = ["address", "town", "postcode", "city"]

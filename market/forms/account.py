@@ -13,8 +13,7 @@ class AccountForm(forms.ModelForm, BootstrapForm):
         model = Account
         widgets = {
             'node': forms.HiddenInput(),
-            'profile_image': forms.FileInput(),
-            'address': forms.Textarea(attrs={'rows': 3, }),
+            'profile_image': forms.FileInput()
         }
         exclude = ['owner']
 

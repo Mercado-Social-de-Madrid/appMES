@@ -39,10 +39,6 @@
                                 </div>
                             </div>
 
-                        <div class="form-group" data-links="#entity-address">
-                            {% include "common/forms/field.html" with field=form.address not_floating=True  %}
-                        </div>
-
                         <div class="mt-2 " style="margin-bottom: 30px">
                             {% include "common/forms/multilang_field.html" with form=form fieldname='short_description' %}
                             <small style="color: grey">{% translate "Descripción corta o slogan. Se recomienda un máximo de 80 caracteres" %}</small>
@@ -72,6 +68,26 @@
                         {% endif %}
                     </div>
                 </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body m-2">
+                        <div class="card-title"><i class="material-icons">location_on</i> {% translate "Dirección" %} </div>
+                        <p class="card-text">Dirección principal de tu entidad.</p>
+
+                        {{ formsets.addresses.management_form }}
+                        <div>
+                            {% for address_form in formsets.addresses %}
+                                <div class="address-form card p-4 mb-4 border shadow-none" action="{% url 'load_cities' %}">
+                                    {{ address_form.account.as_hidden }}
+                                    {% include "common/forms/field.html" with field=address_form.address %}
+                                    {{ address_form.city }}
+                                    {{ address_form.town }}
+                                    {% include "common/forms/field.html" with field=address_form.postcode %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card mb-4">
