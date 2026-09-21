@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Loco https://localise.biz\n"
+"X-Generator: Weblate 5.17\n"
 "X-Loco-Source-Locale: es-ES\n"
 "X-Loco-Project-Id: 161257\n"
 "X-Loco-Api-Version: 1.0.28 20240827-1\n"
@@ -494,8 +494,7 @@ msgstr "antolatu..."
 
 #: market/forms/account.py:23
 msgid "Crear usuaria y mandar email de prerregistro"
-msgstr ""
-"Sortu erabiltzailea eta bidali aurre-erregistratzeko posta elektronikoa"
+msgstr "Sortu erabiltzailea eta bidali aurre-erregistratzeko posta elektronikoa"
 
 #: market/forms/account.py:33
 msgid "Ya existe un usuario registrado con este email."
@@ -1578,8 +1577,8 @@ msgid ""
 "AL FORMAR PARTE Y CONSUMIR EN EL MERCADO SOCIAL ESTÁS TRANSFORMANDO EL "
 "CONSUMO EN %(mercado)s "
 msgstr ""
-"MERKATU SOZIALEAN PARTE IZATEN ETA BARRUAN KONTSUMITUZ, KONTSUMOA "
-"%(mercado)s ERALDATZEN ARI ZARA "
+"MERKATU SOZIALEAN PARTE IZATEN ETA BARRUAN KONTSUMITUZ, KONTSUMOA %(mercado)"
+"s ERALDATZEN ARI ZARA "
 
 #: templates/market/public/edit.html:13
 msgid "Personalizar"
