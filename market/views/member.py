@@ -7,7 +7,6 @@ from django.views.generic import TemplateView
 from helpers.pdf import render_pdf_response
 from market.mixins.current_market import MarketMixin
 from market.models import Account, Provider, Consumer
-import urllib.parse
 
 
 class MemberCheck(TemplateView):
@@ -64,7 +63,7 @@ def get_card_data(member_type, member):
         },
         'display_name': member.display_name,
         'profile_image': member.profile_image,
-        'member_qr': urllib.parse.quote(member_data_url),
+        'member_qr': member_data_url,
         'market_banner': member.node.banner_image
     }
 

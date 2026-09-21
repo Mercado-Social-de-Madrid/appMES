@@ -10,7 +10,7 @@ django-qr-code==3.1.1
 
 # Multilang
 django-localflavor==4.0
-django-modeltranslation==0.18.12
+django-modeltranslation==0.18.13
 
 # DRF
 djangorestframework==3.14.0
@@ -29,6 +29,7 @@ fcm-django==1.0.12
 gunicorn==22.0.0
 psycopg2==2.9.10
 WeasyPrint==52.4
+setuptools==58.1.0
 
 geopy==2.4.1
 
