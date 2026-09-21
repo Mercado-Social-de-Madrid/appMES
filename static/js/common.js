@@ -159,12 +159,8 @@ $(function(){
 
 
     $('.gallery-form').on('submit', function(event ){
-        var order = 0;
-
-        $('.gallery-form-photo').each(function(){
-            var $question = $(this);
-            $question.find('input[id$="order"]').val(order);
-            order++;
+        $('.gallery-form-photo').each(function(index, element){
+            $(this).children('input[id$="order"]').val(index);
         });
     });
 
@@ -198,16 +194,6 @@ $(function(){
             }
             reader.readAsDataURL(input.files[0]);
         }
-    });
-
-    $('.gallery-form').on('submit', function(event ){
-        var order = 0;
-
-        $('.gallery-form-photo').each(function(){
-            var $question = $(this);
-            $question.find('input[id$="order"]').val(order);
-            order++;
-        });
     });
 
      $(".gallery-form").on('change', '.form-photo input[type="file"]', function(){
@@ -481,3 +467,59 @@ function showToast(message, messageClasses){
     toast.appendTo('#main-toasts');
     setTimeout(function(){ toast.fadeOut(); }, TOAST_DELAY);
 }
+
+// Gallery Drag and Drop
+
+const $container = document.querySelector('.gallery-container');
+
+var draggedImage = null;
+var items;
+
+function dragStart(e) {
+    draggedImage = this;
+    e.dataTransfer.effectAllowed="move";
+}
+
+function dragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    return false;
+}
+
+function dragEnter(e) {
+    this.classList.add("dragover");
+}
+
+function dragLeave(e) {
+    this.classList.remove("dragover");
+}
+
+function drop(e) {
+    e.stopPropagation();
+
+    if (draggedImage != this) {
+        const span = document.createElement('span');
+        $container.insertBefore(span, draggedImage);
+        $container.insertBefore(draggedImage, this.nextSibling);
+        $container.insertBefore(this, span);
+        span.remove();
+    }
+}
+
+function dragEnd(e) {
+    items.forEach(function(item) {
+        item.classList.remove("dragover");
+    });
+}
+
+document.addEventListener("DOMContentLoaded", event => {
+    items = document.querySelectorAll(".gallery-container .gallery-form-photo");
+    items.forEach(function(item) {
+        item.addEventListener("dragstart", dragStart);
+        item.addEventListener("dragenter", dragEnter);
+        item.addEventListener("dragover", dragOver);
+        item.addEventListener("dragleave", dragLeave);
+        item.addEventListener("drop", drop);
+        item.addEventListener("dragend", dragEnd);
+    });
+});

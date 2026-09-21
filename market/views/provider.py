@@ -25,7 +25,9 @@ from market.models import Category, Provider
 from django_filters.views import FilterView
 
 from offers.models import Offer
+import logging
 
+_logger = logging.getLogger(__name__)
 
 class ProviderFilterForm(BootstrapForm):
     field_order = [ 'search', 'categories', 'o', 'semantic_search']
@@ -91,11 +93,26 @@ class ProviderFormSet(FormsetView):
             gallery = provider.gallery
 
         for photo_form in gallery_formset:
-            photo = photo_form.save(commit=False)
-            if not photo.photo or photo_form.cleaned_data.get('DELETE'):
+            photo_id = photo_form.cleaned_data.get("photo_id")
+            order = photo_form.cleaned_data.get("order")
+            title = photo_form.cleaned_data.get("title")
+            photo = photo_form.cleaned_data.get("photo")
+
+            try:
+                gallery_photo = GalleryPhoto.objects.get(gallery=gallery, id=photo_id)
+            except (ObjectDoesNotExist, ValueError):
+                gallery_photo = photo_form.save(commit=False)
+
+            photo = photo or gallery_photo.photo
+            if not photo or photo_form.cleaned_data.get('DELETE'):
                 continue
-            photo.gallery = gallery
-            photo.save()
+
+            gallery_photo.photo = photo
+            gallery_photo.gallery = gallery
+            gallery_photo.order = order
+            gallery_photo.title = title
+            gallery_photo.save()
+
 
         for photo_form in gallery_formset.deleted_forms:
             photo_id = photo_form.cleaned_data.get('photo_id')
