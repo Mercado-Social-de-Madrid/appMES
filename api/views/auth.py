@@ -27,7 +27,7 @@ def parse_account_data(account):
         'email': account.email,
         'inactive': not account.is_active,
         'is_active': account.is_active,
-        'address': account.address,
+        'address': str(account.address) if account.address else '',
         'profile_image': account.profile_image.name,
         'profile_thumbnail': account.profile_image.name,
     }

@@ -19,15 +19,15 @@ drf-extra-fields==3.7.0
 # Admin/management packages
 django-admin-interface==0.24.2
 django-cleanup==8.1.0
-django-log-viewer==1.1.7
+django-log-viewer==1.1.8
 django-unused-media==0.2.2
-django-sass-processor==1.4.1
-django-compressor==4.5
+django-sass-processor==1.4.2
+django-compressor==4.6.0
 libsass==0.23.0
 
 fcm-django==1.0.12
 gunicorn==22.0.0
-psycopg2==2.9.10
+psycopg2-binary==2.9.10
 WeasyPrint==52.4
 setuptools==58.1.0
 

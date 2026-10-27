@@ -1,7 +1,7 @@
 import requests
 from django.core.management import BaseCommand
 
-from core.models import Node
+from core.models import Node, Address
 from market.models import Provider
 
 
@@ -35,7 +35,7 @@ class Command(BaseCommand):
                 name=item['name'],
                 email=item['email'],
                 member_id=item['member_id'],
-                address=item['address'],
+                address=Address.create_from_text(item['address']),
                 phone_number=item['phone_number'],
 
                 description=item['description'],

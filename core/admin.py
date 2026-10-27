@@ -52,4 +52,4 @@ class NodeCustomTextAdmin(TabbedTranslationAdmin):
 
 @admin.register(Address)
 class AddressAdmin(admin.ModelAdmin):
-    list_display = ["address", "town", "postcode", "city"]
+    list_display = ["address", "region", "postcode", "city"]

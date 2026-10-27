@@ -4,7 +4,7 @@ from datetime import datetime
 from django.core.management import BaseCommand
 
 from authentication.models import User
-from core.models import Node
+from core.models import Node, Address
 from market.management.commands.import_madrid_data import DATETIME_FORMAT, set_categories, set_social_profiles, \
     set_offers, set_benefit, set_gallery
 from market.models import Provider
@@ -32,7 +32,7 @@ def import_provider(item, node):
             is_active=not item['inactive'],
             email=item['email'],
             member_id=item['member_id'],
-            address=item['address'],
+            address=Address.create_from_text(item['address']),
             phone_number=item['phone_number'],
             registration_date=datetime.strptime(item['registered'], DATETIME_FORMAT),
 

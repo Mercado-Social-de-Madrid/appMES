@@ -15,7 +15,7 @@ class AccountForm(forms.ModelForm, BootstrapForm):
             'node': forms.HiddenInput(),
             'profile_image': forms.FileInput()
         }
-        exclude = ['owner']
+        exclude = ['owner', 'address', 'old_address', 'old_city']
 
 class CreateAccountFormMixin(forms.Form):
 

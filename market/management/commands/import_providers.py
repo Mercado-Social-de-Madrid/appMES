@@ -8,7 +8,7 @@ from django.core.management.base import BaseCommand
 from django.db import IntegrityError
 
 from market.models import Account, Provider
-from core.models import Node
+from core.models import Node, Address
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from django.db.utils import DataError
 
@@ -87,7 +87,7 @@ class Command(BaseCommand):
                         webpage_link=web,
                         email=email,
                         phone_number=phone,
-                        address=address,
+                        address=Address.create_from_text(address),
                         latitude=location.latitude if location and location.latitude else 0,
                         longitude=location.longitude if location and location.longitude else 0,
                     )

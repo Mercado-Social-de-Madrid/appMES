@@ -3,7 +3,7 @@ from datetime import datetime
 
 from django.core.management.base import BaseCommand
 from market.models import Consumer
-from core.models import Node
+from core.models import Node, Address
 from django.db.models import Q
 
 
@@ -55,8 +55,7 @@ class Command(BaseCommand):
                     email=email,
                     cif=nif,
                     member_id=member_id,
-                    address=full_address,
-                    city=city,
+                    address=Address.create_from_text(full_address, city),
                     phone_number=phone,
                     registration_date=datetime.strptime(registration_date, "%d/%m/%Y") if registration_date else None,
                     is_intercoop=intercoop,
