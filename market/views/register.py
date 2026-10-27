@@ -15,10 +15,11 @@ from django.utils.translation import gettext_lazy as _, activate
 from helpers import send_template_email
 from market.forms.register.consumer import ConsumerSignupForm
 from market.models import Intercoop
+from market.views.account import AccountAddressMixin
 
 logger = logging.getLogger(__name__)
 
-class RegisterView(XFrameOptionsExemptMixin, CreateView):
+class RegisterView(XFrameOptionsExemptMixin, AccountAddressMixin, CreateView):
     template_name = 'consumer/register/form.html'
     form_class = ConsumerSignupForm
 

@@ -9,46 +9,38 @@ from authentication.models.preregister import PreRegisteredUser
 from authentication.views import CreateUser
 from core.forms.address import AddressForm
 from market.mixins.current_market import MarketMixin
-from core.mixins.FormsetView import FormsetView
 from market.models import Account
 
 _logger = logging.getLogger(__name__)
 
-class AccountFormSet(FormsetView):
-    def get_named_formsets(self):
-        return {
-            'addresses': AddressForm.getAddressFormset(),
-        }
 
-    def formset_addresses_get_initial(self):
-        initial_data = None
-        account = None
-        if self.object:
-            initial_data = self.object.addresses
-            account = self.object.id
-        return AddressForm.get_initial(addresses=initial_data, account=account)
+class AccountAddressMixin:
+    """
+    Manages the Account.address OneToOne relation with a separate, prefixed AddressForm
+    """
+    address_prefix = 'address'
 
-    def formset_addresses_valid(self, address_formset, account):
-        _logger.debug(f"ADDRESS VALID. ACCOUNT: {account}")
-        for address in account.addresses.all():
-            _logger.debug(f"Deleting address: {address.address}")
-            address.delete()
+    def get_address_form(self):
+        account = getattr(self, 'object', None)
+        instance = account.address if account else None
+        return AddressForm(self.request.POST or None, instance=instance, prefix=self.address_prefix)
 
-        _logger.debug(f"address_formset: {address_formset}")
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.setdefault('address_form', self.get_address_form())
+        return context
 
-        for address_form in address_formset:
-            address = address_form.save(commit=False)
-            if address_form.cleaned_data.get('DELETE'):
-                continue
+    def form_valid(self, form):
+        address_form = self.get_address_form()
+        if not address_form.is_valid():
+            return self.form_invalid(form)
 
-            _logger.debug(f"ADDRESS: {address}")
-            address.account = account
-            _logger.debug(f"ADDRESS.ACCOUNT: {address.account}")
-            address.address = address_form.cleaned_data.get("address")
-            address.city = address_form.cleaned_data.get("city")
-            address.town = address_form.cleaned_data.get("town")
-            address.postcode = address_form.cleaned_data.get("postcode")
-            address.save()
+        response = super().form_valid(form)
+        # Only save the address once the account (and its formsets) have been saved successfully
+        if isinstance(response, HttpResponseRedirect) and (address_form.instance.pk or address_form.has_changed()):
+            self.object.address = address_form.save()
+            self.object.save(update_fields=['address'])
+        return response
 
 
 class UserAccountDetail(RedirectView):

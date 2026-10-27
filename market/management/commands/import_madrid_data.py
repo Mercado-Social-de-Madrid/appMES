@@ -6,7 +6,7 @@ from django.db.models import Q
 
 from authentication.models import User
 from benefits.models import Benefit
-from core.models import Node, Gallery, GalleryPhoto
+from core.models import Node, Gallery, GalleryPhoto, Address
 from core.models.social_profile import SocialNetwork, ProviderSocialProfile
 from market.models import Category, Consumer, Provider
 from news.models import News
@@ -110,7 +110,7 @@ def import_consumers(consumers, node):
                 cif=cif,
                 is_active= not item['inactive'],
                 member_id=item['member_id'],
-                address=item['address'],
+                address=Address.create_from_text(item['address']),
                 registration_date=datetime.strptime(item['registered'], DATETIME_FORMAT),
 
             )
@@ -253,7 +253,7 @@ def import_providers(providers, node):
                 is_active= not item['inactive'],
                 email=item['email'],
                 member_id=item['member_id'],
-                address=item['address'],
+                address=Address.create_from_text(item['address']),
                 phone_number=item['phone_number'],
                 registration_date=datetime.strptime(item['registered'], DATETIME_FORMAT),
 

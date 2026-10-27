@@ -3,7 +3,7 @@ import json
 from django.core.management.base import BaseCommand
 from django.db.models import Q
 
-from core.models import Node
+from core.models import Node, Address
 from market.management.commands.import_madrid_data import set_social_profiles
 from market.models import Provider, Category
 
@@ -63,7 +63,7 @@ def import_providers(providers, node):
                 name=item['name'],
                 is_active= not item['inactive'],
                 email=item['email'],
-                address=item['address'],
+                address=Address.create_from_text(item['address']),
                 phone_number=phone_number,
                 description=item['description'],
                 short_description=item['short_description'],

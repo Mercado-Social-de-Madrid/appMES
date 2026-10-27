@@ -13,6 +13,7 @@ from api.serializers.user import UserSerializer
 from authentication.models import User
 from authentication.models.api_token import APIToken
 from authentication.models.preregister import PreRegisteredUser
+from core.models import Address
 from market.management.commands.import_madrid_data import set_social_profiles, set_categories
 from market.models import Account, Provider, Consumer, Category
 from django.utils.translation import gettext_lazy as _
@@ -113,8 +114,7 @@ class PreRegisterUserView(APIView):
                 member_id=consumer.get('member_id'),
                 first_name=consumer.get('name'),
                 last_name=consumer.get('surname'),
-                address=consumer.get('address'),
-                city=consumer.get('city'),
+                address=Address.create_from_text(consumer.get('address'), consumer.get('city')),
                 phone_number=consumer.get('contact_phone'),
                 is_intercoop=consumer.get('is_intercoop', False)
             )
@@ -127,8 +127,7 @@ class PreRegisterUserView(APIView):
                 email=email,
                 member_id=provider.get('member_id'),
                 name=provider.get('name'),
-                address=provider.get('address'),
-                city=provider.get('city'),
+                address=Address.create_from_text(provider.get('address'), provider.get('city')),
                 description=provider.get('description'),
                 short_description=provider.get('short_description'),
                 latitude=provider.get('latitude', 0),

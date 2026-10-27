@@ -1,0 +1,18 @@
+{% load i18n %}
+<div class="address-form" data-url="{% url 'load_cities' %}" data-empty-label="{% translate 'Selecciona un municipio' %}">
+    {% if address_form.non_field_errors %}
+    <div class="d-block invalid-feedback form-errors">{{ address_form.non_field_errors|join:'<br>' }}</div>
+    {% endif %}
+    {% include "common/forms/field.html" with field=address_form.address %}
+    <div class="row">
+        <div class="col-md-4">
+            {% include "common/forms/field.html" with field=address_form.postcode not_floating=True %}
+        </div>
+        <div class="col-md-4">
+            {% include "common/forms/field.html" with field=address_form.region not_floating=True %}
+        </div>
+        <div class="col-md-4">
+            {% include "common/forms/field.html" with field=address_form.city not_floating=True %}
+        </div>
+    </div>
+</div>

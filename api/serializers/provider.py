@@ -48,7 +48,7 @@ class ProviderGeoJsonSerializer(serializers.Serializer):
         return {
             "name": obj.name,
             "short_description": obj.short_description if obj.short_description else '',
-            "address": obj.address if obj.address else '',
+            "address": str(obj.address) if obj.address else '',
             "webpage_link": obj.webpage_link if obj.webpage_link else '',
             "logo": obj.profile_image.name,
         }

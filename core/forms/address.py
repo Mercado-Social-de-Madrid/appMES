@@ -1,85 +1,55 @@
 from django.conf import settings
 from django import forms
-from django.forms import formset_factory
 
 from modeltranslation.utils import get_language
 from core.models import Address
 from helpers.forms.BootstrapForm import BootstrapForm
-from django.utils.translation import gettext_lazy as _
+from cities_light.abstract_models import to_ascii
 from cities_light.models import SubRegion, City
-import logging
 
-_logger = logging.getLogger(__name__)
 
-def translate_cities():
+def translated_regions():
     lang = get_language()
     short_lang = lang.split('-')[0] if lang else settings.MODELTRANSLATION_DEFAULT_LANGUAGE
-    cities = SubRegion.objects.all().values('id', 'name', 'translations', 'region')
-    translated_cities = []
-    for city in cities:
-        id = city.get("id")
-        name = city.get("name")
-        translations = city.get("translations")
+    regions = SubRegion.objects.order_by('name').values('id', 'name', 'translations')
+    translated = []
+    for region in regions:
         try:
-            translated_city = (id, translations[short_lang][0])
-        except KeyError:
-            translated_city = (id, name)
-        translated_cities.append(translated_city)
+            name = region.get('translations')[short_lang][0]
+        except (KeyError, IndexError, TypeError):
+            name = region.get('name')
+        translated.append((region.get('id'), name))
 
-    return translated_cities
+    # Sort ignoring accents, so "Ávila" goes with the A's instead of at the end
+    return sorted(translated, key=lambda region: to_ascii(region[1]).lower())
+
 
 class AddressForm(forms.ModelForm, BootstrapForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['city'].choices = [translated_city for translated_city in translate_cities()]
+        self.fields['region'].choices = [('', '---------')] + translated_regions()
 
-        city_field_name = self.add_prefix('city')
-
+        # The city options depend on the selected region (province)
+        region_id = self.data.get(self.add_prefix('region')) if self.is_bound else self.initial.get('region')
         try:
-            if self.initial and "city" in self.initial:
-                self.fields['town'].queryset = City.objects.filter(subregion_id=self.initial.get('city').id).order_by('name')
-            else:
-                if self.data and city_field_name in self.data:
-                    city_id = int(self.data.get(city_field_name))
-                    self.fields['town'].queryset = City.objects.filter(subregion_id=city_id).order_by('name')
-                else:
-                    self.fields['town'].queryset = City.objects.none()
-
-            self.fields['town'].choices = [(town.id, town.name) for town in self.fields['town'].queryset]
+            cities = City.objects.filter(subregion_id=int(region_id)).order_by('name')
         except (ValueError, TypeError):
-            pass
+            cities = City.objects.none()
+        self.fields['city'].queryset = cities
+
+    def clean(self):
+        cleaned_data = super().clean()
+        city = cleaned_data.get('city')
+        region = cleaned_data.get('region')
+        if city and region and city.subregion_id != region.id:
+            self.add_error('city', forms.ValidationError(self.fields['city'].error_messages['invalid_choice'], code='invalid_choice'))
+        return cleaned_data
 
     class Meta:
         model = Address
-        exclude = []
+        fields = ['address', 'postcode', 'region', 'city']
         widgets = {
-            'account': forms.widgets.HiddenInput(),
-            'city': forms.Select(attrs={'class':  'city-select'}),
-            'town': forms.Select(attrs={'class': 'town-select'})
+            'region': forms.Select(attrs={'class': 'region-select'}),
+            'city': forms.Select(attrs={'class': 'city-select'}),
         }
-
-    @staticmethod
-    def getAddressFormset():
-        return formset_factory(form=AddressForm, extra=0, max_num=1, min_num=1, can_delete=False)
-
-    @staticmethod
-    def get_initial(addresses=None, account=None):
-        if addresses is None:
-            return None
-
-        if not addresses.all().exists():
-            return [{ 'account': account }]
-
-        addresses_data = []
-        for address in addresses.all():
-            address_data = {
-                'account': account,
-                'address': address.address,
-                'city': address.city,
-                'town': address.town,
-                'postcode': address.postcode,
-            }
-            addresses_data.append(address_data)
-
-        return addresses_data

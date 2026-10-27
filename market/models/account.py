@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from pilkit.processors import ResizeToFill
 
 from helpers import RandomFileName
-from core.models import Node
+from core.models import Node, Address
 from authentication.models import User
 
 
@@ -20,10 +20,16 @@ class Account(PolymorphicModel):
     email = models.CharField(null=False, blank=False, verbose_name='Email', max_length=250)
     phone_number = models.CharField(null=True, blank=True, verbose_name=_('Teléfono'), max_length=25)
     member_id = models.CharField(null=True, blank=True, max_length=20, verbose_name=_('Número de socia'))
+
+    old_address = models.TextField(null=True, blank=True, verbose_name=_('Dirección'))
+    old_city = models.CharField(null=True, blank=True, max_length=250, verbose_name=_('Municipio'))
+
     profile_image = ProcessedImageField(null=True, blank=True, upload_to=RandomFileName('profiles/'),
                                verbose_name='Imagen de perfil',
                                processors=[ResizeToFill(512, 512, upscale=False)], format='JPEG',
                                options={'quality': 90})
+
+    address = models.OneToOneField(Address, null=True, blank=True, on_delete=models.SET_NULL, related_name='account', verbose_name=_('Dirección'))
 
     last_updated = models.DateTimeField(verbose_name=_('Última actualización'), null=True, blank=True)
     registration_date = models.DateField(verbose_name=_('Fecha de alta'), null=True, blank=True, default=datetime.date.today)
@@ -39,12 +45,6 @@ class Account(PolymorphicModel):
     @property
     def display_name(self):
         return self.cif
-
-    @property
-    def main_address(self):
-        if not self.addresses.all():
-            return ""
-        return self.addresses.first()
 
     def __str__(self):
         return self.display_name

@@ -75,18 +75,7 @@
                         <div class="card-title"><i class="material-icons">location_on</i> {% translate "Dirección" %} </div>
                         <p class="card-text">Dirección principal de tu entidad.</p>
 
-                        {{ formsets.addresses.management_form }}
-                        <div>
-                            {% for address_form in formsets.addresses %}
-                                <div class="address-form card p-4 mb-4 border shadow-none" action="{% url 'load_cities' %}">
-                                    {{ address_form.account.as_hidden }}
-                                    {% include "common/forms/field.html" with field=address_form.address %}
-                                    {{ address_form.city }}
-                                    {{ address_form.town }}
-                                    {% include "common/forms/field.html" with field=address_form.postcode %}
-                                </div>
-                            {% endfor %}
-                        </div>
+                        {% include "common/forms/address.html" with address_form=address_form %}
                     </div>
                 </div>
 
@@ -187,14 +176,6 @@
 
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-5">
-
-            </div>
-
-            <div class="col-md-7">
-
             </div>
 
        </div>

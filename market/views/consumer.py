@@ -15,6 +15,7 @@ from helpers.filters.filtermixin import FilterMixin
 from helpers.forms.BootstrapForm import BootstrapForm
 from market.forms.consumer import ConsumerForm, CreateConsumerForm
 from market.mixins.current_market import MarketMixin, AccountAccessMixin
+from market.views.account import AccountAddressMixin
 from market.models import Consumer, Intercoop
 
 
@@ -24,7 +25,7 @@ class ConsumerFilterForm(BootstrapForm):
 
 class ConsumerFilter(FilterSet):
 
-    search = SearchFilter(names=['address', 'cif', 'first_name', 'last_name', 'email', 'member_id'], lookup_expr='in', label=_('Buscar...'))
+    search = SearchFilter(names=['address__address', 'address__city__name', 'cif', 'first_name', 'last_name', 'email', 'member_id'], lookup_expr='in', label=_('Buscar...'))
     o = LabeledOrderingFilter(fields=['name', 'registration_date', 'last_updated'],
                               field_labels={'last_name':'Apellido', 'registration_date':'Fecha de alta', 'last_updated':'ÚLtima actualización'})
     is_intercoop = BooleanFilter(field_name='is_intercoop', widget=BooleanWidget(attrs={'class': 'threestate'}))
@@ -61,7 +62,7 @@ class ConsumerList(FilterMixin, MarketMixin, ExportAsCSVMixin, FilterView, ListI
         return super().get_queryset().filter(node=self.node)
 
 
-class CreateConsumer(MarketMixin, CreateView):
+class CreateConsumer(MarketMixin, AccountAddressMixin, CreateView):
     template_name = 'consumer/create.html'
     model = Consumer
     form_class = CreateConsumerForm
@@ -89,7 +90,7 @@ class ConsumerDetail(AccountAccessMixin, MarketMixin, DetailView):
     template_name = 'consumer/detail.html'
 
 
-class ConsumerEdit(AccountAccessMixin, MarketMixin, UpdateView):
+class ConsumerEdit(AccountAccessMixin, MarketMixin, AccountAddressMixin, UpdateView):
     model = Consumer
     form_class = ConsumerForm
     template_name = 'consumer/edit.html'

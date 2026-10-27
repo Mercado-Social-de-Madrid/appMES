@@ -11,6 +11,7 @@ from core.forms.galleryform import PhotoGalleryForm
 from core.forms.social_profiles import SocialProfileForm, ProviderSocialProfileForm
 from core.mixins.AjaxTemplateResponseMixin import AjaxTemplateResponseMixin
 from core.mixins.ExportAsCSVMixin import ExportAsCSVMixin
+from core.mixins.FormsetView import FormsetView
 from core.mixins.ListItemUrlMixin import ListItemUrlMixin
 from core.models import Gallery, GalleryPhoto, Node
 from helpers.filters.LabeledOrderingFilter import LabeledOrderingFilter
@@ -22,7 +23,7 @@ from market.mixins.current_market import MarketMixin, AccountAccessMixin
 from market.models import Category, Provider
 from django_filters.views import FilterView
 
-from market.views import AccountFormSet
+from market.views.account import AccountAddressMixin
 from offers.models import Offer
 import logging
 
@@ -35,7 +36,7 @@ class ProviderFilterForm(BootstrapForm):
 class ProviderFilter(FilterSet):
 
     search = SearchFilter(
-        names=['address', 'cif', 'name', 'email', 'member_id'], 
+        names=['address__address', 'address__city__name', 'cif', 'name', 'email', 'member_id'], 
         lookup_expr='in', 
         label=_('Buscar...'))
     o = LabeledOrderingFilter(
@@ -72,10 +73,9 @@ class ProviderList(FilterMixin, MarketMixin,  ExportAsCSVMixin, FilterView, List
         return super().get_queryset().filter(node=self.node)
 
 
-class ProviderFormSet(AccountFormSet):
+class ProviderFormSet(FormsetView):
     def get_named_formsets(self):
-        account_formsets = super(ProviderFormSet, self).get_named_formsets()
-        return account_formsets | {
+        return {
             'gallery': PhotoGalleryForm.getGalleryFormset(),
             'social_profiles': ProviderSocialProfileForm.getSocialProfileFormset()
         }
@@ -143,7 +143,7 @@ class ProviderFormSet(AccountFormSet):
                     social_profile.save()
 
 
-class CreateProvider(MarketMixin, ProviderFormSet, CreateView):
+class CreateProvider(MarketMixin, AccountAddressMixin, ProviderFormSet, CreateView):
     template_name = 'provider/create.html'
     model = Provider
     form_class = CreateProviderForm
@@ -183,7 +183,7 @@ class DetailProvider(AccountAccessMixin, MarketMixin, DetailView):
         return context
 
 
-class UpdateProvider(AccountAccessMixin, MarketMixin, ProviderFormSet, UpdateView):
+class UpdateProvider(AccountAccessMixin, MarketMixin, AccountAddressMixin, ProviderFormSet, UpdateView):
     template_name = 'provider/edit.html'
     model = Provider
     form_class = ProviderForm
