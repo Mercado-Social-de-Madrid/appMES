@@ -1,12 +1,17 @@
 {% load i18n %}
+{% load market_url %}
   <li class="nav-item">
-    <a class="nav-link {% if request.resolver_match.url_name == 'user_dashboard' %}active{% endif %}" href="{% url 'market:index' %}"><i class="material-icons-outlined mr-2">home</i> {% translate "Inicio" %}</a>
+    <a class="nav-link {% if request.resolver_match.url_name == 'user_dashboard' %}active{% endif %}" href="{% url 'market:index' %}"><i class="material-icons-outlined">home</i></a>
   </li>
  <li class="nav-item">
     <a class="nav-link {% if request.resolver_match.url_name == 'provider_detail' %}active{% endif %}" href="{% url 'market:user_account' %}"><i class="material-icons-outlined mr-2">store</i> {% translate "Mi entidad" %}</a>
   </li>
   <li class="nav-item">
     <a class="nav-link {% if request.resolver_match.url_name == 'entity_offers' %}active{% endif %}" href="{% url 'offers:user_list' %}"><i class="material-icons-outlined mr-2">shopping_basket</i> {% translate "Ofertas" %}</a>
+  </li>
+
+   <li class="nav-item">
+    <a class="nav-link {% if request.resolver_match.url_name == 'provider_list' %}active{% endif %}" href="{% market_url 'news:provider_list' %}"><i class="material-icons-outlined mr-2">speaker_notes</i> {% translate "Noticias" %}</a>
   </li>
 
    <li class="nav-item">

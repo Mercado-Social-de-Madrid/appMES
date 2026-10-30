@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card mb-4">
-                {% include 'provider/header_banner.html' with account=account %}
+                <div class="header-img" data-aspect-ratio="0.6" {% if account.first_photo_url %} style="background-image:url('{{account.first_photo_url}}')" {% endif %}></div>
                 <div class="card-body">
                     <div class="card-title primary-title mb-0"><h3 class="mb-0"><i class="ic ic-entity"></i> {% translate 'Mi entidad' %}</h3></div>
                     <div class="card-text text-dark">
@@ -17,6 +17,8 @@
                         {{account.address}}
                     </div>
                 </div>
+
+                
 
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action" href="{% url 'market:user_account' %}"><i class="material-icons mr-2">store</i> {% translate 'Ver perfil' %}</a>
