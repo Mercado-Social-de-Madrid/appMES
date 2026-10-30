@@ -11,7 +11,7 @@ class NewsForm(BootstrapForm, MultiLangForm, forms.ModelForm):
 
     class Meta:
         model = News
-        exclude = ['published_by']
+        exclude = ['published_by', 'provider']
         widgets = {
             'node': forms.HiddenInput(),
             'short_description': forms.Textarea(attrs={'rows': 2}),
