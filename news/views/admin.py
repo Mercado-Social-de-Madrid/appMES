@@ -30,19 +30,22 @@ class NewsFilter(FilterSet):
         fields = { }
 
 class NewsList(FilterMixin, MarketMixin, FilterView, ListItemUrlMixin, AjaxTemplateResponseMixin, ListView):
-    template_name = 'news/list.html'
+    template_name = 'news/admin/list.html'
     model = News
     filterset_class = NewsFilter
     objects_url_name = 'detail'
-    ajax_template_name = 'news/query.html'
+    ajax_template_name = 'news/admin/query.html'
     paginate_by = 15
+
+    def user_can_access_resource(self, user):
+        return True
 
     def get_queryset(self):
         return super().get_queryset().filter(node=self.node)
 
 
 class NewsCreate(MarketMixin, CreateView):
-    template_name = 'news/add.html'
+    template_name = 'news/admin/add.html'
     form_class = NewsForm
     model = News
 
@@ -70,7 +73,7 @@ class NewsCreate(MarketMixin, CreateView):
 
 
 class NewsDetail(MarketMixin, DetailView):
-    template_name = 'news/detail.html'
+    template_name = 'news/admin/detail.html'
     model = News
 
     def get_queryset(self):
@@ -81,7 +84,7 @@ class NewsDetail(MarketMixin, DetailView):
         return news.node == self.node
 
 class NewsUpdate(MarketMixin, UpdateView):
-    template_name = 'news/edit.html'
+    template_name = 'news/admin/edit.html'
     form_class = NewsForm
     model = News
 
@@ -94,7 +97,7 @@ class NewsUpdate(MarketMixin, UpdateView):
 
 
 class NewsDelete(MarketMixin, DeleteView):
-    template_name = 'news/delete.html'
+    template_name = 'news/admin/delete.html'
     model = News
 
     def get_queryset(self):

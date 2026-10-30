@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% load settings_value %}
+{% load market_url %}
+{% load l10n %}
+{% load i18n %}
+
+{% block title %}{% translate 'Editar noticia' %}{% endblock%}
+
+{% block bodyattrs %}class="news"{% endblock%}
+
+{% block content %}
+
+    <div class="jumbotron py-3 px-2 text-light">
+        <div class="container">
+            <div class="row">
+            <div class="col-sm-12">
+                <h3 class="mb-0"> {% translate 'Editar noticia' %}</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
+<div class="container ">
+    <div class="card detail-card mb-3">
+        <div class="card-body">
+            <label>Publicada por</label> {{object.published_by}}<br>
+            <label>Fecha</label> {{object.published_date}}
+        </div>
+    </div>
+
+    <form method="post" class="my-4 post-form gallery-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% include "news/form.html" %}
+        {% include "common/forms/save_btn.html" %}
+
+    </form>
+</div>
+{% endblock%}
+
+{% block scripts %}
+
+{% endblock scripts %}

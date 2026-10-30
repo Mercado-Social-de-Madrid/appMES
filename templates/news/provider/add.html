@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load settings_value %}
+{% load market_url %}
+{% load l10n %}
+{% load i18n %}
+
+{% block title %}{% translate 'Nueva noticia' %}{% endblock %}
+
+
+{% block bodyattrs %}class="news"{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron text-light py-3 px-2">
+        <div class="container">
+            <div class="row">
+            <div class="col-sm-12">
+                <h3 class="mb-0"> {% translate 'Nueva noticia' %}</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+<div class="container my-4">
+    <form method="post" class="post-form gallery-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include "news/form.html" %}
+        <div class="description text-center">
+            <button type="submit" class="mt-4 btn btn-primary btn-action">{% translate 'Publicar' %} </button>
+        </div>
+    </form>
+
+</div>
+{% endblock%}
+
+{% block scripts %}
+
+{% endblock scripts %}

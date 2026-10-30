@@ -7,10 +7,12 @@ from pilkit.processors import ResizeToFit, ResizeToFill
 from authentication.models import User
 from core.models import Node
 from helpers import RandomFileName
+from market.models import Provider
 
 
 class News(models.Model):
     node = models.ForeignKey(Node, on_delete=models.CASCADE, verbose_name=_('Mercado en el que se publica'))
+    provider = models.ForeignKey(Provider, null=True, on_delete=models.CASCADE, verbose_name=_('Publicado por proveedora'), related_name='news')
     published_by = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     title = models.CharField(null=True, blank=True, verbose_name=_('Título (máx 200 caracteres)'), max_length=250)
 

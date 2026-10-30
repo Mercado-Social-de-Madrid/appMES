@@ -1,0 +1,22 @@
+{% extends 'common/list/base.html' %}
+{% load market_url %}
+{% load i18n %}
+
+{% block table_head %}
+    <th scope="col">{% translate 'Título' %}</th>
+    <th scope="col">{% translate 'Fecha' %}</th>
+    <th scope="col">{% translate 'Descripción' %}</th>
+    <th scope="col">{% translate 'Acciones' %}</th>
+{% endblock %}
+
+{% block item_row %}
+<td>
+  {{item.title}}
+</td>
+<td>{{item.published_date|date:'d/m/Y'}}</td>
+<td class="text-truncate" style="max-width:220px;">{{item.short_description|striptags|safe}}</td>
+<td class="table-actions">
+    <a class="btn btn-outline-primary" href="{% market_url 'news:edit' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Editar' %}"><i class="material-icons">mode_edit</i></a>
+    <a class="btn btn-outline-primary action-delete" href="{% market_url 'news:delete' item.pk %}" data-action="{% market_url 'news:delete' item.pk %}" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Eliminar noticia' %}"><i class="material-icons">delete</i></a>
+</td>
+{% endblock %}

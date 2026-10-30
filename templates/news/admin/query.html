@@ -14,7 +14,13 @@
 <td>
   {{item.title}}
 </td>
-<td>{{item.published_by}}</td>
+<td>
+    {% if item.provider %}
+        <i class="material-icons-outlined" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Proveedora' %}">store</i> {{item.provider.display_name}}
+    {% else %}
+        <i class="material-icons-outlined" data-toggle="tooltip" data-placement="bottom" title="{% translate 'Usuario admin' %}">face</i> {{item.published_by}}
+    {% endif %}
+</td>
 <td>{{item.published_date|date:'d/m/Y'}}</td>
 <td class="text-truncate" style="max-width:220px;">{{item.short_description|striptags|safe}}</td>
 <td class="table-actions">
