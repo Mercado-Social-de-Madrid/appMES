@@ -29,7 +29,7 @@
                   {{ item.short_description }}
           {% else %}
                 {% autoescape off %}
-                {{ item.description|truncatewords:30 }}
+                {{ item.description|truncatewords_html:30 }}
                 {% endautoescape %}
           {% endif %}
           </div>
