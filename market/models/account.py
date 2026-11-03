@@ -21,7 +21,7 @@ class Account(PolymorphicModel):
     phone_number = models.CharField(null=True, blank=True, verbose_name=_('Teléfono'), max_length=25)
     member_id = models.CharField(null=True, blank=True, max_length=20, verbose_name=_('Número de socia'))
 
-    old_address = models.TextField(null=True, blank=True, verbose_name=_('Dirección'))
+    old_address = models.TextField(null=True, blank=True, verbose_name=_('Dirección (antigua)'))
     old_city = models.CharField(null=True, blank=True, max_length=250, verbose_name=_('Municipio'))
 
     profile_image = ProcessedImageField(null=True, blank=True, upload_to=RandomFileName('profiles/'),
