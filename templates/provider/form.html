@@ -31,6 +31,8 @@
                                        {% include "common/forms/field.html" with field=form.member_id %}
                                         {% if current_market.has_linked_crm %}
                                             <small class="d-block mb-3">{% translate 'Este campo es <strong class="text-danger">editable para admin</strong>, pero el valor debería venir de la H.Gestora' %}</small>
+                                        {% elif not object %}
+                                            <small class="d-block mb-3">{% translate 'Si se deja vacío, se generará automáticamente' %}</small>
                                         {% endif %}
                                     {% else %}
                                         {{form.member_id.as_hidden}}

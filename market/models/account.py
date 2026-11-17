@@ -1,6 +1,6 @@
 import datetime
 import uuid
-from django.db import models
+from django.db import models, transaction
 from polymorphic.models import PolymorphicModel
 from imagekit.models import ProcessedImageField
 from django.utils.translation import gettext_lazy as _
@@ -9,6 +9,8 @@ from pilkit.processors import ResizeToFill
 from helpers import RandomFileName
 from core.models import Node, Address
 from authentication.models import User
+
+MEMBER_ID_FORMAT = "{:05d}"
 
 
 class Account(PolymorphicModel):
@@ -33,6 +35,33 @@ class Account(PolymorphicModel):
 
     last_updated = models.DateTimeField(verbose_name=_('Última actualización'), null=True, blank=True)
     registration_date = models.DateField(verbose_name=_('Fecha de alta'), null=True, blank=True, default=datetime.date.today)
+
+    def save(self, *args, **kwargs):
+        if self._state.adding and not self.member_id and not self.node.has_linked_crm:
+            with transaction.atomic():
+                self.member_id = Account.generate_member_id(self.node)
+                return super().save(*args, **kwargs)
+        return super().save(*args, **kwargs)
+
+
+    @staticmethod
+    def generate_member_id(node):
+        """
+        Returns the next free member id of the node, and stores it as the node's last_member_id.
+        Must be called inside a transaction: the node row stays locked until it ends
+        """
+        locked_node = Node.objects.select_for_update().get(pk=node.pk)
+        number = locked_node.last_member_id
+        while True:
+            number += 1
+            member_id = MEMBER_ID_FORMAT.format(number)
+            # Skip numbers already taken (manually entered, or set while the node used an external CRM)
+            if not Account.objects.filter(node=node, member_id=member_id).exists():
+                break
+
+        Node.objects.filter(pk=node.pk).update(last_member_id=number)
+        node.last_member_id = number
+        return member_id
 
     @property
     def template_prefix(self):
