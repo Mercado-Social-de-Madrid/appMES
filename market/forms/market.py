@@ -24,7 +24,7 @@ class MarketForm(BootstrapForm, MultiLangForm, forms.ModelForm):
             'balance_badge': forms.FileInput(),
             'preferred_locale': forms.Select(choices=settings.LANGUAGES)
         }
-        exclude = ["takahe_server", "takahe_invite_url"]
+        exclude = ["takahe_server", "takahe_invite_url", "last_member_id"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

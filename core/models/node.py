@@ -43,6 +43,8 @@ class Node(models.Model):
     privacy_policy_url = models.URLField(blank=True, null=True, verbose_name=_('Enlace a la política de privacidad'))
     intercoop_enabled = models.BooleanField(default=False, verbose_name=_('Habilitar funcionalidad de intercooperación'))
 
+    last_member_id = models.IntegerField(default=0, verbose_name=_('Último número de socia'), help_text=_('Último número de socia generado automáticamente'))
+
     @property
     def is_multilang_enabled(self):
         return len(self.enabled_langs) > 1
