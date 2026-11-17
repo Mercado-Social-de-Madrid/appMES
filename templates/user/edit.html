@@ -68,15 +68,16 @@
 
         </form>
     </div>
-        <div class="col-md-6 col-lg-4 mt-3 offset-xs-0 offset-lg-2">
-            <div class="card bg-brand">
-                <div class="card-body">
-                    <h4 class="text-light">{% translate 'Administrar' %}</h4>
-                    <a href="{% market_url 'auth:user_password' object.pk %}" class="btn btn-action btn-block btn-primary mb-3"><i class="material-icons mr-2">key</i> {% translate 'Actualizar contraseña' %}</a>
-                    <a href="{% market_url 'auth:user_delete' object.pk %}" class="btn btn-action btn-block btn-light mb-2"><i class="material-icons mr-2">delete</i> {% translate 'Eliminar usuario' %}</a>
-                </div>
+
+    <div class="col-md-6 col-lg-5 col-xl-4 mt-3 offset-xs-0 offset-lg-1 offset-xl-2">
+        <div class="card bg-brand">
+            <div class="card-body">
+                <h4 class="text-light">{% translate 'Administrar' %}</h4>
+                <a href="{% market_url 'auth:user_password' object.pk %}" class="btn btn-action btn-block btn-primary mb-3"><i class="material-icons mr-2">key</i> {% translate 'Actualizar contraseña' %}</a>
+                <a href="{% market_url 'auth:user_delete' object.pk %}" class="btn btn-action btn-block btn-light mb-2"><i class="material-icons mr-2">delete</i> {% translate 'Eliminar usuario' %}</a>
             </div>
         </div>
+    </div>
 
     </div>
 </div>
