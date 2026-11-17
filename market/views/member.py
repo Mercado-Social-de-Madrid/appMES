@@ -73,7 +73,7 @@ def get_card_data(member_type, member):
     return card_data
 
 
-class MemberCard(TemplateView):
+class MemberCard(MarketMixin, TemplateView):
     template_name = 'member/card.html'
 
     def get_context_data(self, **kwargs):
@@ -82,6 +82,9 @@ class MemberCard(TemplateView):
         member_type = 'provider' if isinstance(account, Provider) else 'consumer'
         context.update(get_card_data(member_type, account))
         return context
+
+    def user_can_access(self):
+        return True
 
 
 class MarketMemberCard(MarketMixin, TemplateView):

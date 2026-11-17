@@ -57,6 +57,10 @@ class Provider(Account):
         return 'provider'
 
     @property
+    def banner_image(self):
+        return self.first_photo_url or self.profile_image.url if self.profile_image else None
+
+    @property
     def first_photo_url(self):
         if self.gallery and self.gallery.photos.count() > 0:
             image = self.gallery.photos.all().first()

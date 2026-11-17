@@ -59,6 +59,8 @@ class BenefitDetail(MarketMixin, DetailView):
         context = super().get_context_data(**kwargs)
         can_edit = self.request.user.is_superuser or self.request.user.is_staff
         context['can_edit'] = can_edit
+        context['provider'] = self.object.entity if self.kwargs.get('pk') else Provider.objects.filter(owner=self.request.user).first()
+
         return context
 
     def get_object(self, queryset=None):
