@@ -1,0 +1,6 @@
+{% load settings_value %}
+
+{% if ANALYTICS_SERVER_URL %}
+<!-- Analytics server -->
+ <script defer src="{{ANALYTICS_SERVER_URL}}/script.js" data-website-id="{% settings_value 'ANALYTICS_APP_KEY' %}"></script>
+{% endif %}
