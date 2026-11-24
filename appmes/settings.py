@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'django_unused_media',
     'modeltranslation',
     'localflavor',
+    'leaflet',
 
     # Django apps
     'django.contrib.admin',
@@ -98,7 +99,7 @@ MIDDLEWARE = [
 ]
 
 CSP_EXCLUDE_URL_PREFIXES = ("/admin/", "/auth/")
-CSP_DEFAULT_SRC = ("'self'", "'unsafe-inline'", 'data:', 'maps.googleapis.com', 'chart.apis.google.com', 'maps.gstatic.com')
+CSP_DEFAULT_SRC = ("'self'", "'unsafe-inline'", 'data:', '*.tile.openstreetmap.org', 'maps.googleapis.com', 'chart.apis.google.com', 'maps.gstatic.com')
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", 'data:', 'fonts.googleapis.com', 'www.gstatic.com', 'use.fontawesome.com', 'cdnjs.cloudflare.com')
 CSP_FONT_SRC = ("'self'", "'unsafe-inline'", 'fonts.gstatic.com', 'use.fontawesome.com')
 CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", 'code.jquery.com', 'www.google.com', 'www.gstatic.com', 'cdnjs.cloudflare.com', 'maxcdn.bootstrapcdn.com', 'maps.googleapis.com')
@@ -279,8 +280,6 @@ LOG_VIEWER_FILE_LIST_MAX_ITEMS_PER_PAGE = 25  # Max log files loaded in Datatabl
 LOG_VIEWER_PATTERNS = ['[INFO]', '[DEBUG]', '[WARNING]', '[ERROR]', '[CRITICAL]']
 LOG_VIEWER_EXCLUDE_TEXT_PATTERN = None  # String regex expression to exclude the log from line
 
-GMAPS_APIKEY = env('GOOGLE_MAPS_APIKEY')
-
 INITIAL_LATITUDE = 40.43399206106631
 INITIAL_LONGITUDE = -3.7048717038201344
 
@@ -311,7 +310,7 @@ EMAIL_SEND_FROM = env('EMAIL_SEND_FROM')
 ENABLE_EMAIL_SENDING = env('ENABLE_EMAIL_SENDING') == 'True'
 
 # ====== Analytics ========
-ANALYTICS_SERVER_URL = env('ANALYTICS_SERVER_URL')
+ANALYTICS_SERVER_URL = env('ANALYTICS_SERVER_URL', default=None)
 if ANALYTICS_SERVER_URL:
     ANALYTICS_APP_KEY = env('ANALYTICS_APP_KEY')
     ANALYTICS_SERVER_DOMAIN = ANALYTICS_SERVER_URL.replace('https://','')

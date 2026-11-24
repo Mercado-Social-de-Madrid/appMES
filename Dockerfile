@@ -1,4 +1,4 @@
-FROM python:3.10.21-slim-bookworm
+FROM python:3.11.13-slim-bookworm
 
 ENV PIP_DISABLE_PIP_VERSION_CHECK 1
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -9,6 +9,7 @@ RUN apt-get update -y && \
     apt-get install -y logrotate && \
     apt-get install -y libcairo2 libcairo2-dev libpangocairo-1.0-0 && \
     apt-get install -y gettext && \
+    apt-get install -y binutils libproj-dev gdal-bin && \
     apt-get install -y libgdk-pixbuf2.0-dev && \
     pip install --upgrade pip
 

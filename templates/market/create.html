@@ -34,6 +34,6 @@
 
 
 {% block scripts %}
-{% include 'common/include_gmaps.html' with update_field=True initial_zoom=6 %}
+{% include 'common/utils/init_map_widget.html' with update_field=True initial_zoom=8 %}
 {% include "market/script_fields.html" %}
 {% endblock %}
