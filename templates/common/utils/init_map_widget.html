@@ -1,0 +1,85 @@
+{% load static %}
+{% load l10n %}
+{% load settings_value %}
+{% load leaflet_tags %}
+{% leaflet_js %}
+{% leaflet_css %}
+
+<script type="text/javascript">
+  $(window).on('load', function(){
+    initMap();
+  });
+
+  function initMap() {
+
+    let latInput = $('[name="latitude"]');
+    let lngInput = $('[name="longitude"]');
+
+    var lat = {% settings_value "INITIAL_LATITUDE"|unlocalize %};
+    var lng =  {% settings_value "INITIAL_LONGITUDE"|unlocalize %};
+
+   {% if object and object.latitude and object.longitude %}
+        lat = {{ object.latitude|unlocalize }};
+        lng = {{ object.longitude|unlocalize }};
+   {% else %}
+        if (latInput.val() && lngInput.val()){
+            lat = parseFloat(latInput.val());
+            lng = parseFloat(lngInput.val());
+        }
+   {% endif %}
+
+    var map = L.map('map', {
+        zoomControl: true,
+        scaleControl: true,
+        doubleClickZoom: false
+    }).setView([lat, lng], {{ initial_zoom }});
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    $('#map').removeClass('loading-container');
+
+    var icon = new L.DivIcon({
+        className: 'icon-div',
+        html: '<div class="mapmarker" style="height:30px;width:30px;"> <div class="pin"></div><img src="{% static 'imgs/map-icon.png' %}"/></div>',
+      });
+
+    var marker = L.marker([lat, lng], {
+        icon: icon,
+        draggable: true
+    }).addTo(map);
+
+    {% if update_field %}
+
+    function updateMarker(){
+        var position = [parseFloat(latInput.val()), parseFloat(lngInput.val())];
+        marker.setLatLng(position);
+        map.setView(marker.getLatLng());
+    }
+    latInput.on('change', updateMarker);
+    lngInput.on('change', updateMarker);
+
+    marker.on('drag', function(){
+        var position = marker.getLatLng();
+        latInput.val(position.lat);
+        lngInput.val(position.lng);
+    });
+
+    var update_timeout = null;
+    map.on('click', function(event){
+        update_timeout = setTimeout(function(){
+            marker.setLatLng(event.latlng);
+            latInput.val(event.latlng.lat);
+            lngInput.val(event.latlng.lng);
+        }, 200);
+    });
+
+    map.on('dblclick', function(){
+        clearTimeout(update_timeout);
+    });
+
+    {% endif %}
+  }
+</script>

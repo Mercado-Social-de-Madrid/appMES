@@ -38,7 +38,7 @@
 
 {% block scripts %}
 <script type="text/javascript" src="{% static 'js/jquery.formset.js' %}"></script>
-{% include 'common/include_gmaps.html' with update_field=True initial_zoom=7 %}
+{% include 'common/utils/init_map_widget.html' with update_field=True initial_zoom=9 %}
 
 <script type="text/javascript">
 
